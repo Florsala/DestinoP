@@ -1,0 +1,13 @@
+.headerLogo{
+    position: relative;
+    margin: 0 auto;
+}
+
+.containerNos{
+    margin-top: 17rem;
+    margin-bottom: 5rem;
+    width: 90%;
+    padding: 4rem;
+    margin-right: auto;
+    margin-left: auto;
+}
