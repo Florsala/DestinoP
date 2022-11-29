@@ -5,9 +5,71 @@
 
 .containerNos{
     margin-top: 17rem;
-    margin-bottom: 5rem;
     width: 90%;
     padding: 4rem;
     margin-right: auto;
     margin-left: auto;
+    
+}
+
+.containerNos ul{
+    list-style: none;
+}
+
+.containerNos_text{
+    font-size: 1.7rem;
+    color: var(--blue1-color);
+    font-weight: 600;
+    margin: 1rem;
+}
+
+.containerNos_vision{
+    display: flex;
+    flex-direction: row;
+    margin: 2.5rem 1rem;
+}
+
+.containerNos_vision_a{
+    width: 32.5rem;
+    color: #002669;
+    background: #e6eaed;
+    padding: 1.4rem;
+    margin: 1rem;
+}
+
+.containerNos_vision_a p{
+    text-align: start;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0.5rem;
+    line-height: 2rem;
+}
+
+.containerNos_vision_a h5{
+    font-size: 2.4rem;
+    font-weight: 400;
+}
+
+.containerNos_vision_b{
+    width: 32.5rem;
+    color: #002669;
+    background: #e6eaed;
+    padding: 1.4rem;
+    margin: 1rem;
+}
+
+.containerNos_vision_b h5{
+    font-size: 1.5rem;
+}
+
+.containerNos_vision_b ul{
+    font-size: 1.1rem;
+    text-align: initial;
+    padding: 0.5rem;
+    line-height: 1.625rem;
+}
+
+.containerNos_vision_b li{
+    margin: 1rem 0px;
+    font-weight: 500;
 }

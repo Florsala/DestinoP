@@ -14,6 +14,11 @@
 body {
   font-family: "Open Sans", sans-serif;
   background-color: #f2f1f1;
+
+}
+a{
+  text-decoration: none;
+    color: inherit;
 }
 
 .App {
@@ -300,7 +305,7 @@ body {
 .menuContainer_main {
   display: flex;
   justify-content: space-around;
-  width: 200px;
+  width: 270px;
   text-align: initial;
 }
 

@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Escudos from "./components/Escudos";
 import Footer from "./components/Footer";
 import Nosotros from "./components/Nosotros";
+import Contacto from "./components/Contacto";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         <Route path="/tours" element={<ProductsListContainer />} />
         <Route path="/tours/:id" element={<ProductDetailContainer />} /> */}
 
-        {/* <Route path="/contacto" element={<Contacto />} /> */}
+        <Route path="/Contacto" element={<Contacto />} /> 
         {/* <Route path="/arrepentimiento" element={<BtnArrep />} /> */}
         <Route path="/Nosotros" element={<Nosotros />} />
       </Routes>

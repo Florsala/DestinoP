@@ -1,11 +1,24 @@
 import React from 'react';
 import ballena from "../assets/ballena.jpg";
-import flecha from "../assets/flecha.png";
+import flecha2 from "../assets/flecha2.png";
+import flecha from '../assets/flecha.png'
 
 
 const Section = () => {
   return (
     <div>
+      <div className="circle">
+        <img
+          src={flecha2}
+          style={{
+            height: "3.125rem",
+            width: "3rem",
+            zIndex:' 1'
+          }}
+          alt=""
+        />
+        
+      </div>
         <div className="container_title">
         <h3>Prepárate para vivir uno de los más lindos </h3>
         <div style={{ display: "flex", width: "80%", margin: " 0 auto" }}>

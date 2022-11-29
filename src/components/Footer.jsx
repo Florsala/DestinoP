@@ -16,16 +16,19 @@ const Footer = () => {
           height: "24rem",
           left: "0",
           position: "absolute",
-          objectFit: 'cover'
+          objectFit: "cover",
         }}
         src={olas}
         alt=""
       />
 
       <div className="footerContainer">
-        <img style={{ height: "150px" }} src={logo} alt="logo" />
+        <div style={{ width: "250px", padding:'0.5rem' }}>
+          <img style={{ height: "150px" }} src={logo} alt="logo" />
+        </div>
 
-        <ul style={{ fontSize: " 0.9rem", fontWeight: "500" }}>
+        <ul style={{ fontSize: " 0.9rem", fontWeight: "500", width: '17.5rem',
+    padding: '0.5rem' }}>
           <li>CONTACTO:</li>
           <li>AV. PREFECTURA NAVAL 270, USHUAIA</li>
           <li>+54 9 2901 581262</li>
@@ -51,9 +54,15 @@ const Footer = () => {
           </li>
         </ul>
 
-        <div style={{display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between'}}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            width: '16.875rem',
+            padding: '0.5rem'
+          }}
+        >
           <div className="menuContainer_main">
             <ul className="menuContainer">
               <li>HOME</li>

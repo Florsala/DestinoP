@@ -61,27 +61,8 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="circle">
-        <img
-          src={flecha}
-          style={{
-            height: "3.125rem",
-            width: "3rem",
-            transform: "rotate(270deg)",
-          }}
-          alt=""
-        />
-        <img
-          src={flecha}
-          style={{
-            height: "3.125rem",
-            width: "3rem",
-            transform: "rotate(270deg)",
-          }}
-          alt=""
-        />
-      </div>
-      <Section/>
+      
+      <Section />
     </div>
   );
 };
