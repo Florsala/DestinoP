@@ -7,6 +7,7 @@ import Escudos from "./components/Escudos";
 import Footer from "./components/Footer";
 import Nosotros from "./components/Nosotros";
 import Contacto from "./components/Contacto";
+import Home from './components/Home';
 
 function App() {
   return (
