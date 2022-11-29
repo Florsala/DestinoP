@@ -16,7 +16,7 @@ const NavBar = () => {
           <li className="navitem active">
           <Link
               
-              to={"/"}
+              to={"/DestinoP"}
               
             >
               HOME
@@ -43,7 +43,10 @@ const NavBar = () => {
           <li className="navitem">GALERIA</li>
         </ul>
 
-        <img src={logo} alt="logo" height={80} /> 
+        <Link to={"/DestinoP"}><img src={logo} alt="logo" height={80} /> 
+        </Link>
+
+        
 
      
 

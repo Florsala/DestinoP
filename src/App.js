@@ -15,7 +15,7 @@ function App() {
       <NavBar />
 
       <Routes>
-        <Route path="/" element={<Home/>} />
+        <Route exact path="/DestinoP" element={<Home/>} />
         {/* <Route
           path="/category/:CategoryId"
           element={<ProductsListContainer />}
