@@ -3,7 +3,6 @@ import "./App.css";
 
 import NavBar from "./components/NavBar";
 import { Routes, Route, Router } from "react-router-dom";
-import Header from "./components/Header";
 import Escudos from "./components/Escudos";
 import Footer from "./components/Footer";
 import Nosotros from "./components/Nosotros";
@@ -15,7 +14,7 @@ function App() {
       <NavBar />
 
       <Routes>
-        <Route path="/" element={<Header />} />
+        <Route path="/" element={<Home/>} />
         {/* <Route
           path="/category/:CategoryId"
           element={<ProductsListContainer />}

@@ -5,7 +5,6 @@ import lobos from "../assets/lobos_xs.jpg";
 import harberton from "../assets/harberton_xs.jpg";
 import pinguinos from "../assets/pinguinos_xs.jpg";
 
-import Section from "./Section";
 
 const Header = () => {
   return (
@@ -61,7 +60,7 @@ const Header = () => {
       </div>
 
       
-      <Section />
+      
     </div>
   );
 };
