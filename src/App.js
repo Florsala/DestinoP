@@ -1,4 +1,6 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
+
 import NavBar from "./components/NavBar";
 import { Routes, Route, Router } from "react-router-dom";
 import Header from "./components/Header";

@@ -7,7 +7,17 @@
 
 .contacto_form{
     width: 31.25rem;
-    height: 31.25rem;
+    height: 25rem;
     background-color: #87a8cd;
     border-radius: 3px;
+    padding: 1rem;
+    min-width: 15.625rem;
+
+}
+
+.contacto_form h4 {
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.7rem;
 }

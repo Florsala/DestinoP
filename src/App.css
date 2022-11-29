@@ -94,6 +94,7 @@ a{
   border: solid 1.2px #685e5e;
 }
 
+
 .navicons {
   display: flex;
   list-style: none;
@@ -287,7 +288,9 @@ a{
   top: 13.75rem;
   flex-wrap: wrap;
   background: #002569;
+  
 }
+
 
 .footerContainer li {
   list-style: none;

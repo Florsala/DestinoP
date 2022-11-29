@@ -21,8 +21,10 @@ const Footer = () => {
         src={olas}
         alt=""
       />
+      
 
       <div className="footerContainer">
+        
         <div style={{ width: "250px", padding:'0.5rem' }}>
           <img style={{ height: "150px" }} src={logo} alt="logo" />
         </div>
