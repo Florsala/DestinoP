@@ -13,10 +13,11 @@ const Footer = () => {
       <img
         style={{
           width: "100%",
-          height: "24rem",
+          height: "20rem",
           left: "0",
-          position: "absolute",
+          position: "relative",
           objectFit: "cover",
+          transform: 'translateY(95px)'
         }}
         src={olas}
         alt=""
@@ -24,7 +25,9 @@ const Footer = () => {
       
 
       <div className="footerContainer">
-        
+
+        <div className="footerContainer_in">
+
         <div style={{ width: "250px", padding:'0.5rem' }}>
           <img style={{ height: "150px" }} src={logo} alt="logo" />
         </div>
@@ -83,6 +86,11 @@ const Footer = () => {
           <p style={{ fontSize: "0.7rem" }}>Diseño y desarrollo por Elemsoft</p>
         </div>
       </div>
+
+
+        </div>
+        
+        
     </div>
   );
 };

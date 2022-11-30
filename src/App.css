@@ -123,119 +123,14 @@ a{
   margin-right: 2rem;
 }
 
-/* HEADER */
 
-.headerImg {
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
-  filter: opacity(0.9);
-  position: absolute;
-}
-
-.headerImg2 {
-  width: 100%;
-  position: relative;
-  z-index: 1;
-  top: 32rem;
-}
-
-.headerTitle {
-  background-color: #f2f1f1;
-  position: relative;
-  width: 41rem;
-  padding: 1.5rem;
-  margin: 0 auto;
-  border-radius: 4px;
-  box-shadow: 0.3px 0.5px 5px;
-  filter: opacity(0.91);
-}
-
-.headerTitle_a {
-  font-size: 3rem;
-  text-transform: uppercase;
-  text-shadow: 2px 1px 2px #787171f5;
-}
-
-.headerTitle_b {
-  font-family: "Montez", cursive;
-  text-transform: capitalize;
-  font-size: 4rem;
-  color: var(--blue1-color);
-}
-
-.headerTitle_c {
-  text-transform: uppercase;
-  color: var(--grey-color);
-  font-size: 1.5rem;
-  margin: 0.5rem;
-}
-
-.headerTitle_btn {
-  width: 8rem;
-  height: 2.8rem;
-  border-radius: 0.75rem;
-  border: solid 1px #b6cee1;
-  box-shadow: 0.5px 0.7px 1.5px;
-  margin: 0 auto;
-  text-transform: uppercase;
-  font-family: inherit;
-  font-weight: 700;
-  font-size: 0.9rem;
-  padding: 0.6rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.wsp_btn {
-  border-radius: 50%;
-  height: 4.0625rem;
-  position: relative;
-  right: -38rem;
-  box-shadow: 0.125rem 0.125rem 0.3125rem;
-  z-index: 1;
-}
-
-.container_cards {
-  display: flex;
-  width: 70%;
-  margin: 3rem auto;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-
-.container_cards div {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.container_cards img {
-  width: 16.875rem;
-  height: 12.5rem;
-  object-fit: cover;
-  filter: brightness(0.6);
-}
-
-.container_cards img:hover {
-  filter: brightness(0.4);
-  cursor: pointer;
-}
-
-.container_cards p {
-  font-family: inherit;
-  text-transform: uppercase;
-  color: var(--grey-color);
-  font-weight: 500;
-}
 .circle {
   background: #e6eaed;
   border-radius: 50%;
-  width: 120px;
+  width: 7.5rem;
   margin: 0 auto;
-  transform: translateY(60px);
-  height: 120px;
+  transform: translateY(3.75rem);
+  height: 7.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -274,26 +169,31 @@ a{
 /* ESCUDOS */
 
 .escudos img {
-  height: 200px;
+  height: 12.5rem;
 }
 
 /* Footer */
 
 .footerContainer {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  color: #e6eaed;
-  top: 13.75rem;
-  flex-wrap: wrap;
+  position: absolute;
+
   background: #002569;
+  width: 100%;
   
 }
 
 
 .footerContainer li {
   list-style: none;
+}
+
+.footerContainer_in{
+     display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  color: #e6eaed;
+/*   top: 13.75rem;
+ */  flex-wrap: wrap; 
 }
 
 .IconsContainer {
@@ -307,8 +207,8 @@ a{
 }
 .menuContainer_main {
   display: flex;
-  justify-content: space-around;
-  width: 270px;
+  justify-content: flex-start;
+  width: 16.875rem;
   text-align: initial;
 }
 

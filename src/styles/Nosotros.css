@@ -38,7 +38,7 @@
 }
 
 .containerNos_vision_a p{
-    text-align: start;
+    text-align: justify;
     font-weight: 500;
     font-size: 1.1rem;
     padding: 0.5rem;
@@ -64,7 +64,7 @@
 
 .containerNos_vision_b ul{
     font-size: 1.1rem;
-    text-align: initial;
+    text-align: justify;
     padding: 0.5rem;
     line-height: 1.625rem;
 }

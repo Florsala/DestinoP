@@ -1,4 +1,5 @@
 import React from "react";
+import '../styles/Header.css';
 import monta from "../assets/monta.png";
 import wsp from "../assets/whatsapp.svg";
 import lobos from "../assets/lobos_xs.jpg";
