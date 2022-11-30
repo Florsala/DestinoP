@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/DestinoP/static/css/main.a5eb3165.css",
-    "main.js": "/DestinoP/static/js/main.e7392c48.js",
+    "main.css": "/DestinoP/static/css/main.e567221f.css",
+    "main.js": "/DestinoP/static/js/main.ed7a25dd.js",
     "static/js/787.7ee547ea.chunk.js": "/DestinoP/static/js/787.7ee547ea.chunk.js",
     "static/media/ballena.jpg": "/DestinoP/static/media/ballena.d87f13339aa3215101ca.jpg",
     "static/media/monta.png": "/DestinoP/static/media/monta.781bec96455ed7d50f1a.png",
@@ -19,12 +19,12 @@
     "static/media/experiencia.png": "/DestinoP/static/media/experiencia.f4b36508ec389e892853.png",
     "static/media/whatsapp.svg": "/DestinoP/static/media/whatsapp.b2b2415636e3825dba1a254af2601cb7.svg",
     "index.html": "/DestinoP/index.html",
-    "main.a5eb3165.css.map": "/DestinoP/static/css/main.a5eb3165.css.map",
-    "main.e7392c48.js.map": "/DestinoP/static/js/main.e7392c48.js.map",
+    "main.e567221f.css.map": "/DestinoP/static/css/main.e567221f.css.map",
+    "main.ed7a25dd.js.map": "/DestinoP/static/js/main.ed7a25dd.js.map",
     "787.7ee547ea.chunk.js.map": "/DestinoP/static/js/787.7ee547ea.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a5eb3165.css",
-    "static/js/main.e7392c48.js"
+    "static/css/main.e567221f.css",
+    "static/js/main.ed7a25dd.js"
   ]
 }
