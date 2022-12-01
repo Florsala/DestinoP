@@ -73,7 +73,7 @@ const Footer = () => {
           <div className="menuContainer_main">
             <ul className="menuContainer">
               <li>
-                <Link to={"/"}>HOME</Link>
+                <Link to={"/DestinoP"}>HOME</Link>
                 </li>
               <li>
                 <Link to={"/servicios"}>SERVICIOS

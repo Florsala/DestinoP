@@ -17,10 +17,12 @@ function App() {
 
 <BrowserRouter>
 
-   <Routes>
-          <Route path="/" element={<Navmenu/>}>
+<Navmenu/>
 
-            <Route index element={<Home/>} />
+   <Routes>
+          
+
+            <Route path="/DestinoP" element={<Home/>} />
             <Route path="contacto" element={<Contacto />} />
             <Route path="nosotros" element={<Nosotros />} />
             <Route path="servicios" element={<Servicios />} />
@@ -33,7 +35,6 @@ function App() {
             
             
 
-          </Route>
         </Routes>
         <Escudos/>
        <Footer/>

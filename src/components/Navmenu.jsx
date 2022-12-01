@@ -24,7 +24,7 @@ const Navmenu = () => {
         fontWeight: "600",
       }}
     >
-      <Nav.Link as={NavLink} to={"/"}>
+      <Nav.Link as={NavLink} to={"/DestinoP"}>
         Home
       </Nav.Link>
       <Nav.Link as={NavLink} to={"/servicios"}>Servicios</Nav.Link>
