@@ -112,11 +112,11 @@ export default Navmenu;
         <Link to={"/"}><img src={logo} alt="logo" height={80} /> 
         </Link>
 
-         */}
+        segunda prueba mas abajo ----->
 
      
 
-      {/* <ul  className={click ? "nav-menu active" : "nav-menu"} >
+       <ul  className={click ? "nav-menu active" : "nav-menu"} >
           <li className="nav-item">
             <Link
               style={{ color: "white", textDecoration: "none" }}
