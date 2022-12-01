@@ -1,4 +1,6 @@
 import React from "react";
+import {Link } from "react-router-dom";
+
 import olas from "../assets/olas2.png";
 import logo from "../assets/logo.png";
 import { BiSearchAlt2 } from "react-icons/bi";
@@ -70,12 +72,18 @@ const Footer = () => {
         >
           <div className="menuContainer_main">
             <ul className="menuContainer">
-              <li>HOME</li>
-              <li>EXCURSIONES</li>
+              <li>
+                <Link to={"/"}>HOME</Link>
+                </li>
+              <li>
+                <Link to={"/servicios"}>SERVICIOS
+                </Link> </li>
               <li>BLOG</li>
             </ul>
             <ul className="menuContainer">
-              <li>NOSOTROS</li>
+              <li> <Link to={"/nosotros"}>
+              NOSOTROS
+              </Link> </li>
               <li>GALERIA</li>
               <li style={{ fontSize: "1.8rem" }}>
                 <BiSearchAlt2 />
