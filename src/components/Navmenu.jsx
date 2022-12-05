@@ -44,7 +44,7 @@ const Navmenu = () => {
 
     <Nav>
     
-<Link to={"/"}>
+<Link to={"/DestinoP"}>
   <img src={logo} alt="logo" height={80} style={{margin:'1rem'}} />
 </Link>
 

@@ -79,35 +79,53 @@
   box-shadow: 0.125rem 0.125rem 0.3125rem;
 }
 
-.container_cards {
+
+
+.container{
   display: flex;
-  width: 70%;
-  margin: 3rem auto;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+.container_cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 0.5rem;
+  
 }
 
 .container_cards div {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  
+}
+
+
+.card-title{
+  color:#fff;
+  text-transform:uppercase;
 }
 
 .container_cards img {
-  width: 16.875rem;
-  height: 12.5rem;
+  width: 21rem;
+  height: 15.5rem;
   object-fit: cover;
   filter: brightness(0.6);
 }
 
 .container_cards img:hover {
-  filter: brightness(0.4);
+  filter: brightness(0.2);
   cursor: pointer;
 }
 
-.container_cards p {
-  font-family: inherit;
-  text-transform: uppercase;
-  color: var(--grey-color);
-  font-weight: 500;
+.card-img-overlay{
+  text-align: left;
+    padding: 1.3rem;
+}
+
+.card-text{
+  font-size: 0.85rem;
+  color: #fff;
 }
