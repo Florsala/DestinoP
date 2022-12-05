@@ -1,0 +1,31 @@
+
+
+@media only screen and (max-width: 450px) {
+  html,body{
+    font-size: 6px;
+  }
+}
+
+@media only screen and (max-width: 590px) {
+  html,body{
+    font-size: 8px;
+  }
+}
+
+
+@media only screen and (max-width: 750px) {
+  html,body{
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 991px){
+  .navbar-collapse{
+  background: aliceblue;
+    height: 100vh;
+}
+
+.navicons{
+  justify-content: center;
+}
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Nosotros.css";
+import "../styles/Medias.css"
 import logo from "../assets/logo.png";
 import monta from "../assets/monta.png";
 import Section from "./Section";
@@ -8,7 +9,7 @@ const Nosotros = () => {
   return (
     <div>
       <img
-        className="headerImg"
+        className="headerImg_Nos"
         src={
           "https://destinopatagonia.com//wp-content/uploads/2021/10/2021-0626-DJI_0746-lrexport-1.jpg"
         }
@@ -28,7 +29,7 @@ const Nosotros = () => {
           Canal Beagle.
         </p>
 
-        <div className="containerNos_vision">
+        <div className="containerNos_vision container-lg">
           <div className="containerNos_vision_a">
           <h5>Nuestra Visión & Valores</h5>
           <p>

@@ -7,7 +7,7 @@ import Form from "react-bootstrap/Form";
 const Contacto = () => {
   return (
     <div>
-      <div className="contacto_header">
+      <div className="contacto_header container-fluid">
         <h3>CONTACTANOS PARA MÁS INFORMACIÓN</h3>
       </div>
 
@@ -28,6 +28,7 @@ const Contacto = () => {
               color: "var(--grey-color)",
               margin: "1rem",
               listStyle: "none",
+              padding:"0"
             }}
           >
             <li>CONTACTO:</li>

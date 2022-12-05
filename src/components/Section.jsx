@@ -19,9 +19,9 @@ const Section = () => {
         />
         
       </div>
-        <div className="container_title">
-        <h3>Prepárate para vivir uno de los más lindos </h3>
-        <div style={{ display: "flex", width: "80%", margin: " 0 auto" }}>
+        <div className="container_title ">
+        
+        <div className='container-md ' style={{ display: "flex", margin: " 0 auto" }}>
           <img
             src={flecha}
             style={{
@@ -32,7 +32,8 @@ const Section = () => {
             alt=""
           />
           <div>
-            <h4>momentos en el fin del mundo</h4>
+          <h2>Prepárate para vivir uno de los más lindos momentos en el fin del mundo </h2>
+           
             <p>
               Destino Patagonia, desea que tu experiencia sea cálida y
               personalizada por lo que la tripulación y el guía estarán
