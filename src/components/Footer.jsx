@@ -17,7 +17,6 @@ const Footer = () => {
           width: "100%",
           height: "20rem",
           left: "0",
-          position: "relative",
           objectFit: "cover",
           transform: "translateY(95px)",
         }}
