@@ -43,7 +43,6 @@ const Header = () => {
 
       <div
         className="container-lg"
-        style={{ marginTop: "17rem", textTransform: "uppercase" }}
       >
         <h1 className="display-4" style={{ fontWeight: "600" }}>
           Bienvenidos a Destino Patagonia

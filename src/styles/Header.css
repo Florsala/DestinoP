@@ -5,26 +5,28 @@
   height: 100vh;
   object-fit: cover;
   filter: opacity(0.9);
-  position: absolute;
-}
+/*   position: absolute;
+ */}
 
 .headerImg2 {
   width: 100%;
-  position: relative;
-  z-index: 1;
+/*   position: relative;
+ */  z-index: 1;
   top: 30rem;
   height: 15rem;
+  transform: translate(0px, -8rem);
 }
 
 .headerTitle {
   background-color: #f2f1f1;
-  position: relative;
-  max-width: 41rem;
+/*   position: relative;
+ */  max-width: 41rem;
   padding: 1.5rem;
   margin: 0 auto;
   border-radius: 0.25rem;
   box-shadow: 0.0187rem 0.0313rem 0.3125rem;
   filter: opacity(0.91);
+  transform: translate(0px, -38rem);
 }
 
 .headerTitle_a {
@@ -83,6 +85,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+
+.container-lg{
+  margin-top: -17rem;
+  text-transform: uppercase;
 }
 
 .container_cards {
