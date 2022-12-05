@@ -175,9 +175,13 @@ a {
 }
 
 /* ESCUDOS */
+.escudos{
+  margin: 4rem;
+}
 
 .escudos img {
   height: 12.5rem;
+  
 }
 
 /* Footer */

@@ -77,8 +77,8 @@
 .wsp_btn {
   border-radius: 50%;
   height: 4.0625rem;
-  position: relative;
-  box-shadow: 0.125rem 0.125rem 0.3125rem;
+/*   position: relative;
+ */  box-shadow: 0.125rem 0.125rem 0.3125rem;
 }
 
 .container {

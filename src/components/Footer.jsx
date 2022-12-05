@@ -11,7 +11,7 @@ import { FaLinkedinIn } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div>
+    <div style={{marginTop:'4rem'}} >
       <img
         style={{
           width: "100%",
@@ -27,9 +27,9 @@ const Footer = () => {
 
       <div className="footerContainer">
         <div className="footerContainer_in">
-          <div style={{ width: "250px", padding: "0.5rem" }}>
+          <div style={{ width: "15.625rem", padding: "0.5rem" }}>
             <Link to={"/DestinoP"}>
-              <img style={{ height: "150px" }} src={logo} alt="logo" />
+              <img style={{ height: "9.375rem" }} src={logo} alt="logo" />
             </Link>
           </div>
 
