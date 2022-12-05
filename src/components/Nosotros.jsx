@@ -15,7 +15,7 @@ const Nosotros = () => {
         }
         alt=""
       />
-      <img className="headerImg2" src={monta} alt="mount" />
+      <img className="headerImg2_Nos" src={monta} alt="mount" />
 
       <div className="headerLogo">
         <img style={{ height: "16rem" }} src={logo} alt="" />
@@ -29,7 +29,7 @@ const Nosotros = () => {
           Canal Beagle.
         </p>
 
-        <div className="containerNos_vision container-lg">
+        <div className="containerNos_vision container-xl">
           <div className="containerNos_vision_a">
           <h5>Nuestra Visión & Valores</h5>
           <p>

@@ -36,9 +36,7 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="wsp-container">
-          <img className="wsp_btn" src={wsp} alt="whatsapp" />
-        </div>
+       
       </div>
 
       <div
@@ -129,6 +127,11 @@ const Header = () => {
               más info
             </a>
           </div>
+        </div>
+
+
+        <div className="wsp-container">
+          <img className="wsp_btn" src={wsp} alt="whatsapp" />
         </div>
       </div>
 

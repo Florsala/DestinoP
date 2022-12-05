@@ -7,6 +7,14 @@
   position: absolute;
 }
 
+.headerImg2_Nos {
+  width: 100%;
+/*   position: relative;
+ */  z-index: 1;
+  top: 30rem;
+  height: 15rem;
+  transform: translate(0px, 31rem);
+}
 .headerLogo {
   position: relative;
   margin: 0 auto;
