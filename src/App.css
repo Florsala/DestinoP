@@ -14,11 +14,10 @@
 body {
   font-family: "Open Sans", sans-serif;
   background-color: #f2f1f1;
-
 }
-a{
+a {
   text-decoration: none;
-    color: inherit;
+  color: inherit;
 }
 
 .App {
@@ -61,7 +60,6 @@ a{
   }
 } */
 
-
 .navbar {
   position: fixed !important;
   width: 100%;
@@ -96,7 +94,6 @@ a{
   border-radius: 0.25rem;
 }
 
-
 .navicons {
   display: flex;
   list-style: none;
@@ -128,6 +125,18 @@ a{
   cursor: pointer;
 } */
 
+/* Section */
+
+.flecha1 {
+  height: 9.375rem;
+  object-fit: cover;
+  transform: rotate(180deg);
+}
+
+.flecha2{
+  height: 9.375rem;
+   object-fit: cover;
+}
 
 .circle {
   background: #e6eaed;
@@ -158,8 +167,6 @@ a{
   text-transform: uppercase;
 }
 
-
-
 .container_title p {
   font-size: 1.3rem;
   width: 95%;
@@ -180,21 +187,20 @@ a{
 
   background: #002569;
   width: 100%;
-  
 }
-
 
 .footerContainer li {
   list-style: none;
 }
 
-.footerContainer_in{
-     display: flex;
+.footerContainer_in {
+  display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   color: #e6eaed;
-/*   top: 13.75rem;
- */  flex-wrap: wrap; 
+  /*   top: 13.75rem;
+ */
+  flex-wrap: wrap;
 }
 
 .IconsContainer {
@@ -218,6 +224,3 @@ a{
   flex-direction: column;
   font-size: 0.8rem;
 }
-
-
-

@@ -54,6 +54,9 @@ const Navmenu = () => {
     </Nav> */}
           </Navbar.Collapse>
         </div>
+
+
+        
       </Navbar>
 
       <div style={{    width: '10rem', margin: '0.3125rem auto',zIndex: '2',position: 'relative'}}>

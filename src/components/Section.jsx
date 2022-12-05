@@ -23,13 +23,10 @@ const Section = () => {
         
         <div className='container-md ' style={{ display: "flex", margin: " 0 auto" }}>
           <img
+           className='flecha1'
             src={flecha}
-            style={{
-              height: "9.375rem",
-              objectFit: "cover",
-              transform: "rotate(180deg)",
-            }}
-            alt=""
+            
+            alt="flecha"
           />
           <div>
           <h2>Prepárate para vivir uno de los más lindos momentos en el fin del mundo </h2>
@@ -42,8 +39,9 @@ const Section = () => {
           </div>
 
           <img
+          className='flecha2'
             src={flecha}
-            style={{ height: "9.375rem", objectFit: "cover" }}
+           
             alt=""
           />
         </div>
@@ -51,6 +49,7 @@ const Section = () => {
 
       <div>
         <img
+       
           style={{ width: "100%", height: "100vh", objectFit: "cover" }}
           src={ballena}
           alt="ballena"

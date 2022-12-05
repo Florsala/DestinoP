@@ -1,28 +1,32 @@
 
 
 @media only screen and (max-width: 450px) {
-  html,body{
+/*   html,body{
     font-size: 6px;
-  }
+  } */
 }
 
 @media only screen and (max-width: 590px) {
-  html,body{
+  /* html,body{
     font-size: 8px;
-  }
+  } */
+
+  .flecha1, .flecha2{
+  height: 5.3rem;
+}
 }
 
 
 @media only screen and (max-width: 768px) {
-  html,body{
+/*   html,body{
     font-size: 12px;
-  }
+  } */
 }
 
 @media only screen and (max-width: 991px){
-  html,body{
+/*   html,body{
     font-size: 14px;
-  }
+  } */
 
   .navbar-collapse{
   background: #f8f9fa;
@@ -35,6 +39,10 @@
 
 .navicons{
   justify-content: center;
+}
+
+.flecha1, .flecha2{
+  height: 7.3rem;
 }
 }
 
@@ -54,8 +62,8 @@
 }
 
 @media only screen and (max-width: 1200px){
-  html,body{
+ /*  html,body{
     font-size: 15px;
-  }
+  } */
 
 }
