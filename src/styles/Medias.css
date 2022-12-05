@@ -13,19 +13,49 @@
 }
 
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 768px) {
   html,body{
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 
 @media only screen and (max-width: 991px){
+  html,body{
+    font-size: 14px;
+  }
+
   .navbar-collapse{
-  background: aliceblue;
+  background: #f8f9fa;
     height: 100vh;
+    padding: 2.5rem;
+    margin-top: 3rem;
 }
+
+
 
 .navicons{
   justify-content: center;
 }
+}
+
+@media only screen and (max-width: 1078px){
+  .navbar-nav{
+    font-size: 0.8rem!important;
+  }
+
+  .navicons li {
+    padding: 0.4rem;
+    font-size: 1rem;
+}
+
+.btn-nav{
+  font-size: 0.7rem;
+}
+}
+
+@media only screen and (max-width: 1200px){
+  html,body{
+    font-size: 15px;
+  }
+
 }

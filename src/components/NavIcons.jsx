@@ -9,11 +9,12 @@ import { Button } from "react-bootstrap";
 
 const NavIcons = () => {
   return (
-    <div>
-      <nav className="navbar-rg">
-        <ul className="navicons">
-          <li>
+    <div >
+      
+        <ul className="navicons nav">
+          <li className="nav-item">
             <Button
+            className="btn-nav"
               style={{
                 backgroundColor: "black",
                 fontFamily: "inherit",
@@ -25,27 +26,27 @@ const NavIcons = () => {
               Español
             </Button>{" "}
           </li>
-          {/* <li className='langbt'>Español</li> */}
-          <li style={{ fontSize: "1.8rem" }}>
+         
+          <li className="nav-item" style={{ fontSize: "1.8rem" }}>
             <BiSearchAlt2 />
           </li>
-          <li>
+          <li className="nav-item">
             <GrFacebookOption />
           </li>
-          <li>
+          <li className="nav-item">
             <GrInstagram />
           </li>
-          <li>
+          <li className="nav-item">
             <FaWhatsapp />
           </li>
-          <li>
+          <li className="nav-item">
             <FaLinkedinIn />
           </li>
-          <li style={{ fontSize: "1.5rem", marginLeft: "1rem" }}>
+          <li className="nav-item" style={{ fontSize: "1.5rem", marginLeft: "1rem" }}>
             <BsCart />
           </li>
         </ul>
-      </nav>
+      
     </div>
   );
 };

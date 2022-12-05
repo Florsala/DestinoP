@@ -1,81 +1,76 @@
 import React from "react";
-import {Outlet,NavLink, Link } from "react-router-dom";
+import { Outlet, NavLink, Link } from "react-router-dom";
 import logo from "../assets/logo2sm.png";
 import NavIcons from "./NavIcons";
-import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
 const Navmenu = () => {
   return (
-<>
-<Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-<Container>
-  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-  <Navbar.Collapse id="responsive-navbar-nav">
-    <Nav
-      style={{
-        alignItems: "center",
-        marginRight:'1rem',
-        textTransform: "uppercase",
-        fontSize: "0.9rem",
-        color: "black",
-        fontFamily: "Open Sans",
-        fontWeight: "600",
-      }}
-    >
-      <Nav.Link as={NavLink} to={"/DestinoP"}>
-        Home
-      </Nav.Link>
-      <Nav.Link as={NavLink} to={"/servicios"}>Servicios</Nav.Link>
-      <Nav.Link>Blog</Nav.Link>
-      <Nav.Link as={NavLink} to={"/nosotros"}>
-       Nosotros
-      </Nav.Link>
+    <>
+      <Navbar collapseOnSelect expand="lg" bg="light" variant="light"  style={{padding:' 0 2rem'}} >
+        <div className="container-fluid ">
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse 
+            id="responsive-navbar-nav"
+            style={{ justifyContent: "center" }}
+          >
+            <Nav 
+              style={{
+                alignItems: "center",
+                textTransform: "uppercase",
+                fontSize: "0.9rem",
+                color: "black",
+                fontFamily: "Open Sans",
+                fontWeight: "600",
+                marginRight: 'auto',
+              }}
+            >
+              <Nav.Link as={NavLink} to={"/DestinoP"}>
+                Home
+              </Nav.Link>
+              <Nav.Link as={NavLink} to={"/servicios"}>
+                Servicios
+              </Nav.Link>
+              <Nav.Link>Blog</Nav.Link>
+              <Nav.Link as={NavLink} to={"/nosotros"}>
+                Nosotros
+              </Nav.Link>
 
-      <Nav.Link as={NavLink} to={"/contacto"}>Contacto</Nav.Link>
+              <Nav.Link as={NavLink} to={"/contacto"}>
+                Contacto
+              </Nav.Link>
 
-      
+              <Nav.Link as={NavLink} to={"/galeria"}>
+                Galería
+              </Nav.Link>
+            </Nav>
 
-      <Nav.Link as={NavLink} to={"/galeria"}>Galería</Nav.Link>
+            
 
- 
-    </Nav>
-
-    <Nav>
-    
-<Link to={"/DestinoP"}>
-  <img src={logo} alt="logo" height={80} style={{margin:'1rem'}} />
-</Link>
-
-    </Nav>
-
-    
-
-    <Nav>
+            <NavIcons />
+            {/*  <Nav>
       <NavIcons/>
-    </Nav>
-  </Navbar.Collapse>
+    </Nav> */}
+          </Navbar.Collapse>
+        </div>
+      </Navbar>
 
+      <div style={{    width: '10rem', margin: '0.3125rem auto',zIndex: '2',position: 'relative'}}>
+              <Link to={"/DestinoP"} className="navbar-brand">
+                <img  src={logo} alt="logo" style={{ height: "5rem"/* ,position: 'fixed' */ }} />
+              </Link>
+            </div>
 
-</Container>
-
-
-
-
-</Navbar> 
-
-<Outlet />
-
-
-</>
+      <Outlet />
+    </>
   );
 };
 
 export default Navmenu;
 
-   
-{/* <div style={{marginTop:'1rem', backgroundColor:'#fff'}}>
+{
+  /* <div style={{marginTop:'1rem', backgroundColor:'#fff'}}>
       
       <nav className="navbar">
         <ul className="navmenu">
@@ -184,15 +179,5 @@ export default Navmenu;
   );
 };
 
-export default Navmenu; */}
-
-
-
-
-
-
-     
-
-
-
-
+export default Navmenu; */
+}

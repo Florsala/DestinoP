@@ -36,6 +36,7 @@
   flex-direction: row;
   margin: 2.5rem 1rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .containerNos_vision_a {

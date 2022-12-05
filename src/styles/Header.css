@@ -12,8 +12,8 @@
   width: 100%;
   position: relative;
   z-index: 1;
-  top: 32rem;
-  height: 16rem;
+  top: 30rem;
+  height: 15rem;
 }
 
 .headerTitle {
@@ -63,13 +63,13 @@
   justify-content: space-between;
   align-items: center;
 }
-.wsp-container{
+.wsp-container {
   width: 100%;
-    position: fixed;
-    display: flex;
-    justify-content: flex-end;
-    padding: 1rem;
-    z-index: 1;
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+  z-index: 1;
 }
 
 .wsp_btn {
@@ -79,9 +79,7 @@
   box-shadow: 0.125rem 0.125rem 0.3125rem;
 }
 
-
-
-.container{
+.container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -92,20 +90,17 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin: 0.5rem;
-  
 }
 
 .container_cards div {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  
 }
 
-
-.card-title{
-  color:#fff;
-  text-transform:uppercase;
+.card-title {
+  color: #fff;
+  text-transform: uppercase;
 }
 
 .container_cards img {
@@ -120,12 +115,12 @@
   cursor: pointer;
 }
 
-.card-img-overlay{
+.card-img-overlay {
   text-align: left;
-    padding: 1.3rem;
+  padding: 1.3rem;
 }
 
-.card-text{
+.card-text {
   font-size: 0.85rem;
   color: #fff;
 }
