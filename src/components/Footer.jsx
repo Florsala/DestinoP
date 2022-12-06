@@ -73,6 +73,7 @@ const Footer = () => {
             </ul>
 
             <div
+            className="col"
               style={{
                 display: "flex",
                 flexDirection: "column",

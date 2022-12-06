@@ -8,25 +8,24 @@ import Section from "./Section";
 const Nosotros = () => {
   return (
     <div>
-      <img
-        className="headerImg_Nos"
-        src={
-          "https://destinopatagonia.com//wp-content/uploads/2021/10/2021-0626-DJI_0746-lrexport-1.jpg"
-        }
-        alt=""
-      />
-      <img className="headerImg2_Nos" src={monta} alt="mount" />
+      <div>
+        <img
+          className="headerImg_Nos"
+          src={
+            "https://destinopatagonia.com//wp-content/uploads/2021/10/2021-0626-DJI_0746-lrexport-1.jpg"
+          }
+          alt=""
+        />
+        <img className="headerImg2_Nos" src={monta} alt="mount" />
 
-      <div className="headerLogo">
-        <img style={{ height: "16rem" }} src={logo} alt="" />
+        <div className="headerLogo">
+          <img style={{ height: "16rem" }} src={logo} alt="" />
+        </div>
       </div>
 
       <div>
-
-
         <div className="containerNos container-md">
-          
-          <h2 >DESTINO PATAGONIA</h2>
+          <h2>DESTINO PATAGONIA</h2>
           <p className="containerNos_text">
             Somos una empresa fueguina, especializada en experiencias marítimas
             con conocimiento de las aguas más australes del mundo como lo es el

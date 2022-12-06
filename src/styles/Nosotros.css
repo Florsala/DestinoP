@@ -4,8 +4,8 @@
   width: 100%;
   height: 100vh;
   object-fit: cover;
-  position: absolute;
-}
+/*   position: absolute;
+ */}
 
 .headerImg2_Nos {
   width: 100%;
@@ -13,19 +13,17 @@
  */  z-index: 1;
   top: 30rem;
   height: 15rem;
-  transform: translate(0px, 31rem);
+  transform: translate(0px, -7rem);  
 }
 .headerLogo {
-  position: relative;
-  margin: 0 auto;
+/*   position: relative;
+ */  margin: 0 auto;
+ transform: translateY(-44rem);
 }
 
 .containerNos {
-  margin-top: 17rem;
-  /* width: 90%;
-  padding: 4rem;
-  margin-right: auto;
-  margin-left: auto; */
+  height: 14rem;
+  margin-top: -17rem;
 }
 .containerNos h2{
   font-size: 3rem;

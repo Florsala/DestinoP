@@ -8,14 +8,20 @@ import Navbar from "react-bootstrap/Navbar";
 const Navmenu = () => {
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" bg="light" variant="light"  style={{padding:' 0 2rem'}} >
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        bg="light"
+        variant="light"
+        style={{ padding: " 0 2rem" }}
+      >
         <div className="container-fluid ">
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse 
+          <Navbar.Collapse
             id="responsive-navbar-nav"
             style={{ justifyContent: "center" }}
           >
-            <Nav 
+            <Nav
               style={{
                 alignItems: "center",
                 textTransform: "uppercase",
@@ -23,7 +29,7 @@ const Navmenu = () => {
                 color: "black",
                 fontFamily: "Open Sans",
                 fontWeight: "600",
-                marginRight: 'auto',
+                marginRight: "auto",
               }}
             >
               <Nav.Link as={NavLink} to={"/DestinoP"}>
@@ -46,24 +52,29 @@ const Navmenu = () => {
               </Nav.Link>
             </Nav>
 
-            
-
             <NavIcons />
-            {/*  <Nav>
-      <NavIcons/>
-    </Nav> */}
           </Navbar.Collapse>
         </div>
-
-
-        
       </Navbar>
 
-      <div style={{    width: '10rem', margin: '0.3125rem auto',zIndex: '2',position: 'relative'}}>
-              <Link to={"/DestinoP"} className="navbar-brand">
-                <img  src={logo} alt="logo" style={{ height: "5rem"/* ,position: 'fixed' */ }} />
-              </Link>
-            </div>
+      <div
+        style={{
+          width: "100%",
+          margin: "0.3125rem auto",
+          zIndex: "2",
+          position: "fixed",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <Link to={"/DestinoP"} className="navbar-brand">
+          <img
+            src={logo}
+            alt="logo"
+            style={{ height: "5rem" /* ,position: 'fixed' */ }}
+          />
+        </Link>
+      </div>
 
       <Outlet />
     </>
