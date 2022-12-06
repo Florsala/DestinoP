@@ -181,6 +181,7 @@ a {
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
+  transform: translateY(4rem);
 }
 
 .escudos img {

@@ -15,16 +15,16 @@ const Footer = () => {
     <div>
       <Escudos />
 
-      <div style={{ marginTop: "2rem" }}>
+      <div >
         <img
           style={{
             width: "100%",
             height: "20rem",
             left: "0",
             position:'relative',
-            objectFit: "cover",
-            transform: "translateY(5.9375rem)",
-            paddingTop: "2rem",
+            objectFit: "contain",
+            transform: "translateY(7.9375rem)",
+            paddingTop: "0rem",
           }}
           src={olas}
           alt=""
