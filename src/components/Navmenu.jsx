@@ -57,7 +57,7 @@ const Navmenu = () => {
         </div>
       </Navbar>
 
-      <div
+     {/*  <div
         style={{
           width: "100%",
           margin: "0.3125rem auto",
@@ -71,10 +71,10 @@ const Navmenu = () => {
           <img
             src={logo}
             alt="logo"
-            style={{ height: "5rem" /* ,position: 'fixed' */ }}
+            style={{ height: "5rem"  }}
           />
         </Link>
-      </div>
+      </div> */}
 
       <Outlet />
     </>
