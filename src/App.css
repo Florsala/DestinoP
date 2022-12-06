@@ -176,12 +176,18 @@ a {
 
 /* ESCUDOS */
 .escudos{
-  margin: 4rem;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .escudos img {
   height: 12.5rem;
-  
+  width: 13.5rem;
+  object-fit: cover;
+  object-position: right;  
 }
 
 /* Footer */
@@ -205,6 +211,7 @@ a {
   /*   top: 13.75rem;
  */
   flex-wrap: wrap;
+  margin: 0rem;
 }
 
 .IconsContainer {

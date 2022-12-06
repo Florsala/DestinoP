@@ -1,32 +1,31 @@
+/* @media only screen and (max-width: 1200px){
+  html,body{
+    font-size: 15px;
+  }
+  
+} */
 
-
-@media only screen and (max-width: 450px) {
-/*   html,body{
-    font-size: 6px;
-  } */
-}
-
-@media only screen and (max-width: 590px) {
-  /* html,body{
-    font-size: 8px;
-  } */
-
-  .flecha1, .flecha2{
-  height: 5.3rem;
-}
-}
-
-
-@media only screen and (max-width: 768px) {
-/*   html,body{
-    font-size: 12px;
-  } */
-}
-
-@media only screen and (max-width: 991px){
-/*   html,body{
+@media only screen and (max-width: 1078px){
+  html,body{
     font-size: 14px;
-  } */
+  }
+  .navbar-nav{
+    font-size: 0.8rem!important;
+  }
+
+  .navicons li {
+    padding: 0.4rem;
+    font-size: 1rem;
+}
+
+.btn-nav{
+  font-size: 0.7rem;
+}
+}
+@media only screen and (max-width: 991px){
+  html,body{
+    font-size: 13px;
+  }
 
   .navbar-collapse{
   background: #f8f9fa;
@@ -46,24 +45,31 @@
 }
 }
 
-@media only screen and (max-width: 1078px){
-  .navbar-nav{
-    font-size: 0.8rem!important;
+@media only screen and (max-width: 768px) {
+  html,body{
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 590px) {
+  html,body{
+    font-size: 10px;
   }
 
-  .navicons li {
-    padding: 0.4rem;
-    font-size: 1rem;
-}
-
-.btn-nav{
-  font-size: 0.7rem;
+  .flecha1, .flecha2{
+  height: 5.3rem;
 }
 }
 
-@media only screen and (max-width: 1200px){
- /*  html,body{
-    font-size: 15px;
-  } */
 
-}
+/* @media only screen and (max-width: 450px) {
+  html,body{
+    font-size: 6px;
+  }
+} */
+
+
+
+
+
+

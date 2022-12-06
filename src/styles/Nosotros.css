@@ -22,10 +22,13 @@
 
 .containerNos {
   margin-top: 17rem;
-  width: 90%;
+  /* width: 90%;
   padding: 4rem;
   margin-right: auto;
-  margin-left: auto;
+  margin-left: auto; */
+}
+.containerNos h2{
+  font-size: 3rem;
 }
 
 .containerNos ul {
@@ -42,7 +45,6 @@
 .containerNos_vision {
   display: flex;
   flex-direction: row;
-  margin: 2.5rem 1rem;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -85,6 +87,7 @@
   text-align: justify;
   padding: 0.5rem;
   line-height: 1.625rem;
+  list-style:none;
 }
 
 .containerNos_vision_b li {

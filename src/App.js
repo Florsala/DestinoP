@@ -3,7 +3,6 @@ import "./App.css";
 
 import Navmenu from "./components/Navmenu";
 import {BrowserRouter,Routes, Route } from "react-router-dom";
-import Escudos from "./components/Escudos";
 import Footer from "./components/Footer";
 import Nosotros from "./components/Nosotros";
 import Contacto from "./components/Contacto";
@@ -36,7 +35,6 @@ function App() {
             
 
         </Routes>
-        <Escudos/>
        <Footer/>
 
 
