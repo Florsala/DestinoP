@@ -130,9 +130,9 @@ const Header = () => {
         </div>
 
 
-        <div className="wsp-container">
+       {/*  <div className="wsp-container">
           <img className="wsp_btn" src={wsp} alt="whatsapp" />
-        </div>
+        </div> */}
       </div>
 
       

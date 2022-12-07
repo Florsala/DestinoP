@@ -65,21 +65,10 @@
   justify-content: space-between;
   align-items: center;
 }
-.wsp-container {
-  width: 100%;
-  position: fixed;
-  display: flex;
-  justify-content: flex-end;
-  padding: 1rem;
-  z-index: 1;
-}
 
-.wsp_btn {
-  border-radius: 50%;
-  height: 4.0625rem;
-/*   position: relative;
- */  box-shadow: 0.125rem 0.125rem 0.3125rem;
-}
+
+
+
 
 .container {
   display: flex;

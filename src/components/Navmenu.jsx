@@ -4,6 +4,7 @@ import logo from "../assets/logo2sm.png";
 import NavIcons from "./NavIcons";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import Cart from "./Cart";
 
 const Navmenu = () => {
   return (
@@ -15,6 +16,25 @@ const Navmenu = () => {
         variant="light"
         style={{ padding: " 0 2rem" }}
       >
+        <div
+          style={{
+            width: "100%",
+            margin: "0.3125rem auto",
+            zIndex: "-1",
+            position: "fixed",
+            display: "flex",
+            justifyContent: "center",
+            left:'0',
+          }}
+        >
+          <Link to={"/DestinoP"} className="navbar-brand">
+            <img
+              src={logo}
+              alt="logo"
+              style={{ height: "5rem"  }}
+            />
+          </Link>
+        </div>
         <div className="container-fluid ">
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse
@@ -38,7 +58,7 @@ const Navmenu = () => {
               <Nav.Link as={NavLink} to={"/servicios"}>
                 Servicios
               </Nav.Link>
-              <Nav.Link>Blog</Nav.Link>
+              <Nav.Link as={NavLink} to={"/blog"}>Blog</Nav.Link>
               <Nav.Link as={NavLink} to={"/nosotros"}>
                 Nosotros
               </Nav.Link>
@@ -54,27 +74,12 @@ const Navmenu = () => {
 
             <NavIcons />
           </Navbar.Collapse>
-        </div>
-      </Navbar>
 
-     {/*  <div
-        style={{
-          width: "100%",
-          margin: "0.3125rem auto",
-          zIndex: "2",
-          position: "fixed",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <Link to={"/DestinoP"} className="navbar-brand">
-          <img
-            src={logo}
-            alt="logo"
-            style={{ height: "5rem"  }}
-          />
-        </Link>
-      </div> */}
+
+        </div>
+
+        <Cart/>
+      </Navbar>
 
       <Outlet />
     </>

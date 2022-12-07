@@ -1,0 +1,23 @@
+.headerTitle_blog{
+    max-width: 41rem;
+    padding: 1.5rem;
+    margin: 0 auto;
+    transform: translate(0px, -43rem);
+    color: #fff;
+    width: 28rem;
+    text-align: center;
+    background: #f1f1f126;
+    border-radius: 10px;
+}
+
+.headerTitle_a_blog{
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-shadow: 0.125rem 0.0625rem 0.125rem #787171f5;
+}
+
+.headerTitle_b_blog{
+    font-family: "Montez", cursive;
+    text-transform: capitalize;
+    font-size: 4rem;
+}

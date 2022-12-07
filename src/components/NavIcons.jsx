@@ -4,7 +4,6 @@ import { GrFacebookOption } from "react-icons/gr";
 import { GrInstagram } from "react-icons/gr";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
-import { BsCart } from "react-icons/bs";
 import { Button } from "react-bootstrap";
 
 const NavIcons = () => {
@@ -42,9 +41,7 @@ const NavIcons = () => {
           <li className="nav-item">
             <FaLinkedinIn />
           </li>
-          <li className="nav-item" style={{ fontSize: "1.5rem", marginLeft: "1rem" }}>
-            <BsCart />
-          </li>
+         
         </ul>
       
     </div>
