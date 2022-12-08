@@ -1,10 +1,12 @@
 {
   "files": {
-    "main.css": "/DestinoP/static/css/main.c66a66d7.css",
-    "main.js": "/DestinoP/static/js/main.e1f7f14c.js",
+    "main.css": "/DestinoP/static/css/main.36ae2114.css",
+    "main.js": "/DestinoP/static/js/main.dee0b853.js",
     "static/js/787.7ee547ea.chunk.js": "/DestinoP/static/js/787.7ee547ea.chunk.js",
     "static/media/ballena.jpg": "/DestinoP/static/media/ballena.d87f13339aa3215101ca.jpg",
+    "static/media/ush-hist.jpg": "/DestinoP/static/media/ush-hist.a595e4c0e4f1ca93d5f3.jpg",
     "static/media/monta.png": "/DestinoP/static/media/monta.bccdb44b675463dd4065.png",
+    "static/media/ush-am.jpg": "/DestinoP/static/media/ush-am.72e5fcb3f310728826a3.jpg",
     "static/media/logo2.png": "/DestinoP/static/media/logo2.1d4b7e486e1ae5b4f4eb.png",
     "static/media/logo.png": "/DestinoP/static/media/logo.4ada720a4492a0072edd.png",
     "static/media/pinguinos_xs.jpg": "/DestinoP/static/media/pinguinos_xs.12f68fc0f30dbfc6ea57.jpg",
@@ -19,12 +21,12 @@
     "static/media/experiencia.png": "/DestinoP/static/media/experiencia.f4b36508ec389e892853.png",
     "static/media/whatsapp.svg": "/DestinoP/static/media/whatsapp.b2b2415636e3825dba1a254af2601cb7.svg",
     "index.html": "/DestinoP/index.html",
-    "main.c66a66d7.css.map": "/DestinoP/static/css/main.c66a66d7.css.map",
-    "main.e1f7f14c.js.map": "/DestinoP/static/js/main.e1f7f14c.js.map",
+    "main.36ae2114.css.map": "/DestinoP/static/css/main.36ae2114.css.map",
+    "main.dee0b853.js.map": "/DestinoP/static/js/main.dee0b853.js.map",
     "787.7ee547ea.chunk.js.map": "/DestinoP/static/js/787.7ee547ea.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c66a66d7.css",
-    "static/js/main.e1f7f14c.js"
+    "static/css/main.36ae2114.css",
+    "static/js/main.dee0b853.js"
   ]
 }
