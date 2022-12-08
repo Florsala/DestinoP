@@ -10,7 +10,7 @@ import Home from "./components/Home";
 import Servicios from "./components/Servicios";
 import Galeria from "./components/Galeria";
 import Whatsapp from "./components/Whatsapp";
-import Blog from "./components/Blog";
+import BlogPage from "./components/BlogPage";
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
             <Route path="contacto" element={<Contacto />} />
             <Route path="nosotros" element={<Nosotros />} />
             <Route path="servicios" element={<Servicios />} />
-            <Route path="blog" element={<Blog/>} />
+            <Route path="blog" element={<BlogPage/>} />
 
 
             <Route path="galeria" element={<Galeria />} />
