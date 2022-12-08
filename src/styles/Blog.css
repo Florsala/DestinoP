@@ -21,3 +21,21 @@
     text-transform: capitalize;
     font-size: 4rem;
 }
+
+.cardBlog{
+    color:#000;
+    text-align:left;
+}
+
+.header_blog{
+    margin-top: -17rem;
+    color: var(--grey-color);
+    font-size: 3rem;
+}
+
+.card-img-top{
+
+    height: 14.4375rem;
+    object-fit: cover;
+
+}

@@ -6,6 +6,9 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
+import ushuaia from '../assets/ush-am.jpg';
+import ushhist from '../assets/ush-hist.jpg';
+
 
 const Blog = () => {
   return (
@@ -13,10 +16,8 @@ const Blog = () => {
       <div>
         <img
           className="headerImg"
-          style={{ filter: "brightness(0.5)" }}
-          src={
-            "https://destinopatagonia.com/wp-content/uploads/2021/10/ballenas-jorobadas.jpg"
-          }
+          style={{ filter: "brightness(0.9)" }}
+          src={ushuaia}
           alt=""
         />
         <img className="headerImg2" src={monta} alt="mount" />
@@ -30,27 +31,123 @@ const Blog = () => {
       </div>
 
 
-<div>
-    <h2>blog</h2>
+<div >
+    <h1 className="text-uppercase mb-5 header_blog" >blog</h1>
 </div>
 
-<Row xs={1} md={2} className="g-4">
-      {Array.from({ length: 4 }).map((_, idx) => (
+
+<Row xs={1} md={3} className="g-4 mx-5 grid_blog">
+      
         <Col>
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
-            <Card.Body>
-              <Card.Title>Historia 1884</Card.Title>
-              <Card.Text>
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
+          <Card >
+            <Card.Img variant="top" src={ushhist} />
+            <Card.Body >
+              <Card.Title className="cardBlog">Historia 1884</Card.Title>
+              <Card.Text className="cardBlog">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              At tellus at urna condimentum. Urna duis convallis convallis tellus id interdum velit. 
+              Ut faucibus pulvinar elementum integer enim neque volutpat. Aliquet enim tortor at auctor urna nunc id cursus.
+               Ut tellus elementum sagittis vitae et leo duis. 
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col>
+          <Card >
+            <Card.Img variant="top" src={ushhist} />
+            <Card.Body >
+              <Card.Title className="cardBlog">Interés general</Card.Title>
+              <Card.Text className="cardBlog">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              At tellus at urna condimentum. Urna duis convallis convallis tellus id interdum velit. 
+              Ut faucibus pulvinar elementum integer enim neque volutpat. Aliquet enim tortor at auctor urna nunc id cursus.
+               Ut tellus elementum sagittis vitae et leo duis. 
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col>
+          <Card >
+            <Card.Img variant="top" src="https://destinopatagonia.com/wp-content/uploads/2021/10/IMG_3531.jpg" />
+            <Card.Body >
+              <Card.Title className="cardBlog">Bosque nativo</Card.Title>
+              <Card.Text className="cardBlog">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              At tellus at urna condimentum. Urna duis convallis convallis tellus id interdum velit. 
+              Ut faucibus pulvinar elementum integer enim neque volutpat. Aliquet enim tortor at auctor urna nunc id cursus.
+               Ut tellus elementum sagittis vitae et leo duis. 
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col>
+          <Card >
+            <Card.Img variant="top" src="https://images.unsplash.com/photo-1512058564366-18510be2db19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80" />
+            <Card.Body >
+              <Card.Title className="cardBlog">Gastronomía local</Card.Title>
+              <Card.Text className="cardBlog">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              At tellus at urna condimentum. Urna duis convallis convallis tellus id interdum velit. 
+              Ut faucibus pulvinar elementum integer enim neque volutpat. Aliquet enim tortor at auctor urna nunc id cursus.
+               Ut tellus elementum sagittis vitae et leo duis. 
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col>
+          <Card >
+            <Card.Img variant="top" src="https://images.unsplash.com/photo-1639994703448-a3a8cb9c676d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80" />
+            <Card.Body >
+              <Card.Title className="cardBlog">Deporte</Card.Title>
+              <Card.Text className="cardBlog">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              At tellus at urna condimentum. Urna duis convallis convallis tellus id interdum velit. 
+              Ut faucibus pulvinar elementum integer enim neque volutpat. Aliquet enim tortor at auctor urna nunc id cursus.
+               Ut tellus elementum sagittis vitae et leo duis. 
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col>
+          <Card >
+            <Card.Img variant="top" src="https://www.interpatagonia.com/plantillas/21787-00Li.jpg" />
+            <Card.Body >
+              <Card.Title className="cardBlog">Alojamientos</Card.Title>
+              <Card.Text className="cardBlog">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              At tellus at urna condimentum. Urna duis convallis convallis tellus id interdum velit. 
+              Ut faucibus pulvinar elementum integer enim neque volutpat. Aliquet enim tortor at auctor urna nunc id cursus.
+               Ut tellus elementum sagittis vitae et leo duis. 
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+     
+    </Row>
+
+{/* <Row xs={1} md={3} className="g-4 mx-5 grid_blog">
+      {Array.from({ length: 6 }).map((_, idx) => (
+        <Col>
+          <Card >
+            <Card.Img variant="top" src={ushhist} />
+            <Card.Body >
+              <Card.Title className="cardBlog">Historia 1884</Card.Title>
+              <Card.Text className="cardBlog">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              At tellus at urna condimentum. Urna duis convallis convallis tellus id interdum velit. 
+              Ut faucibus pulvinar elementum integer enim neque volutpat. Aliquet enim tortor at auctor urna nunc id cursus.
+               Ut tellus elementum sagittis vitae et leo duis. 
               </Card.Text>
             </Card.Body>
           </Card>
         </Col>
       ))}
-    </Row>
+    </Row> */}
 
     </div>
   );
