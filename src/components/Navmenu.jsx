@@ -27,7 +27,7 @@ const Navmenu = () => {
             left:'0',
           }}
         >
-          <Link to={"/DestinoP"} className="navbar-brand">
+          <Link to={"/DestinoP"} >
             <img
               src={logo}
               alt="logo"

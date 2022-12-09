@@ -2,13 +2,20 @@ import React from "react";
 import "../styles/Nosotros.css";
 import "../styles/Medias.css";
 import logo from "../assets/logo.png";
-import monta from "../assets/monta.png";
 import Section from "./Section";
 
 const Nosotros = () => {
   return (
     <div>
-      <div>
+      <div className="hero_Nos">
+        <div className="heroContent_Nos">
+          <div className="headerLogo heroContent_container_Nos" >
+            <img style={{ height: "16rem", objectFit:'contain', marginTop:'10rem' }} src={logo} alt="" />
+          </div>
+        </div>
+      </div>
+
+      {/*  <div>
         <img
           className="headerImg_Nos"
           src={
@@ -21,7 +28,7 @@ const Nosotros = () => {
         <div className="headerLogo">
           <img style={{ height: "16rem" }} src={logo} alt="" />
         </div>
-      </div>
+      </div> */}
 
       <div>
         <div className="containerNos container-md">
