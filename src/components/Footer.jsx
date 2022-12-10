@@ -16,7 +16,7 @@ const Footer = () => {
       <Escudos />
 
       <div >
-        <img
+        {/* <img
           style={{
             width: "100%",
             height: "20rem",
@@ -28,7 +28,7 @@ const Footer = () => {
           }}
           src={olas}
           alt=""
-        />
+        /> */}
 
         <div className="footerContainer ">
           <div className="footerContainer_in row">
@@ -108,7 +108,7 @@ const Footer = () => {
 
           <div
             className="row"
-            style={{ fontSize: "0.7rem", margin: "2rem 0rem", color: "#fff" }}
+            style={{ fontSize: "0.7rem", margin: " 0rem", color: "#fff" }}
           >
             <p className="col">Destino Patagonia-Derechos reservados</p>
 
