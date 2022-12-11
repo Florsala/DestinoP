@@ -1,44 +1,57 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Header.css";
 
 import "../styles/Hero.css";
 
+import dataTours from '../data/dataTours';
+
 import wsp from "../assets/whatsapp.svg";
 
-import lobos from "../assets/lobos_xs.jpg";
-import harberton from "../assets/harberton_xs.jpg";
-import pinguinos from "../assets/pinguinos_xs.jpg";
+
 
 const Header = () => {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    const getItems = new Promise((resolve) => {
+      setTimeout(() => {
+        const data = dataTours;
+
+        resolve(data);
+      }, 1500);
+    });
+    getItems
+      .then((res) => {
+        setItems(res);
+      })
+      .finally(() => console.log(items));
+  }, [dataTours]);
+  console.log(items);
+
   return (
-
     <>
-    
-    <div className="hero">
-      <div className="heroContent_container">
-        <div className="heroContent container-md">
-          <h1 className="headerTitle_a">
-            Pasión por la <span className="headerTitle_b">naturaleza</span>{" "}
-          </h1>
+      <div className="hero">
+        <div className="heroContent_container">
+          <div className="heroContent container-md">
+            <h1 className="headerTitle_a">
+              Pasión por la <span className="headerTitle_b">naturaleza</span>{" "}
+            </h1>
 
-          <h4 className="headerTitle_c">Excursiones en Ushuaia</h4>
+            <h4 className="headerTitle_c">Excursiones en Ushuaia</h4>
 
-          <div className="headerTitle_btn">
-            Más info
-            <img
-              style={{ height: "1.5625rem", borderRadius: "50%" }}
-              src={wsp}
-              alt=""
-            />
+            <div className="headerTitle_btn">
+              Más info
+              <img
+                style={{ height: "1.5625rem", borderRadius: "50%" }}
+                src={wsp}
+                alt=""
+              />
+            </div>
           </div>
         </div>
       </div>
-      
-    </div>
 
-    <div
-        className="container-lg"
-      >
+      <div className="container-lg">
         <h1 className="display-4" style={{ fontWeight: "600" }}>
           Bienvenidos a Destino Patagonia
         </h1>
@@ -51,95 +64,34 @@ const Header = () => {
       </div>
 
       <div className="container">
-        <div className="card img-fluid container_cards">
-          <img className="card-bottom" src={lobos} alt="lobos" />
-          <div className="card-img-overlay">
-            <h5 className="card-title"> Isla de Lobos</h5>
-            <p className="card-text">
-              Durante tu visita al Fin del Mundo no te pierdas la oportunidad de
-              navegarlas míticas aguas del Canal Beagle, en una experiencia que
-              te llevará a imaginar aquellas historuas de los primeros
-              navegantes que surcaban estos mares.
-            </p>
+        {items.map((items) => (
+          <div key={items.id} className="card img-fluid container_cards">
+            <img className="card-bottom" src={items.img} alt={items.title} />
+            <div className="card-img-overlay">
+              <h5 className="card-title"> {items.title}</h5>
+              <p className="card-text">
+                {items.text}
+              </p>
 
-            <a
-              style={{
-                color: "#fff",
-                textTransform: "uppercase",
-                fontWeight: "600",
-              }}
-              
-              class="btn btn-basic"
-            >
-              más info
-            </a>
+              <a
+                style={{
+                  color: "#fff",
+                  textTransform: "uppercase",
+                  fontWeight: "600",
+                }}
+                class="btn btn-basic"
+              >
+                más info
+              </a>
+            </div>
           </div>
-        </div>
-
-        <div className="card img-fluid container_cards">
-          <img className="card-bottom" src={harberton} alt="harberton" />
-          <div className="card-img-overlay">
-            <h5 className="card-title"> Estancia Harberton</h5>
-            <p className="card-text">
-              Durante tu visita al Fin del Mundo no te pierdas la oportunidad de
-              navegarlas míticas aguas del Canal Beagle, en una experiencia que
-              te llevará a imaginar aquellas historuas de los primeros
-              navegantes que surcaban estos mares.
-            </p>
-
-            <a
-              style={{
-                color: "#fff",
-                textTransform: "uppercase",
-                fontWeight: "600",
-              }}
-             
-              class="btn btn-basic"
-            >
-              más info
-            </a>
-          </div>
-        </div>
-
-        <div className="card img-fluid container_cards">
-          <img className="card-bottom" src={pinguinos} alt="pinguinos" />
-          <div className="card-img-overlay">
-            <h5 className="card-title"> Pinguinera</h5>
-            <p className="card-text">
-              Durante tu visita al Fin del Mundo no te pierdas la oportunidad de
-              navegarlas míticas aguas del Canal Beagle, en una experiencia que
-              te llevará a imaginar aquellas historuas de los primeros
-              navegantes que surcaban estos mares.
-            </p>
-
-            <a
-              style={{
-                color: "#fff",
-                textTransform: "uppercase",
-                fontWeight: "600",
-              }}
-              
-              class="btn btn-basic"
-            >
-              más info
-            </a>
-          </div>
-        </div>
-
-
-      
+        ))}
       </div>
-
-    
-
     </>
   );
 };
 
 export default Header;
-
-
-
 
 /* const Header = () => {
   return (
