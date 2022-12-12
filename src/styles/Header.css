@@ -78,7 +78,7 @@
 }
 
 
-.container-lg{
+.container-lg-header{
   margin-top: 15rem;
   text-transform: uppercase;
 }
@@ -96,10 +96,22 @@
   align-items: flex-start;
 }
 
-.card-title {
+.card-title-header {
   color: #fff;
   text-transform: uppercase;
+  display: flex;
+  flex-wrap: nowrap;
 }
+
+.card-title-header span{
+  margin-left: 0.5rem;
+  align-self: center;
+  display: flex;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+
 
 .container_cards img {
   width: 21rem;
@@ -121,4 +133,15 @@
 .card-text {
   font-size: 0.85rem;
   color: #fff;
+}
+
+.text-display{
+  opacity: 1;
+  transition: all 2s;
+}
+
+.text-display-false{
+  opacity: 0;
+  transition: all 1s;
+
 }

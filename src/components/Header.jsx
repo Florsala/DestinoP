@@ -6,11 +6,16 @@ import "../styles/Hero.css";
 import dataTours from '../data/dataTours';
 
 import wsp from "../assets/whatsapp.svg";
-
+import {AiOutlineRight} from 'react-icons/ai';
+import { click } from "@testing-library/user-event/dist/click";
 
 
 const Header = () => {
   const [items, setItems] = useState([]);
+
+  const [click, setClick] = useState(false)
+
+  const handleClick = () => setClick(!click)
 
   useEffect(() => {
     const getItems = new Promise((resolve) => {
@@ -51,7 +56,7 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="container-lg">
+      <div className="container-lg-header">
         <h1 className="display-4" style={{ fontWeight: "600" }}>
           Bienvenidos a Destino Patagonia
         </h1>
@@ -68,8 +73,11 @@ const Header = () => {
           <div key={items.id} className="card img-fluid container_cards">
             <img className="card-bottom" src={items.img} alt={items.title} />
             <div className="card-img-overlay">
-              <h5 className="card-title"> {items.title}</h5>
-              <p className="card-text">
+              <h5 className="card-title-header" onClick={handleClick}> {items.title} 
+              <span ><AiOutlineRight/></span></h5>
+
+              {/* <div className={click ?  "text-display" : "text-display-false" }>
+                <p className="card-text">
                 {items.text}
               </p>
 
@@ -83,6 +91,8 @@ const Header = () => {
               >
                 más info
               </a>
+              </div> */}
+              
             </div>
           </div>
         ))}
