@@ -4,7 +4,7 @@ import logo from "../assets/logo2sm.png";
 import NavIcons from "./NavIcons";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Cart from "./Cart";
+import CartWidget from "./CartWidget";
 
 const Navmenu = () => {
   return (
@@ -78,7 +78,7 @@ const Navmenu = () => {
 
         </div>
 
-        <Cart/>
+        <CartWidget/>
       </Navbar>
 
       <Outlet />

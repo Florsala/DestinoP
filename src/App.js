@@ -11,6 +11,7 @@ import Servicios from "./components/Servicios";
 import Galeria from "./components/Galeria";
 import Whatsapp from "./components/Whatsapp";
 import BlogPage from "./components/BlogPage";
+import ServicioItemDetail from "./components/ServicioItemDetail";
 
 function App() {
   return (
@@ -24,9 +25,10 @@ function App() {
           
 
             <Route path="/DestinoP" element={<Home/>} />
+            <Route path="servicios" element={<Servicios />} />
+            <Route path="/servicios/:id" element={<ServicioItemDetail />} />
             <Route path="contacto" element={<Contacto />} />
             <Route path="nosotros" element={<Nosotros />} />
-            <Route path="servicios" element={<Servicios />} />
             <Route path="blog" element={<BlogPage/>} />
 
 

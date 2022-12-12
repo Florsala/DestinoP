@@ -111,3 +111,22 @@
   scale: 1.005;
   filter: drop-shadow(2px 4px 6px rgb(126, 125, 125));
 }
+
+
+
+.itemContainer > h1{
+font-size: 3rem;
+font-weight: 700;
+text-transform: uppercase;
+}
+
+.itemContainer p{
+  font-size: 2rem;
+  color: rgb(247, 34, 34);
+  font-weight: 700;
+}
+
+.itemContainer-img img{
+width: 31.25rem;
+
+}

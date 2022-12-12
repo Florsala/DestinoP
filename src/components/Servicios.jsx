@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import "../styles/Servicios.css";
 import dataTours from "../data/dataTours";
 
-import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
+
 import Button from "react-bootstrap/Button";
 import { Container, Spinner } from "react-bootstrap";
 
 import monta from "../assets/monta.png";
+import ServicioItem from "./ServicioItem";
 
 const Servicios = () => {
   const [items, setItems] = useState([]);
@@ -107,57 +106,11 @@ const Servicios = () => {
           />
         </>
       ) : (
-        <Row
-          xs={1}
-          md={3}
-          className="g-4 mx-5 grid_blog "
-          style={{ marginTop: "2rem" }}
-        >
-          {items.map((items) => (
-            <Col>
-              <Card className="card-svs">
-                <Card.Img
-                  variant="top"
-                  style={{ padding: "1rem" }}
-                  src={items.img}
-                />
-                <Card.Body className="card-body">
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "space-between",
-                      fontWeight: "600",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <Card.Title style={{ color: "black", fontSize: "1.3rem" }}>
-                      {items.title}
-                    </Card.Title>
+<div>
+  <ServicioItem items={items}/>
+</div>
 
-                    <p>{items.category}</p>
-                  </div>
-
-                  <div>
-                    <p
-                      style={{
-                        fontWeight: "700",
-                        fontSize: "1.3rem",
-                        color: "#403f3f",
-                      }}
-                    >
-                      ${items.price}
-                    </p>
-                    <Button className="btn_svs" variant="primary" size="lg">
-                      + info
-                    </Button>
-                  </div>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      )}
+        )}
 
       <img style={{ width: "100%" }} src={monta} alt="montañas" />
     </div>
