@@ -1,0 +1,20 @@
+.btn-supr {
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.CartItems{
+    margin-top:10rem;
+}
+
+.CartItems h5{
+    font-size: 1.5rem;
+}
+
+.CartItems p {
+    color: black;
+    font-size: 1.1rem;
+}

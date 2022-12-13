@@ -12,12 +12,16 @@ import Galeria from "./components/Galeria";
 import Whatsapp from "./components/Whatsapp";
 import BlogPage from "./components/BlogPage";
 import ServicioItemDetail from "./components/ServicioItemDetail";
+import Cart from "./components/Cart";
+import {CartProvider} from "./context/CartContext";
+
 
 function App() {
   return (
     <div className="App">
 
 <BrowserRouter>
+<CartProvider>
 
 <Navmenu/>
 
@@ -30,6 +34,8 @@ function App() {
             <Route path="contacto" element={<Contacto />} />
             <Route path="nosotros" element={<Nosotros />} />
             <Route path="blog" element={<BlogPage/>} />
+            <Route path="cart" element={<Cart/>} />
+
 
 
             <Route path="galeria" element={<Galeria />} />
@@ -46,7 +52,7 @@ function App() {
 
        <Footer/>
 
-
+       </CartProvider>
 </BrowserRouter>
       
      

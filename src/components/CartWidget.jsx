@@ -12,7 +12,7 @@ const CartWidget = () => {
   return (
     <div>
       <div className="Cart">
-        <Link to={"/Cart"}>
+        <Link to={"/cart"}>
           <BsCart />
 
 {/* {total != 0 && (cartNumber)} */}

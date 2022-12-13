@@ -130,3 +130,9 @@ text-transform: uppercase;
 width: 31.25rem;
 
 }
+
+.containerItem-total{
+  border: solid 4px #6573a4;
+  height: auto;
+  padding: 1rem;
+}

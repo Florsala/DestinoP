@@ -21,3 +21,29 @@
     font-weight: 700;
     font-size: 1.7rem;
 }
+
+.mapa{
+    width: 850px;
+    height: 500px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .mapa{
+        width: 650px;
+        height:350px;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .mapa{
+        width: 500px;
+        height:300px;
+    }
+}
+
+@media only screen and (max-width: 590px){
+    .mapa{
+        width: 350px;
+        height:200px;
+    }
+}
