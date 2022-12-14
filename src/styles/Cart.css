@@ -7,7 +7,7 @@
 }
 
 .CartItems{
-    margin-top:10rem;
+    margin-top: 9rem;
 }
 
 .CartItems h5{
@@ -17,4 +17,21 @@
 .CartItems p {
     color: black;
     font-size: 1.1rem;
+}
+
+
+.cartNumber {
+  font-size: 12px;
+  border-radius: 50%;
+  position: absolute;
+  font-weight: 700;
+  background-color: #f72222;
+  width: 1.2rem;
+  height: 1.2rem;
+  right: -0.1rem;
+  top: 1.01rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
 }

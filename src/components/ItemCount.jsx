@@ -22,7 +22,7 @@ const ItemCount = ({ Add, stock, counter, setCounter }) => {
 
   return (
     <div className="buttonsBox">
-      <Container style={{ display: "flex", justifyContent: 'center',
+      <div className="container-sm" style={{ display: "flex", justifyContent: 'center',
     alignItems: 'baseline' }}>
         <Button
           variant="contained"
@@ -42,9 +42,9 @@ const ItemCount = ({ Add, stock, counter, setCounter }) => {
         >
           <AiOutlinePlusCircle  style={{fontSize: '1.4rem'}}/>
         </Button>
-      </Container>
+      </div>
 
-      <Container style={{
+      <div className="container-sm" style={{
                     display: "flex",
                     justifyContent: "center",
                     gap: "5px",
@@ -69,7 +69,7 @@ const ItemCount = ({ Add, stock, counter, setCounter }) => {
       >
         Agregar al carrito
       </Button>
-      </Container>
+      </div>
 
     
     </div>

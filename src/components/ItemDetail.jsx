@@ -1,50 +1,49 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from "react";
+import "../styles/ItemDetail.css";
 import { Link } from "react-router-dom";
-
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Button } from "react-bootstrap";
-import cartContext from '../context/CartContext';
-import ItemCount from './ItemCount';
+import cartContext from "../context/CartContext";
+import ItemCount from "./ItemCount";
 
-const ItemDetail = ({item}) => {
+const ItemDetail = ({ item }) => {
+  const [addToCart, setAddToCart] = useState(false);
 
-    const [addToCart, setAddToCart] = useState(false);
+  const { addItem, addTotal } = useContext(cartContext);
 
-    const { addItem, addTotal } = useContext(cartContext);
-  
-    const [counter, setCounter] = useState(1);
-  
-    const Add = () => {
-      setAddToCart(true);
-  
-     
-      addItem({ item: item, quantity: counter });
-  
-      addTotal();
-    };
-  
-    useEffect(() => {
-      console.log(addToCart, "agregado");
-    }, [addToCart]);
+  const [counter, setCounter] = useState(1);
+
+  const Add = () => {
+    setAddToCart(true);
+
+    addItem({ item: item, quantity: counter });
+
+    addTotal();
+  };
+
+  useEffect(() => {
+    console.log(addToCart, "agregado");
+  }, [addToCart]);
 
   return (
     <div>
-        <Container style={{ marginTop: "7rem" }}>
-        <Row>
-          <Col className="itemContainer-img">
+      <Container style={{ marginTop: "7rem" }}>
+        <div className="display-grid">
+          <div className="container-md container-grid-img">
+            <img className="span-3" src={item.img} alt="" />
+
             <img src={item.img} alt="" />
-          </Col>
-          {/* <Row>
-                <Col>
-                <img width={'250px'} src={items.img} alt="" />
-                </Col>
-                <Col>
-                <img width={'250px'} src={items.img} alt="" />
-                </Col>
-            </Row> */}
+            <img src={item.img} alt="" />
+            <img src={item.img} alt="" />
+            <img src={item.img} alt="" />
+            <img src={item.img} alt="" />
+            <img src={item.img} alt="" />
+          </div>
+
+          
           <Col>
             <div className="itemContainer">
               <h1>{item.title}</h1>
@@ -95,46 +94,47 @@ const ItemDetail = ({item}) => {
                   }}
                 >
                   <p className="text-uppercase">total a pagar</p>
-                  <p>$$$</p>
+                  <p>${addTotal()}</p>
                 </div>
 
-                
-
                 {
-        !addToCart && (
-          <div >
-            <ItemCount
-             
-              Add={Add}
-              counter={counter}
-              setCounter={setCounter}
-            />
-          </div>
-        )
+                  !addToCart && (
+                    <div>
+                      <ItemCount
+                        Add={Add}
+                        counter={counter}
+                        setCounter={setCounter}
+                      />
+                    </div>
+                  )
 
-        //funcion agregar carrito
-      }
+                  //funcion agregar carrito
+                }
 
-      {addToCart && (
-        <div  style={{display:'inline-flex', gap:'0.3125rem'}}>
-          <Link to="/cart">
-            <Button color="secondary" variant="outline-info" m={5} size="small">
-              Finalizar Compra
-            </Button>
-          </Link>
+                {addToCart && (
+                  <div style={{ display: "inline-flex", gap: "0.3125rem" }}>
+                    <Link to="/cart">
+                      <Button
+                        color="secondary"
+                        variant="outline-info"
+                        m={5}
+                        size="small"
+                      >
+                        Finalizar Compra
+                      </Button>
+                    </Link>
 
-          <Link to="/servicios">
-            <Button variant="outline-success" color="secondary">Seguir comprando</Button>
-          </Link>
-        </div>
-      )}
-
+                    <Link to="/servicios">
+                      <Button variant="outline-success" color="secondary">
+                        Seguir comprando
+                      </Button>
+                    </Link>
+                  </div>
+                )}
               </div>
             </Container>
           </Col>
-
-        
-        </Row>
+        </div>
 
         <Container className="text-justify">
           <h2>Descripción</h2>
@@ -142,7 +142,7 @@ const ItemDetail = ({item}) => {
         </Container>
       </Container>
     </div>
-  )
-}
+  );
+};
 
-export default ItemDetail
+export default ItemDetail;

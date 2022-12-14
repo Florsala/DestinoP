@@ -58,7 +58,7 @@ const addTotal = () => {
 const removeItem = (item) => {
 
   const newList = cart.filter(
-    e => e.items.id !== item.item.id
+    e => e.item.id !== item.item.id
   )
 setCart(newList);
 addTotal();
