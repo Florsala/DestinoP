@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import "../styles/Servicios.css";
 import dataTours from "../data/dataTours";
 
-
 import Button from "react-bootstrap/Button";
-import { Container, Spinner } from "react-bootstrap";
+import { Container, Dropdown, Spinner } from "react-bootstrap";
 
 import monta from "../assets/monta.png";
 import ServicioItem from "./ServicioItem";
@@ -42,8 +41,6 @@ const Servicios = () => {
             </h2>
           </div>
         </div>
-
-        
       </div>
 
       <div className="container-lg-svs">
@@ -85,36 +82,65 @@ const Servicios = () => {
           />
         </>
       ) : (
-<div>
-  <ServicioItem items={items}/>
-</div>
+        <div>
+          <ServicioItem items={items} />
+        </div>
+      )}
 
-        )}
+      <div className="heroContent_box container">
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-evenly",
+            padding: "1rem",
+          }}
+        >
+          <Dropdown>
+            <p style={{ fontWeight: "700" }}>Temporada</p>
+            <Dropdown.Toggle
+              className="text-uppercase dropdw-svs"
+              variant="outline-secondary"
+              size="md"
+              id="dropdown-basic"
+            >
+              todas{" "}
+            </Dropdown.Toggle>
 
-<div className="heroContent_box container">
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-evenly",
-              padding: "1rem",
-            }}
-          >
-            <div>
-              <p style={{fontWeight:'700'}}>Temporada</p>
-              <Button className="text-uppercase" size="md" variant="outline-dark">verano</Button>
-            </div>
-            <div>
-              <p style={{fontWeight:'700'}}>Categoría</p>
-              <Button className="text-uppercase" size="md" variant="outline-dark">Trekking</Button>
-            </div>
-          </div>
+            <Dropdown.Menu className="text-uppercase ">
+              <Dropdown.Item href="#/action-1">Verano</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Invierno</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">Todo el año</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
 
-          <Button size="md" style={{backgroundColor: '#002669', margin:'0.5rem'}} >
-            Buscar
-          </Button>
+          <Dropdown>
+            <p style={{ fontWeight: "700" }}>Categoría</p>
+            <Dropdown.Toggle
+              className="text-uppercase dropdw-svs"
+              variant="outline-secondary"
+              size="md"
+              id="dropdown-basic"
+            >
+              todas{" "}
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu className="text-uppercase">
+              <Dropdown.Item href="#/action-1">Verano</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Invierno</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">Todo el año</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          
         </div>
 
-     
+        <Button
+        className="btn-search"
+          size="md"
+         
+        >
+          Buscar
+        </Button>
+      </div>
     </div>
   );
 };

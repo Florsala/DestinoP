@@ -1,6 +1,6 @@
 import React from 'react';
 import ballena from "../assets/ballena.jpg";
-import flecha2 from "../assets/flecha2.png";
+import flecha2 from "../assets/flechas.png";
 import flecha from '../assets/flecha.png'
 import SliderHome from './SliderHome';
 

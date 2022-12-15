@@ -31,9 +31,9 @@
 
 .heroContent_container_svs {
   height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .heroContent_svs {
@@ -79,19 +79,28 @@
 
 .heroContent_box {
   background: white;
-    width: 26rem;
-    display: flex;
-    flex-direction: column;
-    margin: 1rem auto;
-    height: 35%;
-    border-radius: 0.3125rem;
-    flex-wrap: nowrap;
+  width: 35rem;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+  height: 35%;
+  border-radius: 0.3125rem;
+  flex-wrap: nowrap;
+}
+
+.btn-search{
+   background-color: #002669;
+    margin: 0.5rem;
+}
+
+.btn-search:hover{
+background-color: rgba(0, 39, 105, 0.8);
 }
 
 .card-body {
   display: flex;
   justify-content: space-between;
- /*  flex-direction: row; */
+  /*  flex-direction: row; */
 }
 
 .container-lg-svs {
@@ -112,27 +121,34 @@
   filter: drop-shadow(2px 4px 6px rgb(126, 125, 125));
 }
 
-
-
-.itemContainer > h1{
-font-size: 3rem;
-font-weight: 700;
-text-transform: uppercase;
+.itemContainer > h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-.itemContainer p{
+.itemContainer p {
   font-size: 2rem;
   color: rgb(247, 34, 34);
   font-weight: 700;
 }
 
-.itemContainer-img img{
-width: 31.25rem;
-
+.itemContainer-img img {
+  width: 31.25rem;
 }
 
-.containerItem-total{
+.containerItem-total {
   border: solid 4px #6573a4;
   height: auto;
   padding: 1rem;
+}
+
+.dropdw-svs {
+  color: black;
+  font-size: inherit;
+  font-weight: 500;
+}
+
+.dropdw-svs:hover {
+  background: #628bb6;
 }

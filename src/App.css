@@ -141,12 +141,13 @@ a {
 .flecha1 {
   height: 9.375rem;
   object-fit: cover;
-  transform: rotate(180deg);
 }
 
 .flecha2 {
   height: 9.375rem;
   object-fit: cover;
+  transform: rotate(180deg);
+
 }
 
 .circle {
@@ -196,10 +197,14 @@ a {
 }
 
 .escudos img {
-  height: 12.5rem;
   width: 13.5rem;
   object-fit: cover;
   object-position: right;
+}
+
+.escudos > div > p{
+font-weight:700;
+font-size: 1.2rem;
 }
 
 .logo {
