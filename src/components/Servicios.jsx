@@ -43,28 +43,7 @@ const Servicios = () => {
           </div>
         </div>
 
-        <div className="heroContent_box container">
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-evenly",
-              padding: "1rem",
-            }}
-          >
-            <div>
-              <p style={{fontWeight:'700'}}>Temporada</p>
-              <Button className="text-uppercase" size="md" variant="outline-dark">verano</Button>
-            </div>
-            <div>
-              <p style={{fontWeight:'700'}}>Categoría</p>
-              <Button className="text-uppercase" size="md" variant="outline-dark">Trekking</Button>
-            </div>
-          </div>
-
-          <Button size="md" style={{backgroundColor: '#002669', margin:'0.5rem'}} >
-            Buscar
-          </Button>
-        </div>
+        
       </div>
 
       <div className="container-lg-svs">
@@ -112,7 +91,30 @@ const Servicios = () => {
 
         )}
 
-      <img style={{ width: "100%" }} src={monta} alt="montañas" />
+<div className="heroContent_box container">
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-evenly",
+              padding: "1rem",
+            }}
+          >
+            <div>
+              <p style={{fontWeight:'700'}}>Temporada</p>
+              <Button className="text-uppercase" size="md" variant="outline-dark">verano</Button>
+            </div>
+            <div>
+              <p style={{fontWeight:'700'}}>Categoría</p>
+              <Button className="text-uppercase" size="md" variant="outline-dark">Trekking</Button>
+            </div>
+          </div>
+
+          <Button size="md" style={{backgroundColor: '#002669', margin:'0.5rem'}} >
+            Buscar
+          </Button>
+        </div>
+
+     
     </div>
   );
 };

@@ -14,6 +14,7 @@ import BlogPage from "./components/BlogPage";
 import ServicioItemDetail from "./components/ServicioItemDetail";
 import Cart from "./components/Cart";
 import {CartProvider} from "./context/CartContext";
+import BlogItem from "./components/BlogItem";
 
 
 function App() {
@@ -34,6 +35,8 @@ function App() {
             <Route path="contacto" element={<Contacto />} />
             <Route path="nosotros" element={<Nosotros />} />
             <Route path="blog" element={<BlogPage/>} />
+            <Route path="blog/:id" element={<BlogItem/>} />
+
             <Route path="cart" element={<Cart/>} />
 
 

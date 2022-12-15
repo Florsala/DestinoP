@@ -2,6 +2,7 @@ import React from 'react';
 import ballena from "../assets/ballena.jpg";
 import flecha2 from "../assets/flecha2.png";
 import flecha from '../assets/flecha.png'
+import SliderHome from './SliderHome';
 
 
 const Section = () => {
@@ -47,14 +48,16 @@ const Section = () => {
         </div>
       </div>
 
-      <div>
+      <SliderHome/>
+
+      {/* <div>
         <img
        
           style={{ width: "100%", height: "100vh", objectFit: "cover" }}
           src={ballena}
           alt="ballena"
         />
-      </div>
+      </div> */}
     </div>
   )
 }

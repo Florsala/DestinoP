@@ -24,10 +24,7 @@ a {
   text-align: center;
 }
 
-
-
 .App-header {
-
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -36,8 +33,6 @@ a {
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
-
 
 .navbar {
   position: fixed !important;
@@ -56,6 +51,11 @@ a {
 .navbar ul {
   list-style: none;
   /* padding-left: 4.5rem; */
+}
+
+.navbar-bcg {
+  background: #bac9db !important;
+  height: 6rem;
 }
 
 .navmenu {
@@ -84,16 +84,50 @@ a {
   margin-right: 2rem;
 }
 
+.font-md{
+  font-size: 0.95;
+  transition: all 1s;
+
+}
+
+
 .navicons li {
   padding: 0.5rem;
-  font-size: 1.1rem;
+ /*  font-size: 1.1rem; */
 }
 
 .navicons-rg {
   margin-right: 4rem;
 }
 
-.Cart{
+.btn-nav{
+  background-color: black;
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: all 1s;
+}
+
+
+
+.navLink {
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: black;
+  font-family: Open Sans;
+  font-weight: 600;
+  margin-right: auto;
+  transition: all 1s;
+
+}
+
+.font-sm{
+  font-size: 0.85rem;
+  transition: all 1s;
+}
+
+
+.Cart {
   font-size: 2rem;
   margin-left: 1rem;
   display: flex;
@@ -110,9 +144,9 @@ a {
   transform: rotate(180deg);
 }
 
-.flecha2{
+.flecha2 {
   height: 9.375rem;
-   object-fit: cover;
+  object-fit: cover;
 }
 
 .circle {
@@ -152,7 +186,7 @@ a {
 }
 
 /* ESCUDOS */
-.escudos{
+.escudos {
   padding: 2rem;
   display: flex;
   justify-content: center;
@@ -165,7 +199,23 @@ a {
   height: 12.5rem;
   width: 13.5rem;
   object-fit: cover;
-  object-position: right;  
+  object-position: right;
 }
 
+.logo {
+  height: 5rem;
+  transition: all 1s;
+}
 
+.h-4 {
+  transition: all 1s;
+  scale: 0.9;
+}
+
+.slick-prev, .slick-next{
+  display:none!important;
+}
+
+.slick-dots{
+  bottom: 18px;
+}

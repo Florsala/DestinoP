@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { GrFacebookOption } from "react-icons/gr";
 import { GrInstagram } from "react-icons/gr";
@@ -7,18 +7,27 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { Button } from "react-bootstrap";
 
 const NavIcons = () => {
+
+  const [color, setColor] = useState(false);
+  const changeColor = () => {
+    if (window.scrollY >= 6.25) {
+      setColor(true);
+    } else {
+      setColor(false);
+    }
+  };
+
+  window.addEventListener("scroll", changeColor);
+
+
   return (
     <div >
       
         <ul className="navicons nav">
           <li className="nav-item">
             <Button
-            className="btn-nav"
-              style={{
-                backgroundColor: "black",
-                fontFamily: "inherit",
-                fontSize: "0.9rem",
-              }}
+            className={ color ? "btn-nav font-sm" : "btn-nav"}
+            
               size="lg"
               variant="success"
             >
@@ -26,10 +35,10 @@ const NavIcons = () => {
             </Button>{" "}
           </li>
          
-          <li className="nav-item" style={{ fontSize: "1.8rem" }}>
+        {/*   <li className="nav-item" style={{ fontSize: "1.8rem" }}>
             <BiSearchAlt2 />
-          </li>
-          <li className="nav-item">
+          </li> */}
+          <li className={color ? "nav-item font-md" : "nav-item"}>
             <GrFacebookOption />
           </li>
           <li className="nav-item">

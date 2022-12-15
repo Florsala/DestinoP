@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Outlet, NavLink, Link } from "react-router-dom";
 import logo from "../assets/logo2sm.png";
 import NavIcons from "./NavIcons";
@@ -7,6 +7,23 @@ import Navbar from "react-bootstrap/Navbar";
 import CartWidget from "./CartWidget";
 
 const Navmenu = () => {
+  const [click, setClick] = useState(false);
+
+  const handleClick = () => setClick(!click);
+
+  const [color, setColor] = useState(false);
+  const changeColor = () => {
+    if (window.scrollY >= 6.25) {
+      setColor(true);
+    } else {
+      setColor(false);
+    }
+  };
+
+  window.addEventListener("scroll", changeColor);
+
+  const closeMenu = () => setClick(false);
+
   return (
     <>
       <Navbar
@@ -15,6 +32,7 @@ const Navmenu = () => {
         bg="light"
         variant="light"
         style={{ padding: " 0 2rem" }}
+        className={color ? "navbar navbar-bcg" : "navbar"}
       >
         <div
           style={{
@@ -24,14 +42,14 @@ const Navmenu = () => {
             position: "fixed",
             display: "flex",
             justifyContent: "center",
-            left:'0',
+            left: "0",
           }}
         >
-          <Link to={"/DestinoP"} >
+          <Link to={"/DestinoP"}>
             <img
               src={logo}
               alt="logo"
-              style={{ height: "5rem"  }}
+              className={color ? "logo h-4" : "logo"}
             />
           </Link>
         </div>
@@ -41,24 +59,16 @@ const Navmenu = () => {
             id="responsive-navbar-nav"
             style={{ justifyContent: "center" }}
           >
-            <Nav
-              style={{
-                alignItems: "center",
-                textTransform: "uppercase",
-                fontSize: "0.9rem",
-                color: "black",
-                fontFamily: "Open Sans",
-                fontWeight: "600",
-                marginRight: "auto",
-              }}
-            >
-              <Nav.Link as={NavLink} to={"/DestinoP"}>
+            <Nav className={color ? "navLink font-sm" : "navLink"}>
+              <Nav.Link as={NavLink} to={"/DestinoP"} onClick={closeMenu}>
                 Home
               </Nav.Link>
-              <Nav.Link as={NavLink} to={"/servicios"}>
+              <Nav.Link as={NavLink} to={"/servicios"} onClick={closeMenu}>
                 Servicios
               </Nav.Link>
-              <Nav.Link as={NavLink} to={"/blog"}>Blog</Nav.Link>
+              <Nav.Link as={NavLink} to={"/blog"}>
+                Blog
+              </Nav.Link>
               <Nav.Link as={NavLink} to={"/nosotros"}>
                 Nosotros
               </Nav.Link>
@@ -74,11 +84,9 @@ const Navmenu = () => {
 
             <NavIcons />
           </Navbar.Collapse>
-
-
         </div>
 
-        <CartWidget/>
+        <CartWidget />
       </Navbar>
 
       <Outlet />

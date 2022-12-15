@@ -3,19 +3,24 @@ import "../styles/Header.css";
 
 import "../styles/Hero.css";
 
-import dataTours from '../data/dataTours';
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Button from "react-bootstrap/Button";
+import { Link } from 'react-router-dom';
+
+import dataTours from "../data/dataTours";
 
 import wsp from "../assets/whatsapp.svg";
-import {AiOutlineRight} from 'react-icons/ai';
+import { AiOutlineRight } from "react-icons/ai";
 import { click } from "@testing-library/user-event/dist/click";
-
 
 const Header = () => {
   const [items, setItems] = useState([]);
 
-  const [click, setClick] = useState(false)
+  const [click, setClick] = useState(false);
 
-  const handleClick = () => setClick(!click)
+  const handleClick = () => setClick(!click);
 
   useEffect(() => {
     const getItems = new Promise((resolve) => {
@@ -68,35 +73,54 @@ const Header = () => {
         </h2>
       </div>
 
-      <div className="container">
-        {items.map((items) => (
-          <div key={items.id} className="card img-fluid container_cards">
-            <img className="card-bottom" src={items.img} alt={items.title} />
-            <div className="card-img-overlay">
-              <h5 className="card-title-header" onClick={handleClick}> {items.title} 
-              <span ><AiOutlineRight/></span></h5>
+      <div> <Row
+    xs={1}
+    md={3}
+    className="g-4 mx-5 grid_blog "
+    style={{ marginTop: "2rem" }}
+  >
+    {items.map((items) => (
 
-              {/* <div className={click ?  "text-display" : "text-display-false" }>
-                <p className="card-text">
-                {items.text}
-              </p>
+        <Link to={`/servicios/${items.id}`}>
+        <Col>
+        <Card className="card-svs">
+          <Card.Img
+            variant="top"
+            style={{ padding: "1rem" }}
+            src={items.img}
+          />
+          <Card.Body className="card-body">
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                fontWeight: "600",
+                alignItems: "flex-start",
+              }}
+            >
+              <Card.Title style={{ color: "black", fontSize: "1.3rem" }}>
+                {items.title}
+              </Card.Title>
 
-              <a
-                style={{
-                  color: "#fff",
-                  textTransform: "uppercase",
-                  fontWeight: "600",
-                }}
-                class="btn btn-basic"
-              >
-                más info
-              </a>
-              </div> */}
-              
+             
             </div>
-          </div>
-        ))}
-      </div>
+
+            <div>
+         
+              <Button className="btn_svs" variant="primary" size="lg">
+                + info
+              </Button>
+            </div>
+          </Card.Body>
+        </Card>
+      </Col>
+        
+        </Link>
+      
+    ))}
+  </Row>
+</div>
     </>
   );
 };
