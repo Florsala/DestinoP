@@ -1,36 +1,37 @@
 {
   "files": {
-    "main.css": "/DestinoP/static/css/main.6f1bf51d.css",
-    "main.js": "/DestinoP/static/js/main.a2cf2362.js",
+    "main.css": "/DestinoP/static/css/main.ffc5b167.css",
+    "main.js": "/DestinoP/static/js/main.398946be.js",
     "static/media/pinguinos.jpg": "/DestinoP/static/media/pinguinos.15b3fe06c13a5ec9158e.jpg",
     "static/media/lobos.jpg": "/DestinoP/static/media/lobos.3f43b0fab702538781df.jpg",
     "static/media/paisaje.jpg": "/DestinoP/static/media/paisaje.5ab8f5f27a4950dbfe19.jpg",
     "static/media/ballena.jpg": "/DestinoP/static/media/ballena.d87f13339aa3215101ca.jpg",
     "static/media/harberton.jpg": "/DestinoP/static/media/harberton.c9ec3d1afca7c38b34c8.jpg",
     "static/media/ush-hist.jpg": "/DestinoP/static/media/ush-hist.a595e4c0e4f1ca93d5f3.jpg",
+    "static/media/flecha.png": "/DestinoP/static/media/flecha.6e065ed3a55c343fe001.png",
     "static/media/monta.png": "/DestinoP/static/media/monta.bccdb44b675463dd4065.png",
     "static/media/ush-am.jpg": "/DestinoP/static/media/ush-am.72e5fcb3f310728826a3.jpg",
+    "static/media/flechas.png": "/DestinoP/static/media/flechas.da0e887d37250b8aaa04.png",
     "static/media/logo2.png": "/DestinoP/static/media/logo2.1d4b7e486e1ae5b4f4eb.png",
     "static/media/logo.png": "/DestinoP/static/media/logo.4ada720a4492a0072edd.png",
     "static/media/olas2.png": "/DestinoP/static/media/olas2.aa860fb4d36efee2ee45.png",
     "static/media/olas3.png": "/DestinoP/static/media/olas3.1ae75976d4e9d9637ed7.png",
     "static/media/logo2sm.png": "/DestinoP/static/media/logo2sm.936951d99eda6805dd0b.png",
-    "static/media/contemplacion.png": "/DestinoP/static/media/contemplacion.c4a01baddccb02f78803.png",
-    "static/media/flecha.png": "/DestinoP/static/media/flecha.f787b12c4e052c849c8c.png",
-    "static/media/confianza.png": "/DestinoP/static/media/confianza.4e4d5c9e194eee788224.png",
-    "static/media/seguridad.png": "/DestinoP/static/media/seguridad.33f43d0b332866a7120b.png",
-    "static/media/experiencia.png": "/DestinoP/static/media/experiencia.f4b36508ec389e892853.png",
+    "static/media/contemplacion.png": "/DestinoP/static/media/contemplacion.a5fae1151b2e639dd300.png",
+    "static/media/confianza.png": "/DestinoP/static/media/confianza.7438c703195fe994490d.png",
+    "static/media/experiencia.png": "/DestinoP/static/media/experiencia.ffd6c85f757eb0d9173a.png",
+    "static/media/seguridad.png": "/DestinoP/static/media/seguridad.aaeb628db80964276388.png",
     "static/media/slick.svg": "/DestinoP/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/DestinoP/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/whatsapp.svg": "/DestinoP/static/media/whatsapp.b2b2415636e3825dba1a254af2601cb7.svg",
     "static/media/slick.ttf": "/DestinoP/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/DestinoP/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/DestinoP/index.html",
-    "main.6f1bf51d.css.map": "/DestinoP/static/css/main.6f1bf51d.css.map",
-    "main.a2cf2362.js.map": "/DestinoP/static/js/main.a2cf2362.js.map"
+    "main.ffc5b167.css.map": "/DestinoP/static/css/main.ffc5b167.css.map",
+    "main.398946be.js.map": "/DestinoP/static/js/main.398946be.js.map"
   },
   "entrypoints": [
-    "static/css/main.6f1bf51d.css",
-    "static/js/main.a2cf2362.js"
+    "static/css/main.ffc5b167.css",
+    "static/js/main.398946be.js"
   ]
 }
