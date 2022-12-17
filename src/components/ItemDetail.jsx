@@ -2,10 +2,17 @@ import React, { useContext, useEffect, useState } from "react";
 import "../styles/ItemDetail.css";
 import { Link } from "react-router-dom";
 
+import Datepicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
+import {GoCalendar} from "react-icons/go";
+import {GoClock} from "react-icons/go";
+
+
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -14,6 +21,8 @@ import cartContext from "../context/CartContext";
 import ItemCount from "./ItemCount";
 
 const ItemDetail = ({ item }) => {
+  const [selectedDate, setSelectedDate] = useState(null);
+
   const [addToCart, setAddToCart] = useState(false);
 
   const { addItem, addTotal } = useContext(cartContext);
@@ -45,6 +54,7 @@ const ItemDetail = ({ item }) => {
             <img src={item.img} alt="" />
             <img src={item.img} alt="" />
             <img src={item.img} alt="" />
+            
           </div>
 
           <Col>
@@ -55,7 +65,7 @@ const ItemDetail = ({ item }) => {
 
             <Container>
               <div>
-                <p>Temporada:</p>
+                <p>Temporada: Verano</p>
                 <p>Lugar y salida:</p>
                 <p>Idioma:</p>
               </div>
@@ -68,13 +78,66 @@ const ItemDetail = ({ item }) => {
             </Container>
             <Container>
               <div className="container-sm">
-                <h5 className="text-uppercase">Reservar excursion</h5>
+                <h5 className="text-uppercase font-h5">Reservar excursion</h5>
               </div>
 
-              <div>
-              <p>fecha</p>
-                <p>hora</p>
-                
+              <div className="form-reservation">
+                <div className="date-form">
+                  <p>fecha <span><GoCalendar/></span></p>
+
+                  <Datepicker
+                    selected={selectedDate}
+                    onChange={(date) => setSelectedDate(date)}
+                    dateFormat="dd/MM/yyyy"
+                  />
+                </div>
+                <div className="time-form_container">
+                  <p>horario <span><GoClock/></span></p>
+                  <div className="time-form">
+                    <label>
+                      <input
+                        style={{ margin: "5px" }}
+                        type="checkbox"
+                        id="cbox1"
+                        value="time"
+                      />
+                      09:00
+                    </label>
+                    <label>
+                      <input
+                        style={{ margin: "5px" }}
+                        type="checkbox"
+                        id="cbox1"
+                        value="time"
+                      />
+                      15:00
+                    </label>
+                  </div>
+                </div>
+
+                <div className="quantity-form_container">
+                  <div className="quantity-form">
+                    <label for="quantity">Adultos</label>
+                    <input
+                      type="number"
+                      id="quantity"
+                      name="quantity"
+                      min="0"
+                      max="10"
+                    />
+                  </div>
+
+                  <div className="quantity-form">
+                    <label for="quantity">Menores</label>
+                    <input
+                      type="number"
+                      id="quantity"
+                      name="quantity"
+                      min="0"
+                      max="10"
+                    />
+                  </div>
+                </div>
               </div>
 
               <div className="containerItem-total container-fluid">
@@ -131,9 +194,8 @@ const ItemDetail = ({ item }) => {
                       alignItems: "center",
                     }}
                   >
-                   
-                    <Alert style={{transition:'all 2s'}}>
-                      <p >
+                    <Alert style={{ transition: "all 2s" }}>
+                      <p>
                         Su excursión fue agregada al carrito{" "}
                         <span>
                           <IoMdCheckmarkCircleOutline

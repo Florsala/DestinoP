@@ -1,5 +1,11 @@
-.text-justify{
-    text-align: justify;
+.text-justify {
+  text-align: justify;
+}
+
+.font-h5{
+  font-size: 1.5rem;
+    color: white;
+    background-color: #002569;
 }
 
 .container-grid-img {
@@ -20,7 +26,6 @@
 .display-grid {
   display: grid;
   grid-template-columns: 2fr 1.5fr;
-
 }
 
 .span-3 {
@@ -39,4 +44,48 @@
   .span-3 {
     grid-column: span 2;
   }
+}
+
+.form-reservation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin: 1.5rem;
+  text-transform: uppercase;
+  gap: 2rem;
+  font-weight: 500;
+  color: grey;
+}
+.date-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.time-form_container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.time-form {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-around;
+}
+.quantity-form_container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.quantity-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+input[type="number"] {
+  text-align: center;
 }
