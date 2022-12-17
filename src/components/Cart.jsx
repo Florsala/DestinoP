@@ -17,10 +17,18 @@ const Cart = () => {
         <h1>Mi carrito de compras</h1>
       </div>
       {cart.map((item) => (
-        <Container>
-          <Card style={{ width: "28rem" }}>
-            <Card.Body style={{ flexDirection: "column" }}>
-              <Card.Title>{item.item.title}</Card.Title>
+        <Container style={{width:'100%'}}>
+          <Card style={{width:'100%'}}>
+            <Card.Body style={{ flexDirection: "row", gap:'2rem', alignItems:'center' }}>
+            <Card.Img
+                    variant="top"
+                    style={{ padding: "1rem", width:'10rem', height:'10rem' }}
+                    src={item.item.img}
+                  />
+                  <Link to={`/servicios/${item.item.id}`}>
+                  <Card.Title>{item.item.title}</Card.Title>
+
+                  </Link>
               <Card.Text>Precio: {item.item.price}  ARS</Card.Text>
               <Card.Text>Cantidad: {item.quantity}</Card.Text>
               <Card.Text>
@@ -28,7 +36,7 @@ const Cart = () => {
               </Card.Text>
               <Button  onClick={() => { removeItem(item) } } className="btn-supr" variant="danger">
                 {" "}
-                <MdDeleteOutline style={{ fontSize: "1.4rem" }} /> Eliminar
+                <MdDeleteOutline style={{ fontSize: "1.4rem" }} /> 
               </Button>
             </Card.Body>
           </Card>
