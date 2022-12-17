@@ -15,6 +15,7 @@ import ServicioItemDetail from "./components/ServicioItemDetail";
 import Cart from "./components/Cart";
 import {CartProvider} from "./context/CartContext";
 import BlogItem from "./components/BlogItem";
+import ScrollToTop from "./components/ScrollToTop";
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
 
 <BrowserRouter>
 <CartProvider>
+
+  <ScrollToTop/>
 
 <Navmenu/>
 

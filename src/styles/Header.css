@@ -64,9 +64,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor:pointer;
 }
 
-
+.headerTitle_btn:hover{
+  scale: 1.006;
+  border: solid 0.0625rem #588fb7;
+}
 
 
 

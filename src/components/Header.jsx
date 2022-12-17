@@ -4,18 +4,27 @@ import "../styles/Header.css";
 import "../styles/Hero.css";
 
 import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
+
 import Button from "react-bootstrap/Button";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import dataTours from "../data/dataTours";
+import Slider from "react-slick";
 
 import wsp from "../assets/whatsapp.svg";
 import { AiOutlineRight } from "react-icons/ai";
-import { click } from "@testing-library/user-event/dist/click";
 
 const Header = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true
+  };
+
   const [items, setItems] = useState([]);
 
   const [click, setClick] = useState(false);
@@ -73,54 +82,54 @@ const Header = () => {
         </h2>
       </div>
 
-      <div> <Row
-    xs={1}
-    md={3}
-    className="g-4 mx-5 grid_blog "
-    style={{ marginTop: "2rem" }}
-  >
-    {items.map((items) => (
+      <div>
+        {" "}
+        <div
+          xs={1}
+          md={3}
+          className="g-4 mx-5 grid_blog "
+          style={{ marginTop: "2rem" }}
+        >
+          <Slider {...settings}>
+            {items.map((items) => (
+              <Link to={`/servicios/${items.id}`}>
+                <div>
+                  <Card className="card-svs">
+                    <Card.Img
+                      variant="top"
+                      style={{ padding: "1rem" }}
+                      src={items.img}
+                    />
+                    <Card.Body className="card-body">
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "space-between",
+                          fontWeight: "600",
+                          alignItems: "flex-start",
+                        }}
+                      >
+                        <Card.Title
+                          style={{ color: "black", fontSize: "1.3rem" }}
+                        >
+                          {items.title}
+                        </Card.Title>
+                      </div>
 
-        <Link to={`/servicios/${items.id}`}>
-        <Col>
-        <Card className="card-svs">
-          <Card.Img
-            variant="top"
-            style={{ padding: "1rem" }}
-            src={items.img}
-          />
-          <Card.Body className="card-body">
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                fontWeight: "600",
-                alignItems: "flex-start",
-              }}
-            >
-              <Card.Title style={{ color: "black", fontSize: "1.3rem" }}>
-                {items.title}
-              </Card.Title>
-
-             
-            </div>
-
-            <div>
-         
-              <Button className="btn_svs" variant="primary" size="lg">
-                + info
-              </Button>
-            </div>
-          </Card.Body>
-        </Card>
-      </Col>
-        
-        </Link>
-      
-    ))}
-  </Row>
-</div>
+                      <div>
+                        <Button className="btn_svs" variant="primary" size="lg">
+                          + info
+                        </Button>
+                      </div>
+                    </Card.Body>
+                  </Card>
+                </div>
+              </Link>
+            ))}
+          </Slider>
+        </div>
+      </div>
     </>
   );
 };

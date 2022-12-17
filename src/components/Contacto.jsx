@@ -18,7 +18,7 @@ const Contacto = () => {
           display: "flex",
           justifyContent: "center",
           flexWrap: "wrap",
-          marginBottom: "3rem",
+          margin: '0 auto',
           gap:'1rem',
           width: '75rem'
         }}

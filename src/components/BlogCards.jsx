@@ -9,11 +9,11 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-import ushuaia from '../assets/ush-am.jpg';
-import ushhist from '../assets/ush-hist.jpg';
+
 import { Link } from 'react-router-dom';
 
 const BlogCards = () => {
+
 
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -43,11 +43,16 @@ const BlogCards = () => {
 
       <Link to={`/blog/${items.id}`}>
       <Col>
-        <Card >
-          <Card.Img variant="top" src={items.img} />
+        <Card className='c-container'>
+          <Card.Img className='card-img-blog' variant="top" src={items.img}  />
+          <div className='overlay'>
+            <p>
+              Leer más
+            </p>
+            </div>
           <Card.Body style={{flexDirection:'column'}}>
-            <Card.Title className="cardBlog">{items.title}</Card.Title>
-            <Card.Text className="cardBlog">
+            <Card.Title className="cardBlog c-title">{items.title}</Card.Title>
+            <Card.Text className="cardBlog c-text">
            {items.text}
             </Card.Text>
           </Card.Body>

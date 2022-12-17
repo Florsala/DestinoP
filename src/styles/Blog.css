@@ -22,9 +22,64 @@
     font-size: 4rem;
 }
 
+.c-container{
+    position: relative;
+}
+
+.c-container:hover {
+    scale: 1.005;
+    filter: drop-shadow(2px 4px 6px rgb(126, 125, 125));
+  }
+
+
+  
+
+    .overlay {
+        position: absolute;
+        
+        height: 55%;
+        width: 100%;
+        opacity: 0;
+        transition: .5s ease;
+       color: #ffffff;
+        font-weight: 600;
+        font-size: 1.1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .c-container img:hover{
+    filter: contrast(0.5);  }
+   
+      .overlay p{
+        font-size: 1.4rem;
+      }
+      .card-img-blog:hover{
+        filter: contrast(0.5);  
+
+      }
+
+      
+      .c-container:hover .overlay {
+        opacity: 1;
+        
+      }
+
 .cardBlog{
     color:#000;
     text-align:left;
+}
+
+.c-title{
+    margin:0.5rem;
+}
+
+.c-text{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    margin: 0.5rem;
 }
 
 .header_blog{
@@ -38,4 +93,9 @@
     height: 14.4375rem;
     object-fit: cover;
 
+}
+
+.blog-i-text{
+    line-height: 1.8rem;
+    font-size: 1.2rem;
 }

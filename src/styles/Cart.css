@@ -39,6 +39,10 @@
 
 }
 
+.CartButtons{
+  margin:2rem;
+}
+
 @keyframes shake {
   10% {
     transform: scale(1.05) rotate(3deg);

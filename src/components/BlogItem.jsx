@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import dataBlog from "../data/dataBlog";
-
 
 const BlogItem = () => {
   const [item, setItems] = useState({});
@@ -24,20 +23,24 @@ const BlogItem = () => {
   }, [id]);
 
   return (
-    <div className='container' style={{marginTop:'8rem', textAlign: 'left'}} >
-
+    <div
+      className="container"
+      style={{
+        gap: "1.5rem",
+        marginTop: "8rem",
+        textAlign: "left",
+        marginBottom: " 5rem",
+        width: "50rem",
+      }}
+    >
       <h1>{item.title}</h1>
-      <p>{item.text}</p>
+      <p className="blog-i-text">{item.text}</p>
 
-    <div >
-      <img style={{maxWidth:'31.25rem'}} src={item.img} alt="" />
+      <div style={{ width: "100%", objectFit: "cover" }}>
+        <img style={{ width: "100%" }} src={item.img} alt="" />
+      </div>
     </div>
+  );
+};
 
-
-
-
-    </div>
-  )
-}
-
-export default BlogItem
+export default BlogItem;

@@ -13,6 +13,9 @@ const Cart = () => {
 
   return (
     <div className="CartItems">
+      <div style={{marginTop:'10rem'}}>
+        <h1>Mi carrito de compras</h1>
+      </div>
       {cart.map((item) => (
         <Container>
           <Card style={{ width: "28rem" }}>

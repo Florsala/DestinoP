@@ -3,6 +3,10 @@ import "../styles/ItemDetail.css";
 import { Link } from "react-router-dom";
 
 import Container from "react-bootstrap/Container";
+import Alert from "react-bootstrap/Alert";
+
+import { IoMdCheckmarkCircleOutline } from "react-icons/io";
+
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Button } from "react-bootstrap";
@@ -30,7 +34,7 @@ const ItemDetail = ({ item }) => {
 
   return (
     <div>
-      <Container style={{ marginTop: "7rem" }}>
+      <Container style={{ marginTop: "10rem" }}>
         <div className="display-grid">
           <div className="container-md container-grid-img">
             <img className="span-3" src={item.img} alt="" />
@@ -43,7 +47,6 @@ const ItemDetail = ({ item }) => {
             <img src={item.img} alt="" />
           </div>
 
-          
           <Col>
             <div className="itemContainer">
               <h1>{item.title}</h1>
@@ -66,6 +69,12 @@ const ItemDetail = ({ item }) => {
             <Container>
               <div className="container-sm">
                 <h5 className="text-uppercase">Reservar excursion</h5>
+              </div>
+
+              <div>
+              <p>fecha</p>
+                <p>hora</p>
+                
               </div>
 
               <div className="containerItem-total container-fluid">
@@ -112,23 +121,45 @@ const ItemDetail = ({ item }) => {
                 }
 
                 {addToCart && (
-                  <div style={{ display: "inline-flex", gap: "0.3125rem" }}>
-                    <Link to="/cart">
-                      <Button
-                        color="secondary"
-                        variant="outline-info"
-                        m={5}
-                        size="small"
-                      >
-                        Finalizar Compra
-                      </Button>
-                    </Link>
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "0.3125rem",
+                      justifyContent: "center",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                    }}
+                  >
+                   
+                    <Alert style={{transition:'all 2s'}}>
+                      <p >
+                        Su excursión fue agregada al carrito{" "}
+                        <span>
+                          <IoMdCheckmarkCircleOutline
+                            style={{ fontSize: "1.2rem" }}
+                          />
+                        </span>
+                      </p>
+                    </Alert>
+                    <div style={{ gap: "1rem", display: "flex" }}>
+                      <Link to="/cart">
+                        <Button
+                          color="secondary"
+                          variant="outline-info"
+                          m={5}
+                          size="small"
+                        >
+                          Finalizar Compra
+                        </Button>
+                      </Link>
 
-                    <Link to="/servicios">
-                      <Button variant="outline-success" color="secondary">
-                        Seguir comprando
-                      </Button>
-                    </Link>
+                      <Link to="/servicios">
+                        <Button variant="outline-success" color="secondary">
+                          Seguir comprando
+                        </Button>
+                      </Link>
+                    </div>
                   </div>
                 )}
               </div>

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Servicios.css";
 import dataTours from "../data/dataTours";
+import { MdDoubleArrow } from 'react-icons/md';
+
 
 import Button from "react-bootstrap/Button";
 import { Container, Dropdown, Spinner } from "react-bootstrap";
@@ -139,6 +141,7 @@ const Servicios = () => {
          
         >
           Buscar
+          <MdDoubleArrow style={{margin: '0.2rem'}}/>
         </Button>
       </div>
     </div>
