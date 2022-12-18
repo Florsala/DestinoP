@@ -9,16 +9,17 @@ import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
-import {GoCalendar} from "react-icons/go";
-import {GoClock} from "react-icons/go";
+import { GoCalendar } from "react-icons/go";
+import { GoClock } from "react-icons/go";
 
-
-
-import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Button } from "react-bootstrap";
 import cartContext from "../context/CartContext";
 import ItemCount from "./ItemCount";
+import SliderDestSvs from "./SliderDestSvs";
+
+import flecha2 from "../assets/flechas.png";
+import flecha from '../assets/flecha.png'
 
 const ItemDetail = ({ item }) => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -54,7 +55,6 @@ const ItemDetail = ({ item }) => {
             <img src={item.img} alt="" />
             <img src={item.img} alt="" />
             <img src={item.img} alt="" />
-            
           </div>
 
           <Col>
@@ -83,7 +83,12 @@ const ItemDetail = ({ item }) => {
 
               <div className="form-reservation">
                 <div className="date-form">
-                  <p>fecha <span><GoCalendar/></span></p>
+                  <p>
+                    fecha{" "}
+                    <span style={{ fontSize: " 1.2rem", padding: "5px" }}>
+                      <GoCalendar />
+                    </span>
+                  </p>
 
                   <Datepicker
                     selected={selectedDate}
@@ -92,7 +97,12 @@ const ItemDetail = ({ item }) => {
                   />
                 </div>
                 <div className="time-form_container">
-                  <p>horario <span><GoClock/></span></p>
+                  <p>
+                    horario{" "}
+                    <span style={{ fontSize: " 1.2rem", padding: "5px" }}>
+                      <GoClock />
+                    </span>
+                  </p>
                   <div className="time-form">
                     <label>
                       <input
@@ -234,6 +244,25 @@ const ItemDetail = ({ item }) => {
           <p style={{ lineHeight: "1.75rem" }}> {item.text}</p>
         </Container>
       </Container>
+<div>
+
+   <img
+           className='flecha1'
+            src={flecha}
+            
+            alt="flecha"
+          />
+
+      <SliderDestSvs />
+
+      <img
+          className='flecha2'
+            src={flecha}
+           
+            alt=""
+          />
+</div>
+     
     </div>
   );
 };

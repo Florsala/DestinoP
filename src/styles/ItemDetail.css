@@ -61,6 +61,10 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  width: 100%;
+}
+.date-form p{
+  border-bottom: 2px dotted;
 }
 
 .time-form_container {
@@ -73,6 +77,10 @@
   display: flex;
   gap: 0.5rem;
   justify-content: space-around;
+}
+
+.time-form_container p{
+  border-bottom: 2px dotted;
 }
 .quantity-form_container {
   display: flex;

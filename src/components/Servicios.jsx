@@ -7,7 +7,6 @@ import { MdDoubleArrow } from 'react-icons/md';
 import Button from "react-bootstrap/Button";
 import { Container, Dropdown, Spinner } from "react-bootstrap";
 
-import monta from "../assets/monta.png";
 import ServicioItem from "./ServicioItem";
 
 const Servicios = () => {

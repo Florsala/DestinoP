@@ -3,16 +3,12 @@ import "../styles/Header.css";
 
 import "../styles/Hero.css";
 
-import Card from "react-bootstrap/Card";
 
-import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
 
 import dataTours from "../data/dataTours";
-import Slider from "react-slick";
 
 import wsp from "../assets/whatsapp.svg";
-import { AiOutlineRight } from "react-icons/ai";
+import SliderDestacadas from "./SliderDestacadas";
 
 const Header = () => {
   const settings = {
@@ -83,53 +79,10 @@ const Header = () => {
       </div>
 
       <div>
-        {" "}
-        <div
-          xs={1}
-          md={3}
-          className="g-4 mx-5 grid_blog "
-          style={{ marginTop: "2rem" }}
-        >
-          <Slider {...settings}>
-            {items.map((items) => (
-              <Link to={`/servicios/${items.id}`}>
-                <div>
-                  <Card className="card-svs">
-                    <Card.Img
-                      variant="top"
-                      style={{ padding: "1rem" }}
-                      src={items.img}
-                    />
-                    <Card.Body className="card-body">
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          justifyContent: "space-between",
-                          fontWeight: "600",
-                          alignItems: "flex-start",
-                        }}
-                      >
-                        <Card.Title
-                          style={{ color: "black", fontSize: "1.3rem" }}
-                        >
-                          {items.title}
-                        </Card.Title>
-                      </div>
+  <SliderDestacadas items={items}/>
+</div>
 
-                      <div>
-                        <Button className="btn_svs" variant="primary" size="lg">
-                          + info
-                        </Button>
-                      </div>
-                    </Card.Body>
-                  </Card>
-                </div>
-              </Link>
-            ))}
-          </Slider>
-        </div>
-      </div>
+     
     </>
   );
 };

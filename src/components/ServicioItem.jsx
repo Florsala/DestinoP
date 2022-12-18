@@ -28,7 +28,7 @@ const ServicioItem = ({ items }) => {
       >
         <Slider {...settings}>
           {items.map((items) => (
-            <Link to={`/servicios/${items.id}`}>
+            <Link to={`/servicios/${items.id}`} key={items.id}>
               <div>
                 <Card className="card-svs">
                   <Card.Img
