@@ -47,6 +47,8 @@ const SliderDestSvs = () => {
           className="g-4  grid_blog container-md"
           style={{ margin: "4rem auto" }}
         >
+
+          
           <Slider {...settings}>
             {items.map((items) => (
               <Link key={items.id} to={`/servicios/${items.id}`}>

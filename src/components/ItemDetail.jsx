@@ -18,9 +18,6 @@ import cartContext from "../context/CartContext";
 import ItemCount from "./ItemCount";
 import SliderDestSvs from "./SliderDestSvs";
 
-import flecha2 from "../assets/flechas.png";
-import flecha from '../assets/flecha.png'
-
 const ItemDetail = ({ item }) => {
   const [selectedDate, setSelectedDate] = useState(null);
 
@@ -244,24 +241,12 @@ const ItemDetail = ({ item }) => {
           <p style={{ lineHeight: "1.75rem" }}> {item.text}</p>
         </Container>
       </Container>
-<div>
 
-   <img
-           className='flecha1'
-            src={flecha}
-            
-            alt="flecha"
-          />
+   
 
       <SliderDestSvs />
 
-      <img
-          className='flecha2'
-            src={flecha}
-           
-            alt=""
-          />
-</div>
+
      
     </div>
   );

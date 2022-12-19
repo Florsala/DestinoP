@@ -7,7 +7,7 @@
 }
 
 .CartItems{
-    margin-top: 9rem;
+    margin-top: 4rem;
 }
 
 .CartItems h5{
@@ -19,6 +19,9 @@
     font-size: 1.1rem;
 }
 
+.CartItems-price p{
+  font-size:2rem;
+}
 
 .cartNumber {
   font-size: 12px;
@@ -56,4 +59,15 @@
   40% {
     transform: translateY(1px);
   }
+}
+
+.form-cart{
+  width: 40rem;
+  margin: 4rem auto;
+}
+
+.Cart-container{
+  display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
