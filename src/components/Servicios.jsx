@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Servicios.css";
 import dataTours from "../data/dataTours";
-import { MdDoubleArrow } from 'react-icons/md';
-
+import { MdDoubleArrow } from "react-icons/md";
+import Form from "react-bootstrap/Form";
 
 import Button from "react-bootstrap/Button";
 import { Container, Dropdown, Spinner } from "react-bootstrap";
@@ -94,53 +94,33 @@ const Servicios = () => {
             display: "flex",
             justifyContent: "space-evenly",
             padding: "1rem",
+            gap: "0.5rem",
           }}
         >
-          <Dropdown>
-            <p style={{ fontWeight: "700" }}>Temporada</p>
-            <Dropdown.Toggle
-              className="text-uppercase dropdw-svs"
-              variant="outline-secondary"
-              size="md"
-              id="dropdown-basic"
-            >
-              todas{" "}
-            </Dropdown.Toggle>
+          <Form.Group style={{width: '50%'}}>
+            <Form.Label style={{ fontWeight: "700" }}>Temporada</Form.Label>
+            <Form.Select size="md" aria-label="Default select example">
+              <option>Todas</option>
+              <option value="1">Verano</option>
+              <option value="2">Invierno</option>
+              <option value="3">Todo el año</option>
+            </Form.Select>
+          </Form.Group>
+          <Form.Group style={{width: '50%'}}>
+            <Form.Label style={{ fontWeight: "700" }}>Categoría</Form.Label>
 
-            <Dropdown.Menu className="text-uppercase ">
-              <Dropdown.Item href="#/action-1">Verano</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Invierno</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Todo el año</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-
-          <Dropdown>
-            <p style={{ fontWeight: "700" }}>Categoría</p>
-            <Dropdown.Toggle
-              className="text-uppercase dropdw-svs"
-              variant="outline-secondary"
-              size="md"
-              id="dropdown-basic"
-            >
-              todas{" "}
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu className="text-uppercase">
-              <Dropdown.Item href="#/action-1">Verano</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Invierno</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Todo el año</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-          
+            <Form.Select size="md" aria-label="Default select example">
+              <option>Todas</option>
+              <option value="1">Trekking</option>
+              <option value="2">Navegación</option>
+              <option value="3">Aventura</option>
+            </Form.Select>
+          </Form.Group>
         </div>
 
-        <Button
-        className="btn-search"
-          size="md"
-         
-        >
+        <Button className="btn-search" size="md">
           Buscar
-          <MdDoubleArrow style={{margin: '0.2rem'}}/>
+          <MdDoubleArrow style={{ margin: "0.2rem" }} />
         </Button>
       </div>
     </div>
