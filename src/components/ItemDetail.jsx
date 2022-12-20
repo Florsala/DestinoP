@@ -17,6 +17,7 @@ import { Button } from "react-bootstrap";
 import cartContext from "../context/CartContext";
 import ItemCount from "./ItemCount";
 import SliderDestSvs from "./SliderDestSvs";
+import ItemDetailTime from "./ItemDetailTime";
 
 const ItemDetail = ({ item }) => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -101,24 +102,9 @@ const ItemDetail = ({ item }) => {
                     </span>
                   </p>
                   <div className="time-form">
-                    <label>
-                      <input
-                        style={{ margin: "5px" }}
-                        type="checkbox"
-                        id="cbox1"
-                        value="time"
-                      />
-                      09:00
-                    </label>
-                    <label>
-                      <input
-                        style={{ margin: "5px" }}
-                        type="checkbox"
-                        id="cbox1"
-                        value="time"
-                      />
-                      15:00
-                    </label>
+
+                    <ItemDetailTime/>
+                    
                   </div>
                 </div>
 

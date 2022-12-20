@@ -19,6 +19,11 @@
     font-size: 1.1rem;
 }
 
+.CartItems-price{
+  height: 7rem;
+    display: grid;
+    place-content: center;
+}
 .CartItems-price p{
   font-size:2rem;
 }
@@ -71,3 +76,23 @@
     flex-direction: column;
     flex-wrap: wrap;
 }
+
+.Cart-container-flex{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 4rem;
+
+}
+
+
+@media (max-width: 1200px) {
+
+.Cart-container-flex{
+  justify-content: start;
+}  
+}
+
