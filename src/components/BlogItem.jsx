@@ -4,6 +4,31 @@ import dataBlog from "../data/dataBlog";
 
 const BlogItem = () => {
   const [item, setItems] = useState({});
+  const [loading, setLoading] = useState(false);
+  const { id } = useParams();
+
+const fetchBlogItem = async () => {
+ await fetch(`http://turismo.elemsoft.net/webapi/api/Blog/GetListByIdioma?id=1${id}`)
+  .then(res => res.json())
+  .then(
+    (data) => {
+      setLoading(true);
+      setItems(data);
+console.log(  [id]);
+
+
+  })
+
+};
+
+
+useEffect(() =>{
+  
+  fetchBlogItem();
+ 
+}, []);
+
+/*   const [item, setItems] = useState({});
 
   const [loading, setLoading] = useState(false);
 
@@ -20,7 +45,7 @@ const BlogItem = () => {
 
   useEffect(() => {
     getItems.then((res) => setItems(res)).finally(() => setLoading(false));
-  }, [id]);
+  }, [id]); */
 
   return (
     <div
@@ -33,11 +58,11 @@ const BlogItem = () => {
         width: "50rem",
       }}
     >
-      <h1>{item.title}</h1>
-      <p className="blog-i-text">{item.text}</p>
+      <h1>{item.titulo}</h1>
+      <p className="blog-i-text">{item.texto}</p>
 
       <div style={{ width: "100%", objectFit: "cover" }}>
-        <img style={{ width: "100%" }} src={item.img} alt="" />
+        <img style={{ width: "100%" }} src={item.imagen} alt="" />
       </div>
     </div>
   );

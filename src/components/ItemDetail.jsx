@@ -45,20 +45,22 @@ const ItemDetail = ({ item }) => {
       <Container style={{ marginTop: "10rem" }}>
         <div className="display-grid">
           <div className="container-md container-grid-img">
-            <img className="span-3" src={item.img} alt="" />
+            <img className="span-3" src={item.path} alt="" />
 
-            <img src={item.img} alt="" />
-            <img src={item.img} alt="" />
-            <img src={item.img} alt="" />
-            <img src={item.img} alt="" />
-            <img src={item.img} alt="" />
-            <img src={item.img} alt="" />
+            <img src={item.path} alt="" />
+            <img src={item.path} alt="" />
+            <img src={item.path} alt="" />
+            <img src={item.path} alt="" />
+            <img src={item.path} alt="" />
+            <img src={item.path} alt="" />
+
+           
           </div>
 
           <Col>
             <div className="itemContainer">
-              <h1>{item.title}</h1>
-              <p>${item.price}ARS</p>
+              <h1>{item.nombre}</h1>
+              <p>${item.precio}ARS</p>
             </div>
 
             <Container>
@@ -76,7 +78,7 @@ const ItemDetail = ({ item }) => {
             </Container>
             <Container>
               <div className="container-sm">
-                <h5 className="text-uppercase font-h5">Reservar excursion</h5>
+                <h5 className="text-uppercase font-h5">Reservar excursión</h5>
               </div>
 
               <div className="form-reservation">
@@ -182,7 +184,6 @@ const ItemDetail = ({ item }) => {
                       display: "flex",
                       gap: "0.3125rem",
                       justifyContent: "center",
-                      display: "flex",
                       flexDirection: "column",
                       alignItems: "center",
                     }}

@@ -1,19 +1,40 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "../styles/Servicios.css";
-import dataTours from "../data/dataTours";
-import { MdDoubleArrow } from "react-icons/md";
+/* import dataTours from "../data/dataTours";
+ */import { MdDoubleArrow } from "react-icons/md";
 import Form from "react-bootstrap/Form";
 
 import Button from "react-bootstrap/Button";
-import { Container, Dropdown, Spinner } from "react-bootstrap";
+import { Container} from "react-bootstrap";
 
 import ServicioItem from "./ServicioItem";
 
 const Servicios = () => {
+/*   const [error, setError] = useState(null);
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+
+useEffect(() => {
+  fetch("http://turismo.elemsoft.net/webapi/api/Excursiones/GetListDestacadas")
+  .then(res => res.json())
+  .then(
+    (result) => {
+      setLoading(true);
+      setItems(result);
+
+  },
+  (error) => {
+    setLoading(true);
+    setError(error);
+
+  }
+  )
+}, [])
+ */
+
+
+/*   useEffect(() => {
     setLoading(true);
 
     const getItems = new Promise((resolve) => {
@@ -29,7 +50,7 @@ const Servicios = () => {
       })
       .finally(() => setLoading(false));
   }, [dataTours]);
-  console.log(items);
+  console.log(items); */
 
   return (
     <div>
@@ -73,11 +94,11 @@ const Servicios = () => {
         <h4 style={{ fontSize: "2rem" }}>Excursiones destacadas</h4>
       </Container>
 
-      {loading ? (
+ {/*      {loading ? (
         <>
           <Spinner
             style={{ margin: "50%", marginTop: "200px" }}
-            /*  animation="border" */
+            
             variant="primary"
             animation="grow"
           />
@@ -86,8 +107,8 @@ const Servicios = () => {
         <div>
           <ServicioItem items={items} />
         </div>
-      )}
-
+      )} */}
+<ServicioItem  />
       <div className="heroContent_box container">
         <div
           style={{

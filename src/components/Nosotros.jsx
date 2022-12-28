@@ -1,10 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Nosotros.css";
 import "../styles/Medias.css";
 import logo from "../assets/logo.png";
 import Section from "./Section";
 
 const Nosotros = () => {
+
+  const [error, setError] = useState(null);
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+
+useEffect(() => {
+  fetch("http://turismo.elemsoft.net/webapi//api/Nosotros/GetList")
+  .then(res => res.json())
+  .then(
+    (result) => {
+      setLoading(true);
+      setItems(result);
+
+  },
+  (error) => {
+    setLoading(true);
+    setError(error);
+
+  }
+  )
+}, [items])
+
+if(error){
+  return <div>ha surgido un error</div>
+} else {
+console.log(items);
+
   return (
     <div>
       <div className="hero_Nos">
@@ -34,9 +62,10 @@ const Nosotros = () => {
         <div className="containerNos container-md">
           <h2>DESTINO PATAGONIA</h2>
           <p className="containerNos_text">
-            Somos una empresa fueguina, especializada en experiencias marítimas
+          {/*  {items.msg[0].about} */}
+             Somos una empresa fueguina, especializada en experiencias marítimas
             con conocimiento de las aguas más australes del mundo como lo es el
-            Canal Beagle.
+            Canal Beagle. 
           </p>
         </div>
 
@@ -78,6 +107,7 @@ const Nosotros = () => {
       <Section />
     </div>
   );
+};
 };
 
 export default Nosotros;
