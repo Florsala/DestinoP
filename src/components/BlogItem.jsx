@@ -3,30 +3,32 @@ import { useParams } from "react-router-dom";
 import dataBlog from "../data/dataBlog";
 
 const BlogItem = () => {
-  const [item, setItems] = useState({});
-  const [loading, setLoading] = useState(false);
+  const [item, setItems] = useState([]);
   const { id } = useParams();
 
-const fetchBlogItem = async () => {
- await fetch(`http://turismo.elemsoft.net/webapi/api/Blog/GetListByIdioma?id=1${id}`)
-  .then(res => res.json())
-  .then(
-    (data) => {
-      setLoading(true);
-      setItems(data);
-console.log(  [id]);
+  useEffect(() => {
+    
+    const getBlogItem = async () => {
+const data = await fetch(`http://turismo.elemsoft.net/webapi/api/Blog/GetListByIdioma?id=1${id}`)
+const blogItem = await data.json() 
+
+      setItems(blogItem);
+console.log(blogItem);
 
 
-  })
-
-};
-
-
-useEffect(() =>{
+  }
+    getBlogItem()
   
-  fetchBlogItem();
- 
-}, []);
+    
+  }, [id])
+  
+
+
+
+
+
+
+
 
 /*   const [item, setItems] = useState({});
 
@@ -67,5 +69,6 @@ useEffect(() =>{
     </div>
   );
 };
+
 
 export default BlogItem;

@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import "../styles/Header.css";
 
 import "../styles/Hero.css";
+import {  Spinner } from "react-bootstrap";
 
-
-
-import dataTours from "../data/dataTours";
-
+/* import dataTours from "../data/dataTours";
+ */
 import wsp from "../assets/whatsapp.svg";
 import SliderDestacadas from "./SliderDestacadas";
 
@@ -21,27 +20,46 @@ const Header = () => {
     pauseOnHover: true
   };
 
-  const [items, setItems] = useState([]);
 
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
 
-  useEffect(() => {
-    const getItems = new Promise((resolve) => {
-      setTimeout(() => {
-        const data = dataTours;
+  const [error, setError] = useState(null);
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-        resolve(data);
-      }, 1500);
-    });
-    getItems
-      .then((res) => {
-        setItems(res);
-      })
-      .finally(() => console.log(items));
-  }, [dataTours]);
-  console.log(items);
+
+useEffect(() => {
+  fetch("http://turismo.elemsoft.net/webapi/api/Excursiones/GetListDestacadas")
+  .then(res => res.json())
+  .then(
+    (result) => {
+      setLoading(true);
+      setItems(result);
+
+  },
+  (error) => {
+    setLoading(true);
+    setError(error);
+
+  }
+  )
+}, [])
+
+if(error){
+  return <div>ha surgido un error</div>
+} else if (!loading){
+   return <div> <Spinner
+      style={{ margin: "50%", marginTop: "200px" }}
+      variant="primary"
+      animation="grow"
+    />
+  </div>
+
+} else {
+
+console.log(items);
 
   return (
     <>
@@ -85,6 +103,7 @@ const Header = () => {
      
     </>
   );
+}
 };
 
 export default Header;

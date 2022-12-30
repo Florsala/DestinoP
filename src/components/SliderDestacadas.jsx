@@ -9,7 +9,7 @@ const SliderDestacadas = ({ items }) => {
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: 2,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
@@ -27,14 +27,15 @@ const SliderDestacadas = ({ items }) => {
           style={{ marginTop: "2rem" }}
         >
           <Slider {...settings}>
-            {items.map((items) => (
-              <Link key={items.id} to={`/servicios/${items.id}`}>
+
+            {items.msg.map((items) => (
+              <Link key={items.nombre} /* to={`/servicios/${items.id}`} */>
                 <div>
                   <Card className="card-svs">
                     <Card.Img
                       variant="top"
                       style={{ padding: "1rem" }}
-                      src={items.img}
+                      src={items.path}
                     />
                     <Card.Body className="card-body">
                       <div
@@ -49,7 +50,7 @@ const SliderDestacadas = ({ items }) => {
                         <Card.Title
                           style={{ color: "black", fontSize: "1.3rem" }}
                         >
-                          {items.title}
+                          {items.nombre}
                         </Card.Title>
                       </div>
 

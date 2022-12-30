@@ -5,40 +5,38 @@ import logo from "../assets/logo.png";
 import Section from "./Section";
 
 const Nosotros = () => {
+  /*   const [error, setError] = useState(null);
+   */ const [items, setItems] = useState([]);
+  /*   const [loading, setLoading] = useState(false);
+   */
 
-  const [error, setError] = useState(null);
-  const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    const getDataNos = async () => {
+      const data = await fetch(
+        "http://turismo.elemsoft.net/webapi/api/Nosotros/GetList"
+      );
+      const DataNos = await data.json();
 
-
-useEffect(() => {
-  fetch("http://turismo.elemsoft.net/webapi//api/Nosotros/GetList")
-  .then(res => res.json())
-  .then(
-    (result) => {
-      setLoading(true);
-      setItems(result);
-
-  },
-  (error) => {
-    setLoading(true);
-    setError(error);
-
-  }
-  )
-}, [items])
-
-if(error){
-  return <div>ha surgido un error</div>
-} else {
-console.log(items);
+      setItems(DataNos);
+      console.log(items);
+    };
+    getDataNos();
+  }, []);
 
   return (
     <div>
       <div className="hero_Nos">
         <div className="heroContent_Nos">
-          <div className="headerLogo heroContent_container_Nos" >
-            <img style={{ height: "16rem", objectFit:'contain', marginTop:'10rem' }} src={logo} alt="" />
+          <div className="headerLogo heroContent_container_Nos">
+            <img
+              style={{
+                height: "16rem",
+                objectFit: "contain",
+                marginTop: "10rem",
+              }}
+              src={logo}
+              alt=""
+            />
           </div>
         </div>
       </div>
@@ -62,10 +60,10 @@ console.log(items);
         <div className="containerNos container-md">
           <h2>DESTINO PATAGONIA</h2>
           <p className="containerNos_text">
-          {/*  {items.msg[0].about} */}
-             Somos una empresa fueguina, especializada en experiencias marítimas
+            {/*  {items.msg[0].about} */}
+            Somos una empresa fueguina, especializada en experiencias marítimas
             con conocimiento de las aguas más australes del mundo como lo es el
-            Canal Beagle. 
+            Canal Beagle.
           </p>
         </div>
 
@@ -107,7 +105,6 @@ console.log(items);
       <Section />
     </div>
   );
-};
 };
 
 export default Nosotros;

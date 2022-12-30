@@ -45,6 +45,7 @@ if(error){
   </div>
 
 } else {
+  console.log(items.msg);
 
   return (
     <div>
