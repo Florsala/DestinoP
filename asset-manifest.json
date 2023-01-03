@@ -1,9 +1,8 @@
 {
   "files": {
-    "main.css": "/DestinoP/static/css/main.7a2c8951.css",
-    "main.js": "/DestinoP/static/js/main.cb0fd9f7.js",
+    "main.css": "/DestinoP/static/css/main.4f34e0a8.css",
+    "main.js": "/DestinoP/static/js/main.192a5386.js",
     "static/media/pinguinos.jpg": "/DestinoP/static/media/pinguinos.15b3fe06c13a5ec9158e.jpg",
-    "static/media/lobos.jpg": "/DestinoP/static/media/lobos.3f43b0fab702538781df.jpg",
     "static/media/paisaje.jpg": "/DestinoP/static/media/paisaje.5ab8f5f27a4950dbfe19.jpg",
     "static/media/ballena.jpg": "/DestinoP/static/media/ballena.d87f13339aa3215101ca.jpg",
     "static/media/harberton.jpg": "/DestinoP/static/media/harberton.c9ec3d1afca7c38b34c8.jpg",
@@ -26,11 +25,11 @@
     "static/media/slick.ttf": "/DestinoP/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/DestinoP/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/DestinoP/index.html",
-    "main.7a2c8951.css.map": "/DestinoP/static/css/main.7a2c8951.css.map",
-    "main.cb0fd9f7.js.map": "/DestinoP/static/js/main.cb0fd9f7.js.map"
+    "main.4f34e0a8.css.map": "/DestinoP/static/css/main.4f34e0a8.css.map",
+    "main.192a5386.js.map": "/DestinoP/static/js/main.192a5386.js.map"
   },
   "entrypoints": [
-    "static/css/main.7a2c8951.css",
-    "static/js/main.cb0fd9f7.js"
+    "static/css/main.4f34e0a8.css",
+    "static/js/main.192a5386.js"
   ]
 }
