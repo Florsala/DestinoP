@@ -18,7 +18,6 @@ const Nosotros = () => {
       const DataNos = await data.json();
 
       setItems(DataNos);
-      console.log(items);
     };
     getDataNos();
   }, []);

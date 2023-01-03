@@ -36,7 +36,6 @@ if(error){
 }  else {
 
 
-  console.log(items);
   return (
     <div>
       <div className="contacto_header container-fluid">

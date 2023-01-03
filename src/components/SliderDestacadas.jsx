@@ -4,8 +4,10 @@ import Slider from "react-slick";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 
-const SliderDestacadas = ({ items }) => {
+const SliderDestacadas = ({ excDest, loading }) => {
+  
   const settings = {
     dots: true,
     infinite: true,
@@ -26,16 +28,17 @@ const SliderDestacadas = ({ items }) => {
           className="g-4 mx-5 grid_blog "
           style={{ marginTop: "2rem" }}
         >
-          <Slider {...settings}>
+          {loading && <Spinner />}
 
-            {items.msg.map((items) => (
+          <Slider {...settings}>
+            {excDest.map((items) => (
               <Link key={items.nombre} /* to={`/servicios/${items.id}`} */>
                 <div>
                   <Card className="card-svs">
                     <Card.Img
                       variant="top"
                       style={{ padding: "1rem" }}
-                      src={items.path}
+                      src={items.imagen}
                     />
                     <Card.Body className="card-body">
                       <div

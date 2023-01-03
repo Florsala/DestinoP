@@ -1,19 +1,61 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Galeria.css";
 import "../styles/Medias.css";
+import {  Spinner } from "react-bootstrap";
 
-import monta from "../assets/monta.png";
+
+/* import monta from "../assets/monta.png";
 import ushuaia from "../assets/ush-am.jpg";
 import harberton from "../assets/harberton.jpg";
 import lobos from "../assets/lobos.jpg";
 import ush from "../assets/ush-am.jpg";
-import paisaje from "../assets/paisaje.jpg";
+import paisaje from "../assets/paisaje.jpg"; */
 
 import { Col, Container, Row } from "react-bootstrap";
 
 import pinguinos from "../assets/pinguinos.jpg";
 
 const Galeria = () => {
+
+
+
+  const [error, setError] = useState(null);
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+
+useEffect(() => {
+  fetch("  http://turismo.elemsoft.net/webapi/api/Galeria/GetListPath")
+  .then(res => res.json())
+  .then(
+    (result) => {
+      setLoading(true);
+      setItems(result);
+
+  },
+  (error) => {
+    setLoading(true);
+    setError(error);
+
+  }
+  )
+}, [])
+
+if(error){
+  return <div>ha surgido un error</div>
+} else if (!loading){
+   return <div> <Spinner
+      style={{ margin: "50%", marginTop: "200px" }}
+      variant="primary"
+      animation="grow"
+    />
+  </div>
+
+} else {
+
+
+
+
   return (
     <div>
       <div className="hero_gal">
@@ -62,7 +104,25 @@ const Galeria = () => {
         <h2>Galería</h2>
       </div>
 
-      <Container className="grid_galeria">
+      <Container >
+       {items.msg.map((item => 
+        <img
+        style={{ width: "100%", height: "100%" }}
+        className="img1"
+        src={item.path}
+        alt=""
+      />
+
+        )) }
+
+
+
+      </Container>
+
+
+
+
+    {/*   <Container className="grid_galeria">
         <img
           style={{ width: "100%", height: "100%" }}
           className="img1"
@@ -84,7 +144,7 @@ const Galeria = () => {
         />
         <img className="img9" src={ush} alt="" />
         <img className="img10" src={pinguinos} alt="" />
-      </Container>
+      </Container> */}
 
       {/*   <Container>
       <Row>
@@ -102,5 +162,5 @@ const Galeria = () => {
     </div>
   );
 };
-
+};
 export default Galeria;

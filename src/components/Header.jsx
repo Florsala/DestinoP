@@ -1,65 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Header.css";
-
 import "../styles/Hero.css";
-import {  Spinner } from "react-bootstrap";
 
-/* import dataTours from "../data/dataTours";
- */
 import wsp from "../assets/whatsapp.svg";
 import SliderDestacadas from "./SliderDestacadas";
+import { useFetchDestacadas } from "../hooks/useFetchDestacadas";
 
 const Header = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    pauseOnHover: true
-  };
+  const { excDest, loading } = useFetchDestacadas();
 
-
-  const [click, setClick] = useState(false);
-
-  const handleClick = () => setClick(!click);
-
-  const [error, setError] = useState(null);
-  const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-
-useEffect(() => {
-  fetch("http://turismo.elemsoft.net/webapi/api/Excursiones/GetListDestacadas")
-  .then(res => res.json())
-  .then(
-    (result) => {
-      setLoading(true);
-      setItems(result);
-
-  },
-  (error) => {
-    setLoading(true);
-    setError(error);
-
-  }
-  )
-}, [])
-
-if(error){
-  return <div>ha surgido un error</div>
-} else if (!loading){
-   return <div> <Spinner
-      style={{ margin: "50%", marginTop: "200px" }}
-      variant="primary"
-      animation="grow"
-    />
-  </div>
-
-} else {
-
-console.log(items);
+  /*  */
 
   return (
     <>
@@ -97,148 +47,11 @@ console.log(items);
       </div>
 
       <div>
-  <SliderDestacadas items={items}/>
-</div>
-
-     
+        <SliderDestacadas excDest={excDest} loading={loading} />
+      </div>
     </>
   );
-}
+  /* } */
 };
 
 export default Header;
-
-/* const Header = () => {
-  return (
-    <div>
-      <div>
-        <img
-          className="headerImg"
-          src={
-            "https://destinopatagonia.com//wp-content/uploads/2021/10/2021-0626-DJI_0746-lrexport-1.jpg"
-          }
-          alt=""
-        />
-        <img className="headerImg2" src={monta} alt="mount" />
-
-        <div className="headerTitle container-md">
-          <h2 className="headerTitle_a">
-            Pasión por la <span className="headerTitle_b">naturaleza</span>{" "}
-          </h2>
-
-          <h4 className="headerTitle_c">Excursiones en Ushuaia</h4>
-
-          <div className="headerTitle_btn">
-            Más info
-            <img
-              style={{ height: "1.5625rem", borderRadius: "50%" }}
-              src={wsp}
-              alt=""
-            />
-          </div>
-        </div>
-
-       
-      </div>
-
-      <div
-        className="container-lg"
-      >
-        <h1 className="display-4" style={{ fontWeight: "600" }}>
-          Bienvenidos a Destino Patagonia
-        </h1>
-        <h2
-          className="display-5"
-          style={{ fontWeight: "400", color: "#857676" }}
-        >
-          Nuestras Excursiones
-        </h2>
-      </div>
-
-      <div className="container">
-        <div className="card img-fluid container_cards">
-          <img className="card-bottom" src={lobos} alt="lobos" />
-          <div className="card-img-overlay">
-            <h5 className="card-title"> Isla de Lobos</h5>
-            <p className="card-text">
-              Durante tu visita al Fin del Mundo no te pierdas la oportunidad de
-              navegarlas míticas aguas del Canal Beagle, en una experiencia que
-              te llevará a imaginar aquellas historuas de los primeros
-              navegantes que surcaban estos mares.
-            </p>
-
-            <a
-              style={{
-                color: "#fff",
-                textTransform: "uppercase",
-                fontWeight: "600",
-              }}
-              
-              class="btn btn-basic"
-            >
-              más info
-            </a>
-          </div>
-        </div>
-
-        <div className="card img-fluid container_cards">
-          <img className="card-bottom" src={harberton} alt="harberton" />
-          <div className="card-img-overlay">
-            <h5 className="card-title"> Estancia Harberton</h5>
-            <p className="card-text">
-              Durante tu visita al Fin del Mundo no te pierdas la oportunidad de
-              navegarlas míticas aguas del Canal Beagle, en una experiencia que
-              te llevará a imaginar aquellas historuas de los primeros
-              navegantes que surcaban estos mares.
-            </p>
-
-            <a
-              style={{
-                color: "#fff",
-                textTransform: "uppercase",
-                fontWeight: "600",
-              }}
-             
-              class="btn btn-basic"
-            >
-              más info
-            </a>
-          </div>
-        </div>
-
-        <div className="card img-fluid container_cards">
-          <img className="card-bottom" src={pinguinos} alt="pinguinos" />
-          <div className="card-img-overlay">
-            <h5 className="card-title"> Pinguinera</h5>
-            <p className="card-text">
-              Durante tu visita al Fin del Mundo no te pierdas la oportunidad de
-              navegarlas míticas aguas del Canal Beagle, en una experiencia que
-              te llevará a imaginar aquellas historuas de los primeros
-              navegantes que surcaban estos mares.
-            </p>
-
-            <a
-              style={{
-                color: "#fff",
-                textTransform: "uppercase",
-                fontWeight: "600",
-              }}
-              
-              class="btn btn-basic"
-            >
-              más info
-            </a>
-          </div>
-        </div>
-
-
-      
-      </div>
-
-      
-    </div>
-  );
-};
-
-export default Header;
- */

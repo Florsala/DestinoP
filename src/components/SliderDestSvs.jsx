@@ -1,42 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Slider from "react-slick";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
-import dataTours from "../data/dataTours";
-import { Button } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 
-const SliderDestSvs = () => {
+
+const SliderDestSvs = ({ excDest, loading }) => {
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 2,
+    slidesToShow: 2,
+    slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 1500,
     pauseOnHover: true,
   };
 
-  const [items, setItems] = useState([]);
-
-  const [click, setClick] = useState(false);
-
-  const handleClick = () => setClick(!click);
-
-  useEffect(() => {
-    const getItems = new Promise((resolve) => {
-      setTimeout(() => {
-        const data = dataTours;
-
-        resolve(data);
-      }, 1500);
-    });
-    getItems
-      .then((res) => {
-        setItems(res);
-      })
-      .finally(() => console.log(items));
-  }, [dataTours]);
-  console.log(items);
 
   return (
     <div>
@@ -48,16 +27,17 @@ const SliderDestSvs = () => {
           style={{ margin: "4rem auto" }}
         >
 
-          
+{loading && <Spinner />}
+
           <Slider {...settings}>
-            {items.map((items) => (
-              <Link key={items.id} to={`/servicios/${items.id}`}>
+            {excDest.map((items) => (
+              <Link key={items.nombre} /* to={`/servicios/${items.id}`} */>
                 <div>
                   <Card className="card-svs">
                     <Card.Img
                       variant="top"
                       style={{ padding: "1rem" }}
-                      src={items.img}
+                      src={items.imagen}
                     />
                     <Card.Body className="card-body-column">
                       <div
@@ -72,7 +52,7 @@ const SliderDestSvs = () => {
                         <Card.Title
                           style={{ color: "black", fontSize: "1.3rem" }}
                         >
-                          {items.title}
+                          {items.nombre}
                         </Card.Title>
                       </div>
 

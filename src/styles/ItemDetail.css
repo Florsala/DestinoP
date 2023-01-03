@@ -1,3 +1,13 @@
+.itemContainer h1{
+text-transform: uppercase;
+}
+
+.cont_details{
+  display: inline-flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
 .text-justify {
   text-align: justify;
 }

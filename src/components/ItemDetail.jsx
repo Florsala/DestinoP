@@ -18,8 +18,12 @@ import cartContext from "../context/CartContext";
 import ItemCount from "./ItemCount";
 import SliderDestSvs from "./SliderDestSvs";
 import ItemDetailTime from "./ItemDetailTime";
+import { useFetchDestacadas } from "../hooks/useFetchDestacadas";
 
 const ItemDetail = ({ item }) => {
+
+  const { excDest, loading } = useFetchDestacadas();
+
   const [selectedDate, setSelectedDate] = useState(null);
 
   const [addToCart, setAddToCart] = useState(false);
@@ -45,35 +49,51 @@ const ItemDetail = ({ item }) => {
       <Container style={{ marginTop: "10rem" }}>
         <div className="display-grid">
           <div className="container-md container-grid-img">
-            <img className="span-3" src={item.path} alt="" />
+            <img className="span-3" src={item[0].img} alt="" />
 
-            <img src={item.path} alt="" />
-            <img src={item.path} alt="" />
-            <img src={item.path} alt="" />
-            <img src={item.path} alt="" />
-            <img src={item.path} alt="" />
-            <img src={item.path} alt="" />
-
-           
+            <img src={item[0].img} alt="" />
+            <img src={item[0].img} alt="" />
+            <img src={item[0].img} alt="" />
+            <img src={item[0].img} alt="" />
+            <img src={item[0].img} alt="" />
+            <img src={item[0].img} alt="" />
           </div>
 
           <Col>
             <div className="itemContainer">
-              <h1>{item.nombre}</h1>
-              <p>${item.precio}ARS</p>
+              <h1> {item[0].nombre}</h1>
+              <p>${item[0].precio}ARS</p>
             </div>
 
             <Container>
               <div>
-                <p>Temporada: Verano</p>
-                <p>Lugar y salida:</p>
-                <p>Idioma:</p>
+                <div>
+                  <p>Temporada: </p>
+                </div>
+
+             {/*    <div>
+                  <p>Lugar y salida:</p>
+                </div> */}
+
+                <div>
+                  <p>Idioma:</p>
+                </div>
               </div>
 
               <div>
-                <p>Duración:</p>
-                <p>Dificultad:</p>
-                <p>Observación:</p>
+                <div className="cont_details">
+                  <h6>{item[0].duracion}: </h6>
+                  <p>{item[0].duracion_d}</p>
+                </div>
+
+                <div className="cont_details">
+                  <h6>{item[0].dificultad}:</h6>
+                  <p>{item[0].dificultad_d}</p>
+                </div>
+
+                <div className="cont_details">
+                  <h6>Observación:</h6>
+                </div>
               </div>
             </Container>
             <Container>
@@ -104,9 +124,7 @@ const ItemDetail = ({ item }) => {
                     </span>
                   </p>
                   <div className="time-form">
-
-                    <ItemDetailTime/>
-                    
+                    <ItemDetailTime />
                   </div>
                 </div>
 
@@ -225,16 +243,11 @@ const ItemDetail = ({ item }) => {
 
         <Container className="text-justify">
           <h2>Descripción</h2>
-          <p style={{ lineHeight: "1.75rem" }}> {item.text}</p>
+          <p style={{ lineHeight: "1.75rem" }}> {item[0].descripcion}</p>
         </Container>
       </Container>
 
-   
-
-      <SliderDestSvs />
-
-
-     
+      <SliderDestSvs excDest={excDest} loading={loading}/>
     </div>
   );
 };

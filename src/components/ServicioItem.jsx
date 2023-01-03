@@ -4,75 +4,44 @@ import Slider from "react-slick";
 
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import {  Spinner } from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
+import { useFetchDestacadas } from "../hooks/useFetchDestacadas";
 
+const settings = {
+  dots: true,
+  infinite: true,
+  slidesToShow: 2,
+  slidesToScroll: 1,
+  autoplay: true,
+  speed: 2000,
+  autoplaySpeed: 2000,
+  cssEase: "linear",
+};
 
 const ServicioItem = () => {
+  const { excDest, loading } = useFetchDestacadas();
 
-  const settings = {
-    dots: true,
-    infinite: true,
-     slidesToShow: 3,
-    slidesToScroll: 1, 
-    autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 2000,
-    cssEase: "linear"
-  };
-
-  const [error, setError] = useState(null);
-  const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-
-useEffect(() => {
-  fetch("http://turismo.elemsoft.net/webapi//api/Excursiones/GetListByIdioma?id=1")
-  .then(res => res.json())
-  .then(
-    (result) => {
-      setLoading(true);
-      setItems(result);
-
-  },
-  (error) => {
-    setLoading(true);
-    setError(error);
-
-  }
-  )
-}, [])
-
-if(error){
-  return <div>ha surgido un error</div>
-} else if (!loading){
-   return <div> <Spinner
-      style={{ margin: "50%", marginTop: "200px" }}
-      variant="primary"
-      animation="grow"
-    />
-  </div>
-
-} else {
   return (
-/*     console.log(items.msg)
- */     <div>
+    <div>
       <div
         xs={1}
         md={3}
         className="g-4 mx-5 grid_blog "
         style={{ marginTop: "2rem" }}
       >
+        {loading && <Spinner />}
+
         <Slider {...settings}>
-          {items.msg.map((items) => (
-            <Link  to={`/servicios/${items.nombre}`}  key={items.nombre}>
+          {excDest.map((items) => (
+            <Link to={`/servicios/${items.nombre}`} key={items.nombre}>
               <div>
                 <Card className="card-svs">
                   <Card.Img
                     variant="top"
                     style={{ padding: "1rem" }}
-                    src={items.path}
+                    src={items.imagen}
                   />
-                  <Card.Body className="card-body">
+                  <Card.Body className="card-body card-item">
                     <div
                       style={{
                         display: "flex",
@@ -112,14 +81,8 @@ if(error){
           ))}
         </Slider>
       </div>
-    </div> 
+    </div>
   );
-
-}
-
-
-
-  
 };
 
 export default ServicioItem;
