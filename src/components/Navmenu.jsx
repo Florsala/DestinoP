@@ -13,6 +13,15 @@ const Navmenu = () => {
 
   const handleClick = () => setClick(!click);
 
+  useEffect(() => {
+    let handler = () => {
+      setClick(false);
+    
+    };
+    document.addEventListener("mousedown", handler)
+  })
+
+
   const [color, setColor] = useState(false);
   const changeColor = () => {
     if (window.scrollY >= 6.25) {
@@ -47,7 +56,7 @@ const Navmenu = () => {
             left: "0",
           }}
         >
-          <Link to={"/DestinoP"}>
+          <Link to={"/"}>
             <img
               src={logo}
               alt="logo"
@@ -62,10 +71,10 @@ const Navmenu = () => {
             style={{ justifyContent: "center" }}
           >
             <Nav className={color ? "navLink font-sm" : "navLink"}>
-              <Nav.Link as={NavLink} to={"/DestinoP"} onClick={closeMenu}>
+              <Nav.Link as={NavLink} to={"/"} onClick={closeMenu}>
                 Home
               </Nav.Link>
-              <Nav.Link as={NavLink} to={"/servicios"} onClick={closeMenu}>
+              <Nav.Link as={NavLink} to={"/servicios"} onClick={()=> setClick(false)}>
                 Servicios
               </Nav.Link>
               <Nav.Link as={NavLink} to={"/blog"}>

@@ -8,7 +8,6 @@ export const getExcDetails = async () => {
     const { msg } = await resp.json();
     
     const data = msg.map ( item => ( {
-       
         nombre: item.nombre,
         descripcion: item.descripcion,        
         precio: item.precio,

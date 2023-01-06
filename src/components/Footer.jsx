@@ -37,7 +37,7 @@ const Footer = () => {
               className="col"
               style={{ width: "15.625rem", padding: "0.5rem" }}
             >
-              <Link to={"/DestinoP"}>
+              <Link to={"/"}>
                 <img style={{ height: "9.375rem" }} src={logo} alt="logo" />
               </Link>
             </div>
@@ -86,7 +86,7 @@ const Footer = () => {
               <div className="menuContainer_main">
                 <ul className="menuContainer">
                   <li>
-                    <Link to={"/DestinoP"}>HOME</Link>
+                    <Link to={"/"}>HOME</Link>
                   </li>
                   <li>
                     <Link to={"/servicios"}>SERVICIOS</Link>{" "}
