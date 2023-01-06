@@ -5,9 +5,22 @@ import NavIcons from "./NavIcons";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import CartWidget from "./CartWidget";
+import getMenu from "../helpers/getMenu";
 
-const Navmenu = () => {
+const Navmenu = ({language}) => {
   const [click, setClick] = useState(false);
+
+  const [menu, setMenu] = useState([]);
+
+  useEffect(() => {
+    const menues = getMenu();
+    const languageMenu = menues.find((m) => m.nombre == language);
+
+    if (languageMenu) {
+      const tags = languageMenu.etiquetas.filter((e) => e.seccion == "Menu");
+      setMenu(tags);
+    }
+  }, []);
 
   const handleClick = () => setClick(!click);
 
@@ -60,26 +73,30 @@ const Navmenu = () => {
             style={{ justifyContent: "center" }}
           >
             <Nav className={color ? "navLink font-sm" : "navLink"}>
-              <Nav.Link as={NavLink} to={"/DestinoP"} onClick={closeMenu}>
-                Home
-              </Nav.Link>
-              <Nav.Link as={NavLink} to={"/servicios"} onClick={closeMenu}>
-                Servicios
-              </Nav.Link>
-              <Nav.Link as={NavLink} to={"/blog"}>
-                Blog
-              </Nav.Link>
-              <Nav.Link as={NavLink} to={"/nosotros"}>
-                Nosotros
-              </Nav.Link>
+              { menu.length > 0 &&
+                <>
+                  <Nav.Link as={NavLink} to={"/DestinoP"} onClick={closeMenu}>
+                    {menu[0].palabra}
+                  </Nav.Link>
+                  <Nav.Link as={NavLink} to={"/servicios"} onClick={closeMenu}>
+                    {menu[1].palabra}
+                  </Nav.Link>
+                  <Nav.Link as={NavLink} to={"/blog"}>
+                    {menu[2].palabra}
+                  </Nav.Link>
+                  <Nav.Link as={NavLink} to={"/nosotros"}>
+                    {menu[3].palabra}
+                  </Nav.Link>
 
-              <Nav.Link as={NavLink} to={"/contacto"}>
-                Contacto
-              </Nav.Link>
+                  <Nav.Link as={NavLink} to={"/contacto"}>
+                    {menu[4].palabra}
+                  </Nav.Link>
 
-              <Nav.Link as={NavLink} to={"/galeria"}>
-                Galería
-              </Nav.Link>
+                  <Nav.Link as={NavLink} to={"/galeria"}>
+                    {menu[5].palabra}
+                  </Nav.Link>
+                </>
+              }
             </Nav>
 
             <NavIcons />
