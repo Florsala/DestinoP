@@ -41,7 +41,6 @@ const ItemDetail = ({ item }) => {
   };
 
   useEffect(() => {
-    console.log(addToCart, "agregado");
   }, [addToCart]);
 
   return (
@@ -130,7 +129,7 @@ const ItemDetail = ({ item }) => {
 
                 <div className="quantity-form_container">
                   <div className="quantity-form">
-                    <label for="quantity">Adultos</label>
+                    <label htmlFor="quantity">Adultos</label>
                     <input
                       type="number"
                       id="quantity"
@@ -141,7 +140,7 @@ const ItemDetail = ({ item }) => {
                   </div>
 
                   <div className="quantity-form">
-                    <label for="quantity">Menores</label>
+                    <label htmlFor="quantity">Menores</label>
                     <input
                       type="number"
                       id="quantity"
@@ -182,7 +181,7 @@ const ItemDetail = ({ item }) => {
                   <p>${addTotal()}</p>
                 </div>
 
-                {
+               {/*  {
                   !addToCart && (
                     <div>
                       <ItemCount
@@ -235,7 +234,7 @@ const ItemDetail = ({ item }) => {
                       </Link>
                     </div>
                   </div>
-                )}
+                )} */}
               </div>
             </Container>
           </Col>

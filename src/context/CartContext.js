@@ -11,7 +11,6 @@ const CartProvider = ({children}) =>{
     
 
 useEffect(() => {
-    console.log('products', cart);
     
 }, [cart])
 

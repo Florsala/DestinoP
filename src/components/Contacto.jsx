@@ -5,35 +5,21 @@ import "../styles/Contacto.css";
 import logo2 from "../assets/logo2.png";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { getContacto } from "../helpers/getContacto";
 
 const Contacto = () => {
 
-  const [error, setError] = useState(null);
-  const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [contacto, setContacto] = useState([]);
 
-
-useEffect(() => {
-  fetch("http://turismo.elemsoft.net/webapi/api/Contactos/GetList")
-  .then(res => res.json())
-  .then(
-    (result) => {
-      setLoading(true);
-      setItems(result);
-      
-
-  },
-  (error) => {
-    setLoading(true);
-    setError(error);
-
+  const getInfoContacto = async () => {
+    const newInfo = await getContacto();
+    setContacto(newInfo);
   }
-  )
-}, [])
-
-if(error){
-  return <div>ha surgido un error</div>
-}  else {
+  
+  useEffect(()=>{
+    getInfoContacto()
+    console.log(contacto);
+  },[])
 
 
   return (
@@ -65,9 +51,9 @@ if(error){
             }}
           >
             <li>CONTACTO:</li>
-            <li>{items.domicilio}</li>
-            <li>Teléfono:{items.telefono}</li>
-            <li>{items.email}</li>
+            <li>{contacto.domicilio}</li>
+            <li>Teléfono:{contacto.telefono}</li>
+            <li>{contacto.email}</li>
           </ul>
         </div>
 
@@ -113,6 +99,5 @@ if(error){
     
     </div>
   );
-};
 };
 export default Contacto;

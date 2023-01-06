@@ -4,7 +4,6 @@ import { GrFacebookOption } from "react-icons/gr";
 import { GrInstagram } from "react-icons/gr";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
-import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 
 const NavIcons = () => {
@@ -32,15 +31,13 @@ const NavIcons = () => {
             }}
           >
             <Form.Select style={{cursor:'pointer'}} size="sm" aria-label="Default select example">
-              <option value="1">Español</option>
-              <option value="2">Inglés</option>
+              <option value="es">Español</option>
+              <option value="en">Inglés</option>
             </Form.Select>
           </Form.Group>
         </li>
 
-        {/*   <li className="nav-item" style={{ fontSize: "1.8rem" }}>
-            <BiSearchAlt2 />
-          </li> */}
+      
         <li className={color ? "nav-item font-md" : "nav-item"}>
           <GrFacebookOption />
         </li>
