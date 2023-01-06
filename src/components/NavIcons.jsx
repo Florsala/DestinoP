@@ -5,8 +5,13 @@ import { GrInstagram } from "react-icons/gr";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import Form from "react-bootstrap/Form";
+import { useFetchIdiomas } from "../hooks/useFetchIdiomas";
 
 const NavIcons = () => {
+
+  const { idiomas} = useFetchIdiomas();
+
+
   const [color, setColor] = useState(false);
   const changeColor = () => {
     if (window.scrollY >= 6.25) {
@@ -31,8 +36,12 @@ const NavIcons = () => {
             }}
           >
             <Form.Select style={{cursor:'pointer'}} size="sm" aria-label="Default select example">
-              <option value="es">Español</option>
-              <option value="en">Inglés</option>
+            {idiomas.map((lang) => (
+                <option value={lang.id} key={lang.id}>
+                    {lang.nombre}
+                </option>
+              ))}
+              
             </Form.Select>
           </Form.Group>
         </li>

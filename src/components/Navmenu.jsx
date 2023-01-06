@@ -5,6 +5,8 @@ import NavIcons from "./NavIcons";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import CartWidget from "./CartWidget";
+//import getMenu from "../helpers/getIdiomas";
+
 
 const Navmenu = () => {
   const [click, setClick] = useState(false);
