@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import ballena from "../assets/ballena.jpg";
-import paisaje from "../assets/paisaje.jpg";
-import harberton from "../assets/harberton.jpg";
+import { getGaleria } from "../helpers/getGaleria";
 
 
 const SliderHome = () => {
+
+
+
   const settings = {
     dots: true,
     infinite: true,
@@ -22,18 +23,30 @@ const SliderHome = () => {
     cssEase: "linear",
   };
 
+  const [galeria, setGaleria] = useState([]);
+
+  const getInfoGaleria = async () => {
+    const newInfo = await getGaleria();
+    setGaleria(newInfo);
+  };
+
+  useEffect(() => {
+    getInfoGaleria();
+  }, []);
+
   return (
     <div>
       <Slider {...settings}>
-        <div>
+      {galeria.map((items,index) => (
+        <div key={index}>
           <img
             style={{ width: "100%", height: "80vh", objectFit: "cover" }}
-            src={ballena}
-            alt="ballena"
+            src={items.img}
+            alt=""
           />
         </div>
 
-        <div>
+       /*  <div>
           <img
             style={{ width: "100%", height: "80vh", objectFit: "cover" }}
             src={ballena}
@@ -53,7 +66,8 @@ const SliderHome = () => {
             src={paisaje}
             alt="ballena"
           />
-        </div>
+        </div> */
+      ))}
       </Slider>
     </div>
   );

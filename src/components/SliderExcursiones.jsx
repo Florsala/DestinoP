@@ -6,22 +6,23 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { Spinner } from "react-bootstrap";
 
-const SliderExcursiones = ({ excursiones, loading }) => {
+const SliderExcursiones = ( { excursiones, loading } ) => {
+
+
   
-  const settings = {
+   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 1,
+    slidesToShow: 3,
+    slidesToScroll: 2,
     autoplay: true,
     autoplaySpeed: 2000,
     pauseOnHover: true,
-  };
+  }; 
 
   return (
     <div>
       <div>
-        {" "}
         <div
           xs={1}
           md={3}
@@ -32,7 +33,7 @@ const SliderExcursiones = ({ excursiones, loading }) => {
 
           <Slider {...settings}>
             {excursiones.map((items) => (
-              <Link key={items.nombre} /* to={`/servicios/${items.id}`} */>
+              <Link key={items.id}  to={`/servicios/${items.id}`} >
                 <div>
                   <Card className="card-svs">
                     <Card.Img

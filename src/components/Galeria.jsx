@@ -6,6 +6,7 @@ import "../styles/Medias.css";
 
 
 const Galeria = () => {
+  
   const [model, setModel] = useState(false);
   const [picImage, setPicImage] = useState("");
 

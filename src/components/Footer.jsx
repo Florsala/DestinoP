@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import '../styles/Footer.css'
 import { Link } from "react-router-dom";
 
-import olas from "../assets/olas2.png";
+//import olas from "../assets/olas2.png";
 import logo from "../assets/logo.png";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { GrFacebookOption } from "react-icons/gr";
@@ -10,26 +10,29 @@ import { GrInstagram } from "react-icons/gr";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import Escudos from "./Escudos";
+import { getContacto } from "../helpers/getContacto";
 
 const Footer = () => {
+
+  const [contacto, setContacto] = useState([]);
+
+  const getInfoContacto = async () => {
+    const newInfo = await getContacto();
+    setContacto(newInfo);
+    console.log(contacto, 'contacto');
+  }
+  
+  useEffect(()=>{
+    getInfoContacto()
+    
+  },[])
+
   return (
     <div>
       <Escudos />
 
       <div >
-        {/* <img
-          style={{
-            width: "100%",
-            height: "20rem",
-            left: "0",
-            position:'relative',
-            objectFit: "contain",
-            transform: "translateY(7.9375rem)",
-            paddingTop: "0rem",
-          }}
-          src={olas}
-          alt=""
-        /> */}
+     
 
         <div className="footerContainer ">
           <div className="footerContainer_in row">
@@ -52,8 +55,8 @@ const Footer = () => {
               }}
             >
               <li>CONTACTO:</li>
-              <li>AV. PREFECTURA NAVAL 270, USHUAIA</li>
-              <li>+54 9 2901 581262</li>
+              <li>{contacto.domicilio}</li>
+              <li>{contacto.telefono}</li>
               <li>INFO@DESTINOPATAGONIA.COM</li>
               <li>
                 <ul className="IconsContainer">

@@ -1,13 +1,14 @@
 
 export const getExcDetails = async () => {
 
-    const url = "http://destinopatagonia.elemsoft.net/webapi//api/Excursiones/GetListDetalles?excursionId=119&idiomaId=1";
+    const url = "http://destinopatagonia.elemsoft.net/webapi//api/Excursiones/GetListDetalles?excursionId=5&idiomaId=1";
     
     const resp = await fetch (url);
     
     const { msg } = await resp.json();
     
     const data = msg.map ( item => ( {
+        id: item.id,
         nombre: item.nombre,
         descripcion: item.descripcion,        
         precio: item.precio,

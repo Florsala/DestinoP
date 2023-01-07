@@ -32,7 +32,7 @@ const SliderDestacadas = ({ excDest, loading }) => {
 
           <Slider {...settings}>
             {excDest.map((items) => (
-              <Link key={items.nombre} /* to={`/servicios/${items.id}`} */>
+              <Link key={items.nombre}  to={`/servicios/${items.id}`} >
                 <div>
                   <Card className="card-svs">
                     <Card.Img

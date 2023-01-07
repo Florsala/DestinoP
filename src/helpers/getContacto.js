@@ -9,6 +9,8 @@ export const getContacto = async () => {
     const data = msg.map ( item => ( {
 
         domicilio: item.domicilio,
+        telefono: item.telefono,
+        email: item.email
         
     }))
     return data;

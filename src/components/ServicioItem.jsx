@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Slider from "react-slick";
 
@@ -10,7 +9,7 @@ import { useFetchDestacadas } from "../hooks/useFetchDestacadas";
 const settings = {
   dots: true,
   infinite: true,
-  slidesToShow: 2,
+  slidesToShow: 3,
   slidesToScroll: 1,
   autoplay: true,
   speed: 2000,
