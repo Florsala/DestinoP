@@ -13,7 +13,7 @@ const Nosotros = () => {
   useEffect(() => {
     const getDataNos = async () => {
       const data = await fetch(
-        "http://turismo.elemsoft.net/webapi/api/Nosotros/GetList"
+        "http://destinopatagonia.elemsoft.net/webapi/api/Nosotros/GetList"
       );
       const DataNos = await data.json();
 

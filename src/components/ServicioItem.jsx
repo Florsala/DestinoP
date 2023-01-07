@@ -33,7 +33,7 @@ const ServicioItem = () => {
 
         <Slider {...settings}>
           {excDest.map((items) => (
-            <Link to={`/servicios/${items.nombre}`} key={items.nombre}>
+            <Link to={`/servicios/${items.id}`} key={items.id}>
               <div>
                 <Card className="card-svs">
                   <Card.Img
