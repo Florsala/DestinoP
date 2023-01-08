@@ -3,15 +3,17 @@ import "../styles/Header.css";
 import "../styles/Hero.css";
 
 import wsp from "../assets/whatsapp.svg";
-import SliderExcursiones from "./SliderExcursiones";
-import { useFetchExcursiones } from "../hooks/useFetchExcursiones";
+//import SliderExcursiones from "./SliderExcursiones";
+//import { useFetchExcursiones } from "../hooks/useFetchExcursiones";
+import { useFetchDestacadas } from "../hooks/useFetchDestacadas";
+import SliderDestacadas from "./SliderDestacadas";
 
 
 const Header = () => {
-/*   const { excDest, loading } = useFetchDestacadas();
+   const { excDest, loading } = useFetchDestacadas();
+ 
+/* const { excursiones, loading } = useFetchExcursiones();
  */
-const { excursiones, loading } = useFetchExcursiones();
-
   return (
     <>
       <div className="hero">
@@ -47,13 +49,13 @@ const { excursiones, loading } = useFetchExcursiones();
         </h2>
       </div>
 
-    {/*   <div>
+     <div>
         <SliderDestacadas excDest={excDest} loading={loading}/>
-      </div> */}
-
+      </div>
+{/* 
       <div>
         <SliderExcursiones excursiones={excursiones} loading={loading} />
-      </div>
+      </div> */}
     </>
   );
   /* } */

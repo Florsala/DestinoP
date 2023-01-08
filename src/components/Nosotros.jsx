@@ -3,24 +3,22 @@ import "../styles/Nosotros.css";
 import "../styles/Medias.css";
 import logo from "../assets/logo.png";
 import Section from "./Section";
+import { getNosotros } from "../helpers/getNosotros";
 
 const Nosotros = () => {
-  /*   const [error, setError] = useState(null);
-   */ const [items, setItems] = useState([]);
-  /*   const [loading, setLoading] = useState(false);
-   */
 
-  useEffect(() => {
-    const getDataNos = async () => {
-      const data = await fetch(
-        "http://destinopatagonia.elemsoft.net/webapi/api/Nosotros/GetList"
-      );
-      const DataNos = await data.json();
+  const [nosotros, setNosotros] = useState([]);
 
-      setItems(DataNos);
-    };
-    getDataNos();
-  }, []);
+  const getInfoNosotros = async () => {
+    const newInfo = await getNosotros();
+    setNosotros(newInfo);
+        console.log(nosotros, 'nosotros');
+
+  }
+  
+  useEffect(()=>{
+    getInfoNosotros()
+  },[])
 
   return (
     <div>
@@ -40,36 +38,23 @@ const Nosotros = () => {
         </div>
       </div>
 
-      {/*  <div>
-        <img
-          className="headerImg_Nos"
-          src={
-            "https://destinopatagonia.com//wp-content/uploads/2021/10/2021-0626-DJI_0746-lrexport-1.jpg"
-          }
-          alt=""
-        />
-        <img className="headerImg2_Nos" src={monta} alt="mount" />
-
-        <div className="headerLogo">
-          <img style={{ height: "16rem" }} src={logo} alt="" />
-        </div>
-      </div> */}
+   
 
       <div>
         <div className="containerNos container-md">
           <h2>DESTINO PATAGONIA</h2>
           <p className="containerNos_text">
-            {/*  {items.msg[0].about} */}
-            Somos una empresa fueguina, especializada en experiencias marítimas
+            {nosotros.about}
+        {/*     Somos una empresa fueguina, especializada en experiencias marítimas
             con conocimiento de las aguas más australes del mundo como lo es el
-            Canal Beagle.
+            Canal Beagle. */}
           </p>
         </div>
 
         <div className="containerNos_vision container-xl">
           <div className="containerNos_vision_a">
-            <h5>Nuestra Visión & Valores</h5>
-            <p>
+            <h5>{nosotros.mision}</h5>
+            {/* <p>
               Poseemos una embarcación acogedora que nos permite ofrecer una
               atención personalizada para que cada persona que viaja con Destino
               Patagonia pueda vivir de cerca y de una manera única lo que es
@@ -78,12 +63,12 @@ const Nosotros = () => {
               total confianza a la hora de elegirnos. Nuestra misión es ser una
               empresa de navegación elegida nacional e internacionalmente, por
               la calidad de sus servicios.{" "}
-            </p>
+            </p> */}
           </div>
           <div className="containerNos_vision_b">
-            <h5>DISFRUTÁ DE UNA EXPERIENCIA QUE NO OLVIDARÁS JAMÁS</h5>
+            <h5>{nosotros.vision}</h5>
 
-            <ul>
+            {/* <ul>
               <li>
                 Trabajamos para que su experiencia de viajar con nosotros sea
                 inolvidable.
@@ -96,7 +81,7 @@ const Nosotros = () => {
                 Calidad, responsabilidad y eficiencia son los pilares de nuestra
                 empresa.
               </li>
-            </ul>
+            </ul> */}
           </div>
         </div>
       </div>

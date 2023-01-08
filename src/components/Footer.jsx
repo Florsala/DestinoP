@@ -1,39 +1,30 @@
 import React, { useEffect, useState } from "react";
-import '../styles/Footer.css'
+import "../styles/Footer.css";
 import { Link } from "react-router-dom";
 
-//import olas from "../assets/olas2.png";
 import logo from "../assets/logo.png";
-import { BiSearchAlt2 } from "react-icons/bi";
-import { GrFacebookOption } from "react-icons/gr";
-import { GrInstagram } from "react-icons/gr";
-import { FaWhatsapp } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
+
 import Escudos from "./Escudos";
 import { getContacto } from "../helpers/getContacto";
+import IconsContainer from "./IconsContainer";
 
 const Footer = () => {
-
   const [contacto, setContacto] = useState([]);
 
   const getInfoContacto = async () => {
     const newInfo = await getContacto();
     setContacto(newInfo);
-    console.log(contacto, 'contacto');
-  }
-  
-  useEffect(()=>{
-    getInfoContacto()
-    
-  },[])
+  };
+
+  useEffect(() => {
+    getInfoContacto();
+  }, []);
 
   return (
     <div>
       <Escudos />
 
-      <div >
-     
-
+      <div>
         <div className="footerContainer ">
           <div className="footerContainer_in row">
             <div
@@ -57,27 +48,14 @@ const Footer = () => {
               <li>CONTACTO:</li>
               <li>{contacto.domicilio}</li>
               <li>{contacto.telefono}</li>
-              <li>INFO@DESTINOPATAGONIA.COM</li>
+              <li>{contacto.email}</li>
               <li>
-                <ul className="IconsContainer">
-                  <li>
-                    <GrFacebookOption />
-                  </li>
-                  <li>
-                    <GrInstagram />
-                  </li>
-                  <li>
-                    <FaWhatsapp />
-                  </li>
-                  <li>
-                    <FaLinkedinIn />
-                  </li>
-                </ul>
+                <IconsContainer contacto={contacto} />
               </li>
             </ul>
 
             <div
-            className="col"
+              className="col"
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -94,16 +72,16 @@ const Footer = () => {
                   <li>
                     <Link to={"/servicios"}>SERVICIOS</Link>{" "}
                   </li>
-                  <li>BLOG</li>
+                  <li>
+                    <Link to={"/blog"}>BLOG</Link>
+                  </li>
                 </ul>
                 <ul className="menuContainer">
                   <li>
-                    {" "}
                     <Link to={"/nosotros"}>NOSOTROS</Link>{" "}
                   </li>
-                  <li>GALERIA</li>
-                  <li style={{ fontSize: "1.8rem" }}>
-                    <BiSearchAlt2 />
+                  <li>
+                    <Link to={"/galeria"}>GALERIA</Link>{" "}
                   </li>
                 </ul>
               </div>

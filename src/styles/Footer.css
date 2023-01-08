@@ -44,6 +44,17 @@
 .IconsContainer li {
   padding: 0.5rem;
 }
+
+
+.IconsContainer li:hover{
+  transform: scale(1.1);
+}
+
+.IconsContainer li a:hover{
+  color:#bac9db;
+ 
+}
+
 .menuContainer_main {
   display: flex;
   justify-content: space-evenly;
@@ -56,4 +67,9 @@
   flex-direction: column;
   font-size: 0.9rem;
   font-weight: 500;
+
+}
+
+.menuContainer li a:hover{
+  color:#bac9db;
 }

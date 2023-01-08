@@ -21,7 +21,6 @@ import ItemDetailTime from "./ItemDetailTime";
 import { useFetchDestacadas } from "../hooks/useFetchDestacadas";
 
 const ItemDetail = ({ item }) => {
-
   const { excDest, loading } = useFetchDestacadas();
 
   const [selectedDate, setSelectedDate] = useState(null);
@@ -40,64 +39,38 @@ const ItemDetail = ({ item }) => {
     addTotal();
   };
 
-  useEffect(() => {
-  }, [addToCart]);
+  useEffect(() => {}, [addToCart]);
 
   return (
     <div>
       <Container style={{ marginTop: "10rem" }}>
         <div className="display-grid">
           <div className="container-md container-grid-img">
-            <img className="span-3" src={item[0].img} alt="" />
-
-            <img src={item[0].img} alt="" />
-            <img src={item[0].img} alt="" />
-            <img src={item[0].img} alt="" />
-            <img src={item[0].img} alt="" />
-            <img src={item[0].img} alt="" />
-            <img src={item[0].img} alt="" />
+            {item.imagenes.map((img, index) => (
+              <img key={index} src={img.path} alt="" />
+            ))}
           </div>
 
           <Col>
             <div className="itemContainer">
-              <h1> {item[0].nombre}</h1>
-              <p>${item[0].precio}ARS</p>
+              <h1> {item.nombre}</h1>
+              <p>${item.precio}ARS</p>
             </div>
 
-            <Container>
-              <div>
-                <div>
-                  <p>Temporada: </p>
-                </div>
-
-             {/*    <div>
-                  <p>Lugar y salida:</p>
-                </div> */}
-
-                <div>
-                  <p>Idioma:</p>
-                </div>
-              </div>
-
-              <div>
-                <div className="cont_details">
-                  <h6>{item[0].duracion}: </h6>
-                  <p>{item[0].duracion_d}</p>
-                </div>
-
-                <div className="cont_details">
-                  <h6>{item[0].dificultad}:</h6>
-                  <p>{item[0].dificultad_d}</p>
-                </div>
-
-                <div className="cont_details">
-                  <h6>Observación:</h6>
-                </div>
-              </div>
+            <Container>             
+                {item.caracteristicas.map((car, index) => (
+                  <div className="cont_details" key={index}>
+                    <h6>{car.nombre}:</h6>
+                    <p>{car.detalle}</p>
+                  </div>
+                ))}            
             </Container>
+
+
             <Container>
               <div className="container-sm">
-                <h5 className="text-uppercase font-h5">Reservar excursión</h5>
+                <h5 className="text-uppercase font-h5">
+                  Reservar excursión</h5>
               </div>
 
               <div className="form-reservation">
@@ -181,7 +154,7 @@ const ItemDetail = ({ item }) => {
                   <p>${addTotal()}</p>
                 </div>
 
-               {/*  {
+                {/*  {
                   !addToCart && (
                     <div>
                       <ItemCount
@@ -242,11 +215,13 @@ const ItemDetail = ({ item }) => {
 
         <Container className="text-justify">
           <h2>Descripción</h2>
-          <p style={{ lineHeight: "1.75rem" }}> {item[0].descripcion}</p>
+          <p style={{ lineHeight: "1.75rem" }}> 
+          
+          {item.descripcion}</p> 
         </Container>
       </Container>
 
-      <SliderDestSvs excDest={excDest} loading={loading}/>
+      <SliderDestSvs excDest={excDest} loading={loading} />
     </div>
   );
 };

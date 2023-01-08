@@ -5,14 +5,10 @@ export const getContacto = async () => {
     const resp = await fetch (url);
     
     const { msg } = await resp.json();
-    
-    const data = msg.map ( item => ( {
 
-        domicilio: item.domicilio,
-        telefono: item.telefono,
-        email: item.email
-        
-    }))
+    const data = msg[0];
+
+
     return data;
       
     }

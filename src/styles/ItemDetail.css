@@ -5,7 +5,11 @@ text-transform: uppercase;
 .cont_details{
   display: inline-flex;
     align-items: baseline;
-    gap: 0.5rem;
+    gap: 1.3rem;
+}
+
+.cont_details h6{
+  font-weight:bold;
 }
 
 .text-justify {
@@ -24,6 +28,11 @@ text-transform: uppercase;
   /*  grid-auto-rows: 380px; */
   width: 31.25rem;
   gap: 0.8rem;
+}
+
+.container-grid-img img:first-child{
+  grid-column: span 3;
+
 }
 
 .container-grid-img img {

@@ -18,7 +18,6 @@ const Contacto = () => {
   
   useEffect(()=>{
     getInfoContacto()
-    console.log(contacto);
   },[])
 
 
@@ -52,7 +51,7 @@ const Contacto = () => {
           >
             <li>CONTACTO:</li>
             <li>{contacto.domicilio}</li>
-            <li>Teléfono:{contacto.telefono}</li>
+            <li>{contacto.telefono}</li>
             <li>{contacto.email}</li>
           </ul>
         </div>

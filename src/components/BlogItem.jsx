@@ -12,7 +12,6 @@ const data = await fetch(`http://destinopatagonia.elemsoft.net/webapi/api/Blog/G
 const blogItem = await data.json() 
 
       setItems(blogItem);
-console.log(blogItem);
 
 
   }

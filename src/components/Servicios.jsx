@@ -5,8 +5,16 @@ import { Container } from "react-bootstrap";
 
 import ServicioItem from "./ServicioItem";
 import ServiciosSearch from "./ServiciosSearch";
+import { useFetchExcursiones } from "../hooks/useFetchExcursiones";
+import SliderExcursiones from "./SliderExcursiones";
+import SliderDestacadas from "./SliderDestacadas";
+import { useFetchDestacadas } from "../hooks/useFetchDestacadas";
 
 const Servicios = () => {
+
+  const { excursiones } = useFetchExcursiones();
+  const { excDest, loading } = useFetchDestacadas();
+
   return (
     <div>
       <div className="hero_svs">
@@ -49,8 +57,17 @@ const Servicios = () => {
         <h4 style={{ fontSize: "2rem" }}>Excursiones destacadas</h4>
       </Container>
 
-      <ServicioItem />
-      <ServiciosSearch/>
+{/*       <ServicioItem />
+ */}      
+   <div>
+        <SliderDestacadas excDest={excDest} loading={loading}/>
+      </div>
+      
+            <ServiciosSearch/>
+
+      <div>
+        <SliderExcursiones excursiones={excursiones} loading={loading} />
+      </div> 
 
       
     </div>
