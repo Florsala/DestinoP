@@ -1,7 +1,7 @@
 
-export const getExcDetails = async () => {
+export const getExcDetails = async ({id}) => {
 
-    const url = "http://destinopatagonia.elemsoft.net/webapi/api/Excursiones/GetListDetalles?excursionId=5&idiomaId=1";
+    const url = `http://destinopatagonia.elemsoft.net/webapi/api/Excursiones/GetListDetalles?excursionId=${id}&idiomaId=1`;
     
     const resp = await fetch (url);
     
