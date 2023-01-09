@@ -43,8 +43,11 @@ const Nosotros = () => {
       <div>
         <div className="containerNos container-md">
           <h2>DESTINO PATAGONIA</h2>
-          <p className="containerNos_text">
-            {nosotros.about }
+          <p className="containerNos_text"
+          dangerouslySetInnerHTML ={{__html: nosotros.about}}
+          >
+            
+           {/*  {nosotros.about } */}
         {/*     Somos una empresa fueguina, especializada en experiencias marítimas
             con conocimiento de las aguas más australes del mundo como lo es el
             Canal Beagle. */}
