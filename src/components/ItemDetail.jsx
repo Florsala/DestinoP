@@ -57,7 +57,7 @@ const ItemDetail = ({ item }) => {
               <p>${item.precio}ARS</p>
             </div>
 
-            <Container>             
+            <Container className="cont_details_main">             
                 {item.caracteristicas.map((car, index) => (
                   <div className="cont_details" key={index}>
                     <h6>{car.nombre}:</h6>
@@ -214,7 +214,7 @@ const ItemDetail = ({ item }) => {
         </div>
 
         <Container className="text-justify">
-          <h2>Descripción</h2>
+          <h2 style={{textAlign:'center'}}>Descripción</h2>
           <p style={{ lineHeight: "1.75rem" }}> 
           
           {item.descripcion}</p> 
