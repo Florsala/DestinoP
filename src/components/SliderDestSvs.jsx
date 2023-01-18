@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Slider from "react-slick";
 import Card from "react-bootstrap/Card";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { Button, Spinner } from "react-bootstrap";
 
 
 const SliderDestSvs = ({ excDest, loading }) => {
+
+ 
+
+
   const settings = {
     dots: true,
     infinite: true,
@@ -30,9 +34,9 @@ const SliderDestSvs = ({ excDest, loading }) => {
 {loading && <Spinner />}
 
           <Slider {...settings}>
-            {excDest.map((items) => (
-              <Link key={items.nombre} to={`/servicios/${items.id}`} >
-                <div>
+            {excDest.map((items,index) => (
+              
+                <div key={index}>
                   <Card className="card-svs">
                     <Card.Img
                       variant="top"
@@ -57,14 +61,16 @@ const SliderDestSvs = ({ excDest, loading }) => {
                       </div>
 
                       <div>
+                      <Link key={items.nombre} to={`/servicios/${items.id}`} >
                         <Button className="btn_svs" variant="primary" size="lg">
                           + info
                         </Button>
+                        </Link>
                       </div>
                     </Card.Body>
                   </Card>
                 </div>
-              </Link>
+              
             ))}
           </Slider>
         </div>

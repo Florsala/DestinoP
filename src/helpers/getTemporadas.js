@@ -9,7 +9,7 @@ export const getTemporadas = async () => {
     
     const data = msg.map ( item => ( {
         
-        categoria: item.categoria,
+        temporada: item.temporada,
         
     }))
     return data;

@@ -49,7 +49,7 @@ function addItem (item) {
 
 const addTotal = () => {
 
-  return cart.reduce((quantity, value) => (quantity + (value.quantity*value.item.price)), 0)
+  return cart.reduce((quantity, value) => (quantity + (value.quantity*value.item.precio)), 0)
 }
 
 

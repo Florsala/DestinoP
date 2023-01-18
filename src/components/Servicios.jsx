@@ -65,9 +65,7 @@ const Servicios = () => {
       
             <ServiciosSearch/>
 
-      <div>
-        <SliderExcursiones excursiones={excursiones} loading={loading} />
-      </div> 
+      
 
       
     </div>

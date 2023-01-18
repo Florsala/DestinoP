@@ -9,9 +9,7 @@ export const getExcDetails = async ({id}) => {
 
     const data = msg[0];
     
-  
-    console.log(data, 'imagenes');
-    return data;
+      return data;
       
     }
     

@@ -101,7 +101,14 @@
 .card-body {
   display: flex;
   justify-content: space-between;
-  /*  flex-direction: row; */
+  gap: 1rem;
+}
+
+.container-ExcSearch{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 
@@ -165,4 +172,8 @@
   justify-content: center;
   align-items: center;
   gap: 0.2rem;
+}
+
+#quantity{
+  border-radius:4px;
 }

@@ -1,14 +1,14 @@
 import React from "react";
-import { Button, Container } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { AiOutlinePlusCircle } from 'react-icons/ai';
-import { AiOutlineMinusCircle } from 'react-icons/ai';
+
 
 
 
 
 const ItemCount = ({ Add, stock, counter, setCounter }) => {
-  const onAdd = () => {
+  
+/*   const onAdd = () => {
     if (counter < 10) {
       setCounter(counter + 1);
     }
@@ -18,13 +18,13 @@ const ItemCount = ({ Add, stock, counter, setCounter }) => {
     if (counter > 1) {
       setCounter(counter - 1);
     }
-  };
+  }; */
 
   return (
     <div className="buttonsBox">
       <div className="container-sm" style={{ display: "flex", justifyContent: 'center',
     alignItems: 'baseline' }}>
-        <Button
+       {/*  <Button
           variant="contained"
           size="x-small"
           className="button"
@@ -41,7 +41,7 @@ const ItemCount = ({ Add, stock, counter, setCounter }) => {
           onClick={onAdd}
         >
           <AiOutlinePlusCircle  style={{fontSize: '1.4rem'}}/>
-        </Button>
+        </Button> */}
       </div>
 
       <div className="container-sm" style={{

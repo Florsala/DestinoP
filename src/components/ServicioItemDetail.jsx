@@ -27,7 +27,7 @@ const getItemDetails = async () => {
 }
 useEffect(() => {
   getItemDetails();
-}, [])
+}, [id])
 
 
 
@@ -45,7 +45,7 @@ useEffect(() => {
     <>
 
 
-        <ItemDetail item={item}/> 
+        <ItemDetail item={item} id={id}/> 
       
     </>
   );

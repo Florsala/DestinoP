@@ -1,36 +1,53 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
+import { getTarifas } from '../helpers/getTarifas';
 
-const ItemDetailTime = () => {
+
+const ItemDetailTime = ({id,selectedDate}) => {
+  
+  const [time, setTime] = useState([]);
+
+  const getTarifaHora = async () => {
+      const newTime = await getTarifas({id,selectedDate});
+      setTime(newTime)
+  }
+
+  
+  useEffect(() =>{
+      getTarifaHora()
+  }, [])
+
     const [checked, setChecked] = useState(false);
-  const [radioValue, setRadioValue] = useState('1');
+  const [radioValue, setRadioValue] = useState(false);
 
-  const radios = [
-    { name: '09:00', value: '1' },
-    { name: '12:00', value: '2' },
-    { name: '15:00', value: '3' },
-  ];
+ 
+const setNewValue = (e) =>{
+  setRadioValue(e.currentTarget.value)
+  console.log(e.target.innerHTML, 'hora');
+}
 
+//console.log(time.horarios, 'hora');
 
   return (
     <div>
-         <ButtonGroup>
-        {radios.map((radio, idx) => (
+        <ButtonGroup>
+        {time.horarios && time.horarios.map((radio, idx) => (
           <ToggleButton
             key={idx}
             id={`radio-${idx}`}
             type="radio"
-            variant={idx % 2 ? 'outline-dark' : 'outline-dark'}
+            variant={idx % 2 ? 'outline-dark' : 'outline-dark'  }
             name="radio"
-            value={radio.value}
+            value={radio.hora}
             checked={radioValue === radio.value}
-            onChange={(e) => setRadioValue(e.currentTarget.value)}
+            onChange={setNewValue}
+            onClick={setNewValue}
           >
-            {radio.name}
+            {radio.hora}
           </ToggleButton>
         ))}
-      </ButtonGroup>
+      </ButtonGroup> 
     </div>
   )
 }

@@ -37,17 +37,17 @@ const Cart = () => {
                   <Card.Img
                     variant="top"
                     style={{ padding: "1rem", width: "10rem", height: "10rem" }}
-                    src={item.item.img}
+                    src={item.item.imagenes[1]}
                   />
-                  <Link to={`/servicios/${item.item.id}`}>
-                    <Card.Title>{item.item.title}</Card.Title>
+                  <Link /* to={`/servicios/${item.item.id}`} */>
+                    <Card.Title>{item.item.nombre}</Card.Title>
                   </Link>
                   {/*                 <Card.Text>Precio: {item.item.price} ARS</Card.Text>
                    */}{" "}
                   <Card.Text>Fecha y hora: </Card.Text>
                   <Card.Text>Pasajeros: {item.quantity}</Card.Text>
                   <Card.Text>
-                    Subtotal: ${item.item.price * item.quantity}
+                    Subtotal: ${item.item.precio * item.quantity}
                   </Card.Text>
                   <Button
                     onClick={() => {
@@ -56,7 +56,7 @@ const Cart = () => {
                     className="btn-supr"
                     variant="danger"
                   >
-                    {" "}
+                    
                     <MdDeleteOutline style={{ fontSize: "1.4rem" }} />
                   </Button>
                 </Card.Body>

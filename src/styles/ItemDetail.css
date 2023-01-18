@@ -37,7 +37,11 @@ text-transform: uppercase;
 
 .container-grid-img img:first-child{
   grid-column: span 3;
-  grid-row: span 2;
+
+}
+
+.container-grid-img video:first-child{
+  grid-column: span 3;
 
 }
 
@@ -96,21 +100,32 @@ text-transform: uppercase;
   display: flex;
   width: 100%;
   flex-direction: column;
+  margin-top: 2rem;
 }
 
 .time-form {
   display: flex;
   gap: 0.5rem;
   justify-content: space-around;
+  z-index: 0;
 }
 
 .time-form_container p{
   border-bottom: 2px dotted;
 }
+.container_tarifas{
+  max-width: max-content;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 0.6rem;
+    margin: 0 auto;
+}
+
 .quantity-form_container {
   display: flex;
   width: 100%;
   justify-content: space-around;
+  flex-direction: column;
 }
 
 .quantity-form {
@@ -123,3 +138,11 @@ input[type="number"] {
   text-align: center;
 }
 
+.react-datepicker__input-container input{
+  text-align: center;
+}
+
+#quantity{
+  max-width: min-content;
+    margin: 0 auto;
+}
