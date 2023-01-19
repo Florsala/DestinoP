@@ -55,7 +55,7 @@ const ItemCount = ({ Add, stock, counter, setCounter }) => {
       </Link>
       <Button
         className="btnAgregar"
-        variant="danger"
+        variant="success"
         size="medium"
         pb={3}
         onClick={() => {

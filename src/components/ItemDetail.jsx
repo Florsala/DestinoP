@@ -49,10 +49,6 @@ const videos = [
 
 
 
-
-
-
-
 const ItemDetail = ({ item, id }) => {
   const { excDest, loading } = useFetchDestacadas();
 

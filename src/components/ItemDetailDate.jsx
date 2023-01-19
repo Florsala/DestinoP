@@ -9,7 +9,7 @@ import { Spinner } from "react-bootstrap";
 import { GoCalendar } from "react-icons/go";
 import { GoClock } from "react-icons/go";
 import { format } from "date-fns";
-import Form from 'react-bootstrap/Form';
+import Form from "react-bootstrap/Form";
 
 import ItemDetailTime from "./ItemDetailTime";
 
@@ -20,44 +20,53 @@ const ItemDetailDate = ({ id, counter, setCounter }) => {
   const [price, setPrice] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const [select, setSelect] = useState(false)
+  const [select, setSelect] = useState(false);
+
+  const [cantidades, setCantidades] = useState({})
 
   const getTarifaHora = async () => {
     const newTarifa = await getTarifas({ id, selectedDate });
     setPrice(newTarifa);
     setLoading(false);
+
   };
 
   useEffect(() => {
+    /*    !!selectedDate && */
     getTarifaHora();
-  }, [id]);
+
+    
+  }, [selectedDate]);
 
   //console.log(price.tarifas, "tarifas");
   //console.log(format(selectedDate, 'dd/MM/yyyy') , "fecha");
 
   const changeDate = (date) => {
-    console.log( selectedDate);
-
     setSelectedDate(date);
-    console.log( selectedDate);
-    console.log(format(selectedDate, 'dd/MM/yyyy') , "fecha");
+    console.log(selectedDate);
   };
-  
 
   const handleInput = (e) => {
- 
     setCounter(e.target.value);
-    setSelect(true)
+    setSelect(true);
+
+    setCantidades(price.tarifas.reduce((result, tarifa) => {
+      result[tarifa.tipo] = 0
+      return result
+  }, {}))
+
+  
+  console.log(cantidades, "cantidades");
+
 
     let reserva = {
       tipo: e.target.ariaLabel,
       cantidad: e.target.value,
       precio: e.target.name,
-      subtotal: (e.target.name*e.target.value)
-    }
+      subtotal: e.target.name * e.target.value,
+    };
 
-    console.log(reserva, "reserva");
- 
+   // console.log(reserva, "reserva");
   };
 
   return (
@@ -88,27 +97,24 @@ const ItemDetailDate = ({ id, counter, setCounter }) => {
             price.tarifas.map((item, index) => (
               <div className="quantity-form_container" key={index}>
                 {item.tipo} ${item.importe}
-                
-               
-                <Form.Select size="sm" aria-label={item.tipo}
-                name={item.importe}
-                onChange={handleInput}>
-
-                  <option value="0" >0</option>
-                  <option value="1" >1</option>
-                  <option value="2" >2</option>
-                  <option value="3" >3</option>
-                  <option value="4" >4</option>
-                  <option value="5" >5</option>
-                  <option value="6" >6</option>
-                  <option value="7" >7</option>
-                  <option value="8" >8</option>
-                  <option value="9" >9</option>
-                  <option value="10" >10</option>
-
-                 
+                <Form.Select
+                  size="sm"
+                  aria-label={item.tipo}
+                  name={item.importe}
+                  onChange={handleInput}
+                >
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
                 </Form.Select>
-
                 {/* <div className="quantity-form">
                   <label htmlFor="quantity"> {item.tipo}</label>
                   <input

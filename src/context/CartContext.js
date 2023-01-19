@@ -32,10 +32,11 @@ function addItem (item) {
    let itemsList = [...cart]
     
   
-  if(itemsList.some(e => e.item.id === item.item.id)){
-    itemsList.find(e => e.item.id === item.item.id)    
+  if(itemsList.some(e => e.item.nombre === item.item.nombre)){
+    itemsList.find(e => e.item.nombre === item.item.nombre)    
      .quantity += item.quantity 
     setCart(itemsList) 
+    console.log(cart);
 
 
     

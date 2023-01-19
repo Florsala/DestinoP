@@ -1,6 +1,4 @@
 import React from "react";
-import Slider from "react-slick";
-
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
@@ -61,6 +59,7 @@ const SliderExcursiones = ( { excursiones, loading } ) => {
               </Link>
             ))}
           </div>
+
         </div>
       </div>
     </div>

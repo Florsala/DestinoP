@@ -6,7 +6,7 @@ export const getTarifas = async ({id, selectedDate}) => {
   const url =
   //`http://destinopatagonia.elemsoft.net/webapi/api/Reservas/GetListHorariosTarifasDisponibles?fecha=2022-09-20&excursionId=${id}`;
 
-   `http://destinopatagonia.elemsoft.net/webapi/api/Reservas/GetListHorariosTarifasDisponibles?fecha=${ format(selectedDate, 'dd/MM/yyyy')}&excursionId=${id}`;
+   `http://destinopatagonia.elemsoft.net/webapi/api/Reservas/GetListHorariosTarifasDisponibles?fecha=${ format(selectedDate, 'MM/dd/yyyy')}&excursionId=${id}`;
 
   const resp = await fetch(url);
 
