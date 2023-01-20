@@ -11,12 +11,12 @@ import ItemCount from "./ItemCount";
 import SliderDestSvs from "./SliderDestSvs";
 import { useFetchDestacadas } from "../hooks/useFetchDestacadas";
 import ItemDetailDate from "./ItemDetailDate";
-import pinguinos from "../assets/pinguinos.jpg";
-import harberton from "../assets/harberton.jpg";
-import videoP from "../assets/video-p.mp4";
+//import pinguinos from "../assets/pinguinos.jpg";
+//import harberton from "../assets/harberton.jpg";
+//import videoP from "../assets/video-p.mp4";
 
 
-const imagenes = [
+/* const imagenes = [
   {
     path: pinguinos,
   },
@@ -46,7 +46,7 @@ const imagenes = [
 const videos = [
    {path: videoP}
  ]
-
+ */
 
 
 const ItemDetail = ({ item, id }) => {
@@ -60,7 +60,7 @@ const ItemDetail = ({ item, id }) => {
 
   const [subtotal, setSubtotal] = useState(0)
 
-  const [selectedImg, setSelectedImg] = useState(imagenes[0].path)
+  const [selectedImg, setSelectedImg] = useState(item.imagenes[0].path)
 
   const Add = () => {
     setAddToCart(true);
@@ -88,7 +88,7 @@ const ItemDetail = ({ item, id }) => {
                 autoPlay={true}
               ></video>
             ))}  */}
-            {imagenes.map((img, index) => (
+            {item.imagenes.map((img, index) => (
               <img key={index} src={img.path} alt="" 
               onClick={()=> setSelectedImg(img.path)}
               />

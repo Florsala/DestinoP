@@ -3,10 +3,21 @@ import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { Spinner } from "react-bootstrap";
+import Slider from "react-slick";
 
 const SliderExcursiones = ( { excursiones, loading } ) => {
 
 
+  
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true,
+  }; 
   
   
 
@@ -21,7 +32,7 @@ const SliderExcursiones = ( { excursiones, loading } ) => {
         >
           {loading && <Spinner />}
 
-          <div className="container-ExcSearch">
+          <Slider {...settings}/*  className="container-ExcSearch" */>
             {excursiones.map((items) => (
               <Link key={items.id}  to={`/servicios/${items.id}`} >
                 
@@ -58,7 +69,7 @@ const SliderExcursiones = ( { excursiones, loading } ) => {
                 
               </Link>
             ))}
-          </div>
+          </Slider>
 
         </div>
       </div>
