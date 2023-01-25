@@ -1,15 +1,16 @@
 import React, { useContext, useState } from "react";
 import "../styles/Cart.css";
-import { Button, Card, Container } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import { MdDeleteOutline } from "react-icons/md";
 import { Link } from "react-router-dom";
 import cartContext from "../context/CartContext";
-import Form from "react-bootstrap/Form";
+import { CartForm } from "./CartForm";
+import Formulario from "./Formulario";
 
 const Cart = () => {
   let empty = "false";
 
-  const [conf, setConf] = useState(false);
+  //const [conf, setConf] = useState(false);
 
   const { cart, clearCart, removeItem, addTotal, total } =
     useContext(cartContext);
@@ -74,32 +75,12 @@ const Cart = () => {
           </Card>
         </div>
       </div>
-
-      <Form className="form-cart">
-        <Form.Group className="mb-3">
-          <Form.Control type="text" placeholder="Nombre y apellido" />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          {" "}
-          <Form.Control type="email" placeholder="Email" />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Control type="telephone" placeholder="Teléfono" />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-          <Form.Control as="textarea" rows={3} placeholder="Comentarios" />
-        </Form.Group>
-
-        <Button variant="primary" type="submit">
-          Confirmar reserva
-        </Button>
-      </Form>
-
+<Formulario/>
+{/*      <CartForm/>
+ */}
       <div className="CartButtons">
         <Button
+        variant="danger"
           onClick={() => {
             clearCart((empty = "true"));
           }}

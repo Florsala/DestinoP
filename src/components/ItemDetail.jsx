@@ -214,7 +214,8 @@ const ItemDetail = ({ item, id }) => {
 
         <Container className="text-justify">
           <h2 style={{ textAlign: "center" }}>Descripción</h2>
-          <p style={{ lineHeight: "1.75rem" }}>{item.descripcion}</p>
+          <p style={{ lineHeight: "1.4rem", marginTop: '1rem',
+    letterSpacing: '0.00rem' , whiteSpace:'pre-wrap' }}>{item.descripcion}</p>
         </Container>
       </Container>
       <div className="video"></div>

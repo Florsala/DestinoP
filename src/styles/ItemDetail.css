@@ -37,6 +37,7 @@ text-transform: uppercase;
 
 .container-grid-img img:first-child{
   grid-column: span 3;
+  grid-row: span 2;
 
 }
 

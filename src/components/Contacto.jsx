@@ -8,18 +8,18 @@ import Form from "react-bootstrap/Form";
 import { getContacto } from "../helpers/getContacto";
 
 const Contacto = () => {
-
   const [contacto, setContacto] = useState([]);
 
   const getInfoContacto = async () => {
     const newInfo = await getContacto();
     setContacto(newInfo);
-  }
-  
-  useEffect(()=>{
-    getInfoContacto()
-  },[])
+  };
 
+  useEffect(() => {
+    getInfoContacto();
+  }, []);
+
+  //console.log(contacto.domicilioMapa.replace('', '+'));
 
   return (
     <div>
@@ -32,9 +32,9 @@ const Contacto = () => {
           display: "flex",
           justifyContent: "center",
           flexWrap: "wrap",
-          margin: '0 auto',
-          gap:'1rem',
-          width: '75rem'
+          margin: "0 auto",
+          gap: "1rem",
+          width: "75rem",
         }}
       >
         <div style={{ width: "31.25rem", padding: "1rem", margin: "1rem" }}>
@@ -82,23 +82,24 @@ const Contacto = () => {
           </Form>
         </div>
 
-        <div style={{ display: "grid", placeContent: "center", marginBottom:'5rem' }}>
-        <Iframe
-        
-          url={contacto.domicilioMapa}
-          //url="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d4599.0574801462235!2d-68.31121407226286!3d-54.80582513767617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0xbc4c23206cffed97%3A0x8e62054b784cea34!2s25%20de%20Mayo%20217%2C%20V9410DFE%20Ushuaia%2C%20Tierra%20del%20Fuego!3m2!1d-54.805831399999995!2d-68.30683669999999!5e0!3m2!1ses-419!2sar!4v1672199290471!5m2!1ses-419!2sar"
-          width="1000px"
-          height="500px"
-          id=""
-          className="mapa"
-          display="block"
-          position="relative"
-        />
-        
+        <div
+          style={{
+            display: "grid",
+            placeContent: "center",
+            marginBottom: "5rem",
+          }}
+        >
+          <Iframe
+            url={`https://maps.google.com/maps?q=${contacto.domicilioMapa}&z=15&output=embed`}
+            width="1000px"
+            height="500px"
+            id=""
+            className="mapa"
+            display="block"
+            position="relative"
+          />
+        </div>
       </div>
-      </div>
-
-    
     </div>
   );
 };

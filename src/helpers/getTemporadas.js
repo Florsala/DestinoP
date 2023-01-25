@@ -10,6 +10,7 @@ export const getTemporadas = async () => {
     const data = msg.map ( item => ( {
         
         temporada: item.temporada,
+        id: item.id
         
     }))
     return data;

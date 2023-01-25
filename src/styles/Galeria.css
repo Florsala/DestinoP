@@ -103,7 +103,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #002568;
+    background-color: #002568db;
     transition: opacity .4s ease, visibility .4s ease, transform .5s ease-in-out;
     visibility: hidden;
     opacity: 0;

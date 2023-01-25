@@ -21,6 +21,7 @@ const NavIcons = () => {
     getInfoContacto()
   },[])
 
+
   const [color, setColor] = useState(false);
   const changeColor = () => {
     if (window.scrollY >= 6.25) {
@@ -68,28 +69,18 @@ const NavIcons = () => {
           </a>
         </li>
         <li className="nav-item">
-          <a href={contacto.whatsapp} target="_blank">
+          <a href={`https://wa.me/${contacto.whatsapp?.replace(/[^\w]/gi, '')} `}
+        target={"blank"}>
             <FaWhatsapp />
           </a>
         </li>
-        <li className="nav-item">
+      {/*   <li className="nav-item">
           <a href={contacto.linkedin} target="_blank">
             <FaLinkedinIn />
           </a>
-        </li>
-
-        {/* <li className={color ? "nav-item font-md" : "nav-item"}>
-          <GrFacebookOption />
-        </li>
-        <li className="nav-item">
-          <GrInstagram />
-        </li>
-        <li className="nav-item">
-          <FaWhatsapp />
-        </li>
-        <li className="nav-item">
-          <FaLinkedinIn />
         </li> */}
+
+     
       </ul>
     </div>
   );

@@ -19,15 +19,16 @@ const IconsContainer = ({contacto}) => {
                     </a>
                   </li>
                   <li>
-                    <a href={contacto.whatsapp} target='_blank'>
+                    <a href={`https://wa.me/${contacto.whatsapp?.replace(/[^\w]/gi, '')} `}
+        target={"blank"}>
                     <FaWhatsapp />
                     </a>
                   </li>
-                  <li>
+                  {/* <li>
                     <a href={contacto.linkedin} target='_blank'>
                     <FaLinkedinIn />
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
 
     </>

@@ -17,7 +17,9 @@ const ServiciosSearch = () => {
   const [excursiones, setExcursiones] = useState([]);
 
   const getExcursiones = async () => {
-    const url = `http://destinopatagonia.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=1&categoria=${categoria}&temporada=${temp}`;
+    //const url = `http://destinopatagonia.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=1&categoria=${categoria}&temporada=${temp}`;
+
+    const url = `http://destinopatagonia.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=1&temporada=null&categoria=${categoria}`;
 
     const resp = await fetch(url);
 
@@ -37,18 +39,24 @@ const ServiciosSearch = () => {
   };
 
   const getInfoExcursiones = async () => {
-    const newInfo = await getExcursiones(categoria, temp);
+    const newInfo = await getExcursiones();
     setExcursiones(newInfo);
     setLoading(false);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    getInfoExcursiones();
-    setCategoria(e.target.value);
-    setTemp(e.target.value);
+    //setCategoria(e.target.value);
 
-    console.log(excursiones);
+    //getInfoExcursiones();
+    console.log(excursiones, "estoy en handleSubmit");
+    //setTemp(e.target.value);
+  };
+
+  const getCategory = (e) => {
+    console.log(e.target.value, "estoy en getCategory");
+
+    setCategoria(e.target.value);
   };
 
   const getTemp = (e) => {
@@ -56,15 +64,9 @@ const ServiciosSearch = () => {
     setTemp(e.target.value);
   };
 
-  const getCategory = (e) => {
-    console.log(e.target.value);
-
-    setCategoria(e.target.value);
-  };
-
   useEffect(() => {
     getInfoExcursiones();
-  }, []);
+  }, [categoria]);
 
   return (
     <>
@@ -76,46 +78,49 @@ const ServiciosSearch = () => {
             justifyContent: "center",
             padding: "1rem",
             gap: "0.5rem",
-            flexDirection: 'column'
+            flexDirection: "column",
           }}
         >
-          <div style={{display:'flex', gap:'1rem'}}>
+          <div style={{ display: "flex", gap: "1rem" }}>
             <Form.Group style={{ width: "50%" }}>
-            <Form.Label style={{ fontWeight: "700" }}>Temporada</Form.Label>
-            <Form.Select
-              size="md"
-              aria-label="Default select example"
-              onChange={getTemp}
-            >
-              <option>Todas</option>
-              {temporada.map((temp, index) => (
-                <option value={temp.temporada} key={index}>
-                  {temp.temporada}
-                </option>
-              ))}
-            </Form.Select>
-          </Form.Group>
-          <Form.Group style={{ width: "50%" }}>
-            <Form.Label style={{ fontWeight: "700" }}>Categoría</Form.Label>
+              <Form.Label style={{ fontWeight: "700" }}>Temporada</Form.Label>
+              <Form.Select
+                size="md"
+                aria-label="Default select example"
+                onChange={getTemp}
+              >
+                {temporada.map((temp) => (
+                  <option value={temp.id} key={temp.id}>
+                    {temp.temporada}
+                  </option>
+                ))}
+              </Form.Select>
+            </Form.Group>
+            <Form.Group style={{ width: "50%" }}>
+              <Form.Label style={{ fontWeight: "700" }}>Categoría</Form.Label>
 
-            <Form.Select
-              size="md"
-              aria-label="Default select example"
-              onChange={getCategory}
-            >
-              <option>Todas</option>
-              {category.map((cat, index) => (
-                <option value={cat.categoria} key={index}>
-                  {cat.categoria}
-                </option>
-              ))}
-            </Form.Select>
-          </Form.Group>
+              <Form.Select
+                size="md"
+                aria-label="Default select example"
+                onChange={getCategory}
+              >
+                <option>Todas</option>
+                {category.map((cat) => (
+                  <option value={cat.id} key={cat.id}>
+                    {cat.categoria}
+                  </option>
+                ))}
+              </Form.Select>
+            </Form.Group>
           </div>
-          
 
           <div>
-            <Button style={{width:'100%'}} type="submit" className="btn-search" size="md">
+            <Button
+              style={{ width: "100%" }}
+              type="submit"
+              className="btn-search"
+              size="md"
+            >
               Buscar
               <MdDoubleArrow style={{ margin: "0.2rem" }} />
             </Button>
@@ -123,7 +128,9 @@ const ServiciosSearch = () => {
         </form>
       </div>
 
-      <SliderExcursionesSearch excursiones={excursiones} loading={loading} />
+      {excursiones && (
+        <SliderExcursionesSearch excursiones={excursiones} loading={loading} />
+      )}
     </>
   );
 };

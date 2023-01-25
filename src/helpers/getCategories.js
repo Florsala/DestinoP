@@ -10,8 +10,10 @@ export const getCategories = async () => {
     const data = msg.map ( item => ( {
 
         categoria: item.categoria,
+        id: item.id
         
     }))
+
     return data;
       
     }
