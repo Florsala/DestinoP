@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 
-import pinguinos from "../../assets/pinguinos.jpg";
-import harberton from "../../assets/harberton.jpg";
+//import pinguinos from "../../assets/pinguinos.jpg";
+//import harberton from "../../assets/harberton.jpg";
 //import videoP from "../assets/video-p.mp4";
 
 
- const imagenes = [
+/*  const imagenes = [
   {
     path: pinguinos,
   },
@@ -30,7 +30,7 @@ import harberton from "../../assets/harberton.jpg";
   {
     path: pinguinos,
   },
-]
+] */
 
 /* const videos = [
    {path: videoP}
@@ -76,7 +76,7 @@ setClick(!click)
                 autoPlay={true}
               ></video>
             ))}  */}
-            {imagenes.map((img, index) => (
+            {item.imagenes.map((img, index) => (
               <img key={index} src={img.path} alt="" 
               onClick={()=> setSelectedImg(img.path)}
               />
