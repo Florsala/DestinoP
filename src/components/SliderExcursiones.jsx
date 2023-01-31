@@ -13,7 +13,7 @@ const SliderExcursiones = ( { excursiones, loading } ) => {
    const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: 2,
     slidesToScroll: 2,
     autoplay: true,
     autoplaySpeed: 2000,

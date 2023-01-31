@@ -3,8 +3,10 @@ import { format } from "date-fns";
 
 export const getTarifas = async ({id, selectedDate}) => {
   const url =
+//'http://turismo.elemsoft.net/webapi/api/Reservas/GetListHorariosTarifasDisponibles?fecha=2022-09-20&excursionId=119'
+ `http://destinopatagonia.elemsoft.net/webapi/api/Reservas/GetListHorariosTarifasDisponibles?fecha=${ format(selectedDate, 'MM/dd/yyyy')}&excursionId=${id}`;
 
-   `http://destinopatagonia.elemsoft.net/webapi/api/Reservas/GetListHorariosTarifasDisponibles?fecha=${ format(selectedDate, 'MM/dd/yyyy')}&excursionId=${id}`;
+  //`http://turismo.elemsoft.net/webapi/api/Reservas/GetListHorariosTarifasDisponibles?fecha=${ format(selectedDate, 'MM/dd/yyyy')}&excursionId=${id}`;
 
   const resp = await fetch(url);
 
@@ -12,7 +14,7 @@ export const getTarifas = async ({id, selectedDate}) => {
 
   const data = msg[0];
 
- 
+ console.log(data, 'horas');
 
   return data;
 };
