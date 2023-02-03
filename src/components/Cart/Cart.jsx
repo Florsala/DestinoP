@@ -47,7 +47,7 @@ const Cart = () => {
                   <Card.Text>Fecha y hora: </Card.Text>
                   <Card.Text>Pasajeros: {item.quantity}</Card.Text>
                   <Card.Text>
-                    Subtotal: ${item.item.precio * item.quantity}
+                    Subtotal: ${+item.item.precio.replace(',','') * item.quantity}
                   </Card.Text>
                   <Button
                     onClick={() => {
