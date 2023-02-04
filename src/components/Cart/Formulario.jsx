@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import '../../styles/Formulario.css'
+import cartContext from "../../context/CartContext";
 
 const Formulario = () => {
   const [sendForm, setSendForm] = useState(false);
+
+  const { cart, addTotal, clearCart } = useContext(cartContext);
+
 
   return (
     <>
       <Formik
         initialValues={{
           id: "",
-          Res_AMedida: "",
         apellido: "",
           email: "",
           telefono: "",
@@ -132,7 +135,7 @@ const Formulario = () => {
               />
             </div>
 
-            <button type="submit">Enviar</button>
+            <button     type="submit">Enviar</button>
 
             {sendForm && <p className="exito"> En breve nos contactaremos con usted</p>}
           </Form>

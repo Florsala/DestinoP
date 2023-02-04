@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
-import { getTarifas } from '../../helpers/getTarifas';
 import { Spinner } from "react-bootstrap";
 
 
@@ -15,7 +14,6 @@ const ItemDetailTime = ({id,selectedDate, price}) => {
  
 const setNewValue = (e) =>{
   setRadioValue(e.currentTarget.value)
- // console.log(e.target.innerHTML, 'hora');
 }
 
 /* const getTarifaHora = async () => {
@@ -30,7 +28,6 @@ const setNewValue = (e) =>{
       getTarifaHora()
   }, [selectedDate]) */
 
- console.log(price, 'traigo algo?');
 
   return (
     <div>

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 
 
-const ItemCount = ({ Add, stock, counter, setCounter }) => {
+const ItemCount = ({ Add, counter, setCounter }) => {
   
 /*   const onAdd = () => {
     if (counter < 10) {

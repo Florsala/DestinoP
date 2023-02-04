@@ -8,7 +8,6 @@ export const getExcDetails = async ({id}) => {
     const { msg } = await resp.json();
 
     const data = msg[0];
-    console.log(data);
     
       return data;
       

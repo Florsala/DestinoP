@@ -53,9 +53,8 @@ const ItemDetailGrid = ({item}) => {
       setModel(true);
     };
 
-    const handleClick = (e) =>{
-console.log(e); 
-//setModel(true);
+    const handleClick = () =>{
+
 setClick(!click)
     }
 

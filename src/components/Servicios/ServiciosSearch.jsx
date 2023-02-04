@@ -46,21 +46,15 @@ const ServiciosSearch = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //setCategoria(e.target.value);
-
-    //getInfoExcursiones();
-    console.log(excursiones, "estoy en handleSubmit");
-    //setTemp(e.target.value);
+  
   };
 
   const getCategory = (e) => {
-    console.log(e.target.value, "estoy en getCategory");
 
     setCategoria(e.target.value);
   };
 
   const getTemp = (e) => {
-    console.log(e.target.value);
     setTemp(e.target.value);
   };
 

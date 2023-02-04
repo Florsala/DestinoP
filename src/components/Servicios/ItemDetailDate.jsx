@@ -40,7 +40,6 @@ const ItemDetailDate = ({ id, counter, setCounter }) => {
 
   const changeDate = (date) => {
     setSelectedDate(date);
-    console.log(selectedDate);
   };
 
   const handleInput = (e) => {
@@ -49,6 +48,9 @@ const ItemDetailDate = ({ id, counter, setCounter }) => {
 
     setCantidades(price.tarifas.reduce((result, tarifa) => {
       result[tarifa.tipo] = 0
+
+      console.log(result, 'result')
+
       return result
   }, {}))
 
@@ -56,14 +58,13 @@ const ItemDetailDate = ({ id, counter, setCounter }) => {
   console.log(cantidades, "cantidades");
 
 
-    let reserva = {
+  /*   let reserva = {
       tipo: e.target.ariaLabel,
       cantidad: e.target.value,
       precio: e.target.name,
       subtotal: e.target.name * e.target.value,
-    };
+    }; */
 
-   // console.log(reserva, "reserva");
   };
 
   return (
@@ -118,16 +119,19 @@ const ItemDetailDate = ({ id, counter, setCounter }) => {
         </div>
       )}
       <div className="time-form_container">
-        <p>
-          horario
-          <span style={{ fontSize: " 1.2rem", padding: "5px" }}>
-            <GoClock />
-          </span>
-        </p>
+      
         {!!selectedDate && (
+          <div>
+            <p>
+            horario
+            <span style={{ fontSize: " 1.2rem", padding: "5px" }}>
+              <GoClock />
+            </span>
+          </p>
+         
           <div className="time-form">
             <ItemDetailTime id={id} price={price}/>
-          </div>
+          </div> </div>
         )}
       </div>
     

@@ -14,7 +14,6 @@ export const getTarifas = async ({id, selectedDate}) => {
 
   const data = msg[0];
 
- console.log(data, 'horas');
 
   return data;
 };

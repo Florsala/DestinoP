@@ -7,7 +7,7 @@ import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import Col from "react-bootstrap/Col";
 import { Button } from "react-bootstrap";
 import cartContext from "../../context/CartContext";
-import ItemCount from "../ItemCount";
+import ItemCount from "./ItemCount";
 import SliderDestSvs from "../SliderDestSvs";
 import { useFetchDestacadas } from "../../hooks/useFetchDestacadas";
 import ItemDetailDate from "./ItemDetailDate";
@@ -100,7 +100,7 @@ const ItemDetail = ({ item, id }) => {
                 </div>
 
                 {
-                  !addToCart && (
+                  !addToCart  && (
                     <div>
                       <ItemCount
                         Add={Add}
