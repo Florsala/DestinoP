@@ -32,8 +32,8 @@ function addItem (item) {
    let itemsList = [...cart]
     
   
-  if(itemsList.some(e => e.item.nombre === item.item.nombre)){
-    itemsList.find(e => e.item.nombre === item.item.nombre)    
+  if(itemsList.some(e => e.item.id === item.item.id)){
+    itemsList.find(e => e.item.id === item.item.id)    
      .quantity += item.quantity 
     setCart(itemsList) 
     console.log(cart);
@@ -50,7 +50,7 @@ function addItem (item) {
 
 const addTotal = () => {
 
-  return cart.reduce((quantity, value) => (quantity + (value.quantity*value.item.precio)), 0)
+  return cart.reduce((quantity, value) => (quantity + (value.quantity*value.item.precio.replace(',',''))), 0)
 }
 
 

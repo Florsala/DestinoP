@@ -7,7 +7,7 @@ import cartContext from "../../context/CartContext";
 import Formulario from "./Formulario";
 import { getListCart } from "../../helpers/getListCart";
 
-const Cart = () => {
+const Cart2 = () => {
   let empty = "false";
 
   //const [conf, setConf] = useState(false);
@@ -26,6 +26,12 @@ const Cart = () => {
 
   }, []);
 
+
+
+
+
+
+
   const { cart, clearCart, removeItem, addTotal, total } =
     useContext(cartContext);
 
@@ -37,7 +43,7 @@ const Cart = () => {
 
       <div className="Cart-container-flex">
         <div className="Cart-container ">
-          {cart.map((item) => (
+          {getList.map((item) => (
             
             
 
@@ -52,28 +58,31 @@ const Cart = () => {
                   <Card.Img
                     variant="top"
                     style={{ padding: "1rem", width: "10rem", height: "10rem" }}
-                    src={item.item.imagenes[1]}
+                    src={item.foto}
                   />
                   <Link /* to={`/servicios/${item.item.id}`} */>
-                    <Card.Title>{item.item.nombre}</Card.Title>
+                    <Card.Title>{item.excursion}</Card.Title>
                   </Link>
                   {/*  <Card.Text>Precio: {item.item.price} ARS</Card.Text>
                    */}
-                  <Card.Text>Fecha y hora: </Card.Text>
-                  <Card.Text>Pasajeros: {item.quantity}</Card.Text>
+                  <Card.Text>Fecha y hora:{item.fechaHora} </Card.Text>
+                  <Card.Text>Pasajeros: {item.pasajeros}</Card.Text>
                   <Card.Text>
-                    Subtotal: ${item.item.precio.replace(',','') * item.quantity}
+                    Subtotal: ${item.importe}
                   </Card.Text>
-                  <Button
+
+
+                  {/*FALTARIA AGREGAR EL BUTTON PARA ELIMINAR  */}
+             {/*      <Button
                     onClick={() => {
                       removeItem(item);
                     }}
                     className="btn-supr"
                     variant="danger"
-                  >
+                  > 
                     
                     <MdDeleteOutline style={{ fontSize: "1.4rem" }} />
-                  </Button>
+                  </Button> */}
                 </Card.Body>
               </Card>
             
@@ -121,4 +130,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default Cart2;

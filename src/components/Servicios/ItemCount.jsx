@@ -54,20 +54,15 @@ const ItemCount = ({ Add, counter, setCounter }) => {
         <Button variant="primary">Realizar consulta</Button>
       </Link>
       <Button
-        className="btnAgregar"
-        variant="success"
+        style={{backgroundColor: '#002569'}}
         size="medium"
         pb={3}
         onClick={() => {
           Add();
-          if (counter === 1) {
-            console.log(`${counter} item agregado al carrito`);
-          } else {
-            console.log(`${counter} items agregados al carrito`);
-          }
         }}
       >
         Agregar al carrito
+        {/* hacer un post de la exc seleccionada */}
       </Button>
       </div>
 

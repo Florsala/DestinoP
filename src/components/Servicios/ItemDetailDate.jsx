@@ -8,7 +8,6 @@ import { getTarifas } from "../../helpers/getTarifas";
 import { Spinner } from "react-bootstrap";
 import { GoCalendar } from "react-icons/go";
 import { GoClock } from "react-icons/go";
-import { format } from "date-fns";
 import Form from "react-bootstrap/Form";
 
 import ItemDetailTime from "./ItemDetailTime";
@@ -28,6 +27,7 @@ const ItemDetailDate = ({ id, counter, setCounter }) => {
     const newTarifa = await getTarifas({ id, selectedDate });
     setPrice(newTarifa);
     setLoading(false);
+    console.log('tarifas', price)
 
   };
 
@@ -58,12 +58,7 @@ const ItemDetailDate = ({ id, counter, setCounter }) => {
   console.log(cantidades, "cantidades");
 
 
-  /*   let reserva = {
-      tipo: e.target.ariaLabel,
-      cantidad: e.target.value,
-      precio: e.target.name,
-      subtotal: e.target.name * e.target.value,
-    }; */
+
 
   };
 
@@ -100,6 +95,7 @@ const ItemDetailDate = ({ id, counter, setCounter }) => {
                   aria-label={item.tipo}
                   name={item.importe}
                   onChange={handleInput}
+                  //agregar Id para la tarifa
                 >
                   <option value="0">0</option>
                   <option value="1">1</option>
