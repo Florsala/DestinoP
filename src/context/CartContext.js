@@ -29,37 +29,32 @@ useEffect(() => {
 
  
 function addItem (item) {
-   let itemsList = [...cart]
-    
-  
-  if(itemsList.some(e => e.item.nombre === item.item.nombre)){
-    itemsList.find(e => e.item.nombre === item.item.nombre)    
-     .quantity += item.quantity 
-    setCart(itemsList) 
-    console.log(cart);
-
-
-    
-  } else{
-    setCart ([...cart, item])
-  }
+if(item) setCart ([...cart, item])
+ 
 }
 
 
 
 
 const addTotal = () => {
-
-  return cart.reduce((quantity, value) => (quantity + (+value.quantity*value.item.precio.replace(',',''))), 0)
+  let precio = 0;
+  return cart.reduce((quantity, value) =>{
+   
+    
+    value.quantity.forEach((i)=>{
+      precio += i.precio * i.cantidad
+  }) 
+     return quantity + precio}, 0)
 }
 
 
 
-const removeItem = (item) => {
+const removeItem = (item, index) => {
 
   const newList = cart.filter(
     e => e.item.id !== item.item.id
   )
+  debugger
 setCart(newList);
 addTotal();
 }

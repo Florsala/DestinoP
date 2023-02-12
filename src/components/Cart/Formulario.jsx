@@ -9,7 +9,7 @@ const Formulario = () => {
     <>
       <Formik
         initialValues={{
-          id: "",
+          id: 0,
           Res_AMedida: "",
         apellido: "",
           email: "",

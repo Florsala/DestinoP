@@ -5,15 +5,14 @@ import { getTarifas } from '../../helpers/getTarifas';
 import { Spinner } from "react-bootstrap";
 
 
-const ItemDetailTime = ({id,selectedDate, price}) => {
-  
-  const [time, setTime] = useState([]);
+const ItemDetailTime = ({id,selectedDate, price, setTime}) => {
   const [checked, setChecked] = useState(false);
   const [radioValue, setRadioValue] = useState(false);
   const [loading, setLoading] = useState(true);
 
  
 const setNewValue = (e) =>{
+  setTime(e.target.innerHTML.substring(0,5))
   setRadioValue(e.currentTarget.value)
  // console.log(e.target.innerHTML, 'hora');
 }

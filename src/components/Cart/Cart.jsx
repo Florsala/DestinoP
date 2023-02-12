@@ -13,7 +13,12 @@ const Cart = () => {
 
   const { cart, clearCart, removeItem, addTotal, total } =
     useContext(cartContext);
-
+  const subtotal = (item)=>(
+     item.quantity.reduce((quantity, value) =>(
+        quantity + (value.precio * value.cantidad)), 0))
+  
+  const cantidadPasajeros = (item)=>(item.quantity.reduce((quantity, value) =>(
+    quantity + (+value.cantidad)), 0))
   return (
     <div className="CartItems">
       <div style={{ marginTop: "10rem" }}>
@@ -22,7 +27,7 @@ const Cart = () => {
 
       <div className="Cart-container-flex">
         <div className="Cart-container ">
-          {cart.map((item) => (
+          {cart.map((item, index) => (
             
             
 
@@ -45,13 +50,13 @@ const Cart = () => {
                   {/*  <Card.Text>Precio: {item.item.price} ARS</Card.Text>
                    */}
                   <Card.Text>Fecha y hora: </Card.Text>
-                  <Card.Text>Pasajeros: {item.quantity}</Card.Text>
+                  <Card.Text>Pasajeros: {cantidadPasajeros(item)}</Card.Text>
                   <Card.Text>
-                    Subtotal: ${+item.item.precio.replace(',','') * item.quantity}
+                    Subtotal: ${subtotal(item)}
                   </Card.Text>
                   <Button
                     onClick={() => {
-                      removeItem(item);
+                      removeItem(item,index);
                     }}
                     className="btn-supr"
                     variant="danger"
