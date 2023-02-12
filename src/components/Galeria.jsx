@@ -2,20 +2,84 @@ import React, { useEffect, useState } from "react";
 import { getGaleria } from "../helpers/getGaleria";
 import "../styles/Galeria.css";
 import "../styles/Medias.css";
+import { SlArrowRight } from "react-icons/sl";
+import { SlArrowLeft } from "react-icons/sl";
+import { logDOM } from "@testing-library/react";
 
 
+const galeria = [
+  {
+    img: 'https://images.unsplash.com/photo-1675622211805-10feccb9ab8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1675427523142-b7c3e6acdbdc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1569928531284-7af57845d946?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1573727424538-381d0c879a40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1502113130129-259236d6fabd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+  },
+
+];
 
 const Galeria = () => {
-  
+
+
+
+  const ArrowRight = {
+    color: "#fff",
+    fontSize: "3rem",
+    marginRight: "1.5rem",
+    cursor: "pointer",
+    zIndex: '1'
+  };
+  const ArrowLeft = {
+    color: "#fff",
+    fontSize: "3rem",
+    marginLeft: "1.5rem",
+    cursor: "pointer",
+    zIndex: '1'
+
+  };
+
+ 
+
   const [model, setModel] = useState(false);
-  const [picImage, setPicImage] = useState("");
+  const [picImage, setPicImage] = useState(0);
+  const [currentImg, setCurrentImg] = useState(0);
 
   const getImg = (img) => {
     setPicImage(img);
+    setCurrentImg(img)
+    
     setModel(true);
+    console.log(currentImg, 'prueba');
   };
 
-  const [galeria, setGaleria] = useState([]);
+const goToPrevious = () => {
+
+/*   const newImage = picImage === 0 ? galeria.length -1 : picImage - 1;
+ setPicImage(newImage); */
+ 
+}
+
+const goToNext = () => {
+ /*  const lastSlide = picImage === galeria.lenght - 1;
+  const newImage = lastSlide ? 0 : picImage + 1;
+  setPicImage(newImage) */
+  setCurrentImg(currentImg + 1);
+
+}
+
+
+  /* const [galeria, setGaleria] = useState([]);
 
   const getInfoGaleria = async () => {
     const newInfo = await getGaleria();
@@ -24,7 +88,7 @@ const Galeria = () => {
 
   useEffect(() => {
     getInfoGaleria();
-  }, []);
+  }, []); */
 
   return (
     <div>
@@ -55,23 +119,26 @@ const Galeria = () => {
         <h2>Galería</h2>
       </div>
 
-      <div className={model ? "model open" : "model"}
-      onClick={()=> setModel(false)}
+      <div
+        className={model ? "model open" : "model"}
+        //onClick={() => setModel(false)}
       >
-        <img src={picImage} alt="" />
+        <SlArrowLeft style={ArrowLeft} onClick={goToPrevious}/>
+      
+        <img src={picImage} alt="pic" /> 
+
+
+        <SlArrowRight style={ArrowRight} onClick={goToNext}/>
       </div>
       <div className="gallery">
-        {galeria.map((item, index) => (
-          <div 
-          
-          key={index} 
-          onClick={() => getImg(item.img)}>
-            <img className="pics"  src={item.img} alt="" />
+{/*       <img className="pics"  src={`${galeria[currentImg].img}`} alt="" onClick={() => getImg(currentImg)}/>
+ */}
+         {galeria.map((item, index) => (
+          <div key={index} onClick={() => getImg(item.img)}>
+            <img className="pics" src={item.img} alt="" />
           </div>
-        ))}
+        ))} 
       </div>
-
-     
     </div>
   );
 };

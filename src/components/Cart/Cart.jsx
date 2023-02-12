@@ -1,15 +1,30 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../../styles/Cart.css";
 import { Button, Card } from "react-bootstrap";
 import { MdDeleteOutline } from "react-icons/md";
 import { Link } from "react-router-dom";
 import cartContext from "../../context/CartContext";
 import Formulario from "./Formulario";
+import { getListCart } from "../../helpers/getListCart";
 
 const Cart = () => {
   let empty = "false";
 
   //const [conf, setConf] = useState(false);
+
+  const [getList, setGetList] = useState([]);
+
+  const getInfoCart = async () => {
+    const newInfo = await getListCart();
+    setGetList(newInfo);
+
+  };
+
+  useEffect(() => {
+    getInfoCart();
+    console.log(getList, 'carrito')
+
+  }, []);
 
   const { cart, clearCart, removeItem, addTotal, total } =
     useContext(cartContext);

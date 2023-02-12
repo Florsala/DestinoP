@@ -14,6 +14,7 @@ export const getCategories = async () => {
         id: item.id
         
     }))
+    console.log(data, 'getcategories');
 
     return data;
       

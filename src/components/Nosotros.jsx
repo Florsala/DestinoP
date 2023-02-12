@@ -12,7 +12,6 @@ const Nosotros = () => {
   const getInfoNosotros = async () => {
     const newInfo = await getNosotros();
     setNosotros(newInfo);
-        console.log(nosotros, 'nosotros');
 
   }
   

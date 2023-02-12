@@ -8,7 +8,6 @@ import { getTarifas } from "../../helpers/getTarifas";
 import { Spinner } from "react-bootstrap";
 import { GoCalendar } from "react-icons/go";
 import { GoClock } from "react-icons/go";
-import { format } from "date-fns";
 import Form from "react-bootstrap/Form";
 
 import ItemDetailTime from "./ItemDetailTime";
@@ -28,6 +27,7 @@ const ItemDetailDate = ({ id, counter, setCounter, setDate, setTime }) => {
     const newTarifa = await getTarifas({ id, selectedDate });
     setPrice(newTarifa);
     setLoading(false);
+    console.log('tarifas', price)
 
   };
 
@@ -41,7 +41,6 @@ const ItemDetailDate = ({ id, counter, setCounter, setDate, setTime }) => {
   const changeDate = (date) => {
     setDate(formatDate(date))
     setSelectedDate(date);
-    console.log(date);
   };
   const formatDate = (date)=>{
      const dia = date.getDate().toString()
@@ -61,6 +60,9 @@ const ItemDetailDate = ({ id, counter, setCounter, setDate, setTime }) => {
 
     setCantidades(price.tarifas.reduce((result, tarifa) => {
       result[tarifa.tipo] = 0
+
+      console.log(result, 'result')
+
       return result
     }, {}))
 
@@ -68,14 +70,7 @@ const ItemDetailDate = ({ id, counter, setCounter, setDate, setTime }) => {
     console.log(cantidades, "cantidades");
 
 
-    let reserva = {
-      tipo: e.target.ariaLabel,
-      cantidad: e.target.value,
-      precio: e.target.name,
-      subtotal: e.target.name * e.target.value,
-    };
 
-    // console.log(reserva, "reserva");
   };
 
   return (
@@ -130,15 +125,19 @@ const ItemDetailDate = ({ id, counter, setCounter, setDate, setTime }) => {
         </div>
       )}
       <div className="time-form_container">
-        <p>
-          horario
-          <span style={{ fontSize: " 1.2rem", padding: "5px" }}>
-            <GoClock />
-          </span>
-        </p>
+      
         {!!selectedDate && (
+          <div>
+            <p>
+            horario
+            <span style={{ fontSize: " 1.2rem", padding: "5px" }}>
+              <GoClock />
+            </span>
+          </p>
+         
           <div className="time-form">
             <ItemDetailTime id={id} price={price} setTime={setTime}/>
+          </div>
           </div>
         )}
       </div>

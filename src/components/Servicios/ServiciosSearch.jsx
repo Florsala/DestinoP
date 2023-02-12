@@ -17,9 +17,9 @@ const ServiciosSearch = () => {
   const [excursiones, setExcursiones] = useState([]);
 
   const getExcursiones = async () => {
-    const url = `http://destinopatagonia.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=1&categoria=${categoria}&temporada=${temp}`;
+    //const url = `http://destinopatagonia.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=1&categoria=${categoria}&temporada=${temp}`;
 
-    //const url = `http://destinopatagonia.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=1&temporada=null&categoria=${categoria}`;
+    const url = `http://turismo.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=1&temporada=null&categoria=${categoria}`;
 
     const resp = await fetch(url);
 
@@ -35,6 +35,8 @@ const ServiciosSearch = () => {
       temporadaId: item.temporadaId,
     }));
 
+    console.log(data, 'exc')
+
     return data;
   };
 
@@ -46,21 +48,16 @@ const ServiciosSearch = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //setCategoria(e.target.value);
-
-    //getInfoExcursiones();
-    console.log(excursiones, "estoy en handleSubmit");
-    //setTemp(e.target.value);
+  
   };
 
   const getCategory = (e) => {
-    console.log(e.target.value, "estoy en getCategory");
 
     setCategoria(e.target.value);
+    console.log(categoria, 'categ');
   };
 
   const getTemp = (e) => {
-    console.log(e.target.value);
     setTemp(e.target.value);
   };
 
@@ -120,6 +117,7 @@ const ServiciosSearch = () => {
               type="submit"
               className="btn-search"
               size="md"
+              onClick={handleSubmit}
             >
               Buscar
               <MdDoubleArrow style={{ margin: "0.2rem" }} />

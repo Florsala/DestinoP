@@ -19,7 +19,6 @@ const Contacto = () => {
     getInfoContacto();
   }, []);
 
-  //console.log(contacto.domicilioMapa.replace('', '+'));
 
   return (
     <div>
