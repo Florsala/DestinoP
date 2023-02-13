@@ -10,7 +10,6 @@ import { getListCart } from "../../helpers/getListCart";
 const Cart = () => {
   let empty = "false";
 
-  //const [conf, setConf] = useState(false);
 
   const [getList, setGetList] = useState([]);
 
@@ -22,12 +21,11 @@ const Cart = () => {
 
   useEffect(() => {
     getInfoCart();
-    console.log(getList, 'carrito')
 
   }, []);
 
-  const { cart, clearCart, removeItem, addTotal, total } =
-    useContext(cartContext);
+  const { cart, clearCart, removeItem, addTotal, total } = useContext(cartContext);
+
   const subtotal = (item)=>(
      item.quantity.reduce((quantity, value) =>(
         quantity + (value.precio * value.cantidad)), 0))
@@ -116,11 +114,7 @@ const Cart = () => {
           </>
         )}
 
-        <Link to="/servicios">
-          <Button color="primary" variant="contained" m={5} size="small">
-            Finalizar compra
-          </Button>
-        </Link>
+      
       </div>
     </div>
   );

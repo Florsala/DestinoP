@@ -69,7 +69,6 @@ const Galeria = () => {
     setCurrentImg(img)
     
     setModel(true);
-    console.log(currentImg, 'prueba');
   };
 
 const goToPrevious = () => {

@@ -37,10 +37,6 @@ if(item) setCart ([...cart, item])
 
 
 const addTotal = () => {
-<<<<<<< HEAD
-
-  return cart.reduce((quantity, value) => (quantity + (+value.quantity*value.item.precio.replace(',',''))), 0)
-=======
   let precio = 0;
   return cart.reduce((quantity, value) =>{
    
@@ -49,7 +45,6 @@ const addTotal = () => {
       precio += i.precio * i.cantidad
   }) 
      return quantity + precio}, 0)
->>>>>>> 625d1f6400cf9f2b3a4375f3f1b22714cfa2bd1a
 }
 
 

@@ -27,7 +27,6 @@ const ItemDetailDate = ({ id, counter, setCounter, setDate, setTime }) => {
     const newTarifa = await getTarifas({ id, selectedDate });
     setPrice(newTarifa);
     setLoading(false);
-    console.log('tarifas', price)
 
   };
 
@@ -67,7 +66,6 @@ const ItemDetailDate = ({ id, counter, setCounter, setDate, setTime }) => {
     }, {}))
 
 
-    console.log(cantidades, "cantidades");
 
 
 
