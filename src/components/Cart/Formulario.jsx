@@ -16,7 +16,7 @@ const Formulario = () => {
           Res_Id: 0,
           Res_Apellido: "",
           Res_Mail: "",
-          Res_Telefono: 0,
+          Res_Telefono: "",
           Res_Obs: "",
         }}
         validate={(model) => {
@@ -134,7 +134,7 @@ const Formulario = () => {
               />
             </div>
 
-            <button type="submit">Enviar</button>
+            <button type="submit">Confirmar Reserva</button>
 
             {sendForm && (
               <p className="exito"> En breve nos contactaremos con usted</p>

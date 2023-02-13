@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-//import pinguinos from "../../assets/pinguinos.jpg";
-//import harberton from "../../assets/harberton.jpg";
+import pinguinos from "../../assets/pinguinos.jpg";
+import harberton from "../../assets/harberton.jpg";
 //import videoP from "../assets/video-p.mp4";
 
 
@@ -30,7 +30,7 @@ import React, { useState } from 'react'
   {
     path: pinguinos,
   },
-] */
+]  */
 
 /* const videos = [
    {path: videoP}

@@ -35,7 +35,6 @@ const ServiciosSearch = () => {
       temporadaId: item.temporadaId,
     }));
 
-    console.log(data, 'exc')
 
     return data;
   };
@@ -54,7 +53,6 @@ const ServiciosSearch = () => {
   const getCategory = (e) => {
 
     setCategoria(e.target.value);
-    console.log(categoria, 'categ');
   };
 
   const getTemp = (e) => {

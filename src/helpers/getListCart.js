@@ -8,7 +8,6 @@ export const getListCart = async () => {
 
     const data = msg;
 
-    console.log(data, 'getlist')
 
     return data;
 

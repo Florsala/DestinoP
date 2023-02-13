@@ -5,7 +5,7 @@ import "../styles/Medias.css";
 import { SlArrowRight } from "react-icons/sl";
 import { SlArrowLeft } from "react-icons/sl";
 import { logDOM } from "@testing-library/react";
-
+import {AiOutlineClose} from 'react-icons/ai'
 
 const galeria = [
   {
@@ -49,7 +49,16 @@ const Galeria = () => {
 
   };
 
- 
+ const imgClose = {
+  color:' #fff',
+  fontSize: '2rem',
+  position: 'absolute',
+  zIndex: '2',
+  top: '0',
+  right: '0',
+  margin: '1rem',
+  cursor: 'pointer',
+ }
 
   const [model, setModel] = useState(false);
   const [picImage, setPicImage] = useState(0);
@@ -60,11 +69,12 @@ const Galeria = () => {
     setCurrentImg(img)
     
     setModel(true);
-    console.log(currentImg, 'prueba');
   };
 
 const goToPrevious = () => {
 
+  const newImage =  galeria[0].img
+  setPicImage(newImage)
 /*   const newImage = picImage === 0 ? galeria.length -1 : picImage - 1;
  setPicImage(newImage); */
  
@@ -121,10 +131,11 @@ const goToNext = () => {
 
       <div
         className={model ? "model open" : "model"}
-        //onClick={() => setModel(false)}
+       
       >
         <SlArrowLeft style={ArrowLeft} onClick={goToPrevious}/>
       
+      <AiOutlineClose style={imgClose} onClick={() => setModel(false)}/>
         <img src={picImage} alt="pic" /> 
 
 

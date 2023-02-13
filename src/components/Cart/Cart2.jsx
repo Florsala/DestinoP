@@ -22,7 +22,6 @@ const Cart2 = () => {
 
   useEffect(() => {
     getInfoCart();
-    console.log(getList, 'carrito')
 
   }, []);
 
