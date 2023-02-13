@@ -29,37 +29,37 @@ useEffect(() => {
 
  
 function addItem (item) {
-   let itemsList = [...cart]
-    
-  
-  if(itemsList.some(e => e.item.id === item.item.id)){
-    itemsList.find(e => e.item.id === item.item.id)    
-     .quantity += item.quantity 
-    setCart(itemsList) 
-    console.log(cart);
-
-
-    
-  } else{
-    setCart ([...cart, item])
-  }
+if(item) setCart ([...cart, item])
+ 
 }
 
 
 
 
 const addTotal = () => {
+<<<<<<< HEAD
 
   return cart.reduce((quantity, value) => (quantity + (+value.quantity*value.item.precio.replace(',',''))), 0)
+=======
+  let precio = 0;
+  return cart.reduce((quantity, value) =>{
+   
+    
+    value.quantity.forEach((i)=>{
+      precio += i.precio * i.cantidad
+  }) 
+     return quantity + precio}, 0)
+>>>>>>> 625d1f6400cf9f2b3a4375f3f1b22714cfa2bd1a
 }
 
 
 
-const removeItem = (item) => {
+const removeItem = (item, index) => {
 
   const newList = cart.filter(
     e => e.item.id !== item.item.id
   )
+  debugger
 setCart(newList);
 addTotal();
 }

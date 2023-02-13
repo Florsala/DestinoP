@@ -20,14 +20,16 @@ const ItemDetail = ({ item, id }) => {
 
   const { addItem, addTotal } = useContext(cartContext);
 
-  const [counter, setCounter] = useState(1);
+  const [counter, setCounter] = useState([]);
 
   const [subtotal, setSubtotal] = useState(0);
+  const [date, setDate]= useState('')
+  const [time, setTime]= useState('')
 
   const Add = () => {
     setAddToCart(true);
 
-    addItem({ item: item, quantity: counter });
+    addItem({ item: item, quantity: counter, date:date, time:time });
 
     addTotal();
   };
@@ -66,6 +68,8 @@ const ItemDetail = ({ item, id }) => {
                     id={id}
                     counter={counter}
                     setCounter={setCounter}
+                    setDate={setDate}
+                    setTime = {setTime}
                   />
                 </div>
               </div>

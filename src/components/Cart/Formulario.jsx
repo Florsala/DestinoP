@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import "../../styles/Formulario.css";
 import cartContext from "../../context/CartContext";
+import { AgregarServicios } from "../../helpers/Reserva";
 
 const Formulario = () => {
   const [sendForm, setSendForm] = useState(false);
@@ -12,7 +13,7 @@ const Formulario = () => {
     <>
       <Formik
         initialValues={{
-          Res_Id: 1667,
+          Res_Id: 0,
           Res_Apellido: "",
           Res_Mail: "",
           Res_Telefono: 0,
@@ -41,10 +42,12 @@ const Formulario = () => {
           return error;
         }}
         onSubmit={async (model, { resetForm }) => {
+          await AgregarServicios(cart, model).then(()=>{
+          
           resetForm();
           console.log(model, "model");
 
-          try {
+          /* try {
             let config = {
               method: "POST",
               headers: {
@@ -63,11 +66,12 @@ const Formulario = () => {
 
             console.log(json)
 
-          } catch (error) {}
+          } catch (error) {} */
 
           setSendForm(true);
 
           setTimeout(() => setSendForm(false), 3000);
+        })
         }}
       >
         {({ values, errors, touched }) => (

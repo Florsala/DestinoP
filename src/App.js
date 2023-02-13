@@ -16,8 +16,6 @@ import Cart from "../src/components/Cart/Cart";
 import {CartProvider} from "./context/CartContext";
 import BlogItem from "../src/components/Blog/BlogItem";
 import ScrollToTop from "./components/ScrollToTop";
-import Cart2 from "./components/Cart/Cart2";
-
 
 function App() {
   return (
@@ -41,7 +39,7 @@ function App() {
             <Route path="blog" element={<BlogPage/>} />
             <Route path="blog/:id" element={<BlogItem/>} />
 
-            <Route path="cart" element={<Cart2/>} />
+            <Route path="cart" element={<Cart/>} />
 
 
 

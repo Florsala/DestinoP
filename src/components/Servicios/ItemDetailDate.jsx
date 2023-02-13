@@ -14,7 +14,7 @@ import ItemDetailTime from "./ItemDetailTime";
 
 registerLocale("es", es);
 
-const ItemDetailDate = ({ id, counter, setCounter }) => {
+const ItemDetailDate = ({ id, counter, setCounter, setDate, setTime }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [price, setPrice] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -34,16 +34,28 @@ const ItemDetailDate = ({ id, counter, setCounter }) => {
   useEffect(() => {
     getTarifaHora();
 
-    
+
   }, [selectedDate]);
 
 
   const changeDate = (date) => {
+    setDate(formatDate(date))
     setSelectedDate(date);
   };
+  const formatDate = (date)=>{
+     const dia = date.getDate().toString()
+     const mes = date.getMonth().toString()
+     const año = date.getFullYear().toString()
+    
+     return `${mes.length ===1? `0${mes}`: mes}-${dia.length ===1? `0${dia}`: dia}-${año}`
+  }
+  const handleInput = (e, item) => {
 
-  const handleInput = (e) => {
-    setCounter(e.target.value);
+    const tarifas = [...counter]
+    let indexObject;
+    const exist = tarifas.filter((i, index) => { if (i.id === item.tipoId) { indexObject = index; i.cantidad=e.target.value; return true; } return false })
+    if (exist.length) tarifas[indexObject]= exist[0]; else tarifas.push({id:item.tipoId, cantidad: e.target.value, precio: item.importe});
+      setCounter(tarifas);
     setSelect(true);
 
     setCantidades(price.tarifas.reduce((result, tarifa) => {
@@ -52,11 +64,10 @@ const ItemDetailDate = ({ id, counter, setCounter }) => {
       console.log(result, 'result')
 
       return result
-  }, {}))
+    }, {}))
 
-  
-  console.log(cantidades, "cantidades");
 
+    console.log(cantidades, "cantidades");
 
 
 
@@ -83,7 +94,7 @@ const ItemDetailDate = ({ id, counter, setCounter }) => {
           showDisabledMonthNavigation
         />
       </div>
-      {!!selectedDate && (
+      {selectedDate && (
         <div className="container_tarifas">
           {loading && <Spinner />}
           {price.tarifas &&
@@ -94,8 +105,7 @@ const ItemDetailDate = ({ id, counter, setCounter }) => {
                   size="sm"
                   aria-label={item.tipo}
                   name={item.importe}
-                  onChange={handleInput}
-                  //agregar Id para la tarifa
+                  onChange={(e) => handleInput(e, item)}
                 >
                   <option value="0">0</option>
                   <option value="1">1</option>
@@ -109,7 +119,7 @@ const ItemDetailDate = ({ id, counter, setCounter }) => {
                   <option value="9">9</option>
                   <option value="10">10</option>
                 </Form.Select>
-           
+
               </div>
             ))}
         </div>
@@ -126,11 +136,12 @@ const ItemDetailDate = ({ id, counter, setCounter }) => {
           </p>
          
           <div className="time-form">
-            <ItemDetailTime id={id} price={price}/>
-          </div> </div>
+            <ItemDetailTime id={id} price={price} setTime={setTime}/>
+          </div>
+          </div>
         )}
       </div>
-    
+
     </>
   );
 };
