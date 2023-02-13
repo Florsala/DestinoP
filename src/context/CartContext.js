@@ -37,9 +37,9 @@ if(item) setCart ([...cart, item])
 
 
 const addTotal = () => {
-  let precio = 0;
+  
   return cart.reduce((quantity, value) =>{
-   
+    let precio = 0;
     
     value.quantity.forEach((i)=>{
       precio += i.precio * i.cantidad

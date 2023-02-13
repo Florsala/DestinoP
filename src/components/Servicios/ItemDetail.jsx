@@ -21,10 +21,22 @@ const ItemDetail = ({ item, id }) => {
   const { addItem, addTotal } = useContext(cartContext);
 
   const [counter, setCounter] = useState([]);
+  const [subtotalValue, setSubtotalValue]= useState(0)
 
-  const [subtotal, setSubtotal] = useState(0);
   const [date, setDate]= useState('')
   const [time, setTime]= useState('')
+  useEffect(()=>{
+    if(counter.length){
+      setSubtotalValue(
+        counter.reduce((quantity, value) =>(
+          quantity + (value.precio * +value.cantidad)), 0)
+      )
+    }
+
+    
+     
+  },[counter])
+ 
 
   const Add = () => {
     setAddToCart(true);
@@ -87,7 +99,7 @@ const ItemDetail = ({ item, id }) => {
                   }}
                 >
                   <p>Subtotal </p>
-                  <p>$$$</p>
+                  <p>$$${subtotalValue}</p>
                 </div>
                 <div
                   style={{

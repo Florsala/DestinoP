@@ -29,7 +29,9 @@ export const AgregarServicios = async (carts, model) => {
         return finalObject
     })
     await axios.post(`${url}`,body[0]).then((response)=>{
-        const newBody = [...body].splice(0,1)
+        const newBody = body.filter((i)=> i.model.Prod_Id
+        !== body[0].model.Prod_Id
+        )
         model.Res_Id=response.data.id
         newBody.forEach((c)=>{
             c.model.Res_Id=response.data.id

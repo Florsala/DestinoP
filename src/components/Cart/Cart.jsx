@@ -30,10 +30,15 @@ const Cart = () => {
     useContext(cartContext);
   const subtotal = (item)=>(
      item.quantity.reduce((quantity, value) =>(
-        quantity + (value.precio * value.cantidad)), 0))
+        quantity + (value.precio * +value.cantidad)), 0))
   
   const cantidadPasajeros = (item)=>(item.quantity.reduce((quantity, value) =>(
     quantity + (+value.cantidad)), 0))
+
+  const formatDate = (date)=> {
+    const dateSplitted = date.split('-')
+    return `${dateSplitted[1]}/${dateSplitted[0]}/${dateSplitted[2]}`
+  } 
   return (
     <div className="CartItems">
       <div style={{ marginTop: "10rem" }}>
@@ -64,7 +69,7 @@ const Cart = () => {
                   </Link>
                   {/*  <Card.Text>Precio: {item.item.price} ARS</Card.Text>
                    */}
-                  <Card.Text>Fecha y hora: </Card.Text>
+                  <Card.Text>Fecha y hora: {`${formatDate(item.date)} ${item.time}`}</Card.Text>
                   <Card.Text>Pasajeros: {cantidadPasajeros(item)}</Card.Text>
                   <Card.Text>
                     Subtotal: ${subtotal(item)}
