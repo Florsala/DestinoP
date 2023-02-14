@@ -42,7 +42,7 @@ import harberton from "../../assets/harberton.jpg";
 const ItemDetailGrid = ({item}) => {
 
 
-    const [selectedImg, setSelectedImg] = useState(item.imagenes[0].path)
+    const [selectedImg, setSelectedImg] = useState(item.imagenes[0]?.path)
 
     const [model, setModel] = useState(false);
     const [picImage, setPicImage] = useState("");
