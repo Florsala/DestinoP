@@ -6,26 +6,26 @@
   gap: 5px;
 }
 
-.CartItems{
-    margin-top: 4rem;
+.CartItems {
+  margin-top: 4rem;
 }
 
-.CartItems h5{
-    font-size: 1.5rem;
+.CartItems h5 {
+  font-size: 1.5rem;
 }
 
 .CartItems p {
-    color: black;
-    font-size: 1.1rem;
+  color: black;
+  font-size: 1.1rem;
 }
 
-.CartItems-price{
+.CartItems-price {
   height: 7rem;
-    display: grid;
-    place-content: center;
+  display: grid;
+  place-content: center;
 }
-.CartItems-price p{
-  font-size:2rem;
+.CartItems-price p {
+  font-size: 2rem;
 }
 
 .cartNumber {
@@ -43,12 +43,10 @@
   justify-content: center;
   color: #fff;
   animation: shake 3s infinite;
-
-
 }
 
-.CartButtons{
-  margin:2rem;
+.CartButtons {
+  margin: 2rem;
 }
 
 @keyframes shake {
@@ -59,25 +57,26 @@
     transform: scale(1.05) rotate(-3deg);
   }
   30% {
-    transform:  rotate(5deg);
+    transform: rotate(5deg);
   }
   40% {
     transform: translateY(1px);
   }
 }
 
-.form-cart{
+.form-cart {
   width: 40rem;
   margin: 4rem auto;
 }
 
-.Cart-container{
+.Cart-container {
   display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.Cart-container-flex{
+.Cart-container-flex {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -85,14 +84,10 @@
   gap: 2rem;
   justify-content: center;
   margin-top: 4rem;
-
 }
-
 
 @media (max-width: 1200px) {
-
-.Cart-container-flex{
-  justify-content: start;
-}  
+  .Cart-container-flex {
+    justify-content: start;
+  }
 }
-

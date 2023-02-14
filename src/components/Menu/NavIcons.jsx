@@ -6,6 +6,7 @@ import { FaLinkedinIn } from "react-icons/fa";
 import Form from "react-bootstrap/Form";
 import { useFetchIdiomas } from "../../hooks/useFetchIdiomas";
 import { getContacto } from "../../helpers/getContacto";
+import CartWidget from "./CartWidget";
 
 const NavIcons = () => {
   const { idiomas } = useFetchIdiomas();
@@ -68,7 +69,7 @@ const NavIcons = () => {
             <GrInstagram />
           </a>
         </li>
-        <li className="nav-item">
+        <li className="nav-item" style={{fontSize: '1.35rem'}}>
           <a href={`https://wa.me/${contacto.whatsapp?.replace(/[^\w]/gi, '')} `}
         target={"blank"}>
             <FaWhatsapp />
@@ -80,8 +81,10 @@ const NavIcons = () => {
           </a>
         </li> */}
 
-     
+     <CartWidget/>
       </ul>
+
+
     </div>
   );
 };
