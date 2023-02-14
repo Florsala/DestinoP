@@ -37,7 +37,7 @@ a {
 .navbar {
   position: fixed !important;
   width: 100%;
-  height: 6.25rem;
+  height: 7rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -75,13 +75,17 @@ a {
 
 .navicons {
   display: flex;
-  list-style: none;
-  justify-content: flex-end;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
-  align-items: center;
-  flex-wrap: nowrap;
-  margin-right: 2rem;
+    list-style: none;
+    justify-content: flex-end;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-right: 3.5rem;
+    font-size: 1.2rem;
+    position: absolute;
+    top: 0.7rem;
+    right: 1rem;
 }
 
 .font-md{
@@ -112,28 +116,28 @@ a {
 .navLink {
   align-items: center;
   text-transform: uppercase;
-  font-size: 0.9rem;
   color: black;
   font-family: Open Sans;
   font-weight: 600;
-  margin-right: auto;
+  margin:0 auto;
   transition: all 1s;
+  gap: 0.5rem;
 
 }
 
 .font-sm{
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   transition: all 1s;
 }
 
 
 .Cart {
-  font-size: 2rem;
+  font-size: 2.3rem;
   margin-left: 1rem;
   display: flex;
   position: fixed;
   right: 21px;
-  top: 2rem;
+  top: 1rem;
 }
 
 /* Section */

@@ -45,7 +45,7 @@ const Navmenu = () => {
         style={{ padding: " 0 2rem" }}
         className={color ? "navbar navbar-bcg" : "navbar"}
       >
-        <div
+      {/*   <div
           style={{
             width: "100%",
             margin: "0.3125rem auto",
@@ -63,7 +63,7 @@ const Navmenu = () => {
               className={color ? "logo h-4" : "logo"}
             />
           </Link>
-        </div>
+        </div> */}
         <div className="container-fluid ">
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse
@@ -80,6 +80,27 @@ const Navmenu = () => {
               <Nav.Link as={NavLink} to={"/blog"}>
                 Blog
               </Nav.Link>
+
+
+<Nav.Link as={NavLink} to={"/"} style={{
+          /*   width: "100%", */
+            margin: "0.3125rem auto",
+            display: "flex",
+            justifyContent: "center",
+            border:'none'
+          }}>
+          
+        
+            <img
+              src={logo}
+              alt="logo"
+              className={color ? "logo h-4" : "logo"}
+            />
+
+
+
+</Nav.Link>
+
               <Nav.Link as={NavLink} to={"/nosotros"}>
                 Nosotros
               </Nav.Link>
@@ -94,10 +115,10 @@ const Navmenu = () => {
             </Nav>
 
             <NavIcons />
+
           </Navbar.Collapse>
         </div>
 
-        <CartWidget />
       </Navbar>
 
       <Outlet />

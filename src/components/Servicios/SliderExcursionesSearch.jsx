@@ -3,22 +3,8 @@ import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { Spinner } from "react-bootstrap";
-import Slider from "react-slick";
 
-const SliderExcursiones = ( { excursiones, loading } ) => {
-
-
-  
-  const settings = {
-    dots: true,
-    infinite: true,
-    slidesToShow: 2,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    pauseOnHover: true,
-  }; 
-  
+const SliderExcursiones = ({ excursiones, loading }) => {
   
 
   return (
@@ -32,45 +18,49 @@ const SliderExcursiones = ( { excursiones, loading } ) => {
         >
           {loading && <Spinner />}
 
-          <Slider {...settings}/*  className="container-ExcSearch" */>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+            }} 
+          >
             {excursiones.map((items) => (
-              <Link key={items.id}  to={`/servicios/${items.id}`} >
-                
-                  <Card className="card-svs">
-                    <Card.Img
-                      variant="top"
-                      style={{ padding: "1rem" }}
-                      src={items.imagen}
-                    />
-                    <Card.Body className="card-body">
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          justifyContent: "space-between",
-                          fontWeight: "600",
-                          alignitems: "flex-start",
-                        }}
+              <Link key={items.id} to={`/servicios/${items.id}`}>
+                <Card className="card-svs" style={{ width: "23rem" }}>
+                  <Card.Img
+                    variant="top"
+                    style={{ padding: "1rem" }}
+                    src={items.imagen}        
+                    
+                  />
+                  <Card.Body className="card-body">
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                        fontWeight: "600",
+                        alignitems: "flex-start",
+                      }}
+                    >
+                      <Card.Title
+                        style={{ color: "black", fontSize: "1.1rem",textTransform: 'uppercase' }}
                       >
-                        <Card.Title
-                          style={{ color: "black", fontSize: "1.3rem" }}
-                        >
-                          {items.nombre}
-                        </Card.Title>
-                      </div>
+                        {items.nombre}
+                      </Card.Title>
+                    </div>
 
-                      <div>
-                        <Button className="btn_svs" variant="primary" size="lg">
-                          + info
-                        </Button>
-                      </div>
-                    </Card.Body>
-                  </Card>
-                
+                    <div>
+                      <Button className="btn_svs" variant="primary" size="lg">
+                        + info
+                      </Button>
+                    </div>
+                  </Card.Body>
+                </Card>
               </Link>
             ))}
-          </Slider>
-
+          </div>
         </div>
       </div>
     </div>
