@@ -43,7 +43,7 @@ const ItemDetailDate = ({ id, counter, setCounter, setDate, setTime }) => {
   };
   const formatDate = (date)=>{
      const dia = date.getDate().toString()
-     const mes = date.getMonth().toString()
+     const mes = (date.getMonth()+1).toString()
      const año = date.getFullYear().toString()
     
      return `${mes.length ===1? `0${mes}`: mes}-${dia.length ===1? `0${dia}`: dia}-${año}`
@@ -53,7 +53,7 @@ const ItemDetailDate = ({ id, counter, setCounter, setDate, setTime }) => {
     const tarifas = [...counter]
     let indexObject;
     const exist = tarifas.filter((i, index) => { if (i.id === item.tipoId) { indexObject = index; i.cantidad=e.target.value; return true; } return false })
-    if (exist.length) tarifas[indexObject]= exist[0]; else tarifas.push({id:item.tipoId, cantidad: e.target.value, precio: item.importe});
+    if (exist.length) tarifas[indexObject]= exist[0]; else tarifas.push({id:item.tipoId, cantidad: e.target.value, precio: item.importe, nombre:item.tipo});
       setCounter(tarifas);
     setSelect(true);
 
@@ -97,7 +97,7 @@ const ItemDetailDate = ({ id, counter, setCounter, setDate, setTime }) => {
           {loading && <Spinner />}
           {price.tarifas &&
             price.tarifas.map((item, index) => (
-              <div className="quantity-form_container" key={index}>
+              <div className="quantity-form_container" key={index} style={{color:"#6573a4"}}>
                 {item.tipo} ${item.importe}
                 <Form.Select
                   size="sm"

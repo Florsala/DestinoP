@@ -3,9 +3,11 @@ import { ErrorMessage, Formik, Form, Field } from "formik";
 import "../../styles/Formulario.css";
 import cartContext from "../../context/CartContext";
 import { AgregarServicios } from "../../helpers/Reserva";
-
+import Button from 'react-bootstrap/Button';
+import Spinner from 'react-bootstrap/Spinner';
 const Formulario = () => {
   const [sendForm, setSendForm] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const { cart, addTotal, clearCart } = useContext(cartContext);
 
@@ -42,11 +44,12 @@ const Formulario = () => {
           return error;
         }}
         onSubmit={async (model, { resetForm }) => {
+          setLoading(true)
           await AgregarServicios(cart, model).then(()=>{
           
           resetForm();
-          console.log(model, "model");
-
+          clearCart();
+          
           /* try {
             let config = {
               method: "POST",
@@ -71,6 +74,7 @@ const Formulario = () => {
           setSendForm(true);
 
           setTimeout(() => setSendForm(false), 3000);
+          setLoading(false)
         })
         }}
       >
@@ -134,7 +138,17 @@ const Formulario = () => {
               />
             </div>
 
-            <button type="submit">Confirmar Reserva</button>
+            {!loading && <button type="submit">Confirmar Reserva</button>}
+           {loading && <Button variant="primary" disabled>
+        <Spinner
+          as="span"
+          animation="grow"
+          size="sm"
+          role="status"
+          aria-hidden="true"
+        />
+        Loading...
+      </Button>}
 
             {sendForm && (
               <p className="exito"> En breve nos contactaremos con usted</p>

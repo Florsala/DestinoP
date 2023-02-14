@@ -37,7 +37,9 @@ const ItemDetail = ({ item, id }) => {
      
   },[counter])
  
-
+  const total = (item)=>(
+    item.reduce((quantity, value) =>(
+       quantity + (value.precio * +value.cantidad)), 0))
   const Add = () => {
     setAddToCart(true);
 
@@ -90,16 +92,18 @@ const ItemDetail = ({ item, id }) => {
                 <div
                   style={{
                     display: "flex",
-                    justifyContent: "space-around",
                     borderBottom: "1px solid",
                     width: "80%",
                     margin: " 0 auto",
                     fontSize: "1.2rem",
-                    color: "grey",
+                    color: "#6573a4",
                   }}
+                  className='align-items-start flex-column'
                 >
-                  <p>Subtotal </p>
-                  <p>$$${subtotalValue}</p>
+                  <p style={{fontSize: 'larger'}}>Subtotal:</p>
+                  <div className="text-start">{counter.map((c)=>(
+                    <p style={{fontSize: 'small'}}>{c.nombre}: ${c.precio* +c.cantidad}</p>
+                  ))}</div>
                 </div>
                 <div
                   style={{
@@ -108,11 +112,11 @@ const ItemDetail = ({ item, id }) => {
                     width: "80%",
                     margin: " 0 auto",
                     fontSize: "1.2rem",
-                    color: "grey",
+                    color: "#6573a4",
                   }}
                 >
                   <p className="text-uppercase">total a pagar</p>
-                  <p>${addTotal()}</p>
+                  <p>${total(counter)}</p>
                 </div>
 
                 {

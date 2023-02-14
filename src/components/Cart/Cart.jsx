@@ -67,10 +67,9 @@ const Cart = () => {
                   </Link>
                   {/*  <Card.Text>Precio: {item.item.price} ARS</Card.Text>
                    */}
-                  <Card.Text>Fecha y hora: {`${formatDate(item.date)} ${item.time}`}</Card.Text>
-                  <Card.Text>Pasajeros: {cantidadPasajeros(item)}</Card.Text>
-                  <Card.Text>
-                    Subtotal: ${subtotal(item)}
+                  <Card.Text style={{display:'flex'}}><span style={{fontWeight: 'bolder', marginRight: '5px'}}>Fecha y hora: </span> {`${formatDate(item.date)} ${item.time}`}</Card.Text>
+                  <Card.Text style={{display:'flex'}}><span style={{fontWeight: 'bolder',marginRight: '5px'}}>Pasajeros: </span>{cantidadPasajeros(item)}</Card.Text>
+                  <Card.Text style={{display:'flex'}}><span style={{fontWeight: 'bolder', marginRight: '5px'}}>Subtotal: </span>${subtotal(item)}
                   </Card.Text>
                   <Button
                     onClick={() => {
