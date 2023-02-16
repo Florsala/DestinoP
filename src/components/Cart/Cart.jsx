@@ -96,8 +96,7 @@ const Cart = () => {
           </Card>
         </div>
       </div>
-<Formulario/>
-
+      <Formulario/>
       <div className="CartButtons">
         <Button
         variant="danger"

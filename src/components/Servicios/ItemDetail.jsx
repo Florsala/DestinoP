@@ -126,6 +126,8 @@ const ItemDetail = ({ item, id }) => {
                         Add={Add}
                         counter={counter}
                         setCounter={setCounter}
+                        date={date}
+                        time={time}
                       />
                     </div>
                   )
