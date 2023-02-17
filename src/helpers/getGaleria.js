@@ -1,8 +1,8 @@
 
 export const getGaleria = async () => {
 
-    const url = "http://destinopatagonia.elemsoft.net/webapi/api/Galeria/GetListPath";
-    //const url = "http://turismo.elemsoft.net/webapi/api/Galeria/GetListPath";
+    //const url = "http://destinopatagonia.elemsoft.net/webapi/api/Galeria/GetListPath";
+    const url = "http://turismo.elemsoft.net/webapi/api/Galeria/GetListPath";
     
     const resp = await fetch (url);
     

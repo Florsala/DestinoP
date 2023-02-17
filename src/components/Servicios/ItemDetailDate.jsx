@@ -11,10 +11,12 @@ import { GoClock } from "react-icons/go";
 import Form from "react-bootstrap/Form";
 
 import ItemDetailTime from "./ItemDetailTime";
+import { handleInputTarifa } from "../utils/handleInputTarifa";
+import { formatDate } from "../utils/dateFormat";
 
 registerLocale("es", es);
 
-const ItemDetailDate = ({ id, counter, setCounter, setDate, setTime }) => {
+const ItemDetailDate = ({ id, counter, setCounter, setDate, setTime, isPaquete }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [price, setPrice] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -31,7 +33,8 @@ const ItemDetailDate = ({ id, counter, setCounter, setDate, setTime }) => {
   };
 
   useEffect(() => {
-    getTarifaHora();
+    if(!isPaquete)  getTarifaHora();
+   
 
 
   }, [selectedDate]);
@@ -41,19 +44,10 @@ const ItemDetailDate = ({ id, counter, setCounter, setDate, setTime }) => {
     setDate(formatDate(date))
     setSelectedDate(date);
   };
-  const formatDate = (date)=>{
-     const dia = date.getDate().toString()
-     const mes = (date.getMonth()+1).toString()
-     const año = date.getFullYear().toString()
-    
-     return `${mes.length ===1? `0${mes}`: mes}-${dia.length ===1? `0${dia}`: dia}-${año}`
-  }
+  
   const handleInput = (e, item) => {
-
-    const tarifas = [...counter]
-    let indexObject;
-    const exist = tarifas.filter((i, index) => { if (i.id === item.tipoId) { indexObject = index; i.cantidad=e.target.value; return true; } return false })
-    if (exist.length) tarifas[indexObject]= exist[0]; else tarifas.push({id:item.tipoId, cantidad: e.target.value, precio: item.importe, nombre:item.tipo});
+  
+    const tarifas = handleInputTarifa(e,item,counter)
       setCounter(tarifas);
     setSelect(true);
 
@@ -92,7 +86,7 @@ const ItemDetailDate = ({ id, counter, setCounter, setDate, setTime }) => {
           showDisabledMonthNavigation
         />
       </div>
-      {selectedDate && (
+      {selectedDate && !isPaquete && (
         <div className="container_tarifas">
           {loading && <Spinner />}
           {price.tarifas &&
@@ -124,7 +118,7 @@ const ItemDetailDate = ({ id, counter, setCounter, setDate, setTime }) => {
       )}
       <div className="time-form_container">
       
-        {!!selectedDate && (
+        {!!selectedDate && !isPaquete && (
           <div>
             <p>
             horario

@@ -35,37 +35,37 @@ import harberton from "../../assets/harberton.jpg";
 /* const videos = [
    {path: videoP}
  ] */
- 
 
 
 
-const ItemDetailGrid = ({item}) => {
+
+const ItemDetailGrid = ({ item, isPaquete }) => {
 
 
-    const [selectedImg, setSelectedImg] = useState(item.imagenes[0]?.path)
+  const [selectedImg, setSelectedImg] = useState(!isPaquete? item.imagenes[0]?.path: item.path)
 
-    const [model, setModel] = useState(false);
-    const [picImage, setPicImage] = useState("");
-    const [click, setClick] = useState(false)
-  
-    const getImg = (img) => {
-      setPicImage(img);
-      setModel(true);
-    };
+  const [model, setModel] = useState(false);
+  const [picImage, setPicImage] = useState("");
+  const [click, setClick] = useState(false)
 
-    const handleClick = () =>{
+  const getImg = (img) => {
+    setPicImage(img);
+    setModel(true);
+  };
 
-setClick(!click)
-    }
+  const handleClick = () => {
+
+    setClick(!click)
+  }
 
   return (
 
     <div className="container-md container-grid-img" >
-            <img src={selectedImg} alt="selected"
-            className={click ? 'container-grid-img_first open' : 'container-grid-img_first' }
-            onClick={handleClick} 
-            />
-           {/*  {videos.map((video, index) => (
+      <img src={selectedImg} alt="selected"
+        className={click ? 'container-grid-img_first open' : 'container-grid-img_first'}
+        onClick={handleClick}
+      />
+      {/*  {videos.map((video, index) => (
               <video
               key={index}
                 src={video.path}
@@ -75,13 +75,15 @@ setClick(!click)
                 autoPlay={true}
               ></video>
             ))}  */}
-            {item.imagenes.map((img, index) => (
-              <img key={index} src={img.path} alt="" 
-              onClick={()=> setSelectedImg(img.path)}
-              />
-            ))}
-            
-          </div>
+      {isPaquete ? <img key={item.id} src={item.path} alt=""
+        onClick={() => setSelectedImg(item.path)}
+      /> : item.imagenes.map((img, index) => (
+        <img key={index} src={img.path} alt=""
+          onClick={() => setSelectedImg(img.path)}
+        />
+      ))}
+
+    </div>
   )
 }
 

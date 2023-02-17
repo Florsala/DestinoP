@@ -16,6 +16,7 @@ import Cart from "../src/components/Cart/Cart";
 import {CartProvider} from "./context/CartContext";
 import BlogItem from "../src/components/Blog/BlogItem";
 import ScrollToTop from "./components/ScrollToTop";
+import PaqueteItemDetail from "./components/Servicios/PaquetesDetail";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
             <Route path="nosotros" element={<Nosotros />} />
             <Route path="blog" element={<BlogPage/>} />
             <Route path="blog/:id" element={<BlogItem/>} />
+            <Route path="/paquetes/:id" element={<PaqueteItemDetail/>} />
 
             <Route path="cart" element={<Cart/>} />
 

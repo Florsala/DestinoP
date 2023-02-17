@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { Spinner } from "react-bootstrap";
 
-const SliderExcursiones = ({ excursiones, loading }) => {
+const SliderExcursiones = ({ excursiones, loading, isPaquete}) => {
   
 
   return (
@@ -26,7 +26,7 @@ const SliderExcursiones = ({ excursiones, loading }) => {
             }} 
           >
             {excursiones.map((items) => (
-              <Link key={items.id} to={`/servicios/${items.id}`}>
+              <Link key={items.id} to={isPaquete? `/paquetes/${items.id}`: `/servicios/${items.id}`}>
                 <Card className="card-svs" style={{ width: "23rem" }}>
                   <Card.Img
                     variant="top"
