@@ -62,7 +62,7 @@ const Cart = () => {
                     style={{ padding: "1rem", width: "10rem", height: "10rem" }}
                     src={item.item.imagenes[1]? item.item.imagenes[1]: ''}
                   />
-                  <Link /* to={`/servicios/${item.item.id}`} */>
+                  <Link  to={`/servicios/${item.item.id}`} >
                     <Card.Title>{item.item.nombre}</Card.Title>
                   </Link>
                   {/*  <Card.Text>Precio: {item.item.price} ARS</Card.Text>

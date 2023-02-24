@@ -33,7 +33,7 @@ const Contacto = () => {
           flexWrap: "wrap",
           margin: "0 auto",
           gap: "1rem",
-          width: "75rem",
+         
         }}
       >
         <div style={{ width: "31.25rem", padding: "1rem", margin: "1rem" }}>

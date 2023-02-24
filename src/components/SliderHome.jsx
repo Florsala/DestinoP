@@ -21,6 +21,7 @@ const SliderHome = () => {
     speed: 1000,
     autoplaySpeed: 2000,
     cssEase: "linear",
+    pauseOnHover: true
   };
 
   const [galeria, setGaleria] = useState([]);

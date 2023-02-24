@@ -37,7 +37,7 @@ a {
 .navbar {
   position: fixed !important;
   width: 100%;
-  height: 7rem;
+  height: 8rem;
   display: flex;
   justify-content: space-between;
   align-items: center;

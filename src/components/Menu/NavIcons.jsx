@@ -16,12 +16,11 @@ const NavIcons = () => {
   const getInfoContacto = async () => {
     const newInfo = await getContacto();
     setContacto(newInfo);
-  }
-  
-  useEffect(()=>{
-    getInfoContacto()
-  },[])
+  };
 
+  useEffect(() => {
+    getInfoContacto();
+  }, []);
 
   const [color, setColor] = useState(false);
   const changeColor = () => {
@@ -64,27 +63,26 @@ const NavIcons = () => {
             <GrFacebookOption />
           </a>
         </li>
-        <li  className="nav-item">
+        <li className="nav-item">
           <a href={contacto.instagram} target="_blank">
             <GrInstagram />
           </a>
         </li>
-        <li className="nav-item" style={{fontSize: '1.35rem'}}>
-          <a href={`https://wa.me/${contacto.whatsapp?.replace(/[^\w]/gi, '')} `}
-        target={"blank"}>
+        <li className="nav-item" style={{ fontSize: "1.35rem" }}>
+          <a
+            href={`https://wa.me/${contacto.whatsapp?.replace(/[^\w]/gi, "")} `}
+            target={"blank"}
+          >
             <FaWhatsapp />
           </a>
         </li>
-      {/*   <li className="nav-item">
+        {/*   <li className="nav-item">
           <a href={contacto.linkedin} target="_blank">
             <FaLinkedinIn />
           </a>
         </li> */}
-
-     <CartWidget/>
       </ul>
-
-
+      <CartWidget />
     </div>
   );
 };

@@ -5,9 +5,9 @@ import "../styles/Medias.css";
 import { SlArrowRight } from "react-icons/sl";
 import { SlArrowLeft } from "react-icons/sl";
 import { logDOM } from "@testing-library/react";
-import {AiOutlineClose} from 'react-icons/ai'
+import { AiOutlineClose } from "react-icons/ai";
 
-const galeria = [
+/* const galeria = [
   {
     img: 'https://images.unsplash.com/photo-1675622211805-10feccb9ab8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80',
   },
@@ -27,38 +27,34 @@ const galeria = [
     img: 'https://images.unsplash.com/photo-1502113130129-259236d6fabd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
   },
 
-];
+]; */
 
 const Galeria = () => {
-
-
-
   const ArrowRight = {
     color: "#fff",
     fontSize: "3rem",
     marginRight: "1.5rem",
     cursor: "pointer",
-    zIndex: '1'
+    zIndex: "1",
   };
   const ArrowLeft = {
     color: "#fff",
     fontSize: "3rem",
     marginLeft: "1.5rem",
     cursor: "pointer",
-    zIndex: '1'
-
+    zIndex: "1",
   };
 
- const imgClose = {
-  color:' #fff',
-  fontSize: '2rem',
-  position: 'absolute',
-  zIndex: '2',
-  top: '0',
-  right: '0',
-  margin: '1rem',
-  cursor: 'pointer',
- }
+  const imgClose = {
+    color: " #fff",
+    fontSize: "2rem",
+    position: "absolute",
+    zIndex: "2",
+    top: "0",
+    right: "0",
+    margin: "1rem",
+    cursor: "pointer",
+  };
 
   const [model, setModel] = useState(false);
   const [picImage, setPicImage] = useState(0);
@@ -66,30 +62,26 @@ const Galeria = () => {
 
   const getImg = (img) => {
     setPicImage(img);
-    setCurrentImg(img)
-    
+    setCurrentImg(img);
+
     setModel(true);
   };
 
-const goToPrevious = () => {
-
-  const newImage =  galeria[0].img
-  setPicImage(newImage)
-/*   const newImage = picImage === 0 ? galeria.length -1 : picImage - 1;
+  const goToPrevious = () => {
+    const newImage = galeria[0].img;
+    setPicImage(newImage);
+    /*   const newImage = picImage === 0 ? galeria.length -1 : picImage - 1;
  setPicImage(newImage); */
- 
-}
+  };
 
-const goToNext = () => {
- /*  const lastSlide = picImage === galeria.lenght - 1;
+  const goToNext = () => {
+    /*  const lastSlide = picImage === galeria.lenght - 1;
   const newImage = lastSlide ? 0 : picImage + 1;
   setPicImage(newImage) */
-  setCurrentImg(currentImg + 1);
+    setCurrentImg(currentImg + 1);
+  };
 
-}
-
-
-  /* const [galeria, setGaleria] = useState([]);
+  const [galeria, setGaleria] = useState([]);
 
   const getInfoGaleria = async () => {
     const newInfo = await getGaleria();
@@ -98,7 +90,7 @@ const goToNext = () => {
 
   useEffect(() => {
     getInfoGaleria();
-  }, []); */
+  }, []);
 
   return (
     <div>
@@ -129,26 +121,22 @@ const goToNext = () => {
         <h2>Galería</h2>
       </div>
 
-      <div
-        className={model ? "model open" : "model"}
-       
-      >
-        <SlArrowLeft style={ArrowLeft} onClick={goToPrevious}/>
-      
-      <AiOutlineClose style={imgClose} onClick={() => setModel(false)}/>
-        <img src={picImage} alt="pic" /> 
+      <div className={model ? "model open" : "model"}>
+        <SlArrowLeft style={ArrowLeft} onClick={goToPrevious} />
 
+        <AiOutlineClose style={imgClose} onClick={() => setModel(false)} />
+        <img src={picImage} alt="pic" />
 
-        <SlArrowRight style={ArrowRight} onClick={goToNext}/>
+        <SlArrowRight style={ArrowRight} onClick={goToNext} />
       </div>
       <div className="gallery">
-{/*       <img className="pics"  src={`${galeria[currentImg].img}`} alt="" onClick={() => getImg(currentImg)}/>
- */}
-         {galeria.map((item, index) => (
+        {/*       <img className="pics"  src={`${galeria[currentImg].img}`} alt="" onClick={() => getImg(currentImg)}/>
+         */}
+        {galeria.map((item, index) => (
           <div key={index} onClick={() => getImg(item.img)}>
             <img className="pics" src={item.img} alt="" />
           </div>
-        ))} 
+        ))}
       </div>
     </div>
   );

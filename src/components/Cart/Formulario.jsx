@@ -3,11 +3,18 @@ import { ErrorMessage, Formik, Form, Field } from "formik";
 import "../../styles/Formulario.css";
 import cartContext from "../../context/CartContext";
 import { AgregarServicios } from "../../helpers/Reserva";
-import Button from 'react-bootstrap/Button';
-import Spinner from 'react-bootstrap/Spinner';
+import Button from "react-bootstrap/Button";
+import Spinner from "react-bootstrap/Spinner";
+import { Link } from "react-router-dom";
+import ModalForm from "./ModalForm";
+import Modal from 'react-bootstrap/Modal';
+
+
 const Formulario = () => {
   const [sendForm, setSendForm] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [smShow, setSmShow] = useState(false);
+
 
   const { cart, addTotal, clearCart } = useContext(cartContext);
 
@@ -28,7 +35,8 @@ const Formulario = () => {
           if (!model.Res_Apellido) {
             error.Res_Apellido = "Por favor ingrese su Nombre";
           } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(model.Res_Apellido)) {
-            error.Res_Apellido = "El nombre solo puede contener letras y espacios";
+            error.Res_Apellido =
+              "El nombre solo puede contener letras y espacios";
           }
 
           if (!model.Res_Mail) {
@@ -44,13 +52,12 @@ const Formulario = () => {
           return error;
         }}
         onSubmit={async (model, { resetForm }) => {
-          setLoading(true)
-          await AgregarServicios(cart, model).then(()=>{
-          
-          resetForm();
-          clearCart();
-          
-          /* try {
+          setLoading(true);
+          await AgregarServicios(cart, model).then(() => {
+            resetForm();
+            clearCart();
+
+            /* try {
             let config = {
               method: "POST",
               headers: {
@@ -71,11 +78,11 @@ const Formulario = () => {
 
           } catch (error) {} */
 
-          setSendForm(true);
+            setSendForm(true);
 
-          setTimeout(() => setSendForm(false), 3000);
-          setLoading(false)
-        })
+            setTimeout(() => setSendForm(false), 3000);
+            setLoading(false);
+          });
         }}
       >
         {({ values, errors, touched }) => (
@@ -106,7 +113,9 @@ const Formulario = () => {
               />
               <ErrorMessage
                 name="Res_Mail"
-                component={() => <div className="error">{errors.Res_Email} </div>}
+                component={() => (
+                  <div className="error">{errors.Res_Email} </div>
+                )}
               />
             </div>
 
@@ -138,20 +147,43 @@ const Formulario = () => {
               />
             </div>
 
-            {!loading && <button type="submit">Confirmar Reserva</button>}
-           {loading && <Button variant="primary" disabled>
-        <Spinner
-          as="span"
-          animation="grow"
-          size="sm"
-          role="status"
-          aria-hidden="true"
-        />
-        Loading...
-      </Button>}
+            {!loading && (
+              <>
+                <Button type="submit" onClick={() => setSmShow(true)}>
+                  Confirmar Reserva
+                </Button>
 
-            {sendForm && (
-              <p className="exito"> En breve nos contactaremos con usted</p>
+                <Modal
+                style={{top: '20%',color: 'var(--blue1-color)' }}
+                  size="sm"
+                  show={smShow}
+                  onHide={() => setSmShow(false)}
+                  aria-labelledby="example-modal-sizes-title-sm"
+                >
+                  <Modal.Header closeButton
+                 
+                 >
+                    <Modal.Title id="example-modal-sizes-title-sm">
+                      ¡Muchas gracias!
+                    </Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body style={{textAlign: 'center'
+
+                  }}> En breve nos contactaremos con usted</Modal.Body>
+                </Modal>
+              </>
+            )}
+            {loading && (
+              <Button variant="primary" disabled>
+                <Spinner
+                  as="span"
+                  animation="grow"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                />
+                Loading...
+              </Button>
             )}
           </Form>
         )}

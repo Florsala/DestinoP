@@ -55,11 +55,13 @@ const Nosotros = () => {
 
         <div className="containerNos_vision container-xl">
           <div className="containerNos_vision_a">
-            <h5>{nosotros.mision}</h5>
+            <h5>MISIÓN</h5>
+            <p>{nosotros.mision}</p>
          
           </div>
           <div className="containerNos_vision_b">
-            <h5>{nosotros.vision}</h5>
+            <h5>VISIÓN</h5>
+            <p>{nosotros.vision}</p>
 
          
           </div>

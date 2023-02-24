@@ -4,23 +4,17 @@ import { BsCart } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import cartContext from "../../context/CartContext";
 
-
 const CartWidget = () => {
-
-
   const { total } = useContext(cartContext);
-  const cartNumber = <span className="cartNumber">{total}</span>; 
+  const cartNumber = <span className="cartNumber">{total}</span>;
 
   return (
-    <div>
-      <div className="Cart">
-        <Link to={"/cart"}>
-          <BsCart />
+    <div className="Cart">
+      <Link to={"/cart"}>
+        <BsCart />
 
- {total != 0 && (cartNumber)} 
-
-        </Link>
-      </div>
+        {total != 0 && cartNumber}
+      </Link>
     </div>
   );
 };
