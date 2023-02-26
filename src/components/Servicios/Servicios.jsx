@@ -9,6 +9,7 @@ import { useFetchExcursiones } from "../../hooks/useFetchExcursiones";
 import SliderExcursiones from "../../components/SliderExcursiones";
 import SliderDestacadas from "../../components/SliderDestacadas";
 import { useFetchDestacadas } from "../../hooks/useFetchDestacadas";
+import Paquetes from "./Paquetes";
 
 const Servicios = () => {
 
@@ -47,7 +48,15 @@ const Servicios = () => {
           de que así sea.{" "}
         </h2>
       </div>
-
+      <Container
+        style={{
+          textTransform: "uppercase",
+          color: " #2c3e53",
+        }}
+      >
+        <h4 style={{ fontSize: "2rem" }}>Paquetes</h4>
+      </Container>
+      <Paquetes/>
       <Container
         style={{
           textTransform: "uppercase",
