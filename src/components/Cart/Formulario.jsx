@@ -10,8 +10,6 @@ const Formulario = () => {
   const scrollBy = useScrollBy();
   const [sendForm, setSendForm] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [smShow, setSmShow] = useState(false);
-
 
   const { cart, addTotal, clearCart } = useContext(cartContext);
 

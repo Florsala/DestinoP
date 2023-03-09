@@ -46,22 +46,19 @@ const Nosotros = () => {
           dangerouslySetInnerHTML ={{__html: nosotros.about}}
           >
             
-           {/*  {nosotros.about } */}
-        {/*     Somos una empresa fueguina, especializada en experiencias marítimas
-            con conocimiento de las aguas más australes del mundo como lo es el
-            Canal Beagle. */}
+      
           </p>
         </div>
 
         <div className="containerNos_vision container-xl">
           <div className="containerNos_vision_a">
-            <h5>MISIÓN</h5>
-            <p>{nosotros.mision}</p>
+            <h5>{nosotros.mision}</h5>
+            <p></p>
          
           </div>
           <div className="containerNos_vision_b">
-            <h5>VISIÓN</h5>
-            <p>{nosotros.vision}</p>
+            <h5>{nosotros.vision}</h5>
+            <p></p>
 
          
           </div>

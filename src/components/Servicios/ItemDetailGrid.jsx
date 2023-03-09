@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
-import pinguinos from "../../assets/pinguinos.jpg";
-import harberton from "../../assets/harberton.jpg";
-import { AiOutlineClose } from "react-icons/ai";
+//import pinguinos from "../../assets/pinguinos.jpg";
+//import harberton from "../../assets/harberton.jpg";
 //import videoP from "../assets/video-p.mp4";
 
-const imagenes = [
+
+/*  const imagenes = [
   {
     path: pinguinos,
   },
@@ -28,9 +28,9 @@ const imagenes = [
     path: pinguinos,
   },
   {
-    path: harberton,
+    path: pinguinos,
   },
-];
+]  */
 
 /* const videos = [
    {path: videoP}
@@ -59,17 +59,6 @@ const ItemDetailGrid = ({ item, isPaquete }) => {
   }
 
   return (
-    <div className="container-md container-grid-img">
-      <div
-        className={
-          model ? "container-grid-img_first open" : "container-grid-img_first"
-        }
-        onClick={() => setModel(false)}
-      >
-        <img src={picImage} alt="selected" />
-        {/*       <AiOutlineClose style={imgClose} onClick={() => setModel(false)} />
-         */}{" "}
-      </div>
 
     <div className="container-md container-grid-img" >
       <img src={selectedImg} alt="selected"
@@ -97,3 +86,5 @@ const ItemDetailGrid = ({ item, isPaquete }) => {
     </div>
   )
 }
+
+export default ItemDetailGrid

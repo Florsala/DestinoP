@@ -37,7 +37,7 @@ a {
 .navbar {
   position: fixed !important;
   width: 100%;
-  height: 8rem;
+  height: 7rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -50,6 +50,7 @@ a {
 
 .navbar ul {
   list-style: none;
+  font-size: 0.9rem;
   /* padding-left: 4.5rem; */
 }
 
@@ -84,7 +85,7 @@ a {
     margin-right: 3.5rem;
     font-size: 1.2rem;
     position: absolute;
-    top: 0.7rem;
+    top: 0.1rem;
     right: 1rem;
 }
 
@@ -97,7 +98,7 @@ a {
 
 .navicons li {
   padding: 0.5rem;
- /*  font-size: 1.1rem; */
+  font-size: 1.1rem; 
 }
 
 .navicons-rg {
@@ -211,10 +212,7 @@ font-weight:700;
 font-size: 1.2rem;
 }
 
-.logo {
-  height: 5rem;
-  transition: all 1s;
-}
+
 
 .h-4 {
   transition: all 1s;

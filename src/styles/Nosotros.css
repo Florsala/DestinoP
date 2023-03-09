@@ -87,7 +87,6 @@
 
 .containerNos_vision_a h5 {
   font-size: 2rem;
-  font-weight: 400;
 }
 
 .containerNos_vision_b {
@@ -100,14 +99,6 @@
 
 .containerNos_vision_b h5 {
   font-size: 2rem;
-}
-
-.containerNos_vision_b p {
-  text-align: justify;
-  font-weight: 500;
-  font-size: 1.1rem;
-  padding: 0.5rem;
-  line-height: 2rem;
 }
 
 .containerNos_vision_b ul {

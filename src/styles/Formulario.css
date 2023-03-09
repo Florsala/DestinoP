@@ -77,9 +77,9 @@
   
   .formulario .exito {
     text-align: center;
-    font-size: 1rem;
+    font-size: 0.91rem;
     padding-top: 1.25rem;
-    color: #002569;
+    color: #02a802;
   }
   
   .formulario input[type="radio"] {
