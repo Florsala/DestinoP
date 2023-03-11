@@ -60,7 +60,7 @@ async function agregarPaquete(item, quantity, id) {
 }
 async function agregarExcursion(item, id) {
     let responseId = id
-    await createPayload(item, 'excursion',0,[], responseId).then((response) => {
+    await createPayload(item, 'excursion', 0, [], responseId).then((response) => {
         responseId = response.data.id
     })
     return responseId
