@@ -41,7 +41,7 @@ const SliderExcursiones = ( { excursiones, loading } ) => {
                       style={{ padding: "1rem" }}
                       src={items.imagen}
                     />
-                    <Card.Body className="card-body">
+                    <Card.Body style={{display:'grid'}}>
                       <div
                         style={{
                           display: "flex",

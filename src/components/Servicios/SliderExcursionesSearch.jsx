@@ -37,7 +37,7 @@ const SliderExcursiones = ({ excursiones, loading, isPaquete}) => {
                   <Card.Body className="card-body">
                     <div
                       style={{
-                        display: "flex",
+                        display: 'flex',
                         flexDirection: "column",
                         justifyContent: "space-between",
                         fontWeight: "600",

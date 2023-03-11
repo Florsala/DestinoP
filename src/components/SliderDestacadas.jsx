@@ -9,8 +9,6 @@ import { Spinner } from "react-bootstrap";
 const SliderDestacadas = ({ excDest, loading }) => {
 
 
-
-
   
   
   const settings = {

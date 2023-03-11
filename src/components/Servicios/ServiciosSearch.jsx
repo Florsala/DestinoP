@@ -125,7 +125,7 @@ const ServiciosSearch = () => {
       </div>
 
       {excursiones && (
-        <SliderExcursionesSearch excursiones={excursiones} loading={loading} />
+        <SliderExcursionesSearch excursiones={excursiones} loading={loading}/>
       )}
     </>
   );
