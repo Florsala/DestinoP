@@ -1,10 +1,10 @@
 import axios from "axios";
 
-/*  const url = `http://destinopatagonia.elemsoft.net/webapi/api/Reservas/AgregarServicio`;
-     const urlConfirmar = "http://destinopatagonia.elemsoft.net/webapi/api/Reservas/ConfirmarReserva" */
-const url = `http://turismo.elemsoft.net/webapi/api/Reservas/AgregarServicio`;
+ const url = `http://destinopatagonia.elemsoft.net/webapi/api/Reservas/AgregarServicio`;
+     const urlConfirmar = "http://destinopatagonia.elemsoft.net/webapi/api/Reservas/ConfirmarReserva"
+/* const url = `http://turismo.elemsoft.net/webapi/api/Reservas/AgregarServicio`;
 const urlConfirmar = "http://turismo.elemsoft.net/webapi/api/Reservas/ConfirmarReserva"
-
+ */
 export const AgregarServicios = async (carts, model) => {
     let responseId = 0;
     if (carts[0].item.productos)
