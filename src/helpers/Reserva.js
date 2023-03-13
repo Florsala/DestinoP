@@ -15,9 +15,9 @@ export const AgregarServicios = async (carts, model) => {
 
     newList.forEach(async (i) => {
         if (i.item.productos)
-            await agregarPaquete(carts[0].item, carts[0].quantity, responseId)
+            await agregarPaquete(i.item, i.quantity, responseId)
         else
-            await agregarExcursion(carts[0], responseId)
+            await agregarExcursion(i, responseId)
     })
     model.Res_Id = responseId
     return await axios.post(urlConfirmar, model)

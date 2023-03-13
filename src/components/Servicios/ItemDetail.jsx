@@ -49,7 +49,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
 
   const total = (item) => (
     item.reduce((quantity, value) => (
-      quantity + (+value.precio * value.cantidad)), 0))
+      quantity + (+value.precio.toString().replace(/,/g,'') * value.cantidad)), 0))
   const Add = () => {
     setAddToCart(true);
 
@@ -216,7 +216,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
                 >
                   <p style={{ fontSize: 'larger' }}>Subtotal:</p>
                   <div className="text-start">{counter.map((c) => (
-                    <p style={{ fontSize: 'small' }}>{c.nombre}: ${+c.precio * c.cantidad}</p>
+                    <p style={{ fontSize: 'small' }}>{c.nombre}: ${+c.precio.toString().replace(/,/g,'') * c.cantidad}</p>
                   ))}</div>
                 </div>
                 <div

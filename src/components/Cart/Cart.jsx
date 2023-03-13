@@ -27,8 +27,8 @@ const Cart = () => {
   const { cart, clearCart, removeItem, addTotal, total } = useContext(cartContext);
 
   const subtotal = (item) => (
-    item.quantity.reduce((quantity, value) => (
-      quantity + (value.precio * +value.cantidad)), 0))
+    item.quantity.reduce((quantity, value) => {
+      return quantity + (+value.precio.toString().replace(/,/g,'') * value.cantidad)}, 0))
 
   const cantidadPasajeros = (item) => (item.quantity.reduce((quantity, value) => (
     quantity + (+value.cantidad)), 0))
