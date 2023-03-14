@@ -95,5 +95,9 @@ const ItemDetailGrid = ({ item, isPaquete }) => {
       ))}
 
     </div>
+
+    </div>
   )
-}
+};
+
+export default ItemDetailGrid;
