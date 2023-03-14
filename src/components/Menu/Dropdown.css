@@ -135,31 +135,7 @@
     display: none;
   }
   
-  /* @media screen and (min-width: 940px) {
-    .nav-item:hover {
-      border-radius: 2px;
-      background: #053f9c;
-    }
-  
-    .nav-item:after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      transform: scaleX(0);
-      height: 0.1875rem;
-      border-radius: 0.125rem;
-      bottom: 0;
-      left: 0;
-      background-color: #f8de15;
-      transform-origin: bottom right;
-      transition: transform 0.25s ease-out;
-    }
-  
-    .nav-item:hover:after {
-      transform: scaleX(1);
-      transform-origin: bottom left;
-    }
-  } */
+ 
   
   @media screen and (max-width: 940px) {
     .nav-menu {
@@ -197,12 +173,16 @@ transform: scale(1.01);    }
     left: 0;
     }
   
-/*   .logo {
-    margin-left: 4%;
-  } */
+   .logo {
+    display: none;
+  } 
     .NavBar-icons{
       display: flex;
       text-decoration: none;
+    }
+
+    .navicons {
+      display: inline-block;
     }
 
 }
