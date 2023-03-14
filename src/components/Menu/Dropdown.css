@@ -89,7 +89,11 @@
   }
   
  
-  
+  .active {
+    border: solid 0.075rem #685e5eb3;
+    border-radius: 0.25rem;
+    padding:0.2rem;
+  }
   
   
   

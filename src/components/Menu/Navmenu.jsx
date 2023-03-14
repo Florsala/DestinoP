@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Dropdown.css";
 
 import logo from "../../assets/logo2sm.png";
@@ -43,25 +43,25 @@ const Navmenu2 = () => {
 
         <ul className={click ? "nav-menu active" : "nav-menu"}>
           <li className="nav-item">
-            <Link
+            <NavLink
               to={"/"}
               onClick={() => setClick(false)}
             >
               INICIO
-            </Link>
+            </NavLink>
           </li>
 
           <li className="nav-item" onClick={() => setOpen(!open)}>
-            <Link  to={"/servicios"}>
+            <NavLink  to={"/servicios"}>
               EXCURSIONES
-            </Link>
+            </NavLink>
 
             
           </li>
           <li className="nav-item" onClick={() => setOpen(!open)}>
-            <Link  to={"/blog"}>
+            <NavLink  to={"/blog"}>
               BLOG
-            </Link>
+            </NavLink>
 
             
           </li>
@@ -72,29 +72,29 @@ const Navmenu2 = () => {
         </div>
 
           <li className="nav-item">
-            <Link
+            <NavLink
               
               to={"/nosotros"}
               onClick={() => setClick(false)}
             >
               NOSOTROS
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link
+            <NavLink
               to={"/contacto"}
               onClick={() => setClick(false)}
             >
               CONTACTO
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link
+            <NavLink
               to={"/galeria"}
               onClick={() => setClick(false)}
             >
               GALERIA
-            </Link>
+            </NavLink>
           </li>
           <li>
             <NavIcons/>
