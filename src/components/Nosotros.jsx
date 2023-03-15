@@ -4,10 +4,13 @@ import "../styles/Medias.css";
 import logo from "../assets/logo.png";
 import Section from "./Section";
 import { getNosotros } from "../helpers/getNosotros";
+import { getSeo } from "../helpers/getSeo";
+import DocumentMeta from "react-document-meta";
 
 const Nosotros = () => {
 
   const [nosotros, setNosotros] = useState([]);
+  const [meta, setMeta] = React.useState('')
 
   const getInfoNosotros = async () => {
     const newInfo = await getNosotros();
@@ -17,9 +20,22 @@ const Nosotros = () => {
   
   useEffect(()=>{
     getInfoNosotros()
+    getSeo(1, 'Nosotros').then((response) => {
+      setMeta({
+        title: response.data.seoTitle,
+        description: response.data.seoDescripcion,
+        meta: {
+          charset: 'utf-8',
+          name: {
+            keywords: response.data.seoKeywords
+          }
+        }
+      })
+    })
   },[])
 
-  return (
+  return (<>
+   <DocumentMeta {...meta} />
     <div>
       <div className="hero_Nos">
         <div className="heroContent_Nos">
@@ -55,11 +71,13 @@ const Nosotros = () => {
 
         <div className="containerNos_vision container-xl">
           <div className="containerNos_vision_a">
-            <h5>{nosotros.mision}</h5>
+          <h5>Mision</h5>
+            <span>{nosotros.mision}</span>
          
           </div>
-          <div className="containerNos_vision_b">
-            <h5>{nosotros.vision}</h5>
+          <div className="containerNos_vision_a">
+          <h5>Vision</h5>
+            <span>{nosotros.vision}</span>
 
          
           </div>
@@ -68,6 +86,7 @@ const Nosotros = () => {
 
       <Section />
     </div>
+    </>
   );
 };
 

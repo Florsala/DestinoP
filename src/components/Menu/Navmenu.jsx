@@ -1,15 +1,18 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Outlet, NavLink, Link } from "react-router-dom";
 import logo from "../../assets/logo2sm.png";
 import NavIcons from "./NavIcons";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import CartWidget from "./CartWidget";
+import cartContext from "../../context/CartContext";
 //import getMenu from "../helpers/getIdiomas";
 
 
 const Navmenu = () => {
   const [click, setClick] = useState(false);
+  const [etiquetas, setEtiquetas] = useState([]);
+  const { idioma, getIdiomaSeccion } = useContext(cartContext)
 
   const handleClick = () => setClick(!click);
 
@@ -20,6 +23,9 @@ const Navmenu = () => {
     };
     document.addEventListener("mousedown", handler)
   })
+  useEffect(()=>{
+    setEtiquetas(getIdiomaSeccion('Menu'))
+ },[idioma])
 
 
   const [color, setColor] = useState(false);
@@ -72,13 +78,13 @@ const Navmenu = () => {
           >
             <Nav className={color ? "navLink font-sm" : "navLink"}>
               <Nav.Link as={NavLink} to={"/"} onClick={closeMenu}>
-                Home
+              {etiquetas[0]?.palabra}
               </Nav.Link>
               <Nav.Link as={NavLink} to={"/servicios"} onClick={()=> setClick(false)}>
-                Servicios
+              {etiquetas[1]?.palabra}
               </Nav.Link>
               <Nav.Link as={NavLink} to={"/blog"}>
-                Blog
+              {etiquetas[2]?.palabra}
               </Nav.Link>
 
 
@@ -102,15 +108,15 @@ const Navmenu = () => {
 </Nav.Link>
 
               <Nav.Link as={NavLink} to={"/nosotros"}>
-                Nosotros
+              {etiquetas[3]?.palabra}
               </Nav.Link>
 
               <Nav.Link as={NavLink} to={"/contacto"}>
-                Contacto
+              {etiquetas[4]?.palabra}
               </Nav.Link>
 
               <Nav.Link as={NavLink} to={"/galeria"}>
-                Galería
+              {etiquetas[5]?.palabra}
               </Nav.Link>
             </Nav>
 

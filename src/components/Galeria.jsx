@@ -5,7 +5,9 @@ import "../styles/Medias.css";
 import { SlArrowRight } from "react-icons/sl";
 import { SlArrowLeft } from "react-icons/sl";
 import { logDOM } from "@testing-library/react";
-import {AiOutlineClose} from 'react-icons/ai'
+import { AiOutlineClose } from 'react-icons/ai'
+import { getSeo } from "../helpers/getSeo";
+import DocumentMeta from "react-document-meta";
 
 const galeria = [
   {
@@ -31,7 +33,22 @@ const galeria = [
 
 const Galeria = () => {
 
+  const [meta, setMeta] = React.useState('')
+  useEffect(() => {
+    getSeo(1, 'Galeria').then((response) => {
+      setMeta({
+        title: response.data.seoTitle,
+        description: response.data.seoDescripcion,
+        meta: {
+          charset: 'utf-8',
+          name: {
+            keywords: response.data.seoKeywords
+          }
+        }
+      })
+    })
 
+  }, [])
 
   const ArrowRight = {
     color: "#fff",
@@ -49,16 +66,16 @@ const Galeria = () => {
 
   };
 
- const imgClose = {
-  color:' #fff',
-  fontSize: '2rem',
-  position: 'absolute',
-  zIndex: '2',
-  top: '0',
-  right: '0',
-  margin: '1rem',
-  cursor: 'pointer',
- }
+  const imgClose = {
+    color: ' #fff',
+    fontSize: '2rem',
+    position: 'absolute',
+    zIndex: '2',
+    top: '0',
+    right: '0',
+    margin: '1rem',
+    cursor: 'pointer',
+  }
 
   const [model, setModel] = useState(false);
   const [picImage, setPicImage] = useState(0);
@@ -67,26 +84,26 @@ const Galeria = () => {
   const getImg = (img) => {
     setPicImage(img);
     setCurrentImg(img)
-    
+
     setModel(true);
   };
 
-const goToPrevious = () => {
+  const goToPrevious = () => {
 
-  const newImage =  galeria[0].img
-  setPicImage(newImage)
-/*   const newImage = picImage === 0 ? galeria.length -1 : picImage - 1;
- setPicImage(newImage); */
- 
-}
+    const newImage = galeria[0].img
+    setPicImage(newImage)
+    /*   const newImage = picImage === 0 ? galeria.length -1 : picImage - 1;
+     setPicImage(newImage); */
 
-const goToNext = () => {
- /*  const lastSlide = picImage === galeria.lenght - 1;
-  const newImage = lastSlide ? 0 : picImage + 1;
-  setPicImage(newImage) */
-  setCurrentImg(currentImg + 1);
+  }
 
-}
+  const goToNext = () => {
+    /*  const lastSlide = picImage === galeria.lenght - 1;
+     const newImage = lastSlide ? 0 : picImage + 1;
+     setPicImage(newImage) */
+    setCurrentImg(currentImg + 1);
+
+  }
 
 
   /* const [galeria, setGaleria] = useState([]);
@@ -100,7 +117,9 @@ const goToNext = () => {
     getInfoGaleria();
   }, []); */
 
-  return (
+  return (<>
+    <DocumentMeta {...meta} />
+
     <div>
       <div className="hero_gal">
         <div className="heroContent_container_gal">
@@ -131,26 +150,27 @@ const goToNext = () => {
 
       <div
         className={model ? "model open" : "model"}
-       
+
       >
-        <SlArrowLeft style={ArrowLeft} onClick={goToPrevious}/>
-      
-      <AiOutlineClose style={imgClose} onClick={() => setModel(false)}/>
-        <img src={picImage} alt="pic" /> 
+        <SlArrowLeft style={ArrowLeft} onClick={goToPrevious} />
+
+        <AiOutlineClose style={imgClose} onClick={() => setModel(false)} />
+        <img src={picImage} alt="pic" />
 
 
-        <SlArrowRight style={ArrowRight} onClick={goToNext}/>
+        <SlArrowRight style={ArrowRight} onClick={goToNext} />
       </div>
       <div className="gallery">
-{/*       <img className="pics"  src={`${galeria[currentImg].img}`} alt="" onClick={() => getImg(currentImg)}/>
+        {/*       <img className="pics"  src={`${galeria[currentImg].img}`} alt="" onClick={() => getImg(currentImg)}/>
  */}
-         {galeria.map((item, index) => (
+        {galeria.map((item, index) => (
           <div key={index} onClick={() => getImg(item.img)}>
             <img className="pics" src={item.img} alt="" />
           </div>
-        ))} 
+        ))}
       </div>
     </div>
+  </>
   );
 };
 export default Galeria;

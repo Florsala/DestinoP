@@ -24,7 +24,7 @@ const Cart = () => {
 
   }, []);
 
-  const { cart, clearCart, removeItem, addTotal, total } = useContext(cartContext);
+  const { cart, clearCart, removeItem, addTotal, total, environment } = useContext(cartContext);
 
   const subtotal = (item) => (
     item.quantity.reduce((quantity, value) => {
@@ -60,7 +60,7 @@ const Cart = () => {
                 <Card.Img
                   variant="top"
                   style={{ padding: "1rem", width: "10rem", height: "10rem" }}
-                  src={item.item.imagenes ? item.item.imagenes[0] : item.item.path}
+                  src={item.item.imagenes ? `${environment}${item.item.imagenes[0]}` : `${environment}${item.item.path}`}
                 />
                 <Link /* to={`/servicios/${item.item.id}`} */>
                   <Card.Title>{item.item.nombre}</Card.Title>

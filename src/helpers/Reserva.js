@@ -1,10 +1,10 @@
 import axios from "axios";
 
- const url = `http://destinopatagonia.elemsoft.net/webapi/api/Reservas/AgregarServicio`;
-     const urlConfirmar = "http://destinopatagonia.elemsoft.net/webapi/api/Reservas/ConfirmarReserva"
-/* const url = `http://turismo.elemsoft.net/webapi/api/Reservas/AgregarServicio`;
+ /* const url = `http://destinopatagonia.elemsoft.net/webapi/api/Reservas/AgregarServicio`;
+     const urlConfirmar = "http://destinopatagonia.elemsoft.net/webapi/api/Reservas/ConfirmarReserva" */
+const url = `http://turismo.elemsoft.net/webapi/api/Reservas/AgregarServicio`;
 const urlConfirmar = "http://turismo.elemsoft.net/webapi/api/Reservas/ConfirmarReserva"
- */
+
 export const AgregarServicios = async (carts, model) => {
     let responseId = 0;
     if (carts[0].item.productos)
@@ -33,7 +33,7 @@ async function createPayload(c, type, packageId, quantityList, reserveId) {
         ResProd_FechaHasta: `${c.date} ${c.time}`,
         Prod_Id: type === 'paquete' ? c.id : c.item.id,
         ResProd_Obs: 'test',
-        Combo_Id: packageId
+        Comb_Id: packageId
     }
     const array = quantity.map((c) => (
         {
@@ -60,7 +60,7 @@ async function agregarPaquete(item, quantity, id) {
 }
 async function agregarExcursion(item, id) {
     let responseId = id
-    await createPayload(item, 'excursion', 0, [], responseId).then((response) => {
+    await createPayload(item, 'excursion', null, [], responseId).then((response) => {
         responseId = response.data.id
     })
     return responseId

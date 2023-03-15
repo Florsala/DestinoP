@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import Slider from "react-slick";
 
@@ -6,11 +6,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import { getGaleria } from "../helpers/getGaleria";
+import cartContext from "../context/CartContext";
 
 
 const SliderHome = () => {
 
-
+  const { environment } = useContext(cartContext);
 
   const settings = {
     dots: true,
@@ -41,7 +42,7 @@ const SliderHome = () => {
         <div key={index}>
           <img
             style={{ width: "100%", height: "80vh", objectFit: "cover" }}
-            src={items.img}
+            src={`${environment}${items.img}`}
             alt=""
           />
         </div>

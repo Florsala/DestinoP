@@ -3,31 +3,35 @@ import { createContext,  useEffect,  useState } from "react";
 
 const cartContext = createContext();
 
-
+//const urlEnvironment = 'https://destinopatagonia.elemsoft.net'
+const urlEnvironment = 'https://turismo.elemsoft.net'
 const CartProvider = ({children}) =>{
 
     const [cart, setCart] = useState([])
-
+    const [environment, setEnvironment] =useState('')
+    const [idioma, setIdioma] =useState('')
     
 
 useEffect(() => {
     
-}, [cart])
+}, [cart,environment])
 
 
 useEffect(() =>{
 if (localStorage.getItem("Cart") !== null ){
-    setCart(JSON.parse(localStorage.getItem("Cart")));
+    setCart(JSON.parse(localStorage.getItem("Cart")));}
+if (localStorage.getItem("Environment") !== null ){
+      setEnvironment(JSON.parse(localStorage.getItem("Environment")));
 }}, []);
 
 
 useEffect(() => {
   localStorage.setItem("Cart", JSON.stringify(cart));
-}, [cart]);
+  localStorage.setItem("Environment", JSON.stringify(urlEnvironment));
+}, [cart, environment]);
 
 
 
- 
 function addItem (item) {
 if(item) setCart ([...cart, item])
  
@@ -66,8 +70,15 @@ setCart([]);
 
 }
 
-
-
+const setIdiomaObject = (idioma)=>{
+     setIdioma(idioma)
+     localStorage.setItem("Idioma", JSON.stringify(idioma));
+}
+const getIdiomaSeccion = (seccion)=> {
+ 
+  if(idioma) return idioma.etiquetas.filter((e)=>e.seccion === seccion)
+  return []
+}
 
 
 const context = {
@@ -78,6 +89,10 @@ const context = {
     addItem: addItem,
     removeItem: removeItem,
     clearCart:clearCart,
+    environment,
+    setIdiomaObject,
+    idioma,
+    getIdiomaSeccion
    
    
 }

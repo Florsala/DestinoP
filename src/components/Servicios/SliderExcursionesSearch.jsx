@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { Spinner } from "react-bootstrap";
+import cartContext from "../../context/CartContext";
 
 const SliderExcursiones = ({ excursiones, loading, isPaquete}) => {
-  
+  const { environment } = useContext(cartContext);
 
   return (
     <div>
@@ -31,7 +32,7 @@ const SliderExcursiones = ({ excursiones, loading, isPaquete}) => {
                   <Card.Img
                     variant="top"
                     style={{ padding: "1rem" }}
-                    src={items.imagen}        
+                    src={`${environment}${items.imagen}`}        
                     
                   />
                   <Card.Body className="card-body">

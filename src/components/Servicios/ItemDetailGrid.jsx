@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import cartContext from '../../context/CartContext';
 const ItemDetailGrid = ({ item, isPaquete }) => {
 
-
+  const { environment } = useContext(cartContext);
   const [selectedImg, setSelectedImg] = useState(!isPaquete ? item.imagenes[0]?.path : item.path)
 
   const [model, setModel] = useState(false);
@@ -23,7 +24,7 @@ const ItemDetailGrid = ({ item, isPaquete }) => {
 
   return (
     <div className="container-md container-grid-img" >
-      <img src={selectedImg} alt="selected"
+      <img src={`${environment}${selectedImg}`} alt="selected"
         className={click ? 'container-grid-img_first open' : 'container-grid-img_first'}
         onClick={handleClick}
       />
@@ -40,11 +41,11 @@ const ItemDetailGrid = ({ item, isPaquete }) => {
 
       {isPaquete ? <div> {item.productos.map((p) =>
         <Link key={p.id} to={`/servicios/${p.id}`}>
-          <Card className="card-svs" style={{ width: "23rem" }}>
+          <Card className="card-svs" style={{ width: "23rem", height: '22rem' }}>
             <Card.Img
               variant="top"
-              style={{ padding: "1rem" }}
-              src={p.imagen}
+              style={{ padding: "1rem", height:'17rem' }}
+              src={`${environment}${p.path}`}
 
             />
             <Card.Body className="card-body">
@@ -74,7 +75,7 @@ const ItemDetailGrid = ({ item, isPaquete }) => {
         </Link>
       )}</div>
         : item.imagenes.map((img, index) => (
-          <img key={index} src={img.path} alt=""
+          <img key={index} src={`${environment}${img.path}`} alt=""
             onClick={() => setSelectedImg(img.path)}
           />
         ))}

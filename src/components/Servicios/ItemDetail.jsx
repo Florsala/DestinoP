@@ -20,6 +20,7 @@ import Form from "react-bootstrap/Form";
 import { Spinner } from "react-bootstrap";
 import ItemDetailTime from "./ItemDetailTime";
 import { handleInputTarifa } from "../utils/handleInputTarifa";
+import DocumentMeta from "react-document-meta";
 
 const ItemDetail = ({ item, id, isPaquete }) => {
   const { excDest, loading } = useFetchDestacadas();
@@ -27,12 +28,12 @@ const ItemDetail = ({ item, id, isPaquete }) => {
 
   const [addToCart, setAddToCart] = useState(false);
 
-  const { addItem, addTotal } = useContext(cartContext);
+  const { addItem, addTotal, environment } = useContext(cartContext);
 
   const [counter, setCounter] = useState([]);
   const [subtotalValue, setSubtotalValue] = useState(0)
   const [price, setPrice] = useState([]);
-
+  const [meta, setMeta] = useState('')
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
   useEffect(() => {
@@ -49,7 +50,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
 
   const total = (item) => (
     item.reduce((quantity, value) => (
-      quantity + (+value.precio.toString().replace(/,/g,'') * value.cantidad)), 0))
+      quantity + (+value.precio.toString().replace(/,/g, '') * value.cantidad)), 0))
   const Add = () => {
     setAddToCart(true);
 
@@ -58,7 +59,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
     addTotal();
   };
   const setValue = (p, time) => {
-   
+
     return p.time ? p.time === time : false
 
   }
@@ -85,8 +86,22 @@ const ItemDetail = ({ item, id, isPaquete }) => {
     })
 
   }, []);
+  useEffect(() => {
+    setMeta({
+      title: item.seoTitle,
+      description: item.seoDescripcion,
+      meta: {
+        charset: 'utf-8',
+        name: {
+          keywords: item.seoKeyword
+        }
+      }
+    })
+  }, [item])
 
-  return (
+  return (<>
+    <DocumentMeta {...meta} />
+
     <div>
       <Container style={{ marginTop: "10rem" }}>
         <div className="display-grid">
@@ -94,16 +109,13 @@ const ItemDetail = ({ item, id, isPaquete }) => {
 
           <Col>
             <div className="itemContainer">
-              <h1> {item.nombre}</h1>
-              <p>${item.precio}ARS</p>
+              <h1> {item?.nombre}</h1>
+              <p>${item?.precio}ARS</p>
             </div>
 
             <Container className="cont_details_main">
-              {isPaquete ?
-                <div className="cont_details" key={item.id}>
-                  <h6>{item.nombre}:</h6>
-                  <p>{item.descripcion}</p>
-                </div> :
+              {!isPaquete &&
+
                 item.caracteristicas.map((car, index) => (
                   <div className="cont_details" key={index}>
                     <h6>{car.nombre}:</h6>
@@ -216,7 +228,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
                 >
                   <p style={{ fontSize: 'larger' }}>Subtotal:</p>
                   <div className="text-start">{counter.map((c) => (
-                    <p style={{ fontSize: 'small' }}>{c.nombre}: ${+c.precio.toString().replace(/,/g,'') * c.cantidad}</p>
+                    <p style={{ fontSize: 'small' }}>{c.nombre}: ${+c.precio.toString().replace(/,/g, '') * c.cantidad}</p>
                   ))}</div>
                 </div>
                 <div
@@ -296,7 +308,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
           </Col>
         </div>
 
-        <Container className="text-justify">
+        <Container className="text-justify flex-column">
           <h2 style={{ textAlign: "center" }}>Descripción</h2>
           <p
             style={{
@@ -305,6 +317,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
               letterSpacing: "0.00rem",
               whiteSpace: "pre-wrap",
             }}
+            className='text-center'
           >
             {item.descripcion}
           </p>
@@ -314,6 +327,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
 
       {!isPaquete && <SliderDestSvs excDest={excDest} loading={loading} />}
     </div>
+  </>
   );
 };
 

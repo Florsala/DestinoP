@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../styles/Servicios.css";
 
 import { Container } from "react-bootstrap";
@@ -10,13 +10,33 @@ import SliderExcursiones from "../../components/SliderExcursiones";
 import SliderDestacadas from "../../components/SliderDestacadas";
 import { useFetchDestacadas } from "../../hooks/useFetchDestacadas";
 import Paquetes from "./Paquetes";
+import DocumentMeta from "react-document-meta";
+import { getSeo } from "../../helpers/getSeo";
 
 const Servicios = () => {
-  const [reload, setReload]= React.useState(false)
 
   const { excDest, loading } = useFetchDestacadas();
 
-  return (
+  const [meta, setMeta] = React.useState('')
+  useEffect(() => {
+    getSeo(1, 'Excursiones').then((response) => {
+      setMeta({
+        title: response.data.seoTitle,
+        description: response.data.seoDescripcion,
+        meta: {
+          charset: 'utf-8',
+          name: {
+            keywords: response.data.seoKeywords
+          }
+        }
+      })
+    })
+
+  }, [])
+
+  return (<>
+    <DocumentMeta {...meta} />
+
     <div>
       <div className="hero_svs">
         <div className="heroContent_container_svs">
@@ -56,7 +76,7 @@ const Servicios = () => {
       >
         <h4 style={{ fontSize: "2rem" }}>Paquetes</h4>
       </Container>
-      <Paquetes/>
+      <Paquetes />
       <Container
         style={{
           textTransform: "uppercase",
@@ -78,6 +98,7 @@ const Servicios = () => {
 
 
     </div>
+  </>
   );
 };
 

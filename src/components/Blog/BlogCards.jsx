@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Blog.css";
 
 import Card from "react-bootstrap/Card";
@@ -8,6 +8,7 @@ import Row from "react-bootstrap/Row";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { getBlog } from "../../helpers/getBlog";
+import cartContext from "../../context/CartContext";
 
 const BlogCards = () => {
 
@@ -22,7 +23,7 @@ useEffect(()=>{
   getInfoBlog()
 },[])
 
-
+const {environment } = useContext(cartContext);
 
 
   
@@ -31,13 +32,13 @@ useEffect(()=>{
     <div>
       <Row xs={1} md={3} className="g-4 mx-5 grid_blog">
         {blog.map((items) => (
-          <Link to={`/blog/${blog.id}`} key={items.id}>
+          <Link to={`/blog/${items.id}`} key={items.id}>
             <Col>
               <Card className="c-container">
                 <Card.Img
                   className="card-img-blog"
                   variant="top"
-                  src={items.imagen}
+                  src={`${environment}${items.imagen}`}
                 />
                 <div className="overlay">
                   <Button style={{backgroundColor:'#002569'}}> Leer más</Button>
