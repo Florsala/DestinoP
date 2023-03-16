@@ -19,12 +19,7 @@ const Navmenu2 = () => {
 
   const handleClick = () => setClick(!click);
 
-  useEffect(() => {
-    let handler = () => {
-      setClick(false);
-    };
-    document.addEventListener("mousedown", handler);
-  });
+  
   useEffect(() => {
     setEtiquetas(getIdiomaSeccion("Menu"));
   }, [idioma]);
@@ -43,18 +38,18 @@ const Navmenu2 = () => {
   return (
     <>
       <div className={color ? "navbar navbar-bcg" : "navbar"}>
-        <ul className={click ? "nav-menu active" : "nav-menu"}>
+        <ul className={click ? "nav-menu active" : "nav-menu"} onMouseLeave={()=>setClick(false)}>
           <li className="nav-item">
             <NavLink to={"/"} onClick={() => setClick(false)}>
               {etiquetas[0]?.palabra.toUpperCase()}
             </NavLink>
           </li>
 
-          <li className="nav-item" >
-            <NavLink onClick={() =>  setOpen(!open)    
-            }  to={"/servicios"}>{etiquetas[1]?.palabra.toUpperCase()}</NavLink>
+          <li className="nav-item" onClick={() =>  setClick(false)  
+            } >
+            <NavLink  to={"/servicios"}>{etiquetas[1]?.palabra.toUpperCase()}</NavLink>
           </li>
-          <li className="nav-item" onClick={() => setOpen(!open)}>
+          <li className="nav-item" onClick={() => setClick(false)}>
             <NavLink to={"/blog"}>{etiquetas[2]?.palabra.toUpperCase()}</NavLink>
           </li>
           <div>
@@ -90,7 +85,7 @@ const Navmenu2 = () => {
 
         <div className="hamburger" onClick={handleClick}>
           {click ? (
-            <FaTimes size={30} style={{ color: "#002569" }} />
+            <FaTimes size={30} style={{ color: "#002569" }}/>
           ) : (
             <FaBars size={30} style={{ color: "#002569" }} />
           )}
