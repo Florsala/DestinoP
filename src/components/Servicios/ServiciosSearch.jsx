@@ -17,9 +17,9 @@ const ServiciosSearch = () => {
   const [excursiones, setExcursiones] = useState([]);
 
   const getExcursiones = async () => {
-    //const url = `http://destinopatagonia.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=1&categoria=${categoria}&temporada=${temp}`;
+    const url = `http://destinopatagonia.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=1&temporada=null&categoria=${categoria}`;
 
-    const url = `http://turismo.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=1&temporada=null&categoria=${categoria}`;
+    //const url = `http://turismo.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=1&temporada=null&categoria=${categoria}`;
 
     const resp = await fetch(url);
 
@@ -125,7 +125,7 @@ const ServiciosSearch = () => {
       </div>
 
       {excursiones && (
-        <SliderExcursionesSearch excursiones={excursiones} loading={loading} />
+        <SliderExcursionesSearch excursiones={excursiones} loading={loading}/>
       )}
     </>
   );

@@ -12,8 +12,8 @@ import { useFetchDestacadas } from "../../hooks/useFetchDestacadas";
 import Paquetes from "./Paquetes";
 
 const Servicios = () => {
+  const [reload, setReload]= React.useState(false)
 
-  const { excursiones } = useFetchExcursiones();
   const { excDest, loading } = useFetchDestacadas();
 
   return (
@@ -66,17 +66,17 @@ const Servicios = () => {
         <h4 style={{ fontSize: "2rem" }}>Excursiones destacadas</h4>
       </Container>
 
-{/*       <ServicioItem />
- */}      
-   <div>
-        <SliderDestacadas excDest={excDest} loading={loading}/>
+      {/*       <ServicioItem />
+ */}
+      <div>
+        <SliderDestacadas excDest={excDest} loading={loading} />
       </div>
-      
-            <ServiciosSearch/>
 
-      
+      <ServiciosSearch />
 
-      
+
+
+
     </div>
   );
 };

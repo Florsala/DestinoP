@@ -49,7 +49,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
 
   const total = (item) => (
     item.reduce((quantity, value) => (
-      quantity + (value.precio * +value.cantidad)), 0))
+      quantity + (+value.precio.toString().replace(/,/g,'') * value.cantidad)), 0))
   const Add = () => {
     setAddToCart(true);
 
@@ -58,21 +58,22 @@ const ItemDetail = ({ item, id, isPaquete }) => {
     addTotal();
   };
   const setValue = (p, time) => {
+   
     return p.time ? p.time === time : false
 
   }
   const handleInput = (e, item) => {
     const tarifas = handleInputTarifa(e, item, counter)
-    debugger
+
     setCounter(tarifas);
   };
   const setDateProduct = (date, item) => {
     if (date)
       item['date'] = date
 
+
   }
   const setTimeProduct = (time, item) => {
-    debugger
     if (time)
       item['time'] = time
   }
@@ -113,17 +114,17 @@ const ItemDetail = ({ item, id, isPaquete }) => {
 
             <Container>
               <div className="container-sm">
-                <h5 className="text-uppercase font-h5">{isPaquete ? 'Reservar excursión' : 'Reservar Paquete'}</h5>
+                <h5 className="text-uppercase font-h5">{!isPaquete ? 'Reservar excursión' : 'Reservar Paquete'}</h5>
               </div>
               {item && price.productos && item.productos ?
                 <Container className="cont_details_main">
-                  {item.productos.map((p) => {
+                  {item.productos.map((p, index) => {
 
                     const producto = price.productos.filter((prod) => prod.productoId === p.id)[0]
 
-                    return <div className="form-reservation mb-4">
-                      <h6>Producto:{p.nombre}</h6>
-                      <h6>Categoria:{p.categoria}</h6>
+                    return <div className="form-reservation mb-4" key={index}>
+                      <h6><span className="h5" style={{ fontWeight: 'bolder', marginRight: '5px' }}>Producto: </span><span>{p.nombre}</span></h6>
+                      <h6><span className="h5" style={{ fontWeight: 'bolder', marginRight: '5px' }}>Categoria: </span><span>{p.categoria}</span></h6>
                       <div className="date-form">
                         <ItemDetailDate
                           id={id}
@@ -139,10 +140,10 @@ const ItemDetail = ({ item, id, isPaquete }) => {
                               <ButtonGroup>
                                 <ToggleButton
                                   key={idx}
-                                  id={`radio-${idx}`}
+                                  id={`${index}-${idx}`}
                                   type="radio"
                                   variant={idx % 2 ? 'outline-dark' : 'outline-dark'}
-                                  name={`${p.id}`}
+                                  name={index}
                                   value={radio.hora}
                                   checked={setValue(p, radio.hora)}
                                   onClick={(e) => { setTimeProduct(e.target.innerHTML.substring(0, 5), p); setTime(e.target.innerHTML.substring(0, 5)) }}
@@ -160,7 +161,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
                   }
 
                   )}
-                  <div className="container_tarifas">
+                  <div className="container_tarifas mb-4">
                     {loadingTarifas && <Spinner />}
                     {price.tarifas &&
                       price.tarifas.map((item, index) => (
@@ -215,7 +216,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
                 >
                   <p style={{ fontSize: 'larger' }}>Subtotal:</p>
                   <div className="text-start">{counter.map((c) => (
-                    <p style={{ fontSize: 'small' }}>{c.nombre}: ${c.precio * +c.cantidad}</p>
+                    <p style={{ fontSize: 'small' }}>{c.nombre}: ${+c.precio.toString().replace(/,/g,'') * c.cantidad}</p>
                   ))}</div>
                 </div>
                 <div
@@ -241,6 +242,8 @@ const ItemDetail = ({ item, id, isPaquete }) => {
                         setCounter={setCounter}
                         date={date}
                         time={time}
+                        isPaquete={isPaquete}
+                        productos={isPaquete ? item.productos : []}
                       />
                     </div>
                   )

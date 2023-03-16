@@ -24,6 +24,7 @@ const Formulario = () => {
           Res_Mail: "",
           Res_Telefono: "",
           Res_Obs: "",
+          Comb_Id: 0
         }}
         validate={(model) => {
          

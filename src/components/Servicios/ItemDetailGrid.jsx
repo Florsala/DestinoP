@@ -1,48 +1,11 @@
-import React, { useState } from "react";
-
-import pinguinos from "../../assets/pinguinos.jpg";
-import harberton from "../../assets/harberton.jpg";
-import { AiOutlineClose } from "react-icons/ai";
-//import videoP from "../assets/video-p.mp4";
-
-const imagenes = [
-  {
-    path: pinguinos,
-  },
-  {
-    path: harberton,
-  },
-  {
-    path: pinguinos,
-  },
-  {
-    path: pinguinos,
-  },
-  {
-    path: pinguinos,
-  },
-  {
-    path: pinguinos,
-  },
-  {
-    path: pinguinos,
-  },
-  {
-    path: harberton,
-  },
-];
-
-/* const videos = [
-   {path: videoP}
- ] */
-
-
-
-
+import React, { useState } from 'react'
+import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 const ItemDetailGrid = ({ item, isPaquete }) => {
 
 
-  const [selectedImg, setSelectedImg] = useState(!isPaquete? item.imagenes[0]?.path: item.path)
+  const [selectedImg, setSelectedImg] = useState(!isPaquete ? item.imagenes[0]?.path : item.path)
 
   const [model, setModel] = useState(false);
   const [picImage, setPicImage] = useState("");
@@ -59,18 +22,6 @@ const ItemDetailGrid = ({ item, isPaquete }) => {
   }
 
   return (
-    <div className="container-md container-grid-img">
-      <div
-        className={
-          model ? "container-grid-img_first open" : "container-grid-img_first"
-        }
-        onClick={() => setModel(false)}
-      >
-        <img src={picImage} alt="selected" />
-        {/*       <AiOutlineClose style={imgClose} onClick={() => setModel(false)} />
-         */}{" "}
-      </div>
-
     <div className="container-md container-grid-img" >
       <img src={selectedImg} alt="selected"
         className={click ? 'container-grid-img_first open' : 'container-grid-img_first'}
@@ -86,17 +37,53 @@ const ItemDetailGrid = ({ item, isPaquete }) => {
                 autoPlay={true}
               ></video>
             ))}  */}
-      {isPaquete ? <img key={item.id} src={item.path} alt=""
-        onClick={() => setSelectedImg(item.path)}
-      /> : item.imagenes.map((img, index) => (
-        <img key={index} src={img.path} alt=""
-          onClick={() => setSelectedImg(img.path)}
-        />
-      ))}
+
+      {isPaquete ? <div> {item.productos.map((p) =>
+        <Link key={p.id} to={`/servicios/${p.id}`}>
+          <Card className="card-svs" style={{ width: "23rem" }}>
+            <Card.Img
+              variant="top"
+              style={{ padding: "1rem" }}
+              src={p.imagen}
+
+            />
+            <Card.Body className="card-body">
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  fontWeight: "600",
+                  alignitems: "flex-start",
+                }}
+              >
+                <Card.Title
+                  style={{ color: "black", fontSize: "1.1rem", textTransform: 'uppercase' }}
+                >
+                  {p.nombre}
+                </Card.Title>
+              </div>
+
+              <div>
+                <Button className="btn_svs" variant="primary" size="lg">
+                  + info
+                </Button>
+              </div>
+            </Card.Body>
+          </Card>
+        </Link>
+      )}</div>
+        : item.imagenes.map((img, index) => (
+          <img key={index} src={img.path} alt=""
+            onClick={() => setSelectedImg(img.path)}
+          />
+        ))}
+
+
 
     </div>
 
-    </div>
+   
   )
 };
 
