@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { Outlet, NavLink, Link } from "react-router-dom";
 import logo from "../../assets/logo2sm.png";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { useState } from "react";
 import NavIcons from "./NavIcons";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -15,6 +14,8 @@ const Navmenu2 = () => {
   const [click, setClick] = useState(false);
   const [etiquetas, setEtiquetas] = useState([]);
   const { idioma, getIdiomaSeccion } = useContext(cartContext)
+
+  const [open, setOpen] = useState(false);
 
   const handleClick = () => setClick(!click);
 
