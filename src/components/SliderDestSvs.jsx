@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import Slider from "react-slick";
 import Card from "react-bootstrap/Card";
 import { Link} from "react-router-dom";
 import { Button, Spinner } from "react-bootstrap";
+import cartContext from "../context/CartContext";
 
 
 const SliderDestSvs = ({ excDest, loading }) => {
 
- 
+  const { environment } = useContext(cartContext);
 
 
   const settings = {
@@ -37,11 +38,11 @@ const SliderDestSvs = ({ excDest, loading }) => {
             {excDest.map((items,index) => (
               
                 <div key={index}>
-                  <Card className="card-svs">
+                  <Card className="card-svs" style={{height: '22rem'}}>
                     <Card.Img
                       variant="top"
                       style={{ padding: "1rem" }}
-                      src={items.imagen}
+                      src={`${environment}${items.imagen}`}
                     />
                     <Card.Body className="card-body-column">
                       <div

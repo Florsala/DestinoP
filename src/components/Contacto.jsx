@@ -8,11 +8,14 @@ import Form from "react-bootstrap/Form";
 import { getContacto } from "../helpers/getContacto";
 import { SpinnerCustom } from "./spinner";
 import { createContacto } from "../helpers/createContacto";
+import DocumentMeta from "react-document-meta";
+import { getSeo } from "../helpers/getSeo";
 
 const Contacto = () => {
   const [contacto, setContacto] = useState([]);
   const [loading, setLoading] = useState(false);
   const [consulta, setConsulta]= useState({})
+  const [meta, setMeta] = React.useState('')
 
   const getInfoContacto = async () => {
     const newInfo = await getContacto();
@@ -21,6 +24,18 @@ const Contacto = () => {
 
   useEffect(() => {
     getInfoContacto();
+    getSeo(1, 'Contacto').then((response) => {
+      setMeta({
+        title: response.data.seoTitle,
+        description: response.data.seoDescripcion,
+        meta: {
+          charset: 'utf-8',
+          name: {
+            keywords: response.data.seoKeywords
+          }
+        }
+      })
+    })
   }, []);
   const enviarConsulta = (event) => {
     event.preventDefault();
@@ -33,6 +48,7 @@ const Contacto = () => {
   const ChangeFieldValue = (event, nameField) => { setConsulta({ ...consulta, [nameField]: event.target.value }) }
   return (
     <>
+     <DocumentMeta {...meta} />
       {loading && <SpinnerCustom />}
       <div>
         <div className="contacto_header container-fluid">
