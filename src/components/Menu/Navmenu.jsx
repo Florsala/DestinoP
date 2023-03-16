@@ -8,6 +8,7 @@ import Navbar from "react-bootstrap/Navbar";
 import CartWidget from "./CartWidget";
 import cartContext from "../../context/CartContext";
 //import getMenu from "../helpers/getIdiomas";
+import "./Dropdown.css";
 
 const Navmenu2 = () => {
   const [click, setClick] = useState(false);
@@ -45,15 +46,16 @@ const Navmenu2 = () => {
         <ul className={click ? "nav-menu active" : "nav-menu"}>
           <li className="nav-item">
             <NavLink to={"/"} onClick={() => setClick(false)}>
-              {etiquetas[0]?.palabra}
+              {etiquetas[0]?.palabra.toUpperCase()}
             </NavLink>
           </li>
 
-          <li className="nav-item" onClick={() => setOpen(!open)}>
-            <NavLink to={"/servicios"}>{etiquetas[1]?.palabra}</NavLink>
+          <li className="nav-item" >
+            <NavLink onClick={() =>  setOpen(!open)    
+            }  to={"/servicios"}>{etiquetas[1]?.palabra.toUpperCase()}</NavLink>
           </li>
           <li className="nav-item" onClick={() => setOpen(!open)}>
-            <NavLink to={"/blog"}>{etiquetas[2]?.palabra}</NavLink>
+            <NavLink to={"/blog"}>{etiquetas[2]?.palabra.toUpperCase()}</NavLink>
           </li>
           <div>
             <Link to={"/"}>
@@ -67,17 +69,18 @@ const Navmenu2 = () => {
 
           <li className="nav-item">
             <NavLink to={"/nosotros"} onClick={() => setClick(false)}>
-              {etiquetas[3]?.palabra}
+              {etiquetas[3]?.palabra.toUpperCase()}
             </NavLink>
           </li>
           <li className="nav-item">
             <NavLink to={"/contacto"} onClick={() => setClick(false)}>
-              {etiquetas[4]?.palabra}
+              {etiquetas[4]?.palabra.toUpperCase()}
             </NavLink>
           </li>
           <li className="nav-item">
             <NavLink to={"/galeria"} onClick={() => setClick(false)}>
-              {etiquetas[5]?.palabra}
+              {etiquetas[5]?.palabra.toUpperCase()
+              }
             </NavLink>
           </li>
           <li>
