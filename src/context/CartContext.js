@@ -42,7 +42,7 @@ const addTotal = () => {
     let precio = 0;
     
     value.quantity.forEach((i)=>{
-      precio += i.precio * i.cantidad
+      precio += +i.precio.toString().replace(/,/g,'') * i.cantidad
   }) 
      return quantity + precio}, 0)
 }
