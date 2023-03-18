@@ -2,24 +2,29 @@ import { MdDoubleArrow } from "react-icons/md";
 import Form from "react-bootstrap/Form";
 
 import Button from "react-bootstrap/Button";
-import { useFetchCategorias } from "../../hooks/useFetchCategorias";
-import { useFetchTemporadas } from "../../hooks/useFetchTemporadas";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import SliderExcursionesSearch from "./SliderExcursionesSearch";
+import cartContext from "../../context/CartContext";
+import { getCategories } from "../../helpers/getCategories";
+import { getTemporadas } from "../../helpers/getTemporadas";
 
 const ServiciosSearch = () => {
-  const { category } = useFetchCategorias();
-  const { temporada } = useFetchTemporadas();
+ 
   const [loading, setLoading] = useState(true);
-
+  const [category, setCategory] = useState([]);
+  const [temporada, setTemporda] = useState([]);
   const [categoria, setCategoria] = useState("");
   const [temp, setTemp] = useState("");
   const [excursiones, setExcursiones] = useState([]);
-
+  const [etiquetas, setEtiquetas] = useState([]);
+  const { idioma, getIdiomaSeccion } = useContext(cartContext);
+  useEffect(() => {
+    
+  }, [idioma]);
   const getExcursiones = async () => {
-    //const url = `http://destinopatagonia.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=1&temporada=null&categoria=${categoria}`;
+    //const url = `http://destinopatagonia.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=${idioma.id}&temporada=null&categoria=${categoria}`;
 
-    const url = `http://turismo.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=1&temporada=null&categoria=${categoria}`;
+    const url = `http://turismo.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=${idioma.id}&temporada=null&categoria=${categoria}`;
 
     const resp = await fetch(url);
 
@@ -38,9 +43,16 @@ const ServiciosSearch = () => {
 
     return data;
   };
-
+  const getTemporadasList = async () => {
+    const newInfo = await getTemporadas(idioma.id);
+    setTemporda(newInfo);
+  };
+  const getCategoriasList = async () => {
+    const newInfo = await getCategories(idioma.id);
+    setCategory(newInfo);
+  };
   const getInfoExcursiones = async () => {
-    const newInfo = await getExcursiones();
+    const newInfo = await getExcursiones(idioma.id);
     setExcursiones(newInfo);
     setLoading(false);
   };
@@ -60,8 +72,9 @@ const ServiciosSearch = () => {
   };
 
   useEffect(() => {
-    getInfoExcursiones();
-  }, [categoria]);
+    setEtiquetas(getIdiomaSeccion("Excursiones"));
+    if(idioma.id) {getInfoExcursiones(); getCategoriasList(); getTemporadasList()};
+  }, [categoria, idioma]);
 
   return (
     <>
@@ -78,7 +91,7 @@ const ServiciosSearch = () => {
         >
           <div style={{ display: "flex", gap: "1rem" }}>
             <Form.Group style={{ width: "50%" }}>
-              <Form.Label style={{ fontWeight: "700" }}>Temporada</Form.Label>
+              <Form.Label style={{ fontWeight: "700" }}>{etiquetas[2]?.palabra}</Form.Label>
               <Form.Select
                 size="md"
                 aria-label="Default select example"
@@ -92,7 +105,7 @@ const ServiciosSearch = () => {
               </Form.Select>
             </Form.Group>
             <Form.Group style={{ width: "50%" }}>
-              <Form.Label style={{ fontWeight: "700" }}>Categoría</Form.Label>
+              <Form.Label style={{ fontWeight: "700" }}>{etiquetas[3]?.palabra}</Form.Label>
 
               <Form.Select
                 size="md"
@@ -117,7 +130,7 @@ const ServiciosSearch = () => {
               size="md"
               onClick={handleSubmit}
             >
-              Buscar
+              {etiquetas[4]?.palabra}
               <MdDoubleArrow style={{ margin: "0.2rem" }} />
             </Button>
           </div>

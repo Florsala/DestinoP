@@ -8,9 +8,13 @@ import Formulario from "./Formulario";
 import { getListCart } from "../../helpers/getListCart";
 
 const Cart = () => {
+  const { cart, clearCart, removeItem, addTotal, total, environment, idioma, getIdiomaSeccion } = useContext(cartContext);
   let empty = "false";
 
-
+  const [etiquetas, setEtiquetas] = useState([]);
+  useEffect(() => {
+    setEtiquetas(getIdiomaSeccion("Carrito"));
+  }, [idioma]);
   const [getList, setGetList] = useState([]);
 
   const getInfoCart = async () => {
@@ -24,7 +28,7 @@ const Cart = () => {
 
   }, []);
 
-  const { cart, clearCart, removeItem, addTotal, total, environment } = useContext(cartContext);
+  
 
   const subtotal = (item) => (
     item.quantity.reduce((quantity, value) => {
@@ -40,7 +44,7 @@ const Cart = () => {
   return (
     <div className="CartItems">
       <div style={{ marginTop: "10rem" }}>
-        <h1>Mi carrito de compras</h1>
+        <h1>{etiquetas[0]?.palabra}</h1>
       </div>
 
       <div className="Cart-container-flex">
@@ -70,19 +74,19 @@ const Cart = () => {
                 {item.item.productos ?
                   <div style={{ display: 'grid' }}>
                     <div style={{ display: 'flex' }}>
-                    <Card.Text style={{ display: 'flex', marginRight:'10px' }}><span style={{ fontWeight: 'bolder', marginRight: '5px' }}>Pasajeros: </span>{cantidadPasajeros(item)}</Card.Text>
+                    <Card.Text style={{ display: 'flex', marginRight:'10px' }}><span style={{ fontWeight: 'bolder', marginRight: '5px' }}>{etiquetas[2]?.palabra}: </span>{cantidadPasajeros(item)}</Card.Text>
                     <Card.Text style={{ display: 'flex' }}><span style={{ fontWeight: 'bolder', marginRight: '5px' }}>Subtotal: </span>${subtotal(item)} </Card.Text>
                     </div>
                     {item.item.productos.map((p) =>
                       <div style={{ display: 'flex' }}>
                         <Card.Text style={{ display: 'flex', marginRight:'10px' }}><span style={{ fontWeight: 'bolder', marginRight: '5px' }}>Excursión: </span>{p.nombre}</Card.Text>
-                        <Card.Text style={{ display: 'flex' }}><span style={{ fontWeight: 'bolder', marginRight: '5px' }}>Fecha y hora: </span> {`${formatDate(p.date)} ${p.time}`}</Card.Text>
+                        <Card.Text style={{ display: 'flex' }}><span style={{ fontWeight: 'bolder', marginRight: '5px' }}>{etiquetas[1]?.palabra}: </span> {`${formatDate(p.date)} ${p.time}`}</Card.Text>
 
                       </div>)}
                   </div>
-                  : <><Card.Text style={{ display: 'flex' }}><span style={{ fontWeight: 'bolder', marginRight: '5px' }}>Fecha y hora: </span> {`${formatDate(item.date)} ${item.time}`}</Card.Text>
-                    <Card.Text style={{ display: 'flex' }}><span style={{ fontWeight: 'bolder', marginRight: '5px' }}>Pasajeros: </span>{cantidadPasajeros(item)}</Card.Text>
-                    <Card.Text style={{ display: 'flex' }}><span style={{ fontWeight: 'bolder', marginRight: '5px' }}>Subtotal: </span>${subtotal(item)}
+                  : <><Card.Text style={{ display: 'flex' }}><span style={{ fontWeight: 'bolder', marginRight: '5px' }}>{etiquetas[1]?.palabra}: </span> {`${formatDate(item.date)} ${item.time}`}</Card.Text>
+                    <Card.Text style={{ display: 'flex' }}><span style={{ fontWeight: 'bolder', marginRight: '5px' }}>{etiquetas[2]?.palabra}: </span>{cantidadPasajeros(item)}</Card.Text>
+                    <Card.Text style={{ display: 'flex' }}><span style={{ fontWeight: 'bolder', marginRight: '5px' }}>{etiquetas[3]?.palabra}:: </span>${subtotal(item)}
                     </Card.Text></>}
                 <Button
                   onClick={() => {
@@ -103,7 +107,7 @@ const Cart = () => {
         <div>
           <Card className="CartItems-price ">
             <Card.Body>
-              <Card.Text>Total: </Card.Text>
+              <Card.Text>{etiquetas[4]?.palabra}: </Card.Text>
               <Card.Text style={{ fontWeight: '700' }}> AR$ {addTotal()}</Card.Text>
             </Card.Body>
           </Card>
@@ -117,14 +121,14 @@ const Cart = () => {
             clearCart((empty = "true"));
           }}
         >
-          Vaciar mi carrito
+         {etiquetas[9]?.palabra}
         </Button>
 
         {empty && (
           <>
             <Link to="/servicios">
               <Button color="secondary" variant="contained" m={5} size="small">
-                Seguir comprando
+              {etiquetas[10]?.palabra}
               </Button>
             </Link>
           </>

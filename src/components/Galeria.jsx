@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { getGaleria } from "../helpers/getGaleria";
 import "../styles/Galeria.css";
 import "../styles/Medias.css";
@@ -8,6 +8,7 @@ import { logDOM } from "@testing-library/react";
 import { AiOutlineClose } from 'react-icons/ai'
 import { getSeo } from "../helpers/getSeo";
 import DocumentMeta from "react-document-meta";
+import cartContext from "../context/CartContext";
 
 /* imagenes para prueba */
 /* const galeria = [
@@ -34,22 +35,27 @@ import DocumentMeta from "react-document-meta";
 
 const Galeria = () => {
 
+  const [etiquetas, setEtiquetas] = useState([]);
+  const { idioma, getIdiomaSeccion } = useContext(cartContext);
+
   const [meta, setMeta] = React.useState('')
   useEffect(() => {
-    getSeo(1, 'Galeria').then((response) => {
-      setMeta({
-        title: response.data.seoTitle,
-        description: response.data.seoDescripcion,
-        meta: {
-          charset: 'utf-8',
-          name: {
-            keywords: response.data.seoKeywords
+    if (idioma.id) {
+      setEtiquetas(getIdiomaSeccion("Galeria"));
+      getSeo(idioma.id, 'Galeria').then((response) => {
+        setMeta({
+          title: response.data.seoTitle,
+          description: response.data.seoDescripcion,
+          meta: {
+            charset: 'utf-8',
+            name: {
+              keywords: response.data.seoKeywords
+            }
           }
-        }
+        })
       })
-    })
-
-  }, [])
+    }
+  }, [idioma])
 
   const ArrowRight = {
     color: "#fff",
@@ -107,7 +113,7 @@ const Galeria = () => {
   }
 
 
-   const [galeria, setGaleria] = useState([]);
+  const [galeria, setGaleria] = useState([]);
 
   const getInfoGaleria = async () => {
     const newInfo = await getGaleria();
@@ -116,7 +122,7 @@ const Galeria = () => {
 
   useEffect(() => {
     getInfoGaleria();
-  }, []); 
+  }, []);
 
   return (<>
     <DocumentMeta {...meta} />
@@ -129,7 +135,7 @@ const Galeria = () => {
               className="text-uppercase display-2"
               style={{ fontWeight: "600" }}
             >
-              Ushuaia
+              {etiquetas[0]?.palabra}
             </h1>
             <h4
               style={{
@@ -139,7 +145,7 @@ const Galeria = () => {
                 fontWeight: 700,
               }}
             >
-              en fotos
+              {etiquetas[1]?.palabra}
             </h4>
           </div>
         </div>

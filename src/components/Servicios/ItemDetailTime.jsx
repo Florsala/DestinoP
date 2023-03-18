@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import { Spinner } from "react-bootstrap";
+import cartContext from '../../context/CartContext';
 
 
 const ItemDetailTime = ({id,selectedDate, price, setTime}) => {
@@ -9,7 +10,14 @@ const ItemDetailTime = ({id,selectedDate, price, setTime}) => {
   const [radioValue, setRadioValue] = useState(false);
   const [loading, setLoading] = useState(true);
 
- 
+  const [etiquetas, setEtiquetas] = useState([]);
+  const {idioma, getIdiomaSeccion } = useContext(cartContext);
+
+
+  useEffect(() => {
+    setEtiquetas(getIdiomaSeccion("Excursiones Detalle"));
+  }, [idioma]);
+
 const setNewValue = (e) =>{
   setTime(e.target.innerHTML.substring(0,5))
   setRadioValue(e.currentTarget.value)

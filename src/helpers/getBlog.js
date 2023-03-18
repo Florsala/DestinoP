@@ -1,10 +1,10 @@
 
-export const getBlog = async () => {
+export const getBlog = async (idioma) => {
 
-    //const url = "http://destinopatagonia.elemsoft.net/webapi/api/Blog/GetListByIdioma?id=1";
-    const url = "http://turismo.elemsoft.net/webapi/api/Blog/GetListByIdioma?id=1";
+    //const url = "http://destinopatagonia.elemsoft.net/webapi/api/Blog/GetListByIdioma";
+    const url = "http://turismo.elemsoft.net/webapi/api/Blog/GetListByIdioma";
     
-    const resp = await fetch (url);
+    const resp = await fetch (`${url}?id=${idioma}`);
     
     const { msg } = await resp.json();
     

@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 
 
 import { Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import { getExcDetails } from "../../helpers/getExcDetails";
+import cartContext from "../../context/CartContext";
 import { getPaquetesById } from "../../helpers/getPaquetes";
 import ItemDetail from "./ItemDetail";
 
 
 const PaqueteItemDetail = () => {
-
+    const { idioma } = useContext(cartContext);
     const { id } = useParams();
 
     const [item, setItems] = useState([]);
@@ -19,7 +19,7 @@ const PaqueteItemDetail = () => {
 
     const getItemDetails = async () => {
 
-        getPaquetesById(1, id).then((response) => {
+        getPaquetesById(idioma.id, id).then((response) => {
             setItems(response.data.msg[0]);
             setLoading(false)
         });
@@ -29,8 +29,8 @@ const PaqueteItemDetail = () => {
 
     }
     useEffect(() => {
-        getItemDetails();
-    }, [id])
+        if(idioma) getItemDetails();
+    }, [id, idioma])
 
 
 

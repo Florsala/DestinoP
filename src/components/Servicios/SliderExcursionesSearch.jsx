@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
@@ -6,7 +6,11 @@ import { Spinner } from "react-bootstrap";
 import cartContext from "../../context/CartContext";
 
 const SliderExcursiones = ({ excursiones, loading, isPaquete}) => {
-  const { environment } = useContext(cartContext);
+  const { environment, idioma, getIdiomaSeccion } = useContext(cartContext);
+  const [etiquetas, setEtiquetas] = useState([]);
+  useEffect(() => {
+    setEtiquetas(getIdiomaSeccion("Excursiones"));
+  }, [idioma]);
 
   return (
     <div>
@@ -54,7 +58,7 @@ const SliderExcursiones = ({ excursiones, loading, isPaquete}) => {
 
                     <div>
                       <Button className="btn_svs" variant="primary" size="lg">
-                        + info
+                        {etiquetas[7]?.palabra}
                       </Button>
                     </div>
                   </Card.Body>

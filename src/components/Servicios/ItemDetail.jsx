@@ -28,7 +28,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
 
   const [addToCart, setAddToCart] = useState(false);
 
-  const { addItem, addTotal, environment } = useContext(cartContext);
+  const { addItem, addTotal, environment, idioma, getIdiomaSeccion } = useContext(cartContext);
 
   const [counter, setCounter] = useState([]);
   const [subtotalValue, setSubtotalValue] = useState(0)
@@ -36,6 +36,12 @@ const ItemDetail = ({ item, id, isPaquete }) => {
   const [meta, setMeta] = useState('')
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
+  const [etiquetasExcursion, setEtiquetasExcursion] = useState([]);
+  const [etiquetasPaquete, setEtiquetasPaquete] = useState([]);
+  useEffect(() => {
+    setEtiquetasExcursion(getIdiomaSeccion("Excursiones Detalle"));
+    setEtiquetasPaquete(getIdiomaSeccion("Paquetes Detalle"));
+  }, [idioma]);
   useEffect(() => {
     if (counter.length) {
       setSubtotalValue(
@@ -126,7 +132,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
 
             <Container>
               <div className="container-sm">
-                <h5 className="text-uppercase font-h5">{!isPaquete ? 'Reservar excursión' : 'Reservar Paquete'}</h5>
+                <h5 className="text-uppercase font-h5">{!isPaquete ? etiquetasExcursion[0]?.palabra : etiquetasPaquete[0]?.palabra}</h5>
               </div>
               {item && price.productos && item.productos ?
                 <Container className="cont_details_main">
@@ -135,8 +141,8 @@ const ItemDetail = ({ item, id, isPaquete }) => {
                     const producto = price.productos.filter((prod) => prod.productoId === p.id)[0]
 
                     return <div className="form-reservation mb-4" key={index}>
-                      <h6><span className="h5" style={{ fontWeight: 'bolder', marginRight: '5px' }}>Producto: </span><span>{p.nombre}</span></h6>
-                      <h6><span className="h5" style={{ fontWeight: 'bolder', marginRight: '5px' }}>Categoria: </span><span>{p.categoria}</span></h6>
+                      <h6><span className="h5" style={{ fontWeight: 'bolder', marginRight: '5px' }}>{etiquetasPaquete[8]?.palabra}: </span><span>{p.nombre}</span></h6>
+                      <h6><span className="h5" style={{ fontWeight: 'bolder', marginRight: '5px' }}>{etiquetasPaquete[9]?.palabra}: </span><span>{p.categoria}</span></h6>
                       <div className="date-form">
                         <ItemDetailDate
                           id={id}
@@ -226,7 +232,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
                   }}
                   className='align-items-start flex-column'
                 >
-                  <p style={{ fontSize: 'larger' }}>Subtotal:</p>
+                  <p style={{ fontSize: 'larger' }}>{etiquetasExcursion[3]?.palabra}</p>
                   <div className="text-start">{counter.map((c) => (
                     <p style={{ fontSize: 'small' }}>{c.nombre}: ${+c.precio.toString().replace(/,/g, '') * c.cantidad}</p>
                   ))}</div>
@@ -241,7 +247,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
                     color: "#6573a4",
                   }}
                 >
-                  <p className="text-uppercase">total a pagar</p>
+                  <p className="text-uppercase">{etiquetasExcursion[4]?.palabra}</p>
                   <p>${total(counter)}</p>
                 </div>
 
@@ -275,7 +281,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
                   >
                     <Alert style={{ transition: "all 2s" }}>
                       <p>
-                        Su excursión fue agregada al carrito{" "}
+                        {!isPaquete? etiquetasExcursion[9]?.palabra: etiquetasPaquete[10]?.palabra}{" "}
                         <span>
                           <IoMdCheckmarkCircleOutline
                             style={{ fontSize: "1.2rem" }}
@@ -309,7 +315,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
         </div>
 
         <Container className="text-justify flex-column">
-          <h2 style={{ textAlign: "center" }}>Descripción</h2>
+          <h2 style={{ textAlign: "center" }}>{etiquetasExcursion[7]?.palabra}</h2>
           <p
             style={{
               lineHeight: "1.4rem",

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import "../../styles/Formulario.css";
 import cartContext from "../../context/CartContext";
@@ -11,7 +11,11 @@ const Formulario = () => {
   const [sendForm, setSendForm] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const { cart, addTotal, clearCart } = useContext(cartContext);
+  const { cart, addTotal, clearCart, idioma,getIdiomaSeccion  } = useContext(cartContext);
+  const [etiquetas, setEtiquetas] = useState([]);
+  useEffect(() => {
+    setEtiquetas(getIdiomaSeccion("Carrito"));
+  }, [idioma]);
 
   return (
     <>
@@ -92,7 +96,7 @@ const Formulario = () => {
               <Field
                 type="text"
                 name="Res_Apellido"
-                placeholder="Nombre"
+                placeholder={etiquetas[5]?.palabra}
                 id="Res_Apellido"
                 value={values.Res_Apellido}
               />
@@ -108,7 +112,7 @@ const Formulario = () => {
               <Field
                 type="Res_Mail"
                 name="Res_Mail"
-                placeholder="Correo"
+                placeholder={etiquetas[6]?.palabra}
                 id="Res_Mail"
                 value={values.Res_Mail}
               />
@@ -122,7 +126,7 @@ const Formulario = () => {
               <Field
                 type="number"
                 name="Res_Telefono"
-                placeholder="Telefono"
+                placeholder={etiquetas[7]?.palabra}
                 id="Res_Telefono"
                 value={values.Res_Telefono}
               />
@@ -142,16 +146,16 @@ const Formulario = () => {
                 rows="3"
                 aria-required="true"
                 aria-invalid="false"
-                placeholder="Comentarios"
+                placeholder={etiquetas[8]?.palabra}
                 value={values.Res_Obs}
               />
             </div>
 
-            {!loading && <button type="submit" disabled={isSubmitting}>Confirmar Reserva</button>}
+            {!loading && <button type="submit" disabled={isSubmitting}>{etiquetas[6]?.palabra}</button>}
             {loading && <SpinnerCustom />}
 
             {sendForm && (
-              <p className="exito"> En breve nos contactaremos con usted</p>
+              <p className="exito">{etiquetas[11]?.palabra}</p>
             )}
           </Form>
         )}

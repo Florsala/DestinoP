@@ -58,7 +58,6 @@ const removeItem = (item, index) => {
   const newList = cart.filter(
     e => e.item.id !== item.item.id
   )
-  debugger
 setCart(newList);
 addTotal();
 }
@@ -76,7 +75,7 @@ const setIdiomaObject = (idioma)=>{
 }
 const getIdiomaSeccion = (seccion)=> {
  
-  if(idioma) return idioma.etiquetas.filter((e)=>e.seccion === seccion)
+  if(idioma) return idioma.etiquetas.filter((e)=>e.seccion.trim() === seccion)
   return []
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../styles/Footer.css";
 import { Link } from "react-router-dom";
 
@@ -7,9 +7,16 @@ import logo from "../assets/logo.png";
 import Escudos from "./Escudos";
 import { getContacto } from "../helpers/getContacto";
 import IconsContainer from "./IconsContainer";
+import cartContext from "../context/CartContext";
 
 const Footer = () => {
   const [contacto, setContacto] = useState([]);
+  const [etiquetas, setEtiquetas] = useState([]);
+  const { idioma, getIdiomaSeccion } = useContext(cartContext);
+  useEffect(() => {
+    setEtiquetas(getIdiomaSeccion("Pie de Pagina"));
+  }, [idioma]);
+
 
   const getInfoContacto = async () => {
     const newInfo = await getContacto();
@@ -45,7 +52,7 @@ const Footer = () => {
                 padding: "0.5rem",
               }}
             >
-              <li>CONTACTO:</li>
+              <li>{etiquetas[4]?.palabra.toUpperCase()}:</li>
               <li>{contacto.domicilio}</li>
               <li>{contacto.telefono}</li>
               <li>{contacto.email}</li>
@@ -67,21 +74,24 @@ const Footer = () => {
               <div className="menuContainer_main">
                 <ul className="menuContainer">
                   <li>
-                    <Link to={"/"}>HOME</Link>
+                    <Link to={"/"}>{etiquetas[0]?.palabra.toUpperCase()}</Link>
                   </li>
                   <li>
-                    <Link to={"/servicios"}>EXCURSIONES</Link>{" "}
+                    <Link to={"/servicios"}>{etiquetas[1]?.palabra.toUpperCase()}</Link>{" "}
                   </li>
                   <li>
-                    <Link to={"/blog"}>BLOG</Link>
+                    <Link to={"/blog"}>{etiquetas[3]?.palabra.toUpperCase()}</Link>
                   </li>
                 </ul>
                 <ul className="menuContainer">
                   <li>
-                    <Link to={"/nosotros"}>NOSOTROS</Link>{" "}
+                    <Link to={"/nosotros"}>{etiquetas[2]?.palabra.toUpperCase()}</Link>{" "}
                   </li>
                   <li>
-                    <Link to={"/galeria"}>GALERIA</Link>{" "}
+                    <Link to={"/contacto"}>{etiquetas[4]?.palabra.toUpperCase()}</Link>{" "}
+                  </li>
+                  <li>
+                    <Link to={"/galeria"}>{etiquetas[5]?.palabra.toUpperCase()}</Link>{" "}
                   </li>
                 </ul>
               </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import Datepicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -13,6 +13,7 @@ import Form from "react-bootstrap/Form";
 import ItemDetailTime from "./ItemDetailTime";
 import { handleInputTarifa } from "../utils/handleInputTarifa";
 import { formatDate } from "../utils/dateFormat";
+import cartContext from "../../context/CartContext";
 
 registerLocale("es", es);
 
@@ -24,6 +25,13 @@ const ItemDetailDate = ({ id, counter, setCounter, setDate, setTime, isPaquete }
   const [select, setSelect] = useState(false);
 
   const [cantidades, setCantidades] = useState({})
+  const [etiquetas, setEtiquetas] = useState([]);
+  const {idioma, getIdiomaSeccion } = useContext(cartContext);
+
+
+  useEffect(() => {
+    setEtiquetas(getIdiomaSeccion("Excursiones Detalle"));
+  }, [idioma]);
 
   const getTarifaHora = async () => {
     const newTarifa = await getTarifas({ id, selectedDate });
@@ -69,7 +77,7 @@ const ItemDetailDate = ({ id, counter, setCounter, setDate, setTime, isPaquete }
     <>
       <div style={{ marginBottom: "2rem" }}>
         <p>
-          fecha
+        {etiquetas[1]?.palabra}
           <span style={{ fontSize: " 1.2rem", padding: "5px" }}>
             <GoCalendar />
           </span>
@@ -121,7 +129,7 @@ const ItemDetailDate = ({ id, counter, setCounter, setDate, setTime, isPaquete }
         {!!selectedDate && !isPaquete && (
           <div>
             <p>
-            horario
+            {etiquetas[2]?.palabra}
             <span style={{ fontSize: " 1.2rem", padding: "5px" }}>
               <GoClock />
             </span>

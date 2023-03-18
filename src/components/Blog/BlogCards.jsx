@@ -11,19 +11,23 @@ import { getBlog } from "../../helpers/getBlog";
 import cartContext from "../../context/CartContext";
 
 const BlogCards = () => {
-
+  const {environment } = useContext(cartContext);
+  const [etiquetas, setEtiquetas] = useState([]);
+    const { idioma, getIdiomaSeccion } = useContext(cartContext);
+    useEffect(() => {
+      setEtiquetas(getIdiomaSeccion("Blog"));
+    }, [idioma]);
 const [blog, setBlog] = useState([]);
 
 const getInfoBlog = async () => {
-  const newInfo = await getBlog();
+  const newInfo = await getBlog(idioma.id);
   setBlog(newInfo);
 }
 
 useEffect(()=>{
-  getInfoBlog()
+  if(idioma.id) getInfoBlog()
 },[])
 
-const {environment } = useContext(cartContext);
 
 
   
@@ -41,7 +45,7 @@ const {environment } = useContext(cartContext);
                   src={`${environment}${items.imagen}`}
                 />
                 <div className="overlay">
-                  <Button style={{backgroundColor:'#002569'}}> Leer más</Button>
+                  <Button style={{backgroundColor:'#002569'}}>{etiquetas[2]?.palabra}</Button>
                 </div>
                 <Card.Body style={{ flexDirection: "column" }}>
                   <Card.Title className="cardBlog c-title">

@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 
 
 import { Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import cartContext from "../../context/CartContext";
 import { getExcDetails } from "../../helpers/getExcDetails";
 import ItemDetail from "./ItemDetail";
 
 
 const ServicioItemDetail = () => {
-
+  const { idioma } = useContext(cartContext);
   const {id} = useParams();
 
   const [item, setItems] = useState([]);
@@ -18,7 +19,7 @@ const ServicioItemDetail = () => {
 
 const getItemDetails = async () => {
 
-  const details = await getExcDetails({id});
+  const details = await getExcDetails(id, idioma.id);
   setItems(details);
   setLoading(false)
 
@@ -26,8 +27,8 @@ const getItemDetails = async () => {
 
 }
 useEffect(() => {
-  getItemDetails();
-}, [id])
+  if(idioma) getItemDetails();
+}, [id, idioma])
 
 
 

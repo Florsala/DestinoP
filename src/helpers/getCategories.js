@@ -1,10 +1,10 @@
 
-export const getCategories = async () => {
+export const getCategories = async (idioma) => {
 
-    //const url = "http://destinopatagonia.elemsoft.net/webapi/api/Excursiones/GetListCategoriasByIdioma?idiomaId=1";
-    const url = "http://turismo.elemsoft.net/webapi/api/Excursiones/GetListCategoriasByIdioma?idiomaId=1";
+    //const url = "http://destinopatagonia.elemsoft.net/webapi/api/Excursiones/GetListCategoriasByIdioma";
+    const url = "http://turismo.elemsoft.net/webapi/api/Excursiones/GetListCategoriasByIdioma";
     
-    const resp = await fetch (url);
+    const resp = await fetch (`${url}?idiomaId=${idioma}`);
     
     const { msg } = await resp.json();
     

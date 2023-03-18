@@ -30,7 +30,6 @@ const NavIcons = () => {
       setIdiomas(i)
       setIdiomaObject(i[0])
     })
-    setIdiomaObject(idiomas[0])
   }, [])
  
 

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import cartContext from "../../context/CartContext";
 
 
 
@@ -10,6 +11,11 @@ import { useNavigate } from "react-router-dom";
 
 const ItemCount = ({ Add, counter, setCounter, date, time, isPaquete, productos }) => {
   const [disabled, setDisabled] = useState(true)
+  const [etiquetas, setEtiquetas] = useState([]);
+  const {idioma, getIdiomaSeccion } = useContext(cartContext);
+  useEffect(() => {
+    setEtiquetas(getIdiomaSeccion("Excursiones Detalle"));
+  }, [idioma]);
   let navigate = useNavigate();
   const routeChange = (newPath) =>
     navigate(newPath);
@@ -34,7 +40,7 @@ const ItemCount = ({ Add, counter, setCounter, date, time, isPaquete, productos 
       }}>
 
 
-        <Button variant="primary" disabled={disabled} onClick={() => routeChange("/contacto")}>Realizar consulta</Button>
+        <Button variant="primary" disabled={disabled} onClick={() => routeChange("/contacto")}>{etiquetas[5]?.palabra}</Button>
 
         <Button
           style={{ backgroundColor: '#002569' }}
@@ -45,7 +51,7 @@ const ItemCount = ({ Add, counter, setCounter, date, time, isPaquete, productos 
             Add();
           }}
         >
-          Agregar al carrito
+          {etiquetas[6]?.palabra}
         </Button>
       </div>
 

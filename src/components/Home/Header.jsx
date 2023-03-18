@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../../styles/Header.css";
 import "../../styles/Hero.css";
 
@@ -7,9 +7,15 @@ import { useFetchDestacadas } from "../../hooks/useFetchDestacadas";
 import SliderDestacadas from "../SliderDestacadas";
 import { Link } from "react-router-dom";
 import { getContacto } from "../../helpers/getContacto";
+import cartContext from "../../context/CartContext";
 
 const Header = () => {
   const { excDest, loading } = useFetchDestacadas();
+  const [etiquetas, setEtiquetas] = useState([]);
+  const { idioma, getIdiomaSeccion } = useContext(cartContext);
+  useEffect(() => {
+    setEtiquetas(getIdiomaSeccion("Home"));
+  }, [idioma]);
 
   const [contacto, setContacto] = useState([]);
 
@@ -28,10 +34,10 @@ const Header = () => {
         <div className="heroContent_container">
           <div className="heroContent container-md">
             <h1 className="headerTitle_a">
-              Pasión por la <span className="headerTitle_b">naturaleza</span>{" "}
+              {etiquetas[0]?.palabra.toUpperCase()} <span className="headerTitle_b">{etiquetas[1]?.palabra}</span>{" "}
             </h1>
 
-            <h4 className="headerTitle_c">Excursiones en Ushuaia</h4>
+            <h4 className="headerTitle_c">{etiquetas[2]?.palabra.toUpperCase()}</h4>
             <a
               href={`https://wa.me/${contacto.whatsapp?.replace(
                 /[^\w]/gi,
@@ -40,7 +46,7 @@ const Header = () => {
               target={"blank"}
             >
               <div className="headerTitle_btn">
-                Más info
+              {etiquetas[3]?.palabra.toUpperCase()}
                 <img
                   style={{ height: "1.5625rem", borderRadius: "50%" }}
                   src={wsp}
@@ -54,13 +60,13 @@ const Header = () => {
 
       <div className="container-lg-header">
         <h1 className="display-4" style={{ fontWeight: "600" }}>
-          Bienvenidos a Destino Patagonia
+        {etiquetas[4]?.palabra.toUpperCase()}
         </h1>
         <h2
           className="display-5"
           style={{ fontWeight: "400", color: "#857676" }}
         >
-          Nuestras Excursiones
+          {etiquetas[5]?.palabra.toUpperCase()}
         </h2>
       </div>
 

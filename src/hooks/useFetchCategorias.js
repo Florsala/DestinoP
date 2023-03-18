@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { getCategories } from "../helpers/getCategories";
 
-export const useFetchCategorias = () => {
+export const useFetchCategorias = (idiomaId) => {
   
     const [category, setCategory] = useState([]);
 
     const getCategory = async () => {
-        const newCategory = await getCategories();
+        const newCategory = await getCategories(idiomaId);
         setCategory(newCategory)
     }
     

@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import flecha2 from "../assets/flechas.png";
 import flecha from '../assets/flecha.png'
 import SliderHome from './SliderHome';
+import cartContext from '../context/CartContext';
 
 
 const Section = () => {
+  const [etiquetas, setEtiquetas] = useState([]);
+  const { idioma, getIdiomaSeccion } = useContext(cartContext);
+  useEffect(() => {
+    setEtiquetas(getIdiomaSeccion("Home"));
+  }, [idioma]);
   return (
     <div>
       <div className="circle">
@@ -29,12 +35,10 @@ const Section = () => {
             alt="flecha"
           />
           <div>
-          <h2>Prepárate para vivir uno de los más lindos momentos en el fin del mundo </h2>
+          <h2>{etiquetas[6]?.palabra.toUpperCase()}</h2>
            
             <p>
-              Destino Patagonia, desea que tu experiencia sea cálida y
-              personalizada por lo que la tripulación y el guía estarán
-              pendientes de que así sea.
+            {etiquetas[7]?.palabra}
             </p>
           </div>
 

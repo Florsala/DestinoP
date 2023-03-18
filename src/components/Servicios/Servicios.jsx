@@ -1,38 +1,45 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../../styles/Servicios.css";
 
 import { Container } from "react-bootstrap";
 
-import ServicioItem from "./ServicioItem";
+
 import ServiciosSearch from "./ServiciosSearch";
-import { useFetchExcursiones } from "../../hooks/useFetchExcursiones";
-import SliderExcursiones from "../../components/SliderExcursiones";
 import SliderDestacadas from "../../components/SliderDestacadas";
 import { useFetchDestacadas } from "../../hooks/useFetchDestacadas";
 import Paquetes from "./Paquetes";
 import DocumentMeta from "react-document-meta";
 import { getSeo } from "../../helpers/getSeo";
+import cartContext from "../../context/CartContext";
 
 const Servicios = () => {
 
   const { excDest, loading } = useFetchDestacadas();
 
   const [meta, setMeta] = React.useState('')
-  useEffect(() => {
-    getSeo(1, 'Excursiones').then((response) => {
-      setMeta({
-        title: response.data.seoTitle,
-        description: response.data.seoDescripcion,
-        meta: {
-          charset: 'utf-8',
-          name: {
-            keywords: response.data.seoKeywords
-          }
-        }
-      })
-    })
+  const [etiquetas, setEtiquetas] = useState([]);
+  const { idioma, getIdiomaSeccion } = useContext(cartContext);
 
-  }, [])
+  useEffect(() => {
+    
+    if (idioma) {
+      setEtiquetas(getIdiomaSeccion("Excursiones"));
+      getSeo(idioma.id, 'Excursiones').then((response) => {
+        setMeta({
+          title: response.data.seoTitle,
+          description: response.data.seoDescripcion,
+          meta: {
+            charset: 'utf-8',
+            name: {
+              keywords: response.data.seoKeywords
+            }
+          }
+        })
+      })
+    }
+
+  }, [idioma])
+
 
   return (<>
     <DocumentMeta {...meta} />
@@ -42,8 +49,7 @@ const Servicios = () => {
         <div className="heroContent_container_svs">
           <div className="headerTitle_svs container-md">
             <h2 className="headerTitle_a_svs">
-              Excursiones en el
-              <span className="headerTitle_b_svs"> Fin del Mundo</span>{" "}
+              <span className="headerTitle_b_svs"> {etiquetas[0]?.palabra}{' '}{etiquetas[1]?.palabra}</span>
             </h2>
           </div>
         </div>
@@ -51,8 +57,7 @@ const Servicios = () => {
 
       <div className="container-lg-svs">
         <h1 className="display-5" style={{ fontWeight: "700" }}>
-          Prepárate para vivir uno de los más lindos momentos en el fin del
-          mundo
+          {etiquetas[8]?.palabra.toUpperCase()}
         </h1>
         <h2
           className="container-sm"
@@ -63,9 +68,7 @@ const Servicios = () => {
             textAlign: "center",
           }}
         >
-          Destino Patagonia, desea que tu experiencia sea cálida y
-          personalizada, por lo que la tripulación y el guía estarán pendientes
-          de que así sea.{" "}
+          {etiquetas[9]?.palabra}{" "}
         </h2>
       </div>
       <Container
@@ -74,7 +77,7 @@ const Servicios = () => {
           color: " #2c3e53",
         }}
       >
-        <h4 style={{ fontSize: "2rem" }}>Paquetes</h4>
+        <h4 style={{ fontSize: "2rem" }}>{etiquetas[6]?.palabra}</h4>
       </Container>
       <Paquetes />
       <Container
@@ -83,7 +86,7 @@ const Servicios = () => {
           color: " #2c3e53",
         }}
       >
-        <h4 style={{ fontSize: "2rem" }}>Excursiones destacadas</h4>
+        <h4 style={{ fontSize: "2rem" }}>{etiquetas[5]?.palabra}</h4>
       </Container>
 
       {/*       <ServicioItem />

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Iframe from "react-iframe";
 
 import "../styles/Contacto.css";
@@ -10,12 +10,16 @@ import { SpinnerCustom } from "./spinner";
 import { createContacto } from "../helpers/createContacto";
 import DocumentMeta from "react-document-meta";
 import { getSeo } from "../helpers/getSeo";
+import cartContext from "../context/CartContext";
 
 const Contacto = () => {
   const [contacto, setContacto] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [consulta, setConsulta]= useState({})
+  const [consulta, setConsulta] = useState({})
   const [meta, setMeta] = React.useState('')
+
+  const [etiquetas, setEtiquetas] = useState([]);
+  const { idioma, getIdiomaSeccion } = useContext(cartContext);
 
   const getInfoContacto = async () => {
     const newInfo = await getContacto();
@@ -23,20 +27,24 @@ const Contacto = () => {
   };
 
   useEffect(() => {
-    getInfoContacto();
-    getSeo(1, 'Contacto').then((response) => {
-      setMeta({
-        title: response.data.seoTitle,
-        description: response.data.seoDescripcion,
-        meta: {
-          charset: 'utf-8',
-          name: {
-            keywords: response.data.seoKeywords
+    
+    if (idioma) {
+      setEtiquetas(getIdiomaSeccion("Contacto"));
+      getInfoContacto();
+      getSeo(idioma.id, 'Contacto').then((response) => {
+        setMeta({
+          title: response.data.seoTitle,
+          description: response.data.seoDescripcion,
+          meta: {
+            charset: 'utf-8',
+            name: {
+              keywords: response.data.seoKeywords
+            }
           }
-        }
+        })
       })
-    })
-  }, []);
+    }
+  }, [idioma]);
   const enviarConsulta = (event) => {
     event.preventDefault();
     setLoading(true);
@@ -48,11 +56,11 @@ const Contacto = () => {
   const ChangeFieldValue = (event, nameField) => { setConsulta({ ...consulta, [nameField]: event.target.value }) }
   return (
     <>
-     <DocumentMeta {...meta} />
+      <DocumentMeta {...meta} />
       {loading && <SpinnerCustom />}
       <div>
         <div className="contacto_header container-fluid">
-          <h3>CONTACTANOS PARA MÁS INFORMACIÓN</h3>
+          <h3>{etiquetas[0]?.palabra.toUpperCase()}</h3>
         </div>
 
         <div
@@ -62,7 +70,7 @@ const Contacto = () => {
             flexWrap: "wrap",
             margin: "0 auto",
             gap: "1rem",
-           
+
           }}
         >
           <div style={{ width: "31.25rem", padding: "1rem", margin: "1rem" }}>
@@ -77,7 +85,7 @@ const Contacto = () => {
                 padding: "0",
               }}
             >
-              <li>CONTACTO:</li>
+              <li>{etiquetas[1]?.palabra.toUpperCase()}:</li>
               <li>{contacto.domicilio}</li>
               <li>{contacto.telefono}</li>
               <li>{contacto.email}</li>
@@ -89,23 +97,23 @@ const Contacto = () => {
 
             <Form style={{ padding: "1rem" }} onSubmit={enviarConsulta}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Control onChange={(event) => ChangeFieldValue(event, 'nombre')} type="name" placeholder="Nombre y apellido" />
+                <Form.Control onChange={(event) => ChangeFieldValue(event, 'nombre')} type="name" placeholder={etiquetas[2]?.palabra} />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Control onChange={(event) => ChangeFieldValue(event, 'email')} type="email" placeholder="Email" />
+                <Form.Control onChange={(event) => ChangeFieldValue(event, 'email')} type="email" placeholder={etiquetas[3]?.palabra} />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Control onChange={(event) => ChangeFieldValue(event, 'telefono')} type="telephone" placeholder="N° de Teléfono" />
+                <Form.Control onChange={(event) => ChangeFieldValue(event, 'telefono')} type="telephone" placeholder={etiquetas[4]?.palabra} />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Control onChange={(event) => ChangeFieldValue(event, 'detalle')} type="text" placeholder="Su consulta" />
+                <Form.Control onChange={(event) => ChangeFieldValue(event, 'detalle')} type="text" placeholder={etiquetas[5]?.palabra} />
               </Form.Group>
 
               <Button variant="primary" type="submit">
-                Enviar
+                {etiquetas[6]?.palabra}
               </Button>
             </Form>
           </div>

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Slider from "react-slick";
 import Card from "react-bootstrap/Card";
 import { Link} from "react-router-dom";
@@ -8,7 +8,14 @@ import cartContext from "../context/CartContext";
 
 const SliderDestSvs = ({ excDest, loading }) => {
 
-  const { environment } = useContext(cartContext);
+  const { environment, idioma, getIdiomaSeccion } = useContext(cartContext);
+  const [etiquetas, setEtiquetas] = useState([]);
+
+
+
+  useEffect(() => {
+    setEtiquetas(getIdiomaSeccion("Excursiones Detalle"));
+  }, [idioma]);
 
 
   const settings = {
@@ -64,7 +71,7 @@ const SliderDestSvs = ({ excDest, loading }) => {
                       <div>
                       <Link key={items.nombre} to={`/servicios/${items.id}`} >
                         <Button className="btn_svs" variant="primary" size="lg">
-                          + info
+                        {etiquetas[8]?.palabra}
                         </Button>
                         </Link>
                       </div>
