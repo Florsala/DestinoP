@@ -42,10 +42,11 @@ const ItemDetailDate = ({ id, counter, setCounter, setDate, setTime, isPaquete }
 
   useEffect(() => {
     if(!isPaquete)  getTarifaHora();
-   
-
-
   }, [selectedDate]);
+
+  useEffect(()=>{
+    setSelectedDate('')
+  },[id])
 
 
   const changeDate = (date) => {

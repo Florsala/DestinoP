@@ -18,7 +18,7 @@ const SliderHome = () => {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     speed: 1000,
     autoplaySpeed: 2000,
     cssEase: "linear",
@@ -41,7 +41,7 @@ const SliderHome = () => {
       {galeria.map((items,index) => (
         <div key={index}>
           <img
-            style={{ width: "100%", height: "80vh", objectFit: "cover" }}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
             src={`${environment}${items.img}`}
             alt=""
           />

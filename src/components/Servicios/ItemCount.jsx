@@ -22,7 +22,6 @@ const ItemCount = ({ Add, counter, setCounter, date, time, isPaquete, productos 
   useEffect(() => {
     setDisabled(!date || !time || !counter.length)
     if (isPaquete) { 
-      debugger
       const productValidation = productos?.map((p) => {if(p.date && p.time && counter.length){
         return 1
       }})

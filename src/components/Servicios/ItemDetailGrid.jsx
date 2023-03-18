@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
@@ -6,7 +6,7 @@ import cartContext from '../../context/CartContext';
 const ItemDetailGrid = ({ item, isPaquete }) => {
 
   const { environment } = useContext(cartContext);
-  const [selectedImg, setSelectedImg] = useState(!isPaquete ? item.imagenes[0]?.path : item.path)
+  const [selectedImg, setSelectedImg] = useState('')
 
   const [model, setModel] = useState(false);
   const [picImage, setPicImage] = useState("");
@@ -21,6 +21,9 @@ const ItemDetailGrid = ({ item, isPaquete }) => {
 
     setClick(!click)
   }
+  useEffect(()=>{
+    setSelectedImg(!isPaquete ? item.imagenes[0]?.path : item.path)
+  },[item])
 
   return (
     <div className="container-md container-grid-img" >

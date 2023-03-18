@@ -1,8 +1,8 @@
 
 export const getBlog = async (idioma) => {
 
-    //const url = "http://destinopatagonia.elemsoft.net/webapi/api/Blog/GetListByIdioma";
-    const url = "http://turismo.elemsoft.net/webapi/api/Blog/GetListByIdioma";
+    const url = "http://destinopatagonia.elemsoft.net/webapi/api/Blog/GetListByIdioma";
+    //const url = "http://turismo.elemsoft.net/webapi/api/Blog/GetListByIdioma";
     
     const resp = await fetch (`${url}?id=${idioma}`);
     

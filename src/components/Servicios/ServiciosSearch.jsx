@@ -14,17 +14,14 @@ const ServiciosSearch = () => {
   const [category, setCategory] = useState([]);
   const [temporada, setTemporda] = useState([]);
   const [categoria, setCategoria] = useState("");
-  const [temp, setTemp] = useState("");
+  const [temp, setTemp] = useState(null);
   const [excursiones, setExcursiones] = useState([]);
   const [etiquetas, setEtiquetas] = useState([]);
   const { idioma, getIdiomaSeccion } = useContext(cartContext);
-  useEffect(() => {
-    
-  }, [idioma]);
   const getExcursiones = async () => {
-    //const url = `http://destinopatagonia.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=${idioma.id}&temporada=null&categoria=${categoria}`;
+    const url = `http://destinopatagonia.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=${idioma.id}&temporada=${temp}&categoria=${categoria}`;
 
-    const url = `http://turismo.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=${idioma.id}&temporada=null&categoria=${categoria}`;
+    //const url = `http://turismo.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=${idioma.id}&temporada=${temp}&categoria=${categoria}`;
 
     const resp = await fetch(url);
 
@@ -52,14 +49,14 @@ const ServiciosSearch = () => {
     setCategory(newInfo);
   };
   const getInfoExcursiones = async () => {
-    const newInfo = await getExcursiones(idioma.id);
+    const newInfo = await getExcursiones();
     setExcursiones(newInfo);
     setLoading(false);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  
+    getInfoExcursiones()
   };
 
   const getCategory = (e) => {
@@ -74,7 +71,7 @@ const ServiciosSearch = () => {
   useEffect(() => {
     setEtiquetas(getIdiomaSeccion("Excursiones"));
     if(idioma.id) {getInfoExcursiones(); getCategoriasList(); getTemporadasList()};
-  }, [categoria, idioma]);
+  }, [ idioma]);
 
   return (
     <>

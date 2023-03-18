@@ -36,7 +36,7 @@ import cartContext from "../context/CartContext";
 const Galeria = () => {
 
   const [etiquetas, setEtiquetas] = useState([]);
-  const { idioma, getIdiomaSeccion } = useContext(cartContext);
+  const { idioma, getIdiomaSeccion, environment } = useContext(cartContext);
 
   const [meta, setMeta] = React.useState('')
   useEffect(() => {
@@ -171,8 +171,8 @@ const Galeria = () => {
         {/*       <img className="pics"  src={`${galeria[currentImg].img}`} alt="" onClick={() => getImg(currentImg)}/>
  */}
         {galeria.map((item, index) => (
-          <div key={index} onClick={() => getImg(item.img)}>
-            <img className="pics" src={item.img} alt="" />
+          <div key={index} onClick={() => getImg(`${environment}${item.img}`)}>
+            <img className="pics" src={`${environment}${item.img}`} alt="" />
           </div>
         ))}
       </div>

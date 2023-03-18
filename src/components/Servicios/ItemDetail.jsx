@@ -84,8 +84,11 @@ const ItemDetail = ({ item, id, isPaquete }) => {
       setPrice(response.data.msg)
       setLoadingTarifas(false)
     })
+    setDate('')
+    setTime('')
+    setCounter([])
 
-  }, []);
+  }, [item]);
   useEffect(() => {
     if(item)
     setMeta({
