@@ -21,6 +21,7 @@ import { Spinner } from "react-bootstrap";
 import ItemDetailTime from "./ItemDetailTime";
 import { handleInputTarifa } from "../utils/handleInputTarifa";
 import DocumentMeta from "react-document-meta";
+import  ItemDetailTimePackage  from "./itemDetailTimePackage";
 
 const ItemDetail = ({ item, id, isPaquete }) => {
   const { excDest, loading } = useFetchDestacadas();
@@ -53,7 +54,13 @@ const ItemDetail = ({ item, id, isPaquete }) => {
 
 
   }, [counter])
+  const setDateProduct = (date, product) => {
 
+    if (date)
+    product['date'] = date
+
+
+  }
   const total = (item) => (
     item.reduce((quantity, value) => (
       quantity + (+value.precio.toString().replace(/,/g, '') * value.cantidad)), 0))
@@ -64,26 +71,13 @@ const ItemDetail = ({ item, id, isPaquete }) => {
 
     addTotal();
   };
-  const setValue = (p, time) => {
-
-    return p.time ? p.time === time : false
-
-  }
+ 
   const handleInput = (e, item) => {
     const tarifas = handleInputTarifa(e, item, counter)
 
     setCounter(tarifas);
   };
-  const setDateProduct = (date, item) => {
-    if (date)
-      item['date'] = date
-
-
-  }
-  const setTimeProduct = (time, item) => {
-    if (time)
-      item['time'] = time
-  }
+ 
   useEffect(() => {
     const date = new Date()
     if (isPaquete) getTarifasPaquete(1, id, formatDate(date)).then((response) => {
@@ -93,6 +87,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
 
   }, []);
   useEffect(() => {
+    if(item)
     setMeta({
       title: item.seoTitle,
       description: item.seoDescripcion,
@@ -108,7 +103,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
   return (<>
     <DocumentMeta {...meta} />
 
-    <div>
+   {item && <div>
       <Container style={{ marginTop: "10rem" }}>
         <div className="display-grid">
           <ItemDetailGrid item={item} isPaquete={isPaquete} />
@@ -154,7 +149,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
                         <div className="time-form">
                           <div>
 
-                            {producto && producto.horarios.map((radio, idx) => (
+                            {producto && producto.horarios.map((radio, idx) => <ItemDetailTimePackage radio={radio} idx={idx} index={index} p={p} setTime={setTime}/>/*(
                               <ButtonGroup>
                                 <ToggleButton
                                   key={idx}
@@ -168,7 +163,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
                                 >
                                   {radio.hora}
                                 </ToggleButton>
-                              </ButtonGroup>)
+                              </ButtonGroup>) */
                             )}
 
                           </div>
@@ -332,7 +327,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
       <div className="video"></div>
 
       {!isPaquete && <SliderDestSvs excDest={excDest} loading={loading} />}
-    </div>
+    </div>}
   </>
   );
 };
