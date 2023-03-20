@@ -79,7 +79,7 @@ const Cart = () => {
                     </div>
                     {item.item.productos.map((p) =>
                       <div style={{ display: 'flex' }}>
-                        <Card.Text style={{ display: 'flex', marginRight:'10px' }}><span style={{ fontWeight: 'bolder', marginRight: '5px' }}>Excursión: </span>{p.nombre}</Card.Text>
+                        <Card.Text style={{ display: 'flex', marginRight:'10px' }}><span style={{ fontWeight: 'bolder', marginRight: '5px' }}>{etiquetas[13]?.palabra}: </span>{p.nombre}</Card.Text>
                         <Card.Text style={{ display: 'flex' }}><span style={{ fontWeight: 'bolder', marginRight: '5px' }}>{etiquetas[1]?.palabra}: </span> {`${formatDate(p.date)} ${p.time}`}</Card.Text>
 
                       </div>)}

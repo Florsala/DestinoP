@@ -295,13 +295,13 @@ const ItemDetail = ({ item, id, isPaquete }) => {
                           m={5}
                           size="small"
                         >
-                          Finalizar Compra
+                          {etiquetasExcursion[10]?.palabra}
                         </Button>
                       </Link>
 
                       <Link to="/servicios">
                         <Button variant="outline-success" color="secondary">
-                          Seguir comprando
+                        {etiquetasExcursion[11]?.palabra}
                         </Button>
                       </Link>
                     </div>

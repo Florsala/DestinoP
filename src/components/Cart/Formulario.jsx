@@ -151,7 +151,7 @@ const Formulario = () => {
               />
             </div>
 
-            {!loading && <button type="submit" disabled={isSubmitting}>{etiquetas[6]?.palabra}</button>}
+            {!loading && <button type="submit" disabled={isSubmitting}>{etiquetas[12]?.palabra}</button>}
             {loading && <SpinnerCustom />}
 
             {sendForm && (

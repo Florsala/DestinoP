@@ -19,9 +19,9 @@ const ServiciosSearch = () => {
   const [etiquetas, setEtiquetas] = useState([]);
   const { idioma, getIdiomaSeccion } = useContext(cartContext);
   const getExcursiones = async () => {
-    const url = `http://destinopatagonia.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=${idioma.id}&temporada=${temp}&categoria=${categoria}`;
+    //const url = `http://destinopatagonia.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=${idioma.id}&temporada=${temp}&categoria=${categoria}`;
 
-    //const url = `http://turismo.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=${idioma.id}&temporada=${temp}&categoria=${categoria}`;
+    const url = `http://turismo.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=${idioma.id}&temporada=${temp}&categoria=${categoria}`;
 
     const resp = await fetch(url);
 
@@ -109,7 +109,7 @@ const ServiciosSearch = () => {
                 aria-label="Default select example"
                 onChange={getCategory}
               >
-                <option>Todas</option>
+                <option>{etiquetas[10]?.palabra}</option>
                 {category.map((cat) => (
                   <option value={cat.id} key={cat.id}>
                     {cat.categoria}

@@ -152,7 +152,7 @@ const Galeria = () => {
       </div>
 
       <div className="galeria_title">
-        <h2>Galería</h2>
+        <h2>{etiquetas[2]?.palabra}</h2>
       </div>
 
       <div
