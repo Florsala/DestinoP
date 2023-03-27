@@ -32,7 +32,7 @@ const SliderExcursiones = ({ excursiones, loading, isPaquete}) => {
           >
             {excursiones.map((items) => (
               <Link key={items.id} to={isPaquete? `/paquetes/${items.id}`: `/servicios/${items.id}`}>
-                <Card className="card-svs" style={{ width: "23rem" }}>
+                <Card className="card-svs" style={{ width: "25rem" }}>
                   <Card.Img
                     variant="top"
                     style={{ padding: "1rem" }}

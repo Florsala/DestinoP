@@ -86,18 +86,19 @@ const Galeria = () => {
 
   const [model, setModel] = useState(false);
   const [picImage, setPicImage] = useState(0);
-  const [currentImg, setCurrentImg] = useState(0);
+  const [index, setIndex] = useState(0)
 
-  const getImg = (img) => {
+  const getImg = (img, index) => {
     setPicImage(img);
-    setCurrentImg(img)
+    setIndex(index)
 
     setModel(true);
   };
 
   const goToPrevious = () => {
-
-    const newImage = galeria[0].img
+    let newImage = ''
+    if(index === 0) {newImage = `${environment}${galeria[galeria.length-1].img}`; setIndex(galeria.length-1) }
+    else {newImage = `${environment}${galeria[index-1].img}`; setIndex(index-1)}
     setPicImage(newImage)
     /*   const newImage = picImage === 0 ? galeria.length -1 : picImage - 1;
      setPicImage(newImage); */
@@ -105,10 +106,10 @@ const Galeria = () => {
   }
 
   const goToNext = () => {
-    /*  const lastSlide = picImage === galeria.lenght - 1;
-     const newImage = lastSlide ? 0 : picImage + 1;
-     setPicImage(newImage) */
-    setCurrentImg(currentImg + 1);
+    let newImage = ''
+    if(index === galeria.length-1) {newImage = `${environment}${galeria[0].img}`; setIndex(0)}
+    else {newImage =`${environment}${galeria[index+1].img}`; setIndex(index+1)}
+    setPicImage(newImage)
 
   }
 
@@ -171,7 +172,7 @@ const Galeria = () => {
         {/*       <img className="pics"  src={`${galeria[currentImg].img}`} alt="" onClick={() => getImg(currentImg)}/>
  */}
         {galeria.map((item, index) => (
-          <div key={index} onClick={() => getImg(`${environment}${item.img}`)}>
+          <div key={index} onClick={() => getImg(`${environment}${item.img}`, index)}>
             <img className="pics" src={`${environment}${item.img}`} alt="" />
           </div>
         ))}

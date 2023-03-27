@@ -25,7 +25,7 @@ const SliderDestacadas = ({ excDest, loading }) => {
 
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1500,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
@@ -34,7 +34,7 @@ const SliderDestacadas = ({ excDest, loading }) => {
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 1300,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -42,7 +42,7 @@ const SliderDestacadas = ({ excDest, loading }) => {
         }
       },
       {
-        breakpoint: 480,
+        breakpoint: 800,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1
@@ -67,7 +67,7 @@ const SliderDestacadas = ({ excDest, loading }) => {
             {excDest.map((items) => (
               <Link key={items.nombre}  to={`/servicios/${items.id}`} >
                 <div>
-                  <Card className="card-svs">
+                  <Card className="card-svs" style={{ width: "25rem" }}>
                     <Card.Img
                       variant="top"
                       style={{ padding: "1rem" }}

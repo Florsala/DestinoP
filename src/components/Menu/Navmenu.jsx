@@ -39,6 +39,7 @@ const Navmenu2 = () => {
     <>
       <div className={color ? "navbar navbar-bcg" : "navbar"}>
         <ul className={click ? "nav-menu active" : "nav-menu"} onMouseLeave={()=>setClick(false)}>
+  
           <li className="nav-item">
             <NavLink to={"/"} onClick={() => setClick(false)}>
               {etiquetas[0]?.palabra.toUpperCase()}
@@ -79,8 +80,12 @@ const Navmenu2 = () => {
             </NavLink>
           </li>
           <li>
+            
             <NavIcons />
+            
+            
           </li>
+          
         </ul>
 
         <div className="hamburger" onClick={handleClick}>

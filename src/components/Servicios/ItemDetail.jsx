@@ -122,8 +122,8 @@ const ItemDetail = ({ item, id, isPaquete }) => {
 
                 item.caracteristicas.map((car, index) => (
                   <div className="cont_details" key={index}>
-                    <h6>{car.nombre}:</h6>
-                    <p>{car.detalle}</p>
+                    <h4>{car.nombre}:</h4>
+                    <p className="h5">{car.detalle}</p>
                   </div>
                 ))}
             </Container>
@@ -181,8 +181,8 @@ const ItemDetail = ({ item, id, isPaquete }) => {
                     {loadingTarifas && <Spinner />}
                     {price.tarifas &&
                       price.tarifas.map((item, index) => (
-                        <div className="quantity-form_container" key={index} style={{ color: "#6573a4" }}>
-                          {item.tipo} ${item.importe}
+                        <div className="quantity-form_container" key={index} style={{ color: "#6573a4",fontSize:'medium' }}>
+                          {item.tipo} ${item.importe} 
                           <Form.Select
                             size="sm"
                             aria-label={item.tipo}
@@ -232,7 +232,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
                 >
                   <p style={{ fontSize: 'larger' }}>{etiquetasExcursion[3]?.palabra}</p>
                   <div className="text-start">{counter.map((c) => (
-                    <p style={{ fontSize: 'small' }}>{c.nombre}: ${+c.precio.toString().replace(/,/g, '') * c.cantidad}</p>
+                    <p style={{ fontSize: 'medium' }}>{c.nombre}: ${+c.precio.toString().replace(/,/g, '') * c.cantidad}</p>
                   ))}</div>
                 </div>
                 <div

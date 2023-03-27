@@ -50,8 +50,8 @@ const NavIcons = () => {
 
   return (
     <div>
-      <ul className="navicons nav">
-        <li className="nav-item">
+      <ul className="nav">
+        <li className="nav-item" style={{paddingBottom:'0.7rem'}}>
           <Form.Group
             style={{
               backgroundColor: " #002569",
@@ -74,20 +74,20 @@ const NavIcons = () => {
           </Form.Group>
         </li>
 
-        <li className={color ? "nav-item font-md" : "nav-item"}>
+        <li className={color ? "nav-item font-md" : "nav-item"} style={{paddingBottom:'0.7rem'}}>
           <a href={contacto.facebook} target="_blank">
-            <GrFacebookOption />
+            <GrFacebookOption size='1.5rem' />
           </a>
         </li>
-        <li className="nav-item">
+        <li className="nav-item" style={{paddingBottom:'0.7rem'}}>
           <a href={contacto.instagram} target="_blank">
-            <GrInstagram />
+            <GrInstagram size='1.5rem'/>
           </a>
         </li>
-        <li className="nav-item" style={{ fontSize: '1.35rem' }}>
+        <li className="nav-item" style={{ fontSize: '1.35rem', paddingBottom:'0.7rem' }}>
           <a href={`https://wa.me/${contacto.whatsapp?.replace(/[^\w]/gi, '')} `}
             target={"blank"}>
-            <FaWhatsapp />
+            <FaWhatsapp size='1.5rem' />
           </a>
         </li>
         {/*   <li className="nav-item">

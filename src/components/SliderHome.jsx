@@ -22,6 +22,7 @@ const SliderHome = () => {
     speed: 1000,
     autoplaySpeed: 2000,
     cssEase: "linear",
+    adaptiveHeight: true
   };
 
   const [galeria, setGaleria] = useState([]);

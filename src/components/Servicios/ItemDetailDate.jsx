@@ -100,7 +100,7 @@ const ItemDetailDate = ({ id, counter, setCounter, setDate, setTime, isPaquete }
           {loading && <Spinner />}
           {price.tarifas &&
             price.tarifas.map((item, index) => (
-              <div className="quantity-form_container" key={index} style={{color:"#6573a4"}}>
+              <div className="quantity-form_container" key={index} style={{color:"#6573a4", fontSize:'medium'}}>
                 {item.tipo} ${item.importe}
                 <Form.Select
                   size="sm"

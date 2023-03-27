@@ -27,7 +27,7 @@ const Contacto = () => {
   };
 
   useEffect(() => {
-    
+
     if (idioma) {
       setEtiquetas(getIdiomaSeccion("Contacto"));
       getInfoContacto();
@@ -73,7 +73,7 @@ const Contacto = () => {
 
           }}
         >
-          <div style={{ width: "31.25rem", padding: "1rem", margin: "1rem" }}>
+          <div style={{ width: "31.25rem" }}>
             <img style={{ height: "14rem" }} src={logo2} alt="logo" />
             <ul
               style={{
@@ -118,23 +118,25 @@ const Contacto = () => {
             </Form>
           </div>
 
-          <div
-            style={{
-              display: "grid",
-              placeContent: "center",
-              marginBottom: "5rem",
-            }}
-          >
-            <Iframe
-              url={`https://maps.google.com/maps?q=${contacto.domicilioMapa}&z=15&output=embed`}
-              width="1000px"
-              height="500px"
-              id=""
-              className="mapa"
-              display="block"
-              position="relative"
-            />
-          </div>
+
+        </div>
+        <div
+          style={{
+            display: "grid",
+            placeContent: "center",
+            marginBottom: "5rem",
+            marginTop: "5rem",
+          }}
+        >
+          <Iframe
+            url={`https://maps.google.com/maps?q=${contacto.domicilioMapa}&z=15&output=embed`}
+            width="1000px"
+            height="500px"
+            id=""
+            className="mapa"
+            display="block"
+            position="relative"
+          />
         </div>
       </div>
     </>

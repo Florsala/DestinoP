@@ -21,11 +21,37 @@ const SliderDestSvs = ({ excDest, loading }) => {
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 2,
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 1500,
     pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 1500,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 1300,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
 
@@ -35,8 +61,8 @@ const SliderDestSvs = ({ excDest, loading }) => {
         <div
           xs={1}
           md={3}
-          className="g-4  grid_blog container-md"
-          style={{ margin: "4rem auto" }}
+          className="g-4 mx-5 grid_blog "
+          style={{ marginTop: "2rem" }}
         >
 
 {loading && <Spinner />}
@@ -45,7 +71,7 @@ const SliderDestSvs = ({ excDest, loading }) => {
             {excDest.map((items,index) => (
               
                 <div key={index}>
-                  <Card className="card-svs" style={{height: '22rem'}}>
+                  <Card className="card-svs" style={{height: '23rem',width: "25rem"}}>
                     <Card.Img
                       variant="top"
                       style={{ padding: "1rem" }}

@@ -13,7 +13,7 @@ const CartWidget = () => {
 
   return (
     <div>
-      <div className="Cart">
+      <div className="Cart mt-3">
         <Link to={"/cart"}>
           <BsCart />
 
