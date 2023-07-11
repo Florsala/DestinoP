@@ -32,29 +32,7 @@ const Header = () => {
     <>
       <div className="hero">
         <div className="heroContent_container">
-          <div className="heroContent container-md">
-            <h1 className="headerTitle_a">
-              {etiquetas[0]?.palabra.toUpperCase()} <span className="headerTitle_b">{etiquetas[1]?.palabra}</span>{" "}
-            </h1>
-
-            <h4 className="headerTitle_c">{etiquetas[2]?.palabra.toUpperCase()}</h4>
-            <a
-              href={`https://wa.me/${contacto.whatsapp?.replace(
-                /[^\w]/gi,
-                ""
-              )} `}
-              target={"blank"}
-            >
-              <div className="headerTitle_btn">
-              {etiquetas[3]?.palabra.toUpperCase()}
-                <img
-                  style={{ height: "1.5625rem", borderRadius: "50%" }}
-                  src={wsp}
-                  alt=""
-                />
-              </div>
-            </a>
-          </div>
+          
         </div>
       </div>
 

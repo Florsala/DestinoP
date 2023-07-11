@@ -46,13 +46,7 @@ const Servicios = () => {
 
     <div>
       <div className="hero_svs">
-        <div className="heroContent_container_svs">
-          <div className="headerTitle_svs container-md">
-            <h2 className="headerTitle_a_svs">
-              <span className="headerTitle_b_svs"> {etiquetas[0]?.palabra}{' '}{etiquetas[1]?.palabra}</span>
-            </h2>
-          </div>
-        </div>
+        
       </div>
 
       <div className="container-lg-svs">

@@ -45,19 +45,7 @@ const Nosotros = () => {
     <DocumentMeta {...meta} />
     <div>
       <div className="hero_Nos">
-        <div className="heroContent_Nos">
-          <div className="headerLogo heroContent_container_Nos">
-            <img
-              style={{
-                height: "16rem",
-                objectFit: "contain",
-                marginTop: "10rem",
-              }}
-              src={logo}
-              alt=""
-            />
-          </div>
-        </div>
+        
       </div>
 
 

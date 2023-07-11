@@ -3,7 +3,7 @@ import "./Blog.css";
 import monta from '././../../assets/monta.png';
 
 
-import ushuaia from '././../../assets/ush-am.jpg';
+import ushuaia from '././../../assets/Portada-INFO.png';
 import cartContext from "../../context/CartContext";
 
 
@@ -24,12 +24,7 @@ const Blog = () => {
         />
         <img className="headerImg2" src={monta} alt="mount" />
 
-        <div className="headerTitle_blog container-md">
-          <h2 className="headerTitle_a_blog">
-            {etiquetas[0]?.palabra}{" "}
-            <span className="headerTitle_b_blog">{etiquetas[1]?.palabra}</span>{" "}
-          </h2>
-        </div>
+        
       </div>
 
 

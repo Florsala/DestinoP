@@ -7,7 +7,7 @@
 
 .hero_Nos::before {
   content: "";
-  background: url("https://destinopatagonia.com//wp-content/uploads/2021/10/2021-0626-DJI_0746-lrexport-1.jpg")
+  background: url("../assets/Portada-NOSOTROS.png")
     no-repeat center center/cover;
   height: 90vh;
   width: 100%;
