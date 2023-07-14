@@ -74,7 +74,7 @@ const NavIcons = () => {
           </Form.Group>
         </li>
 
-        <li className={color ? "nav-item font-md" : "nav-item"} style={{paddingBottom:'0.7rem'}}>
+        {/* <li className={color ? "nav-item font-md" : "nav-item"} style={{paddingBottom:'0.7rem'}}>
           <a href={contacto.facebook} target="_blank">
             <GrFacebookOption size='1.5rem' />
           </a>
@@ -89,7 +89,7 @@ const NavIcons = () => {
             target={"blank"}>
             <FaWhatsapp size='1.5rem' />
           </a>
-        </li>
+        </li> */}
         {/*   <li className="nav-item">
           <a href={contacto.linkedin} target="_blank">
             <FaLinkedinIn />

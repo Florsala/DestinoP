@@ -48,3 +48,5 @@
   box-shadow: 0.0187rem 0.0313rem 0.3125rem;
   filter: opacity(0.91);
 }
+
+.slick-track { 	display: flex !important; }  .slick-slide { 	height: inherit !important; 	display: flex !important; 	justify-content: center; 	align-items: center; }

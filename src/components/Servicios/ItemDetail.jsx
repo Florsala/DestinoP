@@ -114,7 +114,7 @@ const ItemDetail = ({ item, id, isPaquete }) => {
           <Col>
             <div className="itemContainer">
               <h1> {item?.nombre}</h1>
-              <p>${item?.precio}ARS</p>
+              {/* <p>${item?.precio}ARS</p> */}
             </div>
 
             <Container className="cont_details_main">
