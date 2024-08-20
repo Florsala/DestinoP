@@ -10,7 +10,7 @@ import { getListCart } from "../../helpers/getListCart";
 const Cart = () => {
   const { cart, clearCart, removeItem, addTotal, total, environment, idioma, getIdiomaSeccion } = useContext(cartContext);
   let empty = "false";
-
+console.log('hola')
   const [etiquetas, setEtiquetas] = useState([]);
   useEffect(() => {
     setEtiquetas(getIdiomaSeccion("Carrito"));
@@ -64,7 +64,7 @@ const Cart = () => {
                 <Card.Img
                   variant="top"
                   style={{ padding: "1rem", width: "10rem", height: "10rem" }}
-                  src={item.item.imagenes ? `${environment}${item.item.imagenes[0]}` : `${environment}${item.item.path}`}
+                  src={item.item.imagenes ? `${environment}${item.item.imagenes[0].path}` : `${environment}${item.item.path}`}
                 />
                 <Link /* to={`/servicios/${item.item.id}`} */>
                   <Card.Title>{item.item.nombre}</Card.Title>

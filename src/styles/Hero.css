@@ -15,10 +15,9 @@
   top: 0;
   left: 0;
   z-index: -1;
-  filter: brightness(0.7);
 
 }
-
+/*
 .hero::after {
   content: "";
   background: url("../assets/monta.png") no-repeat center center/cover;
@@ -29,7 +28,7 @@
   left: 0;
   bottom: -11.375rem;
 }
-
+*/
 .heroContent_container {
   height: 100%;
 
