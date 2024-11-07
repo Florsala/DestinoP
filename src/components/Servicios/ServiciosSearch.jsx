@@ -19,7 +19,7 @@ const ServiciosSearch = () => {
   const [etiquetas, setEtiquetas] = useState([]);
   const { idioma, getIdiomaSeccion } = useContext(cartContext);
   const getExcursiones = async () => {
-    const url = `http://destinopatagonia.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=${idioma.id}&temporada=${temp}&categoria=${categoria}`;
+    const url = `http://destinopatagonia.com/webapi/api/Excursiones/GetListByIdioma?id=${idioma.id}&temporada=${temp}&categoria=${categoria}`;
 
     //const url = `http://turismo.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=${idioma.id}&temporada=${temp}&categoria=${categoria}`;
 

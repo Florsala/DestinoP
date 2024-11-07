@@ -1,7 +1,7 @@
 import axios from "axios";
 
- const url = `http://destinopatagonia.elemsoft.net/webapi/api/Reservas/AgregarServicio`;
-     const urlConfirmar = "http://destinopatagonia.elemsoft.net/webapi/api/Reservas/ConfirmarReserva"
+ const url = `http://destinopatagonia.com/webapi/api/Reservas/AgregarServicio`;
+     const urlConfirmar = "http://destinopatagonia.com/webapi/api/Reservas/ConfirmarReserva"
 /* const url = `http://turismo.elemsoft.net/webapi/api/Reservas/AgregarServicio`;
 const urlConfirmar = "http://turismo.elemsoft.net/webapi/api/Reservas/ConfirmarReserva" */
 
