@@ -1,7 +1,7 @@
 
 export const getExcursiones = async (idioma) => {
 
-    const url = `http://destinopatagonia.com/webapi/api/Excursiones/GetListByIdioma?id=${idioma}&categoria=null&temporada=null`
+    const url = `http://destinopatagonia.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=${idioma}&categoria=null&temporada=null`
     //const url = `http://turismo.elemsoft.net/webapi/api/Excursiones/GetListByIdioma?id=${idioma}&categoria=null&temporada=null`;
     
     const resp = await fetch (url);

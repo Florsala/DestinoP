@@ -1,6 +1,6 @@
 export const getNosotros = async () => {
 
-   const url = "http://destinopatagonia.com/webapi/api/Nosotros/GetList";
+   const url = "http://destinopatagonia.elemsoft.net/webapi/api/Nosotros/GetList";
     //const url = "http://turismo.elemsoft.net/webapi/api/Nosotros/GetList";
     
     const resp = await fetch (url);
