@@ -43,7 +43,7 @@ const SliderHome = () => {
         <div key={index}>
           <img
             style={{ width: "100%", height: "400px", objectFit: "cover" }}
-            src={`${environment}${items.img}`}
+            src={`${items.img}`}
             alt=""
           />
         </div>

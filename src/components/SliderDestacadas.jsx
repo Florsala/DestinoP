@@ -71,7 +71,7 @@ const SliderDestacadas = ({ excDest, loading }) => {
                     <Card.Img
                       variant="top"
                       style={{ padding: "1rem" }}
-                      src={`${environment}${items.imagen}`}
+                      src={`${items.imagen}`}
                     />
                     <Card.Body className="card-body">
                       <div

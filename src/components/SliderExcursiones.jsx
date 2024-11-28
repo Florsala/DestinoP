@@ -40,7 +40,7 @@ const SliderExcursiones = ( { excursiones, loading } ) => {
                     <Card.Img
                       variant="top"
                       style={{ padding: "1rem" }}
-                      src={`${environment}${items.imagen}`}
+                      src={`${items.imagen}`}
                     />
                     <Card.Body style={{display:'grid'}}>
                       <div

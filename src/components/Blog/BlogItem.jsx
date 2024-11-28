@@ -52,7 +52,7 @@ const BlogItem = () => {
       <p className="blog-i-text" dangerouslySetInnerHTML={{ __html: item.texto }}></p>
 
       <div style={{ width: "100%", objectFit: "cover" }}>
-        <img style={{ width: "100%" }} src={`${environment}${item.imagen}`} alt="" />
+        <img style={{ width: "100%" }} src={`${item.imagen}`} alt="" />
       </div>
     </div>
   </>

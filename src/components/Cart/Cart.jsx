@@ -64,7 +64,7 @@ console.log('hola')
                 <Card.Img
                   variant="top"
                   style={{ padding: "1rem", width: "10rem", height: "10rem" }}
-                  src={item.item.imagenes ? `${environment}${item.item.imagenes[0].path}` : `${environment}${item.item.path}`}
+                  src={item.item.imagenes ? `${item.item.imagenes[0].path}` : `${item.item.path}`}
                 />
                 <Link /* to={`/servicios/${item.item.id}`} */>
                   <Card.Title>{item.item.nombre}</Card.Title>

@@ -27,7 +27,7 @@ const ItemDetailGrid = ({ item, isPaquete }) => {
 
   return (
     <div className="container-md container-grid-img" >
-      <img src={`${environment}${selectedImg}`} alt="selected"
+      <img src={`${selectedImg}`} alt="selected"
         className={click ? 'container-grid-img_first open' : 'container-grid-img_first'}
         onClick={handleClick}
       />
@@ -48,7 +48,7 @@ const ItemDetailGrid = ({ item, isPaquete }) => {
             <Card.Img
               variant="top"
               style={{ padding: "1rem", height:'17rem' }}
-              src={`${environment}${p.path}`}
+              src={`${p.path}`}
 
             />
             <Card.Body className="card-body">
@@ -78,7 +78,7 @@ const ItemDetailGrid = ({ item, isPaquete }) => {
         </Link>
       )}</div>
         : item.imagenes.map((img, index) => (
-          <img key={index} src={`${environment}${img.path}`} alt=""
+          <img key={index} src={`${img.path}`} alt=""
             onClick={() => setSelectedImg(img.path)}
           />
         ))}

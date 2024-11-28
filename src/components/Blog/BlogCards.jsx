@@ -42,7 +42,7 @@ useEffect(()=>{
                 <Card.Img
                   className="card-img-blog"
                   variant="top"
-                  src={`${environment}${items.imagen}`}
+                  src={`${items.imagen}`}
                 />
                 <div className="overlay">
                   <Button style={{backgroundColor:'#002569'}}>{etiquetas[2]?.palabra}</Button>
