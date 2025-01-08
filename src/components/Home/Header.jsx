@@ -8,7 +8,6 @@ import SliderDestacadas from "../SliderDestacadas";
 import { Link } from "react-router-dom";
 import { getContacto } from "../../helpers/getContacto";
 import cartContext from "../../context/CartContext";
-
 const Header = () => {
   const { excDest, loading } = useFetchDestacadas();
   const [etiquetas, setEtiquetas] = useState([]);
@@ -32,7 +31,11 @@ const Header = () => {
     <>
       <div className="hero">
         <div className="heroContent_container">
-          
+        <div className="tresTextosInicio">
+        <p>{etiquetas[0]?.palabra}</p>
+        <p>{etiquetas[1]?.palabra}</p>
+        <p style={{backgroundColor: "#4e338a", fontWeight: "initial"}}>{etiquetas[2]?.palabra}</p>
+      </div>
         </div>
       </div>
 

@@ -40,12 +40,18 @@ const Nosotros = () => {
       })
     }
   }, [idioma])
+console.log(etiquetas);
 
   return (<>
     <DocumentMeta {...meta} />
     <div>
       <div className="hero_Nos">
-        
+      <div className="heroContent_container">
+      <div className="tresTextosNosotros">
+        <p>{etiquetas[5]?.palabra}</p>
+        <p style={{backgroundColor: "#4e338a", fontWeight: "initial"}}>{etiquetas[6]?.palabra}</p>
+      </div>
+      </div>
       </div>
 
 

@@ -1,6 +1,6 @@
 .hero_Nos {
   width: 100%;
-  height: 80vh;
+  height: 60vh;
   top: 3rem;
   position: relative;
 }
@@ -9,7 +9,7 @@
   content: "";
   background: url("../assets/Portada-NOSOTROS.png")
     no-repeat center center/cover;
-  height: 90vh;
+  height: 60vh;
   width: 100%;
   position: absolute;
   top: 0;
@@ -31,6 +31,15 @@
 }
 */
 
+.tresTextosNosotros{
+  text-align: center; 
+  width: auto; 
+  margin: auto;    
+  color: white;   
+  font-size: 15px;
+  font-weight: bold
+  }
+
 .heroContent_container_Nos {
   height: 100%;
 
@@ -46,7 +55,7 @@
 
 .containerNos {
   height: 14rem;
-  margin-top: 14rem;
+  margin-top: 5rem;
 }
 .containerNos h2 {
   font-size: 3rem;
@@ -113,4 +122,23 @@
 .containerNos_vision_b li {
   margin: 1rem 0px;
   font-weight: 500;
+}
+
+@media only screen and (min-width:1024px) {
+  
+  .hero_Nos {
+    height: 80vh;
+  }
+
+  .hero_Nos::before {
+    height: 90vh;
+  }
+  .tresTextosNosotros{
+    width: auto;  
+    font-size: 40px;
+    }
+ 
+    .containerNos {
+      margin-top: 8rem;
+    }
 }
