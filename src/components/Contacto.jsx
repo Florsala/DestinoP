@@ -97,19 +97,19 @@ const Contacto = () => {
 
             <Form style={{ padding: "1rem" }} onSubmit={enviarConsulta}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Control onChange={(event) => ChangeFieldValue(event, 'nombre')} type="name" placeholder={etiquetas[2]?.palabra} />
+                <Form.Control onChange={(event) => ChangeFieldValue(event, 'nombre')} type="name" required placeholder={etiquetas[2]?.palabra} />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Control onChange={(event) => ChangeFieldValue(event, 'email')} type="email" placeholder={etiquetas[3]?.palabra} />
+                <Form.Control onChange={(event) => ChangeFieldValue(event, 'email')} type="email" required placeholder={etiquetas[3]?.palabra} />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Control onChange={(event) => ChangeFieldValue(event, 'telefono')} type="telephone" placeholder={etiquetas[4]?.palabra} />
+                <Form.Control onChange={(event) => ChangeFieldValue(event, 'telefono')} type="telephone" required placeholder={etiquetas[4]?.palabra} />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Control onChange={(event) => ChangeFieldValue(event, 'detalle')} type="text" placeholder={etiquetas[5]?.palabra} />
+                <Form.Control onChange={(event) => ChangeFieldValue(event, 'detalle')} type="text" required placeholder={etiquetas[5]?.palabra} />
               </Form.Group>
 
               <Button variant="primary" type="submit">
